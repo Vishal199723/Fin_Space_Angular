@@ -1,0 +1,224 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<ngx-spinner></ngx-spinner>
+<div>&nbsp;</div>
+<!-- Start Masthead --><body>
+    <div class="area">
+<div class="sect sect--padding-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="site">
+          <h1 class="site__title" style="color: white;">Welcome to FINSPACE , your home for financial services!</h1>
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+          <h2  style="color: white;    font-family: monospace;">We stand  ready to serve you in many ways!</h2>
+          <h2  style="color: white;    font-family: monospace;">You can choose your  own route to get  what  YOU  want !</h2>
+
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+          <div>&nbsp;</div>
+
+         
+          <div class="row">
+            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+              <div class="zoom"  (click)="RedirectUserToDirect()" >
+              
+                <h4 class="title">
+                  <a href="">You originate your own service request</a>
+                </h4>
+
+                <img
+                src="assets/img/fin3.png"
+                 style="align-items: center; width: 45%"
+              />
+                <div>&nbsp;</div>
+                <h3 class="title">
+                  <a style=" font-family: DIN Next Rounded LT Pro;">FINDIRECT</a>
+                </h3>
+              </div>
+            </div>
+      
+    
+            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+            data-dismiss="modal" mdbWavesEffect
+                  data-toggle="modal" data-target="#SPflow" 
+            >
+              <div class="zoom">
+              
+                <h4 class="title">
+                  <a href=""> Your service provider will start your  job</a>
+                </h4>
+                <img
+                src="assets/img/fin2.png"
+                style="align-items: center; width: 45%"
+              />
+                <div>&nbsp;</div>
+                <h3 class="title">
+                  <a style=" font-family: DIN Next Rounded LT Pro;" (click)="RedirectUserToSP()"
+                 >FINSERVE</a>
+                </h3>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-dismiss="modal" mdbWavesEffect
+            data-toggle="modal" data-target="#BAflow" (click)="RedirectUserToBA()" >
+              <div class="zoom" [routerLink]="['/backgroundverification']">
+            
+                <h4 class="title">
+                  <a href="">Your Business Associate will get your journey started</a>
+                </h4>
+                <img
+                src="assets/img/fin1.png"
+                 style="align-items: center; width: 37%"
+              />
+                <div>&nbsp;</div>
+                  <!-- <a href="#/loansp" style=" font-family: DIN Next Rounded LT Pro;" (click)="RedirectUser()">FINASSIST</a> -->
+                  <!-- <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                  data-toggle="modal" data-target="#BAflow" (click)="RedirectUserToBA()" style="background: blue;" >Through Business Associate</button>
+                 -->
+                 <h3 class="title">
+                  <a style=" font-family: DIN Next Rounded LT Pro;" 
+                 >FINCONNECT</a>
+                </h3>
+              
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+     
+  </div>
+
+  </div>
+
+</div>
+<div class="modal modal-angular fade" id="BAflow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <p style="color: darkslateblue;text-transform: uppercase;">Select Your Business Associate
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+
+               <div class="col-md-12 row">
+                                        <div class="col-md-1 row ">&nbsp;</div>
+                                        <!-- <div class="col-md-2 row ">
+
+                                            <input class="form-control" type="checkbox" [checked]="RegisterThroughBA"
+                                                formControlName="RegisterThroughBA" [(ngModel)]="RegisterThroughBA"
+                                                style="font-size: 7px;" >
+                                               
+                                        </div> -->
+
+                                        <div class="col-md-12 row ">
+                                            <p style="font-size: 18px;color:darkblue">Register through Business
+                                                Associate</p>
+
+                                        </div>
+                                    </div>
+                                   <div class="col-md-12 row">
+                                        <div class="col-md-1 row"></div>
+                                        <div class="col-md-8 row">
+                                            <label id="emaillabel "></label>
+                                            <select (change)="onSelectBA($event.target.value)" class="form-control">
+                                                <option value="">Select Business Associate</option>
+                                                <option *ngFor="let do of BAList" value={{do.baId}}>
+                                                  {{do.fullName}} - {{do.baId}}
+                                                </option>
+                                            </select> 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 row ">&nbsp;</div>
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-1 row"></div>
+                                        <div class="col-md-8 row">
+                                            <label id="emaillabel "></label>
+                                            <select (change)="onSelectlistSP($event.target.value)" class="form-control">
+                                                <option value="">Select Service Provider</option>
+                                                <option *ngFor="let do of Prividerlist" value={{do.id}}>
+                                                    {{do.companyName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                           
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                    (click)="SendMailToBA()">Send</button>
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="SPflow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modalsize" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                  <p style="color: darkslateblue;text-transform: uppercase;">Select Service Provider
+              </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                      aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+
+             <!-- <div class="col-md-12 row">
+                                      <div class="col-md-1 row ">&nbsp;</div>
+                                      <div class="col-md-2 row ">
+
+                                          <input class="form-control" type="checkbox" [checked]="RegisterThroughSP"
+                                              formControlName="RegisterThroughSP" [(ngModel)]="RegisterThroughSP"
+                                              style="font-size: 7px;">
+                                             
+                                      </div>
+
+                                      <div class="col-md-8 row ">
+                                          <p style="font-size: 18px;color:darkblue">Register through Service Provider</p>
+
+                                      </div>
+                                  </div> -->
+                                 <div class="col-md-12 row">
+                                      <div class="col-md-1 row"></div>
+                                      <div class="col-md-8 row">
+                                          <label id="emaillabel "></label>
+                                          <select (change)="onSelectSP($event.target.value)" class="form-control">
+                                              <option value="">Select Service Provider</option>
+                                              <option *ngFor="let do of Prividers" value={{do.id}}>
+                                                  {{do.serviceProviderName}}
+                                              </option>
+                                          </select> 
+                                      </div>
+                                  </div>
+
+                         
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                  (click)="SendMailToSP()">Send</button>
+              <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                  mdbWavesEffect>Close</button>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+(click)="RegisterUser()" style="background: blue;" >Through Business Associate</button>
+<br/>
+<button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+(click)="RegisterUser()" style="background: blue;" >Through Service Provider</button>
+<br/>
+<button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+(click)="RegisterUser()" style="background: blue;" >Through Self(Customer)</button> -->

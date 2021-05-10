@@ -1,0 +1,33 @@
+.display{
+    top: 77%;
+    position: fixed;
+    left: 90%;
+    cursor: pointer;
+    z-index: 1;
+   
+}
+.displyimage{
+    width: 60%; height: 23%;}
+
+@media screen and (max-width: 1084px) {
+    .display {
+        top: 77%;
+        position: fixed;
+        left: 94%;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .displyimage{
+        width:90%; height: 23%;}
+}
+@media screen and (max-width: 800px) {
+    .display {
+        top: 77%;
+        position: fixed;
+        left: 91%;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .displyimage{
+        width:90%; height: 23%;}
+}

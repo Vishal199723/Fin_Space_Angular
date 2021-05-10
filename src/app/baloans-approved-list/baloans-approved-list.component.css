@@ -1,0 +1,13 @@
+#btn{
+    background-color: #36dbe2;
+    color: #FFFFFF;
+    width: 100%;
+    height: 125%;
+    border-radius: 10px;
+    /* background-color: #2b156f; */
+    border: none;
+    color: white;
+    /* font-size: 22px; */
+    font-weight: 500;
+    letter-spacing: 2px;
+}

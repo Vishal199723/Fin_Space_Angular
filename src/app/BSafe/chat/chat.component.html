@@ -1,0 +1,661 @@
+<style>
+    .container {
+        position: relative;
+        width: 50%;
+    }
+
+    .image {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .container:hover .image {
+        opacity: 0.3;
+    }
+
+    .container:hover .middle {
+        opacity: 1;
+    }
+
+    .text {
+        background-color: mediumslateblue;
+        color: white;
+        font-size: 16px;
+        padding: 16px 32px;
+    }
+</style>
+<app-header></app-header>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+
+
+
+<div class="col-md-12 row">
+    <div class="col-md-1 row">&nbsp;</div>
+
+    <div class="col-md-3 " id="nb" style=" width: 150px;
+max-height: 300px;
+overflow: auto;
+" (click)="scrollFunction">
+
+        <div class="col-md-12" style="border: solid 3px rgb(50, 12, 59);margin-bottom: 50px; background-color: white;">
+            <div class="chat-panel panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-comments fa-fw"></i>
+                    <div class="col-md-12" style="padding-bottom: 10px;
+                background-color: mediumslateblue;
+                color: white;
+                padding-top: 10px;
+                font-family: bold;">
+                        Received Messages
+                    </div>
+
+                </div>
+
+                <div class="panel-body">
+                    <div class="chat" *ngFor="let chat of chatdetail">
+                        <div class="left clearfix" (click)="OpenChatWindow(chat)" style="cursor:pointer;">
+                            <span class="chat-img pull-left">
+                                <!-- <img src="./assets/img/chat1.png" style="width: 20px;height: 20px;" class="img-circle"
+                              /> -->
+                                <i class="fa fa-comments" aria-hidden="true"></i>
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div>
+                                    <strong class="primary-font" *ngIf="chat.toName != currentuser">
+                                        {{chat.toName}}</strong>
+                                    <strong class="primary-font" *ngIf="chat.chatFromName != currentuser">
+                                        {{chat.chatFromName}}</strong>
+
+                                    <small class="pull-right text-muted">
+                                        <i class="fa fa-clock-o fa-fw"></i> {{chat.date | date:'short'}}
+
+                                    </small>
+                                </div>
+                                <p>
+                                    {{chat.chat}}
+                                </p>
+                                <p>
+                                    {{message}}
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+        <div class="chat-panel panel panel-default" *ngIf="chatopen">
+            <div class="panel-heading">
+                <i class="fa fa-comments fa-fw"></i> Individual Chat Window
+
+            </div>
+            <div class="col-md-12 row">
+                <div class="col-md-2">
+                    <img src="data:image/jpeg;base64,{{otheruserimage}}" class="img-circle" style="height: 80px;width: 80px;border: solid 0px;
+                    border-radius: 52px;" />
+                </div>
+                <div class="col-md-10" style="padding-bottom: 10px;
+                background-color: mediumslateblue;
+                color: white;
+                padding-top: 10px;
+                font-family: bold;
+                height: 44px;margin-top: 15px;">
+                    {{chtnm}}
+                </div>
+            </div>
+
+
+            <div class="panel-body"
+                style="background-image: url(./assets/img/wwp.jpg); overflow-y: auto;max-height: 300px;">
+
+
+                <div class="col-md-12">
+
+                    <ul class="chat" *ngFor="let c of IndividualChatRecivedDetails">
+                        <br /><br />
+                        <div>
+                            <li class="left clearfix">
+                                <span class="chat-img pull-left">
+                                    <img src="data:image/jpeg;base64,{{c.otherUserImage}}" class="img-circle"
+                                        style="height: 200px;width: 200px;" />
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">{{c.chatFromName}}</strong>
+                                        <small class="pull-right text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> {{c.date | date:'short'}}
+
+                                        </small>
+                                    </div>
+                                    <p>
+                                        {{c.chat}}
+                                    </p>
+                                    <p>
+                                        {{message}}
+                                    </p>
+                                </div>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="col-md-6" style="float: right;">
+                    <ul class="chat" *ngFor="let c of IndividualChatSentDetails">
+                        <br /><br />
+                        <div>
+                            <li class="left clearfix">
+                                <span class="chat-img pull-left">
+                                    <img src="{{userImage}}" alt="User Avatar" class="img-circle"
+                                        style="height: 50px;width: 50px;" />
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">Me</strong>
+                                        <small class="pull-right text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> {{c.date | date:'short'}}
+                                        </small>
+                                    </div>
+                                    <p>
+                                        {{c.chat}}
+                                    </p>
+                                    <p>
+                                        {{message}}
+                                    </p>
+                                </div>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-12" *ngFor="let c of IndividualChatSentDetails">
+                    <div class="col-md-12" *ngIf="c.chatFrom != userid">
+                        <div class="chat">
+                            <br /><br />
+                            <div>
+                                <div class="left clearfix">
+                                    <!-- <span class="chat-img pull-left">
+                                      <img src="./assets/img/download.png" class="img-circle"
+                                          style="height: 50px;width: 50px;" />
+                                  </span> -->
+                                    <div class="chat-body clearfix">
+                                        <!-- <div >
+                                            <strong class="primary-font">{{c.chatFromName}}</strong>
+                                            <small class="pull-right text-muted">
+                                              <i class="fa fa-clock-o fa-fw"></i> {{c.date | date:'short'}}
+
+                                          </small>
+                                        </div> -->
+                                        <span
+                                            style="background-color:  orange;color:black;padding: 8px 8px;border-radius: 20px;">
+                                            {{c.chat}}
+                                        </span>
+                                        <p>
+                                            {{message}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="float: right;" *ngIf="c.chatFrom == userid">
+                        <div>
+                            <br /><br />
+                            <div style="float: right;">
+                                <div style="float: right;">
+
+                                    <div>
+
+                                        <span
+                                            style="background-color: mediumspringgreen;color:black;padding: 8px 8px;border-radius: 20px;">
+                                            {{c.chat}}
+                                        </span>
+                                        <p>
+                                            {{message}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+
+            <form #individualchatform="ngForm" (ngSubmit)="SendIndividualMessage(individualchatform)">
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input type="text" id="individualchatmessage" name="individualchatmessage" class="form-control"
+                            placeholder="Type your message here..." ngModel />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+<div class="col-md-2">
+    <div>
+
+
+
+        <div>
+            <h4 class="modal-title" id="modal-basic-title"> </h4>
+
+            <button type="button" class="button button5" data-toggle="modal" data-target="#friendcontent"
+                (click)="addFriend()">Add Friend</button>
+        </div>
+
+
+        <div>
+            <h4 class="modal-title" id="modal-basic-title"> </h4>
+
+            <button type="button" class="button button5" data-toggle="modal" data-target="#content"
+                (click)="addFriend()"> Sent Request</button>
+
+
+        </div>
+        <div>
+            <h4 class="modal-title" id="modal-basic-title"> </h4>
+
+            <button type="button" class="button button5" data-toggle="modal" data-target="#content1"
+                (click)="addFriend()"> Pending Request</button>
+
+
+
+
+        </div>
+        <div>
+            <h4 class="modal-title" id="modal-basic-title"> </h4>
+
+            <button type="button" class="button button5" data-toggle="modal" data-target="#content3"
+                (click)="addFriend()"> New Chat</button>
+
+
+        </div>
+
+        <div>
+            <h4 class="modal-title" id="modal-basic-title"> </h4>
+
+            <button type="button" class="button button5" (click)="backup()"> Chat Backup</button>
+
+
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal modal-angular fade" id="friendcontent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title" style="color: mediumslateblue;">Add Friend</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <h5 class="modal-title" id="modal-basic-title" style="color: mediumslateblue;">Email:</h5>
+                <input type="text" id="accid" [(ngModel)]="accid" class="form-control" name="dp">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="savefrienddetails()" data-dismiss="modal"
+                    style="color:black;background-color: grey;color: white;">Send Request</button>
+
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #pdfcontent8 let-d="dismiss" let-c="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Recieved Request</h4>
+        <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <!-- <h2 style="font-family:'Times New Roman', Times, serif;text-align: center;">Recieved Request </h2> -->
+            <div>
+                <div style="border:solid;">
+                    <div>
+                        <span
+                            style="font-family:'Times New Roman', Times, serif;text-align: center;font-size:20x;">Friends</span>
+
+                    </div>
+                    <div *ngFor="let f of Friends.incomingRequest">
+
+                        <span>{{f.friendName}}</span>
+                        <button type="button" (click)="acceptrequest(f)" data-dismiss="modal">
+                            <span>Accept</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br />
+    <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-outline-dark" (click)="savefrienddetails()" data-dismiss="modal" style="color:black;">Send Request</button> -->
+
+    </div><br />
+
+
+</ng-template>
+
+<ng-template #pdfcontent7 let-d="dismiss" let-c="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Sent Request</h4>
+        <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <!-- <h2 style="font-family:'Times New Roman', Times, serif;text-align: center;">Sent Request</h2> -->
+
+
+
+        <div style="font-family:'Times New Roman', Times, serif;text-align: center;background-color: #6058e2;">
+            Friends
+        </div>
+
+
+
+
+    </div><br />
+    <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-outline-dark" (click)="savefrienddetails()" data-dismiss="modal" style="color:black;">Send Request</button> -->
+
+    </div><br />
+
+
+</ng-template>
+
+
+<div class="modal fade" id="feedbackModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" title="Close"> <span
+                        class="glyphicon glyphicon-remove"></span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center">
+                    <h4>Details</h4>
+                </div>
+
+                <div id="myGallery" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="item active" *ngFor="let modalData of cnnTableData">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <br>
+                                    <img src={{modalData.Image}} style="width:100%;min-height: 211px;">
+                                </div>
+                                <div class="col-sm-6">
+                                    <div>
+                                        <h6><b>Image Name</b></h6>
+                                        <small>{{modalData.Name}}</small>
+                                    </div><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev"
+                        style="margin-left: -84px;"> <span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="right carousel-control" href="#myGallery" role="button" data-slide="next"
+                        style="margin-right: -84px;"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <br><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .button5 {
+        border-radius: 12px;
+    }
+
+    .button {
+        background-color: mediumslateblue;
+        /* Green */
+        border: none;
+        width: 80%;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="modal modal-angular fade" id="content" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="font-family:'Times New Roman', Times, serif;text-align: center;color: mediumslateblue;">Sent
+                    Request
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <div>
+                    <table class="table table-bordered" style="border:solid;">
+                        <tr>
+                            <th
+                                style="font-family:'Times New Roman', Times, serif;text-align: center;background-color: mediumslateblue;color: white;">
+                                Friends</th>
+                        </tr>
+                        <div *ngIf="Friends">
+                            <tr *ngFor="let f of Friends.sentRequest">
+                                <td style="border:solid;text-align: center;"><b
+                                        style="color:mediumslateblue;font-size:16px;">{{f.friendName}}</b></td>
+                                <!-- <button type="button"
+                                class="btn btn-default btn-xs"
+                                ng-click="deleteCompany(comp)">
+                            <span class="glyphicon glyphicon-trash text-danger">Delete</span>
+                        </button> -->
+                            </tr>
+                        </div>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="addFriend(content)">Launch demo modal</button> -->
+
+<hr>
+
+<div class="modal modal-angular fade" id="content1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="font-family:'Times New Roman', Times, serif;text-align: center;color: mediumslateblue;">
+                    Pending
+                    Requests </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" style="border:solid;">
+                            <tr>
+                                <th
+                                    style="font-family:'Times New Roman', Times, serif;text-align: center;font-size:20x;background-color: mediumslateblue;color: white;">
+                                    Friends</th>
+                                <th></th>
+                            </tr>
+                            <div *ngIf="Friends">
+                                <tr *ngFor="let f of Friends.incomingRequest">
+                                    <td style="border:solid;padding-top: 13%;"><b
+                                            style="color:mediumslateblue;font-size:16px;">{{f.friendName}}</b></td>
+                                    <td *ngIf="f.status=='4'" style="border:solid;">
+                                        <button type="button" class="btn btn-default btn-xs" (click)="acceptrequest(f)">
+                                            <span class="glyphicon glyphicon-edit text-success">Accept</span>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="content3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="font-family:'Times New Roman', Times, serif;text-align: center;color:mediumslateblue;">
+                    Continue Chat
+                    here </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <form>
+                    <div class="col-md-12">
+
+                        <div class="col-md-12">
+
+                            <div class="form-horizontal">
+                                <div class="">
+                                    <h2 style="text-align: center"></h2>
+                                </div>
+                                <div class="col-md-12"
+                                    style="margin-bottom: 50px;max-width: 100%; background-color: white;">
+                                    <div class="form-group">
+
+                                        <label class="control-label">chat to:</label>
+                                        <select style="height: calc(3.25rem + 4px);" class="form-control"
+                                            (change)="OnSelectUser($event.target.value)">
+                                            <option value="" hidden> Select User </option>
+                                            <option *ngFor="let I of Users" value={{I.friendId}}>
+                                                {{I.friendName}}
+                                            </option>
+                                        </select>
+
+                                        <br>
+                                        <br />
+
+                                        <div class="col-lg-12 text-center"> <span style="font-size: 12px;">Don't find
+                                                your
+                                                friend in the list? &nbsp;</span>
+                                            <button type="button" class="btn btnprop" (click)="addfrnd()"
+                                                style="height: 40px;padding: 5px;">
+                                                Add Friend
+                                            </button>
+                                        </div>
+                                        <div *ngIf="frndrqst">
+                                            <div>
+                                                <!-- <h5 class="modal-title" id="modal-basic-title" style="color: mediumslateblue;">
+                                                  Email:
+                                              </h5> -->
+                                                <br>
+                                                <input type="text" placeholder="Email" id="accid" [(ngModel)]="accid"
+                                                    class="form-control" name="dp" />
+                                            </div>
+                                            <br />
+                                            <div>
+                                                <button type="button" class="btn btn-outline-dark btn-primary"
+                                                    (click)="savefrienddetails()"
+                                                    style="color: black; color: white;padding: 5px;margin-left: 10px;">
+                                                    Send Request
+                                                </button>
+                                            </div>
+                                            <br><br>
+                                        </div>
+                                        <label class="control-label">chat message:</label>
+                                        <input type="text" id="messa" name="messa" class="form-control"
+                                            placeholder="Enter the message" [(ngModel)]="messa">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="Submit" class="btn btnprop btn-round"
+                                            style="background-color: grey; color:white" (click)="SaveUserChat()"
+                                            data-dismiss="modal" value="Send" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>

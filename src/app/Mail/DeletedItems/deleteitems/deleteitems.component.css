@@ -1,0 +1,43 @@
+.active, .btn:hover {
+    background-color: #36dbe2;
+    color: white;
+    height: 35px;
+    border-radius: 10px;
+}
+.bodycolor{
+    background-color: #ececec;
+  }
+  .fakelink {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.search-hero {
+  max-width: 500px;
+  padding-bottom: 50px;
+  margin:auto;
+}
+.wrapper input[type="text"] {
+  position: relative; 
+}
+
+input { font-family: 'FontAwesome'; } /* This is for the placeholder */
+
+.wrapper:before {
+  font-family: 'FontAwesome';
+  color:red;
+  position: relative;
+  left: -5px;
+  content: "\f007";
+}
+.btnpropother{
+  border-radius: 4px;
+  background-color: Grey;
+  text-align: center;
+  color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 45px;
+}

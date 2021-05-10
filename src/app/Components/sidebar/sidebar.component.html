@@ -1,0 +1,19 @@
+<div>
+    &nbsp;</div>
+<div>&nbsp;</div>
+
+<div id="mySidenav" class="sidenav" style="z-index: 6">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+
+    <a href="#/home" style="color: white;">Home</a>
+    <a href="#/signin" style="color: white;">Login</a>
+    <a href="#/signup" style="color: white;">Signup</a>
+    <a href="#/serviceproviderregistration" style="color: white;">Service Provider Registration</a>
+
+</div>
+
+<div id="main">
+    <span style="font-size: 30px; cursor: pointer;" (click)="openNav()"><button type="button" class="btn btn-outline-secondary waves-effect" *ngIf="sidebaropen" style="color: black;">
+        <i class="fas fa-bars" style="font-size: 25px;"></i>
+      </button></span>
+</div>

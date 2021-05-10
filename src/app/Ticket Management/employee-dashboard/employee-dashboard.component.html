@@ -1,0 +1,137 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+
+<body class="bodycolor"  *ngIf="ShowPendingApplications" id="ShowPendingApplications">
+    <div class="col-md-12 row bodycolor">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 homecard">
+            <div>
+                <br /> <br />
+                <h3 style="text-align: center;">Accepted Services - {{AceptedRequestList.length}}</h3>
+                <br/>
+                                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="fromdate" name="fromdate"
+                            placeholder="Any Day" [(ngModel)]="fromdate"
+                            (change)="onChangefromdate(fromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label >To Date</label>
+                        <input type="date" class="form-control" id="todate" name="todate"
+                             placeholder="Any Day" [(ngModel)]="todate"
+                            (change)="onChangeTodate(todate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnprop"
+                                (click)="cancel()">Cancel</button>
+                    </div>
+                </div>
+             
+                <br />
+             
+                <div class="search-hero" style="padding-bottom: 10px;">
+                    <input class="form-control" type="text" name="SearchAcceptedServices"
+                        [(ngModel)]="SearchAcceptedServices" autocomplete="off" placeholder="&#61442; Search">
+                </div>
+                <br />
+                <div class="table-responsive">
+                    <div class="col-md-12 row" id="btndiv">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1">
+                            <button id="btn" type="submit" (click)="printpendg()">Print</button>
+                        </div>
+                        <!-- <div class="col-md-2">
+                            <button id="btn" type="submit" (click)="downloadpending()">Download</button>
+                        </div> -->
+                    </div><br /><br /
+
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size:17px">
+                            <th>Sl No</th>
+                            <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                            <th style="cursor: pointer;" (click)="sortbyname()">Customer Name</th>
+                            <th>Customer Number</th>
+                            <th>Customer Email</th>
+                            <th>Information</th>
+                            <th></th>
+                            <!-- <th></th> -->
+                        </tr>
+                        <tr *ngFor="let aa of AceptedRequestList| LockFilter: SearchAcceptedServices | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                            style="font-size:16px;font-family:DINNextRoundedLTPro ">
+                            <td>{{ 5 * (p - 1) + (i+1) }} </td>
+                            <td>{{aa.complaintId}}</td>
+                            <td>{{aa.customerName}}</td>
+                            <td>{{aa.contactNumber}}</td>
+                            <td>{{aa.email}}</td>
+                            <td>{{aa.information}}</td>
+                            <th style="cursor: pointer;"> <button type="button" class="btn btn-primary waves-light"
+                                    data-dismiss="modal" mdbWavesEffect (click)="Openloanform(aa)">Details</button></th>
+                            <!-- <th> <button type="button" class="btn btn-primary waves-light" data-dismiss="modal"
+                                mdbWavesEffect (click)="updatestatus(aa)">Update</button></th> -->
+                        </tr>
+                    </table>
+                    <br />
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<body *ngIf="ShowPendingApplications1" id="ShowPendingApplications1">
+    <div class="col-md-12 row bodycolor">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 homecard">
+            <div>
+                <br /> <br />
+                <h3 style="text-align: center;">Accepted Services</h3>
+                <br />
+                <br />
+                <div class="table-responsive">
+                    <div class="col-md-12 row" id="btndiv">
+                        <div class="col-md-10"></div>
+                        <div class="col-md-1">
+                            <button id="printnew2" type="submit" (click)="printnewwpending()" hidden>Print</button>
+                        </div>
+                    </div><br /><br />
+
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size:17px">
+                            <th>Sl No</th>
+                            <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                            <th style="cursor: pointer;" (click)="sortbyname()">Customer Name</th>
+                            <th>Customer Number</th>
+                            <th>Customer Email</th>
+                            <th>Information</th>
+                        </tr>
+                        <tr *ngFor="let aa of AceptedRequestList;let i = index"
+                            style="font-size:16px;font-family:DINNextRoundedLTPro ">
+                            <td>{{ 5 * (p - 1) + (i+1) }} </td>
+                            <td>{{aa.complaintId}}</td>
+                            <td>{{aa.customerName}}</td>
+                            <td>{{aa.contactNumber}}</td>
+                            <td>{{aa.email}}</td>
+                            <td>{{aa.information}}</td>
+                        </tr>
+                    </table>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

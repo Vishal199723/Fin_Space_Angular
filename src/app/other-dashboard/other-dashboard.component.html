@@ -1,0 +1,371 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<body class="bodycolor">
+  <div>&nbsp;</div>
+  <div>&nbsp;</div>
+  <div>&nbsp;</div>
+  <p class="headtext">{{GetRole(role)}} Dashboard</p>
+  <div>&nbsp;</div>
+  <div class="col-md-12 row" style="background-color: #ececec;">
+    <div class="column">
+      <div class="card cardcolor">
+        <br />
+        <p class="complaintext">Mailbox</p>
+        <br /> <br />
+        <div class="col-md-12 row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8" style="text-align: center;">
+            <button (click)="gotoinbox()" class="btn btnprop">View Messages</button>
+          </div>
+        </div>
+        <br /> <br />
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card cardcolor">
+        <br />
+        <p class="complaintext">New Services</p>
+        <br /> <br />
+        <div class="col-md-12 row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8" style="text-align: center;">
+            <button pageScroll href="#shownewservice" class="btn btnprop" (click)="NewServicesTrue()">View
+              Details</button>
+          </div>
+        </div>
+        <br /> <br />
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card cardcolor">
+        <br />
+        <p class="complaintext">Pending Services</p>
+        <br /> <br />
+        <div class="col-md-12 row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8" style="text-align: center;">
+            <button pageScroll href="#showpendingservice" class="btn btnprop" (click)="PendingServicesTrue()">View
+              Details</button>
+          </div>
+        </div>
+        <br /> <br />
+      </div>
+    </div>
+
+  </div>
+  <div>&nbsp;</div>
+  <div>&nbsp;</div>
+  <div class="col-md-12 row" style="background-color: #ececec;">
+    <div class="column">
+      <div class="card cardcolor">
+        <br />
+        <p class="complaintext">Completed Services</p>
+        <br /> <br />
+        <div class="col-md-12 row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8" style="text-align: center;">
+            <button pageScroll href="#showcompletedservice" class="btn btnprop" (click)="CompletedServicesTrue()">View
+              Details</button>
+          </div>
+        </div>
+        <br /> <br />
+      </div>
+    </div>
+    <div class="column" *ngIf="role=='1005'">
+      <div class="card cardcolor">
+        <br />
+        <p class="complaintext">Customer Details</p>
+        <br /> <br />
+        <div class="col-md-12 row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8" style="text-align: center;">
+            <button pageScroll href="#showcustomerdetails" class="btn btnprop" (click)="CustomerDetailsTrue()">View
+              Details</button>
+          </div>
+        </div>
+        <br /> <br />
+      </div>
+    </div>
+  </div>
+  <div>&nbsp;</div>
+  <div>&nbsp;</div>
+
+  <br /> <br />
+  <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowNewServices" id="shownewservice">
+    <div class="col-md-2 row"></div>
+    <div class="col-md-8 row card">
+      <div>
+        <br /> <br />
+        <h3 style="text-align: center;">New Services</h3>
+        <br />
+        <br />
+        <div class="col-md-12 row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label>From Date</label>
+                <input type="date" class="form-control" id="Newfromdate" name="Newfromdate"
+                    placeholder="Any Day" [(ngModel)]="Newfromdate"
+                    (change)="onChangeNewfromdate(Newfromdate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label >To Date</label>
+                <input type="date" class="form-control" id="Newtodate" name="Newtodate"
+                     placeholder="Any Day" [(ngModel)]="Newtodate"
+                    (change)="onChangeNewTodate(Newtodate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <div class="col-md-12">&nbsp;</div>
+
+                <button class="btn btnpropother"
+                        (click)="cancelNew()">Cancel</button>
+            </div>
+        </div>
+        <br/>
+        <div class="search-hero">
+            <input class="form-control" type="text" name="SearchNewServices" [(ngModel)]="SearchNewServices" autocomplete="off" placeholder="&#61442; Search">
+          </div>
+        <div class="table-responsive">
+
+          <table class="table table-bordered" style="border-collapse: collapse;">
+            <tr style="font-size:17px">
+              <th>Sl No</th>
+              <th>From User</th>
+              <th>To User</th>
+              <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+              <th style="cursor: pointer;" (click)="sortbydate()">Date</th>
+            </tr>
+            <tr *ngFor="let com of NewServicesList | LockFilter: SearchNewServices | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+              style="font-size:16px;font-family: DINNextRoundedLTPro">
+              <td> {{ 5 * (p - 1) + (i+1) }}</td>
+              <td>{{com.fromUserName}} </td>
+              <td>{{com.toUserName}}</td>
+              <td>{{com.serviceId}}</td>
+              <td>{{com.createdOn}}</td>
+
+            </tr>
+          </table>
+          <br />
+          <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowPendingServices" id="showpendingservice">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 card">
+      <div>
+        <br /> <br />
+        <h3 style="text-align: center;">Pending Services</h3>
+        <br />
+        <br />
+        <div class="col-md-12 row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label>From Date</label>
+                <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate"
+                    placeholder="Any Day" [(ngModel)]="Assignfromdate"
+                    (change)="onChangeAssignfromdate(Assignfromdate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label >To Date</label>
+                <input type="date" class="form-control" id="Assigntodate" name="Assigntodate"
+                     placeholder="Any Day" [(ngModel)]="Assigntodate"
+                    (change)="onChangeAssignTodate(Assigntodate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <div class="col-md-12">&nbsp;</div>
+
+                <button class="btn btnpropother"
+                        (click)="cancelAssign()">Cancel</button>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="search-hero">
+            <input class="form-control" type="text" name="SearchAssignedServices" [(ngModel)]="SearchAssignedServices" autocomplete="off" placeholder="&#61442; Search">
+          </div>
+        <div class="table-responsive">
+
+          <table class="table table-bordered" style="border-collapse: collapse;">
+            <tr style="font-size:17px">
+              <th>Sl No</th>
+              <th>From User</th>
+              <th>To User</th>
+              <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+              <th style="cursor: pointer;" (click)="sortbydate()">Date</th>
+            </tr>
+            <tr *ngFor="let com of PendingServicesList | LockFilter: SearchAssignedServices | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+              style="font-size:16px;font-family: DINNextRoundedLTPro">
+              <td> {{ 5 * (p - 1) + (i+1) }}</td>
+              <td>{{com.fromUserName}} </td>
+              <td>{{com.toUserName}}</td>
+              <td>{{com.serviceId}}</td>
+              <td>{{com.createdOn}}</td>
+                         
+
+            </tr>
+          </table>
+          <br />
+          <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowCompletedServices" id="showcompletedservice">
+    <div class="col-md-2 row"></div>
+    <div class="col-md-8 row card">
+      <div>
+        <br /> <br />
+        <h3 style="text-align: center;">Completed Services</h3>
+        <br />
+        <br />
+        <div class="col-md-12 row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label>From Date</label>
+                <input type="date" class="form-control" id="Completedfromdate" name="Completedfromdate"
+                    placeholder="Any Day" [(ngModel)]="Completedfromdate"
+                    (change)="onChangeCompletedfromdate(Completedfromdate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label >To Date</label>
+                <input type="date" class="form-control" id="Completedtodate" name="Completedtodate"
+                     placeholder="Any Day" [(ngModel)]="Completedtodate"
+                    (change)="onChangeCompletedTodate(Completedtodate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <div class="col-md-12">&nbsp;</div>
+
+                <button class="btn btnpropother"
+                        (click)="cancelCompleted()">Cancel</button>
+            </div>
+        </div>
+        <br/>
+        <div class="search-hero">
+            <input class="form-control" type="text" name="SearchCompletedServices" [(ngModel)]="SearchCompletedServices" autocomplete="off" placeholder="&#61442; Search">
+          </div>
+        <div class="table-responsive">
+
+          <table class="table table-bordered" style="border-collapse: collapse;">
+            <tr style="font-size:17px">
+              <th>Sl No</th>
+              <th>From User</th>
+              <th>To User</th>
+              <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+              <th style="cursor: pointer;" (click)="sortbydate()">Date</th>
+            </tr>
+            <tr *ngFor="let com of CompletedServicesList | LockFilter: SearchCompletedServices | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+              style="font-size:16px;font-family: DINNextRoundedLTPro">
+              <td> {{ 5 * (p - 1) + (i+1) }}</td>
+              <td>{{com.fromUserName}} </td>
+              <td>{{com.toUserName}}</td>
+              <td>{{com.serviceId}}</td>
+              <td>{{com.createdOn}}</td>
+
+            </tr>
+          </table>
+          <br />
+          <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowCustomerDetails" id="showcustomerdetails">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+        <h3 style="text-align: center;color: black;">Customer Details</h3><br><br>
+        <table class="table table-responisve table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th> Customer ID </th>
+                    <th> Customer Email</th>
+                    <th> Date </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aa of cutlist | LockFilter: SearchUsers | paginate: { itemsPerPage: 5, currentPage: p };let i = index">
+                    <td> {{aa.id}}</td>
+                    <td (click)="opensbaccoutform(aa)" style="cursor: pointer;">{{aa.customerId}}</td>
+                    <td style="cursor: pointer;">{{aa.customerName}}</td>
+                    <td style="cursor: pointer;">{{aa.createdOn|date}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+
+    </div>
+    <div class="col-md-10">&nbsp;</div>
+</div>
+</body>
+
+<style>
+  .modalsize {
+    width: 950px;
+    max-width: 950px;
+    overflow-y: 50vh;
+  }
+
+  @media (max-width: 960px) {
+    .modalsize {
+      width: 450px;
+      max-width: 650px;
+      overflow-y: 50vh;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .modalsize {
+      width: 480px;
+      max-width: 550px;
+      overflow-y: 50vh;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .modalsize {
+      width: 380px;
+      max-width: 450px;
+      overflow-y: 50vh;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .modalsize {
+      width: 350px;
+      max-width: 450px;
+      overflow-y: 50vh;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .modalsize {
+      width: 310px;
+      max-width: 450px;
+      overflow-y: 50vh;
+    }
+  }
+</style>

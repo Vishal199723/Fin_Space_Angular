@@ -1,0 +1,26 @@
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12 row" id="four">
+  <div class="col-md-12 ">&nbsp;</div>
+  <div class="col-md-12 ">&nbsp;</div>
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-4">
+    <img src="./assets/img/backimage.png" style="cursor: pointer;" title="Back" height="21px" (click)=goBack() />
+  </div>
+</div>
+<div class="col-md-12">
+  <h5 style="text-align:center ;" id="docname">{{DocumentName}}</h5>
+</div>
+
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12 row">
+  <div class="col-md-11" >
+    <p id="dispfile" style="zoom: 90%;">
+      <pdf-viewer src="data:application/pdf;base64,{{gotfile}}" [render-text]="true">
+      </pdf-viewer>
+    </p>
+  </div>
+</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>

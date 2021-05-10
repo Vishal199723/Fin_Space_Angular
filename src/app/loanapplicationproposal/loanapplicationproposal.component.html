@@ -1,0 +1,224 @@
+<!-- <app-header></app-header>
+<br /><br />
+<br />
+<div class="container">
+
+  <div class="col-md-12 row" >
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div class="col-md-2">&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div class="col-md-8 row card">
+       
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">&nbsp;</div>
+        
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <label for="amountPerYear">Select Status</label>
+                <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                    <option value="">Select Status</option>
+                    <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                        {{do.workflowStateName}}
+                    </option>
+                </select>
+                <br /><br />
+                <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                    (click)="SendVerificationtoApprover()">Send</button>
+                <br /><br />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <label for="amountPerYear">Comments</label>
+                <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments"
+                    ng-model="comments"></textarea>
+
+            </div>
+        </div>
+
+    </div>
+
+</div> -->
+
+<app-header></app-header>
+<br /><br /><br /><br />
+
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+        <h3 style="text-align: center;color: black;">Details</h3><br><br>
+        <div class="col-md-12 row">
+            <div *ngIf="showaccntnumber" class="col-md-6"><label for="amountPerYear">Account Number</label>
+                <input type="text" class="form-control" name="accountnum" [(ngModel)]="accountnum" />
+            </div>
+            <div class="col-md-6">
+                <label for="amountPerYear">Select Status</label>
+                <select (change)="onSelectStatus($event.target.value)" class="form-control">
+          <option value="">Select Status</option>
+          <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+            {{do.workflowStateName}}
+          </option>
+        </select>
+                <br /><br />
+            </div>
+        </div>
+        <div class="col-md-12,row">
+            <div class="col-md-6">
+                <label for="amountPerYear">Comments</label>
+                <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments" [(ngModel)]="comments"></textarea>
+            </div><br>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary waves-light" mdbWavesEffect (click)="SaveLoanApplicationDetailsWorkflow()">Send</button><br>
+            </div><br>
+        </div>
+        <br>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-xs-12 col-md-12 row">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-8 col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="text-align: center;">Loan Application</h3>
+                </div>
+                <br />
+                <div class="panel-body">
+                    <div class="bodyTest">
+                        <form class="">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- first name input-->
+                                    <div class="form-group">
+                                        <label for="firstname" class="control-label">Customer ID</label>
+                                        <div class="">
+                                            <input id="custid" name="custid" type="text" readonly autocomplete="first-name" [(ngModel)]="custid" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Loan Id </label>
+                                        <div class="">
+                                            <input id="loanid" name="loanid" type="text" readonly autocomplete="last-name" [(ngModel)]="loanid" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Business Loan</label>
+                                        <div class="">
+                                            <select (change)="onSelectServiceType($event.target.value)" class="form-control">
+                      <option value="">Select Type</option>
+                      <option *ngFor="let do of ServiceRequestTypes" value={{do.serviceTypeId}}>
+                        {{do.requestName}}
+                      </option>
+                    </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Customer Name</label>
+                                        <div class="">
+                                            <input id="name" name="namee" readonly type="text" [(ngModel)]="namee" autocomplete="last-name" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">DOB</label>
+                                        <div class="">
+                                            <input id="dobb" name="dobb" type="date" [(ngModel)]="dobb" autocomplete="last-name" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Annual Income</label><br />
+
+                                        <span style="display: flex;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input id="annualincome" readonly name="annualincome" type="text" [(ngModel)]="annualincome" autocomplete="last-name" style=" margin-top: -2%;" class="form-control" /></span>
+                                        <p class="help-block"></p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Requested Loan Amount</label><br />
+                                        <span style="display: flex;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="requestedloanamount" readonly name="requestedloanamount" type="text"[(ngModel)]="requestedloanamount" autocomplete="last-name" class="form-control" style=" margin-top: -2%;" class="form-control" /></span>
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Loan Security</label>
+                                        <div class="">
+                                            <select (change)="onSelectloansecurity($event.target.value)" class="form-control">
+                      <option value="">Select Loan Security</option>
+                      <option *ngFor="let do of LoanSecurityList" value={{do.id}}>
+                        {{do.loanSecurityName}}
+                      </option>
+                    </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Present Cost Loan Security</label>
+                                        <div class="">
+                                            <input id="presentcostofloansecurity" name="presentcostofloansecurity" [(ngModel)]="presentcostofloansecurity" type="text" autocomplete="last-name" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Loan Amount</label>
+                                        <span style="display: flex;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="loanamount" name="loanamount" [(ngModel)]="loanamount" type="text" autocomplete="last-name" style=" margin-top: -2%;" class="form-control" /></span>
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br/>
+                            <div class="row">
+                                <div class="col-sm-5"></div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-info">
+                    View Security Form
+                  </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br />

@@ -1,0 +1,482 @@
+<app-header></app-header>
+<br>
+<br>
+<br>
+<br>
+
+<body id="grad1">
+
+    <!-- MultiStep Form -->
+    <div class="container-fluid" id="grad1">
+  
+        <div class="row justify-content-center mt-0">
+                  <div class="col-md-12">
+            <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <img src="./assets/img/backimage.png" id="back" title="Back" height="21px" (click)=goBack() />
+          </div>
+        </div>
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <br />
+                    <h2 style="text-align: center;color: #000000;"><strong>Sign Up</strong></h2>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <form id="msform" [formGroup]="RegistrationForm">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>ACCOUNT DETAILS</strong></li>
+                                    <li id="personal"><strong>UPLOAD PROFILE PICTURE & SIGNATURE</strong></li>
+                                    <!-- <li id="personal"><strong>UPLOAD SIGNATURE</strong></li> -->
+                                    <li id="payment"><strong>ADDRESS DETAILS</strong></li>
+                                    <li id="register"><strong>COMPLETE REGISTRATION</strong></li>
+                                    <li id="confirm"><strong>FINISH</strong></li>
+
+                                </ul>
+                                <!-- fieldsets -->
+
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title" style="text-align: center;">ACCOUNT DETAILS</h2>
+
+
+                                        <input formControlName="fname" [(ngModel)]="fname" type="text" name="fname"
+                                            placeholder="First Name" (change)="Validateone()"
+                                            [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" />
+                                        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.fname.errors.required">First Name is
+                                                required</div>
+                                        </div>
+                                        <br />
+                                        <input formControlName="sname" [(ngModel)]="sname" type="text" name="sname"
+                                            placeholder="Last Name" (change)="Validateone()"
+                                            [ngClass]="{ 'is-invalid': submitted && f.sname.errors }" />
+                                        <div *ngIf="submitted && f.sname.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.sname.errors.required">Last Name is
+                                                required</div>
+                                        </div>
+                                        <br />
+
+                                        <input formControlName="email" [(ngModel)]="email" type="email" name="email"
+                                            placeholder="Email/Mobile Number" (change)="Validateone()"
+                                            (change)="Validatemail()"
+                                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+
+                                            <div style="color: red;" *ngIf="f.email.errors.pattern">Enter a valid
+                                                email Or Mobile Number</div>
+                                        </div>
+                                        <p *ngIf="validmail" style="color: red;">Email Or Mobile Number already exist!!
+                                        </p>
+                                        <br />
+                                        <input *ngIf="enableotp" formControlName="otp" [(ngModel)]="otp" type="email"
+                                            name="otp" placeholder="OTP" (change)="Validateotp()"
+                                            [ngClass]="{ 'is-invalid': submitted && f.otp.errors }" />
+                                        <div *ngIf="submitted && f.otp.errors && enableotp" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.otp.errors.required">OTP is required
+                                            </div>
+                                            <div style="color: red;" *ngIf="f.otp.errors.pattern">Enter a valid
+                                                OTP</div>
+                                        </div>
+                                        <p *ngIf="validotp" style="color: red;">{{displayotpmsg}}</p>
+                                    </div>
+                                    <input type="button" class="next action-button" name="next" value="Next Step" />
+                                </fieldset>
+                                <fieldset>
+
+
+                                    <!-- Face -->
+                                    <div class="container fileUploadWrapper">
+                                        <h2 class="fs-title" style="text-align: center;">FACE VERIFICATION  </h2>
+                                        <div class="col-md-12">
+
+
+                                        <!-- upload -->
+                                        <div class="col-md-12 row fileupload">
+                                              <h5 class="fs-title" style="text-align: center;">UPLOAD PANCARD PHOTO</h5>
+                                            </div>
+                                                <div class="col-md-6 row fileupload">
+                                                        <!-- upload -->
+                                                            <input type="file" accept="image/*" name="avatars" #fileField
+                                                                (change)="onChangeforImage($event)">
+                                                                <img [src]="croppedImage" height="200">
+                                                    </div>
+
+
+                               
+
+                                            <ul style="list-style:none;">
+                                                <br />
+                                                <!-- <div class="form-group">
+                                                    <label for="file">Choose your image</label>
+                                                    <input type="file" id="file"
+                                                        (change)="handleFileInput1($event.target.files)">
+                                                </div> -->
+
+                                                <div style="text-align:center">
+                                                    <div>
+                                                        <p>{{seconds}}</p>
+                                                        <webcam [trigger]="triggerObservable"
+                                                            (imageCapture)="handleImage($event)"></webcam>
+                                                        <br />
+                                                        <button id="snapshotBtn" class="btn btn-primary" (click)="triggerSnapshot();">Take A
+                                                            Snapshot</button>
+                                                    </div>
+                                                </div>
+                                                <div class="snapshot" *ngIf="webcamImage">
+                                                    <h2>Nice one!</h2>
+                                                    <img [src]="webcamImage.imageAsDataUrl" />
+                                                </div>
+
+
+                                            </ul>
+                                            <br/>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                style="cursor: pointer;" (click)="verifyimage()">
+                                                Done
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <!-- Signature -->
+                                    <div class="form-card" id="signf">
+                                        <h2 class="fs-title" style="text-align: center;">UPLOAD SIGNATURE</h2>
+                                        <div class="container fileUploadWrapper">
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-4 row"></div>
+                                                <div class="col-md-6 row fileupload">
+
+                                                    <img [src]="signatureurl" height="200">
+                                                </div>
+                                                <h5 class="fs-title" style="text-align: center;">UPLOAD SIGNED IMAGE</h5>
+
+                                                <input type="file" accept="image/*" name="avatars" #fileField
+                                                    (change)="onChangeforSignature($event)">
+                                            </div>
+                                            <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                                                type png or jpg or jpeg</h3>
+                                        </div>
+                                        <!-- <div class="container fileUploadWrapper">
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-4 row"></div>
+                                                <div class="col-md-6 row fileupload">
+                                                    <img [src]="signatureurltwo" height="200">
+                                                </div>
+                                                <h5 class="fs-title" style="text-align: center;">UPLOAD SCANNED PAN CARD IMAGE</h5>
+
+                                                <input type="file" accept="image/*" name="avatars" #fileField
+                                                (change)="onChangeforSignatureTwo($event)">
+                                            </div>
+                                            <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                                                type png or jpg or jpeg</h3>
+                                        </div> -->
+                                        <!-- <div class="col-md-12 row" id="sign">
+                                            <input type="file" accept="image/*" name="avatars" #fileField
+                                            (change)="onChangeforSignatureTwo($event)">
+                                            <img [src]="signatureurltwo" height="200">
+                                            <ng-signature-pad id="signaturepadtag" [width]="500" [height]="400" doneButtonText="Show Signature"
+                                                format="base64" (done)="showImage($event)">
+                                            </ng-signature-pad>
+                                            <img [src]="signatureImage" *ngIf="signatureImage" />
+                                        </div> -->
+                                        <br/>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        style="cursor: pointer;" (click)="verifysignature()">
+                                        Done
+                                    </button>
+                                    </div>
+                                
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" />
+                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                </fieldset>
+                                <!-- <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title" style="text-align: center;">UPLOAD SIGNATURE</h2>
+                                        <div class="container fileUploadWrapper">
+                                            <div class="col-md-12">
+                                                <div class="fileupload"
+                                                    style="background-image: url(./assets/img/upload-icon.png);"
+                                                    appDragDropFileUpload accept="image/*" (click)="fileField.click()"
+                                                    (fileDropped)="onDrop($event)">
+                                                    <span class="ddinfo">Choose an object or drag here</span>
+                                                </div>
+                                                <input type="file" accept="image/*" name="avatars" #fileField
+                                                    (change)="onChangeforSignature($event)">
+                                            </div>
+                                            <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                                                type png or jpg or jpeg</h3>
+                                        </div>
+                                    </div>
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" (change)="Validateone()" />
+                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                </fieldset> -->
+
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title" style="text-align: center;">ADDRESS DETAILS</h2>
+
+                                        <input formControlName="houseno" [(ngModel)]="houseno" type="text"
+                                            name="houseno" placeholder="Flat/ House no"
+                                            [ngClass]="{ 'is-invalid': submitted && f.houseno.errors }"
+                                            (change)="Validatethree()" />
+                                        <div *ngIf="submitted && f.houseno.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.houseno.errors.required">Street Address
+                                                is required</div>
+                                        </div>
+                                        <br />
+
+                                        <input formControlName="buildingname" [(ngModel)]="buildingname" type="text"
+                                            name="buildingname" placeholder="Building Name"
+                                            [ngClass]="{ 'is-invalid': submitted && f.buildingname.errors }"
+                                            (change)="Validatethree()" />
+                                        <div *ngIf="submitted && f.buildingname.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.buildingname.errors.required">Street
+                                                Address
+                                                is required</div>
+                                        </div>
+                                        <br />
+
+                                        <input formControlName="staddress" [(ngModel)]="staddress" type="text"
+                                            name="staddress" placeholder="Street Address"
+                                            [ngClass]="{ 'is-invalid': submitted && f.staddress.errors }"
+                                            (change)="Validatethree()" />
+                                        <div *ngIf="submitted && f.staddress.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.staddress.errors.required">Street Address
+                                                is required</div>
+                                        </div>
+                                        <br />
+
+                                        <input formControlName="staddress2" [(ngModel)]="staddress2" type="text"
+                                            name="staddress2" placeholder="Street Address Line 2"
+                                            [ngClass]="{ 'is-invalid': submitted && f.staddress2.errors }"
+                                            (change)="Validatethree()" />
+                                        <div *ngIf="submitted && f.staddress2.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.staddress2.errors.required">Street Address
+                                                Line two is required</div>
+                                        </div>
+                                        <br />
+
+                                        <input formControlName="city" [(ngModel)]="city" type="text" name="city"
+                                            placeholder="City" [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+                                            (change)="Validatethree()" />
+                                        <div *ngIf="submitted && f.city.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.city.errors.required">City is required
+                                            </div>
+                                        </div>
+                                        <br />
+
+                                        <input formControlName="pincode" [(ngModel)]="pincode" type="text"
+                                            name="pincode" placeholder="Pin Code"
+                                            [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }"
+                                            (change)="Validatethree()" />
+                                        <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.pincode.errors.required">Pin Code is
+                                                required</div>
+                                            <div style="color: red;" *ngIf="f.pincode.errors.pattern">Enter valid Pin
+                                                Code</div>
+
+                                        </div>
+                                        <br />
+
+                                        <h5 *ngIf="validmobile" style="color: red;">Mobile Number already exist!!</h5>
+
+                                    </div>
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" />
+                                    <input type="button" name="make_payment" class="next action-button" value="Next" />
+                                </fieldset>
+
+
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title" style="text-align: center;">Complete Registration</h2>
+
+                                        <br />
+
+                                        <br />
+                                        <input formControlName="password" [(ngModel)]="password" type="password"
+                                            name="password" placeholder="Password" (change)="Validatefour()"
+                                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.password.errors.required">Password is
+                                                required</div>
+                                        </div>
+                                        <br />
+
+                                        <input formControlName="cpassword" [(ngModel)]="cpassword" type="password"
+                                            name="cpassword" placeholder="Confirm Password"
+                                            [ngClass]="{ 'is-invalid': submitted && f.cpassword.errors }"
+                                            (change)="Validatefour()" />
+                                        <div *ngIf="submitted && f.cpassword.errors" class="invalid-feedback"
+                                            style="margin-top: -20px;">
+                                            <div style="color: red;" *ngIf="f.cpassword.errors.required">Password must
+                                                include minimum of 8 and special characters</div>
+                                            <div style="color: red;" *ngIf="f.cpassword.errors.pattern">Password must
+                                                include minimum of 8 and special characters</div>
+
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-1 row ">&nbsp;</div>
+                                        <div class="col-md-2 row ">
+
+                                            <input class="form-control" type="checkbox" [checked]="RegisterThroughBA"
+                                                formControlName="RegisterThroughBA" [(ngModel)]="RegisterThroughBA"
+                                                style="font-size: 7px;">
+                                               
+                                        </div>
+
+                                        <div class="col-md-8 row ">
+                                            <p style="font-size: 18px;color:darkblue">Register through Business
+                                                Associate</p>a
+
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-1 row"></div>
+                                        <div class="col-md-8 row">
+                                            <label id="emaillabel "></label>
+                                            <select (change)="onSelectBA($event.target.value)" class="form-control">
+                                                <option value="">Select Business Associate</option>
+                                                <option *ngFor="let do of BAList" value={{do.baId}}>
+                                                    {{do.fullName}}
+                                                </option>
+                                            </select> 
+                                        </div>
+                                    </div> -->
+
+                           
+
+                                    <br />
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" />
+                                    <input type="button" name="make_payment" class="action-button" value="Confirm"
+                                       
+                                    data-toggle="modal" data-target="#privacypopup" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 style="text-align: center;" class="fs-title text-center">Success !</h2>
+                                        <br><br>
+                                        <div class="row justify-content-center" style="text-align: center;">
+                                            <div class="col-3"> <img
+                                                    src="https://img.icons8.com/color/96/000000/ok--v2.png"
+                                                    style="height: 200px;width:200px;" class="fit-image"> </div>
+                                        </div> <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5 style="text-align: center;">You Have Successfully Signed Up</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                            <span id="needaccount">Already on Finspace?
+                                &nbsp; <a href="#" [routerLink]="['/signin']"
+                                    id="signup">Sign in</a> </span>
+                                    <br/><br/><br/>
+                                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- notification alert -->
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-4" *ngIf="dismissalert">
+        <div class="displayalert">
+            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="material-icons" style="color: white">close</i>
+            </button>
+            <span style="color: white;margin-top: 6px;">
+                <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal modal-angular fade" id="privacypopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" style="overflow-y: scroll;height: 100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <span style="color: darkslateblue;text-transform: uppercase;">
+                        Consent Form
+                    </span>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <app-tou></app-tou>
+                <app-privacy></app-privacy>
+                <br/><br/><br/>
+            </div>
+            <div class="modal-footer" style="position: fixed;background: white;
+            bottom: 0;
+            margin-left: 8%;">
+                <button type="button" class="btn btnprop waves-light next" data-dismiss="modal" mdbWavesEffect
+                (click)="RegisterUser()" style="background: blue;" >Accept</button> 
+                <!-- <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Cancel</button> -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<button style="display:none;" id="openpopup"  data-toggle="modal" data-target="#ImageCropPopUp" ></button>
+
+
+  <div class="modal fade" id="ImageCropPopUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Crop Pancard</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <image-cropper
+            [imageChangedEvent]="imageChangedEvent"
+            [maintainAspectRatio]="false"
+            [aspectRatio]="4 / 4"
+            format="png"
+            (imageCropped)="imageCropped($event)"
+            (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()"
+            (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+    <img [src]="croppedImage" height="200">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btnprop waves-light next" data-dismiss="modal" mdbWavesEffectstyle="background: blue;" >Done</button> 
+
+        </div>
+      </div>
+    </div>
+  </div>

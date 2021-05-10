@@ -1,0 +1,465 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowRequestedDetails" id="ShowRequestedDetails">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 card">
+        <div>
+            <br /> <br />
+            <h3 style="text-align: center;">Requested Services</h3><br />
+            <div class="col-md-12 row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <label>From Date</label>
+                    <input type="date" class="form-control" id="Newfromdate" name="Newfromdate" placeholder="Any Day"
+                        [(ngModel)]="Newfromdate" (change)="onChangeNewfromdate(Newfromdate)" />
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <label>To Date</label>
+                    <input type="date" class="form-control" id="Newtodate" name="Newtodate" placeholder="Any Day"
+                        [(ngModel)]="Newtodate" (change)="onChangeNewTodate(Newtodate)" />
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <button class="btn btnpropother" (click)="cancelNew()">Cancel</button>
+                </div>
+            </div>
+            <br />
+            <div class="search-hero">
+                <input class="form-control" type="text" name="SearchRequested" [(ngModel)]="SearchRequested"
+                    autocomplete="off" placeholder="&#61442; Search">
+            </div>
+            <br />
+            <div class="table-responsive">
+                <div class="col-md-12 row" id="btndiv">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-1">
+                        <button id="btn" type="submit" (click)="print()">Print</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="btn" type="submit" (click)="download()">Download</button>
+                    </div>
+                </div><br /><br />
+                <table class="table table-bordered" style="border-collapse: collapse;">
+                    <tr style="font-size:17px">
+                        <th>Sl No</th>
+                        <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                        <!--<th>Service Provider</th>-->
+                        <th>Customer Number</th>
+                        <th>Information</th>
+                        <!-- <th>Service Time</th> -->
+                        <th style="cursor: pointer;" (click)="sortbydate()">Application Date</th>
+                        <th>Assigned To</th>
+                        <!-- <th>Details</th> -->
+                        <th>Track Status</th>
+
+                    </tr>
+                    <tr *ngFor="let com  of RequestedServicesList  | LockFilter: SearchRequested | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                        style="font-size:16px;font-family: DINNextRoundedLTPro">
+                        <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                        <td>{{com.complaintId}} </td>
+                        <!--<td>{{com.serviceProvider}}</td>-->
+                        <td>{{com.contactNumber}}</td>
+                        <td>{{com.information}}</td>
+                        <!-- <td>{{com.serviceTime}}</td> -->
+                        <td>{{com.lastUpdated|date}}</td>
+                        <td>{{com.serviceProvider}}</td>
+                        <!-- <td> <input class="btn btn-info" type="button" data-toggle="modal"
+                                    data-target="#Fulldetails" (click)="getfulldeatails(com)" value="Details" /></td> -->
+                        <td (click)="GetTrackDetails(com)"> <input class="btn btnprop" type="button"
+                                value="Track Status" /></td>
+                    </tr>
+                </table>
+                <br />
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowRequestedDetails1" id="ShowRequestedDetails1">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 card">
+        <div>
+            <br /> <br />
+            <h3 style="text-align: center;">Requested Services</h3><br />
+            <div class="table-responsive">
+                <div class="col-md-12 row" id="btndiv">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-1">
+                        <button id="printnew" type="submit" (click)="printneww()" hidden>Print</button>
+                    </div>
+                </div><br /><br />
+
+                <table class="table table-bordered" style="border-collapse: collapse;" id="print-section">
+                    <tr style="font-size:17px">
+                        <th>Sl No</th>
+                        <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                        <th>Customer Number</th>
+                        <th>Information</th>
+                        <th style="cursor: pointer;" (click)="sortbydate()">Application Date</th>
+                        <th>Assigned To</th>
+
+                    </tr>
+                    <tr *ngFor="let com  of RequestedServicesList ;let i = index"
+                        style="font-size:16px;font-family: DINNextRoundedLTPro">
+                        <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                        <td>{{com.complaintId}} </td>
+                        <td>{{com.contactNumber}}</td>
+                        <td>{{com.information}}</td>
+                        <td>{{com.lastUpdated|date}}</td>
+                        <td>{{com.serviceProvider}}</td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowCompletedDetails" id="ShowCompletedDetails">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 card">
+        <div>
+            <br /> <br />
+            <h3 style="text-align: center;">Completed Services</h3>
+            <br />
+            <div class="col-md-12 row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <label>From Date</label>
+                    <input type="date" class="form-control" id="Completedfromdate" name="Completedfromdate"
+                        placeholder="Any Day" [(ngModel)]="Completedfromdate"
+                        (change)="onChangeCompletedfromdate(Completedfromdate)" />
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <label>To Date</label>
+                    <input type="date" class="form-control" id="Completedtodate" name="Completedtodate"
+                        placeholder="Any Day" [(ngModel)]="Completedtodate"
+                        (change)="onChangeCompletedTodate(Completedtodate)" />
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <button class="btn btnpropother" (click)="cancelCompleted()">Cancel</button>
+                </div>
+            </div>
+
+            <br />
+            <div class="search-hero">
+                <input class="form-control" type="text" name="SearchCompleted" [(ngModel)]="SearchCompleted"
+                    autocomplete="off" placeholder="&#61442; Search">
+            </div>
+            <br />
+            <div class="table-responsive">
+                <div class="col-md-12 row" id="btndiv">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-1">
+                        <button id="btn" type="submit" (click)="print1()">Print</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="btn" type="submit" (click)="download1()">Download</button>
+                    </div>
+                </div><br /><br />
+
+                <table class="table table-bordered" style="border-collapse: collapse;">
+                    <tr style="font-size:17px">
+                        <th>Sl No</th>
+                        <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                        <!--<th>Service Provider</th>-->
+                        <th>Customer Number</th>
+                        <th>Information</th>
+                        <!-- <th>Service Time</th> -->
+                        <th style="cursor: pointer;" (click)="sortbydate()">Application Date</th>
+                        <th>Assigned To</th>
+                        <!-- <th>Details</th> -->
+                    </tr>
+                    <tr *ngFor="let com of CompletedServiceList  | LockFilter: SearchCompleted  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                        style="font-size:16px;font-family: DINNextRoundedLTPro">
+                        <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                        <td>{{com.complaintId}} </td>
+                        <!--<td>{{com.serviceProvider}}</td>-->
+                        <td>{{com.contactNumber}}</td>
+                        <td>{{com.information}}</td>
+                        <!-- <td>{{com.serviceTime}}</td> -->
+                        <td>{{com.lastUpdated|date}}</td>
+                        <td>{{com.serviceProvider}}</td>
+                        <!-- <td> <input class="btn btn-info" data-toggle="modal" data-target="#Fulldetails" Fulldetails
+                                    type="button" (click)="getfulldeatails(com)" value="Details" /></td> -->
+
+                    </tr>
+                </table>
+                <br />
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowCompletedDetails1" id="ShowCompletedDetails1">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 card">
+        <div>
+            <br /> <br />
+            <h3 style="text-align: center;">Completed Services</h3>
+            <br />
+            <div class="table-responsive">
+                <div class="col-md-12 row" id="btndiv">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-1">
+                        <button id="printnew1" type="submit" (click)="printneww1()" hidden>Print</button>
+                    </div>
+                </div><br /><br />
+
+                <table class="table table-bordered" style="border-collapse: collapse;"  id="printnew-section">
+                    <tr style="font-size:17px">
+                        <th>Sl No</th>
+                        <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                        <th>Customer Number</th>
+                        <th>Information</th>
+                        <th style="cursor: pointer;" (click)="sortbydate()">Application Date</th>
+                        <th>Assigned To</th>
+                    </tr>
+                    <tr *ngFor="let com of CompletedServiceList;let i = index"
+                        style="font-size:16px;font-family: DINNextRoundedLTPro">
+                        <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                        <td>{{com.complaintId}} </td>
+                        <td>{{com.contactNumber}}</td>
+                        <td>{{com.information}}</td>
+                        <td>{{com.lastUpdated|date}}</td>
+                        <td>{{com.serviceProvider}}</td>
+
+                    </tr>
+                </table>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowPendingApplications" id="ShowPendingApplications">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 card">
+        <div>
+            <br /> <br />
+            <h3 style="text-align: center;">Pending Applications</h3>
+            <br />
+            <div class="col-md-12 row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <label>From Date</label>
+                    <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate"
+                        placeholder="Any Day" [(ngModel)]="Assignfromdate"
+                        (change)="onChangeAssignfromdate(Assignfromdate)" />
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <label>To Date</label>
+                    <input type="date" class="form-control" id="Assigntodate" name="Assigntodate" placeholder="Any Day"
+                        [(ngModel)]="Assigntodate" (change)="onChangeAssignTodate(Assigntodate)" />
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <button class="btn btnpropother" (click)="cancelAssign()">Cancel</button>
+                </div>
+            </div>
+            <br />
+            <div class="search-hero">
+                <input class="form-control" type="text" name="SearchPending" [(ngModel)]="SearchPending"
+                    autocomplete="off" placeholder="&#61442; Search">
+            </div>
+            <br />
+            <div class="table-responsive">
+                <div class="col-md-12 row" id="btndiv">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-1">
+                        <button id="btn" type="submit" (click)="printpendg()">Print</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="btn" type="submit" (click)="downloadpending()">Download</button>
+                    </div>
+                </div><br /><br />
+
+                <table class="table table-bordered" style="border-collapse: collapse;">
+                    <tr style="font-size:17px">
+                        <th>Sl No</th>
+                        <th>Product Type</th>
+                        <th>Loan/Isurance Type</th>
+                        <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr *ngFor="let com of PendingApplicationsList | LockFilter: SearchPending   | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                        style="font-size:16px;font-family: DINNextRoundedLTPro">
+                        <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                        <td>{{com.productType}} </td>
+                        <td>{{com.loanorInsuranceType}}</td>
+                        <td>{{com.tickedId}}</td>
+                        <td (click)="GotoForm(com)"> <input class="btn btnprop" type="button" value="View" /></td>
+
+                    </tr>
+                </table>
+                <br />
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowPendingApplications1" id="ShowPendingApplications1">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 card">
+        <div>
+            <br /> <br />
+            <h3 style="text-align: center;">Pending Applications</h3>
+            <br />
+            <br />
+            <div class="table-responsive">
+                <div class="col-md-12 row" id="btndiv">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-1">
+                        <button id="printnew2" type="submit" (click)="printnewwpending()" hidden>Print</button>
+                    </div>
+                </div><br /><br />
+
+                <table class="table table-bordered" style="border-collapse: collapse;"  id="printpending-section">
+                    <tr style="font-size:17px">
+                        <th>Sl No</th>
+                        <th>Product Type</th>
+                        <th>Loan/Isurance Type</th>
+                        <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                        <!-- <th>Details</th> -->
+                    </tr>
+                    <tr *ngFor="let com of PendingApplicationsList ;let i = index"
+                        style="font-size:16px;font-family: DINNextRoundedLTPro">
+                        <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                        <td>{{com.productType}} </td>
+                        <td>{{com.loanorInsuranceType}}</td>
+                        <td>{{com.tickedId}}</td>
+                        <!-- <td (click)="GotoForm(com)"> <input class="btn btnprop" type="button" value="View" /></td> -->
+
+                    </tr>
+                </table>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+
+<br /> <br /> <br /> <br />
+<div class="modal modal-angular fade" id="Fulldetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <p style="color: darkslateblue;text-transform: uppercase;">Information
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body" style="background-color: #ececec;">
+
+                <!-- <div class="col-md-12 row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <img src={{Alldetails.imageLogo}} height="100" width="100" />
+                        </div>
+                        <div class="col-md-3">
+                            <h4 class="gradienttext">{{Alldetails.serviceProvider}}</h4>
+                        </div>
+                    </div> -->
+                <br />
+                <div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <label>Compalint Id:&nbsp;</label><br /><br />
+                            <label>Service Provider:&nbsp;</label><br /><br />
+                            <label>Employee Name:&nbsp;</label><br /><br />
+                            <label>Employee Number:&nbsp;</label><br /><br />
+                            <label>Service Date:&nbsp;}</label><br /><br />
+                            <label>Service Time:&nbsp;</label><br /><br />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<style>
+    .modalsize {
+        width: 950px;
+        max-width: 950px;
+        overflow-y: 50vh;
+    }
+
+    @media (max-width: 960px) {
+        .modalsize {
+            width: 450px;
+            max-width: 650px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .modalsize {
+            width: 480px;
+            max-width: 550px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 460px) {
+        .modalsize {
+            width: 380px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .modalsize {
+            width: 350px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .modalsize {
+            width: 310px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+</style>

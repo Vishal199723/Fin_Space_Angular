@@ -1,0 +1,1713 @@
+/* cSpell:disable */
+
+.flip-box {
+    background-color: transparent;
+    height: 200px;
+    border: 1px solid #6ddec1;
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 65%;
+  }
+  #btn{
+    background-color: #36dbe2;
+    color: #FFFFFF;
+    width: 100%;
+    height: 125%;
+    border-radius: 10px;
+    /* background-color: #2b156f; */
+    border: none;
+    color: white;
+    /* font-size: 22px; */
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+  
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 65%;
+  }
+  
+  .flip-box:hover .flip-box-inner {
+    transform: rotateX(180deg);
+  }
+  
+  .flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .flip-box-front {
+    background-color: #6ddec1;
+    color: black;
+    border-radius: 65%;
+  }
+  
+  .flip-box-back {
+    background-color: #6ddec1;
+    color: white;
+    transform: rotateX(180deg);
+    border-radius: 65%;
+  }
+  .loanname{
+      padding-top: 74px;
+      font-size: 30px
+  }
+  
+  @media screen and (max-width: 1600px){
+  
+    .flip-box {
+      background-color: transparent;
+      height: 200px;
+      border: 1px solid #6ddec1;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 65%;
+    }
+    
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 65%;
+    }
+    
+    .flip-box:hover .flip-box-inner {
+      transform: rotateX(180deg);
+    }
+    
+    .flip-box-front, .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .flip-box-front {
+      background-color: #6ddec1;
+      color: black;
+      border-radius: 65%;
+    }
+    
+    .flip-box-back {
+      background-color: #6ddec1;
+      color: white;
+      transform: rotateX(180deg);
+      border-radius: 65%;
+    }
+    .loanname{
+        padding-top: 74px;
+        font-size: 30px
+    }
+  
+    #heading{
+      text-align: center; 
+      color: #90827d; 
+      margin-left: 11%;
+    }
+  
+    #maindiv{
+      margin-left: 14%;
+    }
+  
+    #faicon{
+      font-size: 50px;
+      margin-top: 23%;
+      color: white
+    }
+  
+    #ticketdiv{
+      margin-left: 24%;
+    }
+  
+    #divone{
+      background-color: #6ddec1;
+      width: 122%;
+      margin-left: -5%;
+    }
+  
+    #tickethead{
+      text-align: center; 
+      color: white
+    }
+  
+    #table{
+      width: 122%; 
+      margin-left: -5%;
+    }
+  
+    #divtwo{
+      margin-left: 13%;
+      width: 80%;
+    }
+    #divtwoo{
+      margin-left: 13%;
+      width: 80%;
+    }
+    #divthree{
+      background-color:#6ddec1;
+      height: 35px;
+    }
+  
+    #headthree{
+      text-align:center;
+      color: white;
+    }
+  
+    #divfour{
+      margin-left: 20%;
+    }
+  
+    #assignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+  
+    #reassignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      width: 120px
+    }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+  
+  #selectdropdown{
+    font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #BECBD5;
+  }
+  
+  
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+  
+  }
+  
+  @media screen and (max-width:1366px)
+  {
+  
+    .flip-box {
+      background-color: transparent;
+      height: 200px;
+      border: 1px solid #6ddec1;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 65%;
+    }
+    
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 65%;
+    }
+    
+    .flip-box:hover .flip-box-inner {
+      transform: rotateX(180deg);
+    }
+    
+    .flip-box-front, .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .flip-box-front {
+      background-color: #6ddec1;
+      color: black;
+      border-radius: 65%;
+    }
+    
+    .flip-box-back {
+      background-color: #6ddec1;
+      color: white;
+      transform: rotateX(180deg);
+      border-radius: 65%;
+    }
+    .loanname{
+        padding-top: 74px;
+        font-size: 30px
+    }
+  
+    #heading{
+      text-align: center; 
+      color: #90827d; 
+      margin-left: 11%;
+    }
+  
+    #maindiv{
+      margin-left: 14%;
+    }
+  
+    #faicon{
+      font-size: 55px;
+      margin-top: 23%;
+      color: white
+    }
+  
+    #ticketdiv{
+      margin-left: 24%;
+    }
+  
+    #divone{
+      background-color: #6ddec1;
+      width: 122%;
+      margin-left: -5%;
+    }
+  
+    #tickethead{
+      text-align: center; 
+      color: white
+    }
+  
+    #table{
+      width: 122%; 
+      margin-left: -5%;
+    }
+  
+    #divtwo{
+      margin-left: 8%;
+      width: 88%;
+    }
+    #divtwoo{
+      margin-left: 8%;
+      width: 88%;
+    }
+    #divthree{
+      background-color:#6ddec1;
+      height: 35px;
+    }
+  
+    #headthree{
+      text-align:center;
+      color: white;
+    }
+  
+    #divfour{
+      margin-left: 20%;
+    }
+  
+    #assignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+  
+    #reassignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+  
+  #selectdropdown{
+    font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #BECBD5;
+  }
+  
+  
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+  
+  }
+  
+  @media screen and (max-width:1280px)
+  {
+  
+    .flip-box {
+      background-color: transparent;
+      height: 200px;
+      border: 1px solid #6ddec1;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 65%;
+    }
+    
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 65%;
+    }
+    
+    .flip-box:hover .flip-box-inner {
+      transform: rotateX(180deg);
+    }
+    
+    .flip-box-front, .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .flip-box-front {
+      background-color: #6ddec1;
+      color: black;
+      border-radius: 65%;
+    }
+    
+    .flip-box-back {
+      background-color: #6ddec1;
+      color: white;
+      transform: rotateX(180deg);
+      border-radius: 65%;
+    }
+    .loanname{
+        padding-top: 74px;
+        font-size: 30px
+    }
+  
+    #heading{
+      text-align: center; 
+      color: #90827d; 
+      margin-left: 11%;
+    }
+  
+    #maindiv{
+      margin-left: 14%;
+    }
+  
+    #faicon{
+      font-size: 50px;
+      margin-top: 23%;
+      color: white
+    }
+  
+    #ticketdiv{
+      margin-left: 24%;
+    }
+  
+    #divone{
+      background-color: #6ddec1;
+      width: 122%;
+      margin-left: -5%;
+    }
+  
+    #tickethead{
+      text-align: center; 
+      color: white
+    }
+  
+    #table{
+      width: 122%; 
+      margin-left: -5%;
+    }
+  
+    #divtwo{
+      margin-left: 8%;
+      width: 88%;
+    }
+    #divtwoo{
+      margin-left: 8%;
+      width: 88%;
+    }
+    #divthree{
+      background-color:#6ddec1;
+      height: 35px;
+    }
+  
+    #headthree{
+      text-align:center;
+      color: white;
+    }
+  
+    #divfour{
+      margin-left: 20%;
+    }
+  
+    #assignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+  
+    #reassignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+  
+  #selectdropdown{
+    font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #BECBD5;
+  }
+  
+  
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+  
+  }
+  
+  @media screen and (max-width:1024px)
+  {
+  
+    .flip-box {
+      background-color: transparent;
+      height: 200px;
+      border: 1px solid #6ddec1;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 65%;
+    }
+    
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 65%;
+    }
+    
+    .flip-box:hover .flip-box-inner {
+      transform: rotateX(180deg);
+    }
+    
+    .flip-box-front, .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .flip-box-front {
+      background-color: #6ddec1;
+      color: black;
+      border-radius: 65%;
+    }
+    
+    .flip-box-back {
+      background-color: #6ddec1;
+      color: white;
+      transform: rotateX(180deg);
+      border-radius: 65%;
+    }
+    .loanname{
+        padding-top: 74px;
+        font-size: 30px
+    }
+  
+    #heading{
+      text-align: center; 
+      color: #90827d; 
+      margin-left: 11%;
+    }
+  
+    #maindiv{
+      margin-left: 14%;
+    }
+  
+    #faicon{
+      font-size: 50px;
+      margin-top: 23%;
+      color: white
+    }
+  
+    #ticketdiv{
+      margin-left: -14%;
+      width: 177%;
+    }
+  
+    #divone{
+      background-color: #6ddec1;
+      width: 122%;
+      margin-left: -5%;
+    }
+  
+    #tickethead{
+      text-align: center; 
+      color: white
+    }
+  
+    #table{
+      width: 122%; 
+      margin-left: -5%;
+    }
+  
+    #divtwo{
+      margin-left: 14%;
+      width: 80%;
+    }
+    #divtwoo{
+      margin-left: 14%;
+      width: 80%;
+    }
+    #divthree{
+      background-color:#6ddec1;
+      height: 35px;
+    }
+  
+    #headthree{
+      text-align:center;
+      color: white;
+    }
+  
+    #divfour{
+      margin-left: 20%;
+    }
+  
+    #assignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+  
+    #reassignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+  
+  #selectdropdown{
+    font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #BECBD5;
+  }
+  
+  
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+  
+  }
+  
+  @media screen and (max-width:780px)
+  {
+  
+    .flip-box {
+      background-color: transparent;
+      height: 200px;
+      border: 1px solid #6ddec1;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 65%;
+    }
+    
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 65%;
+    }
+    
+    .flip-box:hover .flip-box-inner {
+      transform: rotateX(180deg);
+    }
+    
+    .flip-box-front, .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .flip-box-front {
+      background-color: #6ddec1;
+      color: black;
+      border-radius: 65%;
+    }
+    
+    .flip-box-back {
+      background-color: #6ddec1;
+      color: white;
+      transform: rotateX(180deg);
+      border-radius: 65%;
+    }
+    .loanname{
+        padding-top: 74px;
+        font-size: 30px
+    }
+  
+    #heading{
+      text-align: center; 
+      color: #90827d; 
+      margin-left: 32%;
+    }
+  
+    #maindiv{
+      margin-left: 14%;
+      margin-right: -20%;
+    }
+  
+    #faicon{
+      font-size: 50px;
+      margin-top: 23%;
+      color: white
+    }
+  
+    #ticketdiv{
+      margin-left: -3%;
+      width: 177%;
+    }
+  
+    #divone{
+      background-color: #6ddec1;
+      width: 122%;
+      margin-left: -5%;
+    }
+  
+    #tickethead{
+      text-align: center; 
+      color: white
+    }
+  
+    #table{
+      width: 122%; 
+      margin-left: -5%;
+    }
+  
+    #divtwo{
+      margin-left: 14%;
+    }
+    #divtwoo{
+      margin-left: 14%;
+    }
+    #divthree{
+      background-color:#6ddec1;
+      height: 35px;
+    }
+  
+    #headthree{
+      text-align:center;
+      color: white;
+    }
+  
+    #divfour{
+      margin-left: 20%;
+    }
+  
+    #assignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      margin-left: 28%;
+    }
+  
+    #reassignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      margin-left: 32%;
+      margin-top: 9%;
+    }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+  
+  #selectdropdown{
+    font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #BECBD5;
+  }
+  
+  
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+  
+  }
+  
+  @media screen and (max-width:768px)
+  {
+  
+    .flip-box {
+      background-color: transparent;
+      height: 200px;
+      border: 1px solid #6ddec1;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 65%;
+    }
+    
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 65%;
+    }
+    
+    .flip-box:hover .flip-box-inner {
+      transform: rotateX(180deg);
+    }
+    
+    .flip-box-front, .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .flip-box-front {
+      background-color: #6ddec1;
+      color: black;
+      border-radius: 65%;
+    }
+    
+    .flip-box-back {
+      background-color: #6ddec1;
+      color: white;
+      transform: rotateX(180deg);
+      border-radius: 65%;
+    }
+    .loanname{
+        padding-top: 74px;
+        font-size: 30px
+    }
+  
+    #heading{
+      text-align: center; 
+      color: #90827d; 
+      margin-left: 32%;
+    }
+  
+    #maindiv{
+      margin-left: 16%;
+      margin-right: -1%;
+    }
+  
+    #faicon{
+      font-size: 50px;
+      margin-top: 23%;
+      color: white
+    }
+  
+    #ticketdiv{
+      margin-left: -14%;
+      width: 177%;
+    }
+  
+    #divone{
+      background-color: #6ddec1;
+      width: 122%;
+      margin-left: -5%;
+    }
+  
+    #tickethead{
+      text-align: center; 
+      color: white
+    }
+  
+    #table{
+      width: 122%; 
+      margin-left: -5%;
+    }
+  
+    #divtwo{
+      margin-left: 14%;
+    }
+    #divtwoo{
+      margin-left: 14%;
+    }
+    #divthree{
+      background-color:#6ddec1;
+      height: 35px;
+    }
+  
+    #headthree{
+      text-align:center;
+      color: white;
+    }
+  
+    #divfour{
+      margin-left: 20%;
+    }
+  
+    #assignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      margin-left: 19%;
+    }
+  
+    #reassignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      margin-left: 23%;
+      margin-top: 9%;
+    }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+  
+  #selectdropdown{
+    font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #BECBD5;
+  }
+  
+  
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+  
+  }
+  
+  @media screen and (max-width:500px)
+  {
+  
+    .flip-box {
+      background-color: transparent;
+      height: 200px;
+      border: 1px solid #6ddec1;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 65%;
+    }
+    
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 65%;
+    }
+    
+    .flip-box:hover .flip-box-inner {
+      transform: rotateX(180deg);
+    }
+    
+    .flip-box-front, .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .flip-box-front {
+      background-color: #6ddec1;
+      color: black;
+      border-radius: 65%;
+    }
+    
+    .flip-box-back {
+      background-color: #6ddec1;
+      color: white;
+      transform: rotateX(180deg);
+      border-radius: 65%;
+    }
+    .loanname{
+        padding-top: 74px;
+        font-size: 30px
+    }
+  
+    #heading{
+      text-align: center; 
+      color: #90827d; 
+      margin-left: 36%;
+      width: 50%;
+    }
+  
+    #maindiv{
+      margin-left: 14%;
+    }
+  
+    #faicon{
+      font-size: 50px;
+      margin-top: 23%;
+      color: white
+    }
+  
+    #ticketdiv{
+      margin-left: 19%;
+      width: 67%;
+    }
+  
+    #divone{
+      background-color: #6ddec1;
+      width: 122%;
+      margin-left: -5%;
+    }
+  
+    #tickethead{
+      text-align: center; 
+      color: white
+    }
+  
+    #table{
+      width: 122%; 
+      margin-left: -5%;
+    }
+  
+    #divtwo{
+      margin-left: 16%;
+    }
+    #divtwoo{
+      margin-left: 16%;
+    }
+    #divthree{
+      background-color:#6ddec1;
+      height: 35px;
+    }
+  
+    #headthree{
+      text-align:center;
+      color: white;
+    }
+  
+    #divfour{
+      margin-left: 20%;
+    }
+  
+    #assignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      margin-left: 4%;
+    }
+  
+    #reassignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      margin-left: 14%;
+      margin-top: 9%;
+    }
+  
+    #popupone{
+      width: 80%;
+      margin-left: 14%;
+    }
+  
+    #popuptwo{
+      width: 80%;
+      margin-left: 14%;
+    }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+  
+  #selectdropdown{
+    font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #BECBD5;
+  }
+  
+  
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+  
+  }
+  
+  @media screen and (max-width:335px)
+  {
+  
+    .flip-box {
+      background-color: transparent;
+      height: 200px;
+      border: 1px solid #6ddec1;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 65%;
+    }
+    
+    .flip-box-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      border-radius: 65%;
+    }
+    
+    .flip-box:hover .flip-box-inner {
+      transform: rotateX(180deg);
+    }
+    
+    .flip-box-front, .flip-box-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    
+    .flip-box-front {
+      background-color: #6ddec1;
+      color: black;
+      border-radius: 65%;
+    }
+    
+    .flip-box-back {
+      background-color: #6ddec1;
+      color: white;
+      transform: rotateX(180deg);
+      border-radius: 65%;
+    }
+    .loanname{
+        padding-top: 74px;
+        font-size: 30px
+    }
+  
+    #heading{
+      text-align: center; 
+      color: #90827d; 
+      margin-left: 36%;
+      width: 50%;
+    }
+  
+    #maindiv{
+      margin-left: 14%;
+    }
+  
+    #faicon{
+      font-size: 50px;
+      margin-top: 23%;
+      color: white
+    }
+  
+    #ticketdiv{
+      margin-left: 10%;
+    }
+  
+    #divone{
+      background-color: #6ddec1;
+      width: 122%;
+      margin-left: -5%;
+    }
+  
+    #tickethead{
+      text-align: center; 
+      color: white
+    }
+  
+    #table{
+      width: 122%; 
+      margin-left: -5%;
+    }
+  
+    #divtwo{
+      margin-left: 10%;
+    }
+    #divtwoo{
+      margin-left: 10%;
+    }
+    #divthree{
+      background-color:#6ddec1;
+      height: 35px;
+    }
+  
+    #headthree{
+      text-align:center;
+      color: white;
+    }
+  
+    #divfour{
+      margin-left: 20%;
+    }
+  
+    #assignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      margin-left: 4%;
+    }
+  
+    #reassignbtn{
+      color: #FFFFFF;
+      font-weight: 500;
+      background-color: #6ddec1;
+      border-block-end-color: #6ddec1;
+      border: none;
+      border-radius: 8%;
+      height: 62px;
+      outline: none;
+      outline-color: #FFFFFF;
+      margin-left: 14%;
+      margin-top: 9%;
+    }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+  
+  #selectdropdown{
+    font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #BECBD5;
+  }
+  
+  
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+  }
+  .search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  .wrapper input[type="text"] {
+    position: relative; 
+}
+
+input { font-family: 'FontAwesome'; } /* This is for the placeholder */
+
+.wrapper:before {
+    font-family: 'FontAwesome';
+    color:red;
+    position: relative;
+    left: -5px;
+    content: "\f007";
+}
+.btnpropother{
+  border-radius: 4px;
+  background-color: Grey;
+  text-align: center;
+  color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 45px;
+}
+  
+  

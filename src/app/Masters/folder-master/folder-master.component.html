@@ -1,0 +1,151 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<h2 style="text-align:center">Folder List</h2>
+<div class="row col-sm-12">
+  <div class="col-sm-9"></div>
+  <div class="col-sm-2">
+    <button style="background-color: green" class="btn btn-success" data-toggle="modal" data-target="#basicExample"
+      mdbWavesEffect (click)="ClickAddFolder()">
+      Add
+    </button>
+  </div>
+</div><br />
+<div class="col-md-12 row">
+  <div class="col-md-3"></div>
+  <div class="col-md-9">
+    <div class="table-responsive">
+      <div >
+        <table class="table table-bordered" style="border-collapse: collapse;">
+          <tr style="font-size:17px">
+            <th>Sl No</th>
+            <th>Folder </th>
+            <th>Description </th>
+            <th>Created By</th>
+            <th>Created On</th>
+            <!-- <th>Modified By</th>
+            <th>Modified On</th> -->
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <tr *ngFor="let folder of FolderList|paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+            style="font-size:16px;font-family: DIN Next Rounded LT Pro">
+            <td> {{ 5 * (p - 1) + (i+1) }}</td>
+            <td>{{folder.folderName}}</td>
+            <td>{{GetRole(folder.role)}}</td>
+            <td>{{folder.createdBy}}</td>
+            <td>{{folder.createdOn|date}}</td>
+            <!-- <td>{{folder.ModifiedBy}}</td>
+            <td>{{folder.ModifiedOn|date}}</td> -->
+            <td>
+              <button style="background-color:#ff8000 " class="btn btn-success" data-toggle="modal"
+                data-target="#basicExample" mdbWavesEffect (click)="ClickEditFolder(folder)">
+                Edit
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-danger" data-toggle="modal" data-target="#deleteFolder" mdbWavesEffect
+                (click)="ClickDeleteFolder(folder)">Delete</button>
+            </td>
+          </tr>
+        </table>
+        <br />
+        <pagination-controls (pageChange)="p = $event" style="float: right"></pagination-controls>
+        <br /><br /><br />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-angular fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center"> Folder</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+
+      </div>
+      <div class="modal-body text-center">
+        <form #folderform="ngForm">
+          <div class="col-md-12 row">
+            <div class="form-horizontal container">
+
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Folder Name :</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" id="Foldername" name="Foldername"
+                    placeholder="Enter Folder Name" [(ngModel)]="Foldername" />
+                </div>
+              </div><br />
+
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">User Role:</label>
+                <div class="col-md-8">
+                  <select (change)="onSelectRole($event.target.value)" class="form-control">
+                    <option value="">Select Role</option>
+                    <option *ngFor="let do of RoleList" value={{do.id}} [selected]="do.id == roleid">
+                      {{do.roleName}}
+                    </option>
+                  </select>
+                </div>
+              </div><br />
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning btn-sm waves-light" data-dismiss="modal"
+           mdbWavesEffect>Close</button>
+        <button data-dismiss="modal" *ngIf="savefolder" type="submit" class="btn btn-success btn-sm waves-light" mdbWavesEffect
+          (click)="SaveNewFolder(folderform)">Save</button>
+        <button  data-dismiss="modal" *ngIf="updatefolder" type="submit" class="btn btn-success btn-sm waves-light"
+          (click)="UpdateNewFolder(folderform)">Update </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="modal modal-angular fade" id="deleteFolder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">Delete Folder</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 style="text-align: center">Are you sure to delete..??</h3>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" 
+          mdbWavesEffect>Close</button>
+        <button data-dismiss="modal" type="submit" style="background-color: red" class="btn btn-danger" (click)="deletefolder()"
+          mdbWavesEffect>Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br /><br />
+<!-- notification alert -->
+<div class="col-md-12 row">
+  <div class="col-md-2">&nbsp;</div>
+  <div class="col-md-4" *ngIf="dismissalert">
+    <div class="alert alert-info"
+      style="background-color: #545353;box-shadow: none;left: 245px; position: fixed;top: 550px;width: 350px;">
+      <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons" style="color: white">close</i>
+      </button>
+      <span style="color: white;margin-top: 6px;">
+        <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+    </div>
+  </div>
+</div>

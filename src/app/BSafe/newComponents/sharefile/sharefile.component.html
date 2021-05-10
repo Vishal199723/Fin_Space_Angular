@@ -1,0 +1,349 @@
+<br />
+<br />
+<br />
+<br />
+
+
+<div class="col-md-12 row">
+
+    <div class="col-md-12">&nbsp;</div>
+    <div class="col-md-2">
+        <div style="width: 100%;">
+            <div style="width: 50%;float: left;">
+                <i *ngIf="mobile" class="fa fa-bars" (click)="treeviewba()" style="margin-left: 10%;"> </i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 row">
+        <div class="col-md-2" style="overflow: auto;border-right: solid black 1px;padding-left: 35px;" id="treeview">
+
+
+            <div *ngIf="ppopup">
+                <div *ngFor="let a of allFolders1" id="{{a.folderID}}">
+
+                    <span><i class="fa fa-chevron-right" style="cursor: pointer;" (click)="getfolders1(a)"
+                            id="{{a.id}}"></i> <img width="30px" height="30px" src="./assets/img/folder.png"
+                            (click)="GetSubfolder(a)">
+                        <span (click)="GetSubfolder(a)" style="cursor: pointer;">{{a.folderName}}</span></span>
+
+                </div>
+            </div>
+24
+        </div>
+        <div>&nbsp;</div>
+        <div class="col-md-9" style="display: flex;justify-content: center;  ">
+            <table class="table table-responsive table-borded" style="overflow-x: unset;width: auto;">
+                <thead class="text-warning">
+                    <th>Name</th>
+                    <th>Modified</th>
+                    <th>Members</th>
+                    <th>Setting</th>
+                </thead>
+                <tbody *ngFor="let folderview of allFolders">
+                    <tr style="font-size: 20px">
+                        <!-- <td> <input type="checkbox" (click)="toggleSelect(folderview)" style="height: 16px;width:16px;">
+                      </td> -->
+                        <td><i class="fa fa-folder" style="cursor: pointer;"></i> &nbsp;&nbsp;
+                            <b (click)="GetSubfolder(folderview)" style="cursor: pointer;">{{folderview.folderName}}</b>
+                        </td>
+                        <td>{{folderview.createdOn | date:'short'}}</td>
+                        <td>{{folderview.totalMembers}} &nbsp;members</td>
+                        <td *ngIf="!multi">
+                            <div ngbDropdown class="dropdown" placement="bottom-left">
+                                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-gear"
+                                        aria-hidden="true" style="cursor: pointer;"></i></a>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                                    <a class="dropdown-item" (click)="Delete(folderview)">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody *ngFor="let ret of SharedFiles">
+                    <tr>
+                        <input type="checkbox" *ngIf="shareitem" (click)="toggle(ret, 'doc')"
+                            style="height: 16px;width:16px;margin-top: 28px;">
+                        <input type="checkbox" *ngIf="deleteitem" (click)="toggleDelete(ret, 'doc')"
+                            style="height: 16px;width:16px;margin-top: 28px;">
+                        <td *ngIf="ret.documentType=='image/jpeg'||ret.documentType=='image/png'">
+                            <img src="{{ret.file}}" style="width:50px;height:40px;cursor: pointer;" data-toggle="modal"
+                                data-target="#content" (click)="ViewDoc(ret)" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+                        <td *ngIf="ret.documentType=='application/pdf'||ret.documentType=='pdf'"
+                            (click)="ViewDocument(ret)" data-toggle="modal" data-target="#pdftesting">
+                            <img src="assets/img/pdficon.png" style="width:35px;height:34px;cursor: pointer;" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+                        <td *ngIf="ret.documentType=='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || ret.documentType=='xlsx'"
+                            (click)="ViewxlsDoc(ret)" data-toggle="modal" data-target="#xlscontent">
+                            <img src="assets/img/xls.png" style="width:35px;height:34px;cursor: pointer;" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+                        <td *ngIf="ret.documentType=='application/vnd.openxmlformats-officedocument.presentationml.presentation' || ret.documentType=='ppt' ||ret.documentType=='pptx'"
+                            (click)="ViewPpt(ret)" data-toggle="modal" data-target="#pptcontent">
+                            <img src="assets/img/ppticon2.png" style="width:35px;height:34px;cursor: pointer;" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+                        <td *ngIf="ret.documentType=='video/mp4' || ret.documentType=='mp4'" (click)="ViewVideo(ret)"
+                            data-toggle="modal" data-target="#videocontent">
+                            <img src="assets/img/video.png" style="width:35px;height:34px;cursor: pointer;" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+                        <td *ngIf="ret.documentType=='application/vnd.openxmlformats-officedocument.wordprocessingml.document' || ret.documentType=='doc' || ret.documentType=='docx'"
+                            (click)="ViewDocumentword(ret)" data-toggle="modal" data-target="#pdftesting">
+                            <img src="assets/img/docx.png" style="width:35px;height:34px;cursor: pointer;" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+                        <td *ngIf="ret.documentType=='application/x-zip-compressed' ||ret.documentType=='zip' "
+                            (click)="Viewzip(ret)" data-toggle="modal" data-target="#Viewzip">
+                            <img src="assets/img/zip.jpg" style="width:35px;height:34px;cursor: pointer;" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+                        <td *ngIf="ret.documentType=='text/plain' || ret.documentType=='txt'"
+                            (click)="ViewDocumenttext(ret)" data-toggle="modal" data-target="#textfileview">
+                            <img src="assets/img/txt.png" style="width:35px;height:34px;cursor: pointer;" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+                        <td [hidden]="ret.documentType == 'text/plain' || ret.documentType == 'txt' || ret.documentType == 'application/x-zip-compressed' || ret.documentType == 'zip' || ret.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||ret.documentType == 'doc' || ret.documentType == 'docx' ||
+                    ret.documentType =='video/mp4'|| ret.documentType =='mp4' || ret.documentType =='application/vnd.openxmlformats-officedocument.presentationml.presentation'|| ret.documentType =='ppt'|| ret.documentType =='pptx'
+                    || ret.documentType =='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || ret.documentType =='xlsx' || ret.documentType =='application/pdf' || ret.documentType =='image/jpeg'|| ret.documentType =='image/png'||ret.documentType=='pdf'"
+                            (click)="Viewanyfile(ret)" data-toggle="modal" data-target="#Viewanyfile">
+                            <img src="assets/img/anyf1.png" style="width:35px;height:34px;cursor: pointer;" />
+                            <span style="cursor: pointer;">
+                                &nbsp;&nbsp;{{ret.documentName}}
+                            </span>
+                        </td>
+
+                        <td> {{ret.date | date:'short'}}</td>
+                        <td>{{ret.documentType}}</td>
+                        <td>
+                            <div ngbDropdown class="dropdown" placement="bottom-left">
+                                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-gear"
+                                        aria-hidden="true" style="cursor: pointer;"></i></a>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                                    <a class="dropdown-item" (click)="Delete(folderview)">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-md-1"></div>
+
+    </div>
+</div>
+
+
+
+<!-- IMAGE VIEW -->
+
+<div class="modal modal-angular fade" id="content" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>&nbsp;</div>
+                <h6 style="text-align: center;cursor: pointer;"> {{zzz.documentName}}</h6>
+                <h6 style="float:left;">Date &nbsp;: &nbsp;{{zzz.date | date:'short'}}</h6>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{zzz.file}}" class="img-responsive" alt="" style="height:300px;width:400px ">
+
+                <br /><br />
+                <div class="col-lg-12 row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-6">
+                        <a [href]="zzz.file"><button class="btn btn-info"><i
+                                    class="fa fa-download"></i>Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- PDF VIEW -->
+
+<div class="modal modal-angular fade" id="pdftesting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>&nbsp;</div>
+                <h6 style="text-align: center"> {{zzz.documentName}}</h6>
+                <h6 style="float:left;">Date &nbsp;: &nbsp;{{zzz.date | date:'short'}}</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <ngx-doc-viewer [url]="pdfUrl" viewer="google" style="width:100%;height:70vh;"></ngx-doc-viewer>
+                <br /><br />
+
+                <!-- <a [href]="pdfUrl"><button class="btn btn-info"><i class="fa fa-download"></i>Download</button> </a> -->
+
+                <div class="col-lg-12 row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-6">
+                        <a [href]="pdfUrl"><button class="btn btn-info"><i class="fa fa-download"></i>Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- TEXT FILE VIEW -->
+
+<div class="modal modal-angular fade" id="textfileview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>&nbsp;</div>
+                <h6 style="text-align: center"> {{zzz.documentName}}</h6>
+                <h6 style="float:left;">Date &nbsp;: &nbsp;{{zzz.date | date:'short'}}</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <ngx-doc-viewer [url]="txtUrl" viewer="google" style="width:100%;height:70vh;"></ngx-doc-viewer>
+                <br /><br />
+
+                <div class="col-lg-12 row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-6">
+                        <a [href]="txtUrl"><button class="btn btn-info"><i class="fa fa-download"></i>Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- DOCX VIEW -->
+
+<div class="modal modal-angular fade" id="pdfcontent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>&nbsp;</div>
+                <h6 style="text-align: center"> {{zzz.documentName}}</h6>
+                <h6 style="float:left;">Date &nbsp;: &nbsp;{{zzz.date | date:'short'}}</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <ngx-doc-viewer [url]="pdfUrl" viewer="google" style="width:100%;height:70vh;"></ngx-doc-viewer>
+                <br /><br />
+
+                <div class="col-lg-12 row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-6">
+                        <a [href]="pdfUrl"><button class="btn btn-info"><i class="fa fa-download"></i>Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="xlscontent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>&nbsp;</div>
+                <h6 style="text-align: center"> {{zzz.documentName}}</h6>
+                <h6 style="float:left;">Date &nbsp;: &nbsp;{{zzz.date | date:'short'}}</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <iframe
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQr43mmLOdZoy-EgkXcF_bahfs-uxtcvOXhEbnLtm-K2ubQjw8rGnv-z-9v8YL3SidA35WCpsmXaMnk/pubhtml?widget=true&amp;headers=false"></iframe>
+                <div class="col-lg-12 row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-7">
+                        <a href="{{pdfUrl.DocPath}}" download="{{Docname}}"><button class="btn btnprop"><i
+                                    class="fa fa-download"></i>Download</button> </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="pptcontent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>&nbsp;</div>
+                <h6 style="text-align: center"> {{zzz.documentName}}</h6>
+                <h6 style="float:left;">Date &nbsp;: &nbsp;{{zzz.date | date:'short'}}</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <ngx-doc-viewer [url]="pdfUrl.PdfPath" viewer="google" style="width:100%;height:70vh;"></ngx-doc-viewer>
+
+                <div class="col-lg-12 row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-7">
+                        <a href="{{pdfUrl.DocPath}}" download="{{Docname}}"><button class="btn btnprop"><i
+                                    class="fa fa-download"></i>Download</button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<br />
+<div class="modal modal-angular fade" id="videocontent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>&nbsp;</div>
+                <h6 style="text-align: center"> {{zzz.documentName}}</h6>
+                <h6 style="float:left;">Date &nbsp;: &nbsp;{{zzz.date | date:'short'}}</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <video controls #videoPlayer style=" height:350px; width:400px">
+                    <source src="{{videoplay}}" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br />
+<br />

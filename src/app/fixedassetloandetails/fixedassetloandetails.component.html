@@ -1,0 +1,2427 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+
+<mat-horizontal-stepper #stepper>
+    <!-- <mat-step>
+        <div>
+            <button mat-button matStepperPrevious></button>
+            <button mat-button (click)="stepper.reset()"></button>
+        </div>
+    </mat-step> -->
+</mat-horizontal-stepper>
+<mat-horizontal-stepper style="background-color: #c2b6b6;
+background-image: linear-gradient(315deg, #c2b6b6 0%, #576574 74%);
+" #stepper1>
+
+    <mat-step label="Step 1" state="details" style="text-align: center;    height: 96%;width: 136%;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+            <div class="col-md-1"></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10">
+
+                <div class="homecard" id="signin" align="center" style=" margin-left: 0px;margin-right: 0px;margin-top: 1%">
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Personal Details</h2>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-3 row" style="display: flex;">
+                                <label id="emaillabel">First Name : &nbsp;</label>&nbsp;{{fname}}
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Middle Name : &nbsp;</label>&nbsp;{{mname}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Last Name : &nbsp;</label>&nbsp;{{lname}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Place of Birth : &nbsp;</label>&nbsp;{{placebirth}}
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Gender : &nbsp;</label>&nbsp;{{gender}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Marital Status : &nbsp;</label>&nbsp;{{marital}}
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel "> Mobile Number : &nbsp;</label>&nbsp;{{mobile}}
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Date of Birth :
+                                    &nbsp;</label>&nbsp;{{dob | date : 'shortDate'}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Religion : &nbsp;</label>&nbsp;{{religion}}
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Caste : &nbsp;</label>&nbsp;{{caste}} Brahmin
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Qualification :
+                                    &nbsp;</label>&nbsp;{{qualification}}
+
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Occupation : &nbsp;</label>&nbsp;{{occupation}}
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-4 row ">
+                                <label id="emaillabel "> Email : &nbsp;</label>&nbsp;{{email}}
+
+                            </div>
+
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Designation : &nbsp;</label>&nbsp;{{designation}}
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <h3 style="font-family: DINNextRoundedLTPro;color: #2b156f; "> Residential Address</h3>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Postal Code : &nbsp;</label>&nbsp;{{rPostal}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Country : &nbsp;</label>&nbsp;{{rCountry}} India
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> State : &nbsp;</label>&nbsp;{{rState}}
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">District : &nbsp;</label>&nbsp;{{rDistrict}}
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Address one : &nbsp;</label>&nbsp;{{rAddress1}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Address two : &nbsp;</label>&nbsp;{{rAddress2}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-7 row ">
+                                <h3 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Permanent Address</h3>
+                            </div>
+                            <div class="col-md-1 row ">
+                            </div>
+                            <div class="col-md-2 row ">&nbsp;</div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Postal Code : &nbsp;</label>&nbsp;{{pPostal}}
+
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Country : &nbsp;</label>&nbsp;{{pCountry}} India
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel "> State : &nbsp;</label>&nbsp;{{pState}}
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">District : &nbsp;</label>&nbsp;{{pDistrict}}
+                                </div>
+
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">Address one : &nbsp;</label>&nbsp;{{pAddress1}}
+
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">Address two : &nbsp;</label>&nbsp;{{pAddress2}}
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <BR />
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditPersonalDetails()" id="signinbutton">Edit</button>
+                        </div>
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="signIn(stepper1)" id="signinbutton">NEXT</button>                        
+                        </div>
+
+                    </div>
+                    <!-- <button (click)="signIn(stepper1)" id="signinbutton">NEXT</button> -->
+                    <div class="col-md-12 row ">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step label="Step 2 " state="family" style="text-align: center; height: 96%; width: 136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center "
+                    style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Family Details</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">
+                        <div class="col-md-12 ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Family Type:</label> &nbsp;
+                                <!-- <span *ngIf="familyDetails?.familyTypeString == null">Extended Family</span> -->
+                                <span
+                                    *ngIf="familyDetails?.familyTypeString != null">{{familyDetails?.familyTypeString}}</span>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Number of Dependents:</label>&nbsp;
+                                <!-- <span
+                                *ngIf="familyDetails?.numberofDependents == null || familyDetails?.numberofDependents == undefined">2</span> -->
+                                <span
+                                    *ngIf="familyDetails?.numberofDependents != null">{{familyDetails.numberofDependents}}</span>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Number of Children:</label>&nbsp;
+                                <!-- <span
+                                *ngIf="familyDetails.numberofChildren == null || familyDetails.numberofChildren == undefined">3</span> -->
+                                <span
+                                    *ngIf="familyDetails.numberofChildren != null">{{familyDetails.numberofChildren}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Annual Income in Rs. :</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.annualIncomeAmount == null">25000</span> -->
+                                <span
+                                    *ngIf="familyDetails.annualIncomeAmount != null">{{familyDetails.annualIncomeAmount}}</span>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Income from Other sources in Rs. :</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.otherSourceAmount == null">1000</span> -->
+                                <span
+                                    *ngIf="familyDetails.otherSourceAmount != null">{{familyDetails.otherSourceAmount}}</span>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Total Annual Income:</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.totalAmount == null">270000</span> -->
+                                <span *ngIf="familyDetails.totalAmount != null">{{familyDetails.totalAmount}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <h3 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Minor Nominee</h3>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">First Name:</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.minorNomineeName == null">Raj</span> -->
+                                <span
+                                    *ngIf="familyDetails.minorNomineeName != null">{{familyDetails.minorNomineeName}}</span>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Middle Name:</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.minorNomineeDOB == null">Raj</span> -->
+                                <span
+                                    *ngIf="familyDetails.minorNomineeDOB != null">{{familyDetails.minorNomineeDOB|date}}</span>
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Last Name:</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.minorNomineeName == null">Raj</span> -->
+                                <span
+                                    *ngIf="familyDetails.minorNomineeName != null">{{familyDetails.minorNomineeName}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Postal
+                                    Code:</label>&nbsp;{{familyDetails.nomineePincode}}
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Country:</label>&nbsp;{{familyDetails.minorCountry}}
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> State:</label>&nbsp;{{familyDetails.minorState}}
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email "
+                                    id="emaillabel ">District:</label>&nbsp;{{familyDetails.minorDistrict}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Address Line One:</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.minorNomineeAddress == null">DIVYANKA, 2nd cross</span> -->
+                                <span
+                                    *ngIf="familyDetails.minorNomineeAddress != null">{{familyDetails.minorAddress1}}</span>
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Address Line Two:</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.minorNomineeAddress == null">3rd main</span> -->
+                                <span
+                                    *ngIf="familyDetails.minorNomineeAddress != null">{{familyDetails.minorAddress2}}</span>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                        </div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Guardian Name</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.minorNomineeAddress == null">DIVYANKA, 2nd cross</span> -->
+                                <span
+                                    *ngIf="familyDetails.minorNomineeAddress != null">{{familyDetails.guardianName}}</span>
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Relationship</label>&nbsp;
+                                <!-- <span *ngIf="familyDetails.minorNomineeAddress == null">3rd main</span> -->
+                                <span
+                                    *ngIf="familyDetails.minorNomineeAddress != null">{{familyDetails.minorAddress2}}</span>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                        </div>
+                        <div *ngIf="familydocsexist">
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Uploaded Documents</h4>
+
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <div class="col-md-12 row">
+                                <div class="col-md-1 row">&nbsp;</div>
+
+                                <div class="col-md-2 row" *ngFor="let item of familydocs">
+                                    <div *ngIf="item.documentType == 'image/jpeg' ||
+                                item.documentType == 'image/png'" (click)="ViewBankFamDoc(item)">
+                                        <img [src]="item.file" height="100" width="100" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.documentName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf=" (item.documentType == 'application/pdf' ||
+                                item.documentType == 'pdf')" (click)="ViewBankFamDoc(item)">
+                                        <img src="assets/img/pdficon.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.documentName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf=" (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                                item.documentType == 'xlsx')" (click)="ViewBankFamDoc(item)">
+                                        <img src="assets/img/xls.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.documentName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf=" (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                                item.documentType == 'doc' || item.documentType == 'docx')"
+                                        (click)="ViewBankFamDoc(item)">
+                                        <img src="assets/img/docx.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.documentName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                    </div>
+                    <br>
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button  (click)="EditFamilyDetails()" id="signinbutton">Edit</button>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="details(stepper1)"  id="signinbutton">NEXT</button>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step label="Step 3 " state="account" style="text-align: center; height: 96%; width: 136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center "
+                    style=" margin-left :  0px;margin-right :  0px;margin-top :  1% ">
+                    <h2 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; ">Bank Details</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="col-md-12 ">
+                        <div class="container" style="margin-top: 5%">
+
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Bank Account Type</th>
+                                        <th>Bank Name</th>
+                                        <th>Branch</th>
+                                        <th>IFSC Code</th>
+                                        <th>Cheque Facility</th>
+                                        <!-- <th>Loan Facility</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of bankdetails">
+                                        <td>{{data.banktypeid}}</td>
+                                        <td>{{data.bankname}} </td>
+                                        <td>{{data.branch}} </td>
+                                        <td>{{data.ifscecode}} </td>
+                                        <td>{{data.chequefacility}}</td>
+                                        <!-- <td>{{data.loanfacility}}</td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12 row ">
+
+
+                            <div class="col-md-12 ">&nbsp;</div>
+
+                            <div class="col-md-12 row ">&nbsp;</div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+                            <h3
+                                style="font-family: DINNextRoundedLTPro;color: #2b156f;text-align: center;    margin-left: 42%; ">
+                                Identity Details</h3>
+                            <div class="col-md-12 row ">&nbsp;</div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">Ration Card Number:</label>
+                                    &nbsp;{{userBankDetails.rationCardNum}}
+
+                                </div>
+
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Aadhar
+                                        Number:</label>&nbsp;{{userBankDetails.aadharNum}}
+
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Voter ID
+                                        Number:</label>&nbsp;{{userBankDetails.voterId}}
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">PAN Number:</label>&nbsp;{{userBankDetails.panNum}}
+
+                                </div>
+
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-4 row ">
+                                    <label for="Email " id="emaillabel ">Service Tax
+                                        Number:</label>&nbsp;{{userBankDetails.serviceTaxNum}}
+
+                                </div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Passport
+                                        Number:</label>&nbsp;{{userBankDetails.passportNum}}
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">Life Insurance
+                                        Value:</label>&nbsp;{{userBankDetails.lifeInsuranceValue}}
+
+                                </div>
+
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Is
+                                        Confirm:</label>&nbsp;{{userBankDetails.isConfirm}}
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+
+
+
+                            <BR />
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <h3 style="font-family: DINNextRoundedLTPro;color: #2b156f;margin-left: 15%; ">Uploaded
+                                Documents</h3> <br>
+                            <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;margin-left: 15%; ">Download
+                                Documents</h5> <br>
+
+                            <ol>
+                                <li *ngIf="userBankDetails.aadharFile"><a
+                                        href="{{userBankDetails.aadharFile}}">Aadhar</a></li>
+                                <li *ngIf="userBankDetails.bankStatements"><a
+                                        href="{{userBankDetails.bankStatements}}">Bank Statement</a></li>
+                                <li *ngIf="userBankDetails.gstCert"><a href="{{userBankDetails.gstCert}}">GST</a></li>
+                                <li *ngIf="userBankDetails.itReturnsFile"><a
+                                        href="{{userBankDetails.itReturnsFile}}">ITR</a></li>
+                                <li *ngIf="userBankDetails.passportFile"><a
+                                        href="{{userBankDetails.passportFile}}">Passport</a></li>
+                              
+                                <li *ngIf="userBankDetails.voterIdFile"><a href="{{userBankDetails.voterIdFile}}">Voter
+                                        ID</a></li>
+
+                            </ol>
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <div class="col-md-2 row" *ngFor="let item of bankdocs">
+                                <div *ngIf="item.documentType == 'image/jpeg' ||
+                                item.documentType == 'image/png'" (click)="ViewBankFamDoc(item)">
+                                    <img [src]="item.file" height="100" width="100" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.documentName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf=" (item.documentType == 'application/pdf' ||
+                                item.documentType == 'pdf')" (click)="ViewBankFamDoc(item)">
+                                    <img src="assets/img/pdficon.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.documentName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf=" (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                                item.documentType == 'xlsx')" (click)="ViewBankFamDoc(item)">
+                                    <img src="assets/img/xls.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.documentName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf=" (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                                item.documentType == 'doc' || item.documentType == 'docx')"
+                                    (click)="ViewBankFamDoc(item)">
+                                    <img src="assets/img/docx.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.documentName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                    </div>
+                    <br>
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditBankDetails()" id="signinbutton">Edit</button>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="bankIn(stepper1)" id="signinbutton">NEXT</button>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step label="Step 4 " state="homei" style="text-align :  center; height :  96%; width :  136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center " style=" margin-left :  0px;margin-right :  0px;margin-top :  1% ">
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <h2 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; ">Asset Details</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="container" style="margin-top :  5%">
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Fixed Asset</th>
+                                    <th>Location with Address</th>
+                                    <th>Measurement</th>
+                                    <th>Guidance Value</th>
+                                    <th>Present Value</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of fixedassetDetails.fixedAssets;let i = index" style="font-size : 16px;font-family : DINNextRoundedLTPro ">
+                                    <td>
+                                        {{data.fixedAssetId}}
+                                    </td>
+                                    <td>{{data.placeallocation}}</td>
+
+                                    <td>{{data.measurement}}</td>
+                                    <td>{{data.giidancevalue}}</td>
+                                    <td>{{data.presentvalue}}</td>
+                                    <td>{{data.total}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="container" style="margin-top :  5%">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Movable Asset</th>
+                                    <th>Model</th>
+                                    <th>Date Of Purchase</th>
+                                    <th>Quantity</th>
+                                    <th>Present Value</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let dat of fixedassetDetails.movableAssets;let i = index" style="font-size : 16px;font-family : DINNextRoundedLTPro ">
+                                    <td>
+                                        {{dat.movableAssetId}}
+                                    </td>
+                                    <td>{{dat.model}}</td>
+                                    <td>{{dat.dateofpurchase|date}}</td>
+                                    <td>{{dat.quantity}}</td>
+                                    <td>{{dat.prevalues}}</td>
+                                    <td>
+                                        {{dat.cartotal}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditHomeVehicleDetails()"  id="signinbutton">Edit</button>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="homeIn(stepper1)" id="signinbutton">NEXT</button> 
+                        </div>
+
+                    </div>
+                    <!-- <button (click)="homeIn(stepper1)" id="signinbutton">NEXT</button> -->
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+    <mat-step label="Step 5" state="fixedasset" style="text-align: center; height: 96%; width: 136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center " style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Fixed Asset Loann</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Measurement</h4>
+
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">East to West(in ft/Mts): {{fixedAssetLoanDetails.easttowest}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">North to south (in ft/Mts): {{fixedAssetLoanDetails.northtosouth}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">North: {{fixedAssetLoanDetails.north}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">South: {{fixedAssetLoanDetails.south}}</label>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">East: {{fixedAssetLoanDetails.east}}</label>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">West: {{fixedAssetLoanDetails.west}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-9 row ">
+                            <label id="emaillabel ">Present value of property as estimated by the
+                                applicant(valuation should be realistic): {{fixedAssetLoanDetails.repaying}}</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Is the property self-acquired or ancestral: {{fixedAssetLoanDetails.ancestral}}</label>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Is the property encumbered; if so, to whom and to what
+                                extent: {{fixedAssetLoanDetails.encumbered}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-9 row ">
+                            <label id="emaillabel ">Had the property been mortgaged on previous occasion, if so
+                                furnish details: {{fixedAssetLoanDetails.bank}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Since how long the applicant is in enjoyment of the
+                                property: {{fixedAssetLoanDetails.outstanding}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Name(s) of tenants (if any) and monthly
+                                rent: {{fixedAssetLoanDetails.value}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Source of Income (monthly)(for salary earners)
+                    </h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Applicant: </h4>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Gross salary Rs: {{fixedAssetLoanDetails.purchased}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Deductions Rs: {{fixedAssetLoanDetails.deductions}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Net Salary Rs: {{fixedAssetLoanDetails.salary}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; "> Applicant's Spouse:</h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Gross salary Rs: {{fixedAssetLoanDetails.purchased}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Deductions Rs: {{fixedAssetLoanDetails.inclusive}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Net Salary Rs: {{fixedAssetLoanDetails.satory}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">(Indicate only if documentary evidence is produced)</h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Income from other Source: {{fixedAssetLoanDetails.incomesource}}</label>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Loan Amount: {{fixedAssetLoanDetails.allowance}}</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-9 row ">
+                            <label id="emaillabel ">Source of Income (for self employed and others)[furnish full
+                                particulars with documentary evidence]: {{fixedAssetLoanDetails.allowance}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Is the applicant Income Tax / Sales Tax assessee: {{fixedAssetLoanDetails.payment}}</label>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Details of other immovable properties: {{fixedAssetLoanDetails.properties}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-9 row ">
+                            <label for="Email " id="emaillabel ">Average Monthly expenses of Applicant and his
+                                dependents: {{fixedAssetLoanDetails.delivery}}</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; "> Name and age of near relatives living
+                    </h4>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Father Name: {{fixedAssetLoanDetails.applicant}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Father Age: {{fixedAssetLoanDetails.fatherage}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Mother Name: {{fixedAssetLoanDetails.mother}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Mother Age: {{fixedAssetLoanDetails.motherage}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Husband/Wife Name: {{fixedAssetLoanDetails.husband}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Husband/Wife Age: {{fixedAssetLoanDetails.wife}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Sons Name: {{fixedAssetLoanDetails.sons}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Sons Age: {{fixedAssetLoanDetails.sonsage}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Daughters Name: {{fixedAssetLoanDetails.daughters}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Daughters Age: {{fixedAssetLoanDetails.daughterage}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Brothers Name: {{fixedAssetLoanDetails.brothers}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Brothers Age: {{fixedAssetLoanDetails.brotherage}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Sisters Name: {{fixedAssetLoanDetails.sisters}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Sisters Age: {{fixedAssetLoanDetails.sisterage}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Grandsons Name: {{fixedAssetLoanDetails.grandsons}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Grandsons Age: {{fixedAssetLoanDetails.grandsonage}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Brother's son Name: {{fixedAssetLoanDetails.brotherson}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Brother's son Age: {{fixedAssetLoanDetails.brothersonage}}</label>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">If applicant is female Her husband's coparceners &
+                                heirs her father's coparceners & heirs: {{fixedAssetLoanDetails.balance}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Relatives who have an interest in the property (in
+                                case of H.U.F. property): {{fixedAssetLoanDetails.assessee}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Name of widows, minors and othe entitled to maintenance from the
+                                property: {{fixedAssetLoanDetails.earning}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Details of family members who can supplement the
+                                applicant's income for repayment of loan: {{fixedAssetLoanDetails.modelname}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Information Regarding Repayment Of Debts - I</h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Debts incurred in connection with
+                    </h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">a) Construction/Additional loan/Repairs of house Rs: {{fixedAssetLoanDetails.employed}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">House Purchase/Site Purchase Rs.: {{fixedAssetLoanDetails.finishloan}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">1)Date of completion of construction: {{fixedAssetLoanDetails.concern}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">2)Total construction area: {{fixedAssetLoanDetails.located}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">3)Total amount spent on construction Rs.: {{fixedAssetLoanDetails.activity}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">b) Ceremonial Expenses such as Marriages, etc. Rs: {{fixedAssetLoanDetails.under}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Medical (Furnish details) Rs: {{fixedAssetLoanDetails.annualincome}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">d) Educational (Furnish details) Rs: {{fixedAssetLoanDetails.borrower}}</label>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; "> Parties to whom debt to be repayed in full and final settlement</h4>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Name of the party: {{fixedAssetLoanDetails.registration}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Amount: {{fixedAssetLoanDetails.authorised}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Whether documentary evidence is available to
+                                establish borrowings? If so, furnish details: {{fixedAssetLoanDetails.towards}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Whether direct payment can be made to parties concerned: {{fixedAssetLoanDetails.property}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Information Regarding Details of Business - II</h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Name of the business concern: {{fixedAssetLoanDetails.benefit}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Nature of business: {{fixedAssetLoanDetails.relationship}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Year of establishment: {{fixedAssetLoanDetails.course}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Licenses/registration certificate obtained
+                                in: {{fixedAssetLoanDetails.obtained}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Connection with business furnish details: {{fixedAssetLoanDetails.evidence}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Are you an IT Assessee if so: {{fixedAssetLoanDetails.deposite}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Pan No. & Return submitted upto: {{fixedAssetLoanDetails.additional}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Annual turnover for the year: {{fixedAssetLoanDetails.account}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Enclose the B/s - P & I: {{fixedAssetLoanDetails.membership}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel "> Present Banker: {{fixedAssetLoanDetails.numbersb}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">How the loan is proposed to be utilised in: {{fixedAssetLoanDetails.proposed}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Business activity: {{fixedAssetLoanDetails.officedata}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">No. of Months required for repayment of
+                                loan: {{fixedAssetLoanDetails.Department}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Take Over Of Liability - III</h4>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Name of the Institution where the loan is: {{fixedAssetLoanDetails.income}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Outstanding and amount O/S, EMI Amount: {{fixedAssetLoanDetails.operative}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Mode of payment of loan EMI: {{fixedAssetLoanDetails.board}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Whether Paid up-to date: {{fixedAssetLoanDetails.salary}}</label>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Whether the application has any other liability
+                                with the present situation: {{fixedAssetLoanDetails.domestic}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Whether NOC is obtained from the present
+                                Institution: {{fixedAssetLoanDetails.institution}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Whether authenticated copies of the documents are obtained for
+                                submission to legal scrutiny: {{fixedAssetLoanDetails.copies}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Whether direct payment to be made to the: {{fixedAssetLoanDetails.made}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Present Mortgagor: {{fixedAssetLoanDetails.mortgagor}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Higher Education - IV</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel ">Name of the person and relation for whom the loan is proposed to
+                                be utilised and the details of the course of the education: {{fixedAssetLoanDetails.whom}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-9 row ">
+                            <label id="emaillabel ">Total period of education and details of the course Fees, Hostel
+                                charges, Capitation Fees etc: {{fixedAssetLoanDetails.fees}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-9 row ">
+                            <label id="emaillabel ">Whether undertaking letter from the student about completion of
+                                course and employment particulars is obtained: {{fixedAssetLoanDetails.letter}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel ">Whether undertaking letters from the parent about the place of
+                                employment of the candidate from time to time is obtained: {{fixedAssetLoanDetails.candidate}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Information Regarding Details of Construction- V</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-6 row ">
+                            <label id="emaillabel ">Address of the property: {{fixedAssetLoanDetails.proaddress}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Measurement of site</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">East to West: {{fixedAssetLoanDetails.etow}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> North to South: {{fixedAssetLoanDetails.ntos}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Total area(in Sqft.): {{fixedAssetLoanDetails.area}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Existing Construction in Squares: {{fixedAssetLoanDetails.squares}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Proposed Construction: {{fixedAssetLoanDetails.construction}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Total area of construction (Sqt.): {{fixedAssetLoanDetails.totalarea}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Class of construction: {{fixedAssetLoanDetails.classfield}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Cost of construction per square: {{fixedAssetLoanDetails.persquare}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Total estimate of construction: {{fixedAssetLoanDetails.estimate}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Cost of construction in stages</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">a. Foundation Rs: {{fixedAssetLoanDetails.foundation}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">b. Basement Lintel & Roofing Rs: {{fixedAssetLoanDetails.roofing}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">c. Electrical, sanitary, water supply & plasting: {{fixedAssetLoanDetails.sanitary}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">d. Flooring and final finish: {{fixedAssetLoanDetails.flooring}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Present state of constructions: {{fixedAssetLoanDetails.presentstate}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Amount spent so for on construction:
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">a. On building Rs: {{fixedAssetLoanDetails.building}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">b. Value of stock Rs: {{fixedAssetLoanDetails.stock}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> Source of Funds</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">a. By savings Rs: {{fixedAssetLoanDetails.savings}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">b. By hand loans Rs: {{fixedAssetLoanDetails.hand}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">c. From other financial Institutions Rs: {{fixedAssetLoanDetails.financial}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">d. Refundable provident fund loan Rs: {{fixedAssetLoanDetails.refundable}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">e. Non-refundable provident fund loan Rs: {{fixedAssetLoanDetails.fundpro}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">f. Others if any Rs: {{fixedAssetLoanDetails.others}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">g. By loan from this bank Rs: {{fixedAssetLoanDetails.bankfrom}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">h. Other loan like Credit Card, Loans for consumer durable etc.
+                                Rs: {{fixedAssetLoanDetails.durable}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Loans for consumer durable etc Rs: {{fixedAssetLoanDetails.consumer}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Whether you are residing in a rental house, if so, what is the
+                                monthly rent paid?: {{fixedAssetLoanDetails.rental}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">a. Is the house for self-occupation or for letting out?
+                                Rs: {{fixedAssetLoanDetails.house}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">b. If for letting out, what is the rent expected? Area of
+                                letting out in Sft. Rs: {{fixedAssetLoanDetails.expected}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">c. What is the house advance expected Rs: {{fixedAssetLoanDetails.advance}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-6 row ">
+                            <label id="emaillabel ">If you are unable to complete construction within the estimated
+                                value due to rise in cost of building materials, how you propose to complete
+                                construction ? Rs: {{fixedAssetLoanDetails.unable}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">What is the escalation in estimated value of construction is
+                                expected ? Rs: {{fixedAssetLoanDetails.escalation}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Accumulation of Provident fund amount & the amount of
+                                non-refundable fund, you are entitled for Rs.: {{fixedAssetLoanDetails.accumulation}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Purchasing House/Site </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Name of the Present Owner: {{fixedAssetLoanDetails.preowner}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Full address of Property under purchase: {{fixedAssetLoanDetails.purchase}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Area coming under: {{fixedAssetLoanDetails.coming}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> Area</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Land: {{fixedAssetLoanDetails.land}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Building: {{fixedAssetLoanDetails.builds}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Squares: {{fixedAssetLoanDetails.squaresed}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Agreed to purchase price Rs: {{fixedAssetLoanDetails.agreed}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Advance paid Rs: {{fixedAssetLoanDetails.paid}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Whether sale agreement entered into: {{fixedAssetLoanDetails.entered}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Balance proposed to be paid by: {{fixedAssetLoanDetails.proposedata}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> Probable date of registration and amount Rs.</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Date: {{fixedAssetLoanDetails.probable}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Rs: {{fixedAssetLoanDetails.amtrs}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> Class/School/College/in which children are studying</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Name: {{fixedAssetLoanDetails.children}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Class: {{fixedAssetLoanDetails.classdata}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">School/College: {{fixedAssetLoanDetails.schcolg}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Whether owning moped/motorcycle/scooter/car, if yes, Reg.
+                                No: {{fixedAssetLoanDetails.moped}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-6 row ">
+                            <label id="emaillabel ">monthly reimbursement of conveyance expenses rent / provision by
+                                the employer, availed by the applicant, if any, furnish details: {{fixedAssetLoanDetails.conveyance}}</label>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> Other Income</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">a. Rent: {{fixedAssetLoanDetails.rent}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Annual Income Rs: {{fixedAssetLoanDetails.annualin}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Monthly Income: {{fixedAssetLoanDetails.monthly}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">b.Agriculture: {{fixedAssetLoanDetails.agriculture}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Annual Income Rs: {{fixedAssetLoanDetails.incant}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Monthly Income: {{fixedAssetLoanDetails.monthinc}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">c. Interest on Investment: {{fixedAssetLoanDetails.investment}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Annual Income Rs: {{fixedAssetLoanDetails.annualcant}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Monthly Income: {{fixedAssetLoanDetails.monthdata}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">d. Any other source of income: {{fixedAssetLoanDetails.ontherdata}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Annual Income Rs: {{fixedAssetLoanDetails.amout}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Monthly Income: {{fixedAssetLoanDetails.incomedata}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Income of other members of the family
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 5%;"> Person 1
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.person}}
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.personone}}
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.persondata}}
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 5%;"> Person 2
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.persontwo}}
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.persontwodta}}
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.pertwodta}}
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 5%;"> Person 3
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.personthree}}
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.personthredta}}
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            {{fixedAssetLoanDetails.personval}}
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Monthly Family maintences Expenses
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">a) Rent in respect of the residential premises: {{fixedAssetLoanDetails.respect}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">b) Provisions, milk, electricity, water,gas,vegetables and
+                                household expenses: {{fixedAssetLoanDetails.household}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">c) Education expenses: {{fixedAssetLoanDetails.education}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">d) Conveyance expenses petrol, insurance, tax: {{fixedAssetLoanDetails.petrol}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">e) Telephone expenses: {{fixedAssetLoanDetails.telephone}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">f) Entertainment expenses: {{fixedAssetLoanDetails.entertainment}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">g) Repayment of loan(E.M.I. for existing Loan): {{fixedAssetLoanDetails.repayment}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Monthly income: {{fixedAssetLoanDetails.monthcome}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Monthly Total Expenditure: {{fixedAssetLoanDetails.expenditure}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Excess of income over Expenditure: {{fixedAssetLoanDetails.over}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Amount of loan applied for: {{fixedAssetLoanDetails.applied}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> E.M.I for the recommended loan: {{fixedAssetLoanDetails.recommended}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Scrutiny Sheet </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Present Repayment commitment p.m: {{fixedAssetLoanDetails.commitment}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Comment about repayment or existing Loan/Previous Loan: {{fixedAssetLoanDetails.about}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-6 row ">
+                            <label id="emaillabel "> Comments regarding method of Creation of charge like mortgage,
+                                lein, Assignment, etc. on the security(for existing loan): {{fixedAssetLoanDetails.regarding}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Applicant employed at: {{fixedAssetLoanDetails.employeee}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-6 row ">
+                            <label id="emaillabel ">Comments about SB / C A/c operation Transaction, Minimum
+                                balance, Return of cheques: {{fixedAssetLoanDetails.cheques}}</label>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel "> Period of service left over: {{fixedAssetLoanDetails.left}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Whether applicant is drawing salary through the bank/arrangement
+                                for salary remittance is made: {{fixedAssetLoanDetails.arrangement}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Business particulars in the case of Applicant being a
+                                Businessmen: {{fixedAssetLoanDetails.casefield}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">i) Details of financial accounts submitted: {{fixedAssetLoanDetails.details}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">ii) Details of Income proof submitted Income per annum: {{fixedAssetLoanDetails.annum}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Name of Co-obligant(s) & M.No: {{fixedAssetLoanDetails.obligant}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Co-obligant(s) employed at: {{fixedAssetLoanDetails.employedat}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Co-obligant Net Salary: {{fixedAssetLoanDetails.net}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> comment about Co-obligant if any: {{fixedAssetLoanDetails.comment}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-8 row ">
+                            <label id="emaillabel ">Whether Co-obligant is drawing salary through the
+                                bank/arrangement for salary remittance is made: {{fixedAssetLoanDetails.remittance}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Credit Appraisal Report </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Legal Opinion: {{fixedAssetLoanDetails.legal}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Legal Opinion obtained from: {{fixedAssetLoanDetails.opinion}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Valuation-Report obtained from: {{fixedAssetLoanDetails.report}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Value of site/Value of existing house: {{fixedAssetLoanDetails.existing}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Estimation for Construction / Renovation: {{fixedAssetLoanDetails.renovation}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Eligibility of loan as per loan Rule No: {{fixedAssetLoanDetails.eligibility}}</label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> A.O. / Branch Copy</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Committee Resolution Dated: {{fixedAssetLoanDetails.resolution}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Loan Sanctioned Rs: {{fixedAssetLoanDetails.sanctioned}}</label>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel "> Conditions of sanction: {{fixedAssetLoanDetails.conditions}}</label>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Compliance to post sanction / disbursement formalities: {{fixedAssetLoanDetails.formalities}}</label>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <!-- <button (click)="fixedassetloan(stepper1)" id="signinbutton">NEXT</button> -->
+
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditfixedAssetLoanDetails()" id="signinbutton">Edit</button>
+                        </div>
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="fixedassetloan(stepper1)" id="signinbutton">NEXT</button>                     
+                        </div>
+                    </div>
+
+
+                    <br /><br /><br /><br />
+
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+
+
+    <mat-step label="Step 6" state="Certificates" style="text-align: center; height: 96%; width: 136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center "
+                    style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                    <div *ngIf="certificatesexist">
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Uploaded Documents</h4>
+
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <div class="col-md-12 row">
+                            <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                            <div class="col-md-4 row" *ngFor="let item of CertificateDisplay">
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'image/jpeg' ||
+                             item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                    <img [src]="item.certificate" height="100" width="100" />
+                                    <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/pdf' ||
+                             item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/pdficon.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                             item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/xls.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                             item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/docx.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">&nbsp;</div>
+
+                        <div *ngIf="enableothercertificates">
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Other Uploaded Documents</h4>
+
+                            <div class="col-md-12 row">
+
+                                <div class="col-md-3 row" *ngFor="let item of allcertificates">
+                                    <div *ngIf="item.actualCertificateName!=null  && (item.documentType == 'image/jpeg' ||
+                             item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                        <img [src]="item.certificate" height="100" width="100" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/pdf' ||
+                             item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/pdficon.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                             item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/xls.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                             item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/docx.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 row" *ngIf="!showapprove">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div class="col-md-2">&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div class="col-md-8 row card">
+                            <br />
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <label for="amountPerYear">Select Group/Customer</label>
+                                <select (change)="onselecttouser($event.target.value)" class="form-control">
+                                    <option selected="selected" value="">Select Here</option>
+                                    <option selected="selected" value="1">Customer</option>
+                                    <option selected="selected" value="2">Group</option>
+                                </select>
+                            </div>
+                            <br /><br />
+                            <div class="row" *ngIf="operation == '1'" style="margin-top: -8%;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <br />
+                                    <label for="amountPerYear">Select Status</label>
+                                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                                        <option value="">Select Status</option>
+                                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                                            {{do.workflowStateName}}
+                                        </option>
+                                    </select>
+                                    <br /><br />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" *ngIf="operation == '1'">
+                                <br />
+                                <div>
+                                    <label for="amountPerYear">Comments</label>
+                                    <textarea type="text" class="form-control" placeholder="Enter Your Comments"
+                                        name="comments" [(ngModel)]="comments"></textarea>
+                                </div>
+                                <br /><br />
+                                <div>
+                                    <label for="amountPerYear">Upload File</label>
+                                    <input type="file" (change)="onChangeApproveFiles($event)" />
+                                </div>
+                                <br /><br />
+                                <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                                    (click)="SendVerificationtoCustomer()" style="width: 50%;">Send</button>
+                                <br /><br />
+                            </div>
+
+                            <div class="row" *ngIf="operation == '2'" style="margin-top: -8%;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <br />
+                                    <label for="amountPerYear">Select Status</label>
+                                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                                        <option value="">Select Status</option>
+                                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                                            {{do.workflowStateName}}
+                                        </option>
+                                    </select>
+                                </div><br />
+
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" *ngIf="operation == '2'">
+                                <br />
+                                <div>
+                                    <label for="amountPerYear">Comments</label>
+                                    <textarea type="text" class="form-control" placeholder="Enter Your Comments"
+                                        name="comments" [(ngModel)]="comments"></textarea>
+                                </div>
+                                <br /><br />
+                                <div>
+                                    <label for="amountPerYear">Upload File</label>
+                                    <input type="file" (change)="onChangeApproveFiles($event)" />
+                                </div>
+                                <br /><br />
+                                <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                                    (click)="SendVerificationtoApprover()" style="width: 50%;">Send</button>
+                                <br /><br />
+                            </div>
+
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditCertificatesDetails()" id="signinbutton">Edit</button>
+                        </div>
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button *ngIf="showapprove" type="button" (click)="approve()" id="signinbutton">Approve</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+    </mat-step>
+    <br /><br /><br /><br /> <br />
+
+
+    <!-- Icon overrides. -->
+    <!-- #docregion override-icons -->
+    <ng-template matStepperIcon="details">
+        <mat-icon>account_circle</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="family">
+        <mat-icon>family_restroom</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="account">
+        <mat-icon>account_balance</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="homei">
+        <mat-icon>home</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="fixedasset">
+        <mat-icon>business</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="fixedasset">
+        <mat-icon>money</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="upload">
+        <mat-icon>cloud_upload</mat-icon>
+    </ng-template>
+</mat-horizontal-stepper>

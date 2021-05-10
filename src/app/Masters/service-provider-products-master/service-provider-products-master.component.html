@@ -1,0 +1,218 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<h2 style="text-align:center">Service Provider Products</h2>
+<div class="row col-sm-12">
+    <div class="col-sm-9"></div>
+    <div class="col-sm-2">
+        <button style="background-color: green" class="btn btn-success" data-toggle="modal" data-target="#basicExample"
+            mdbWavesEffect (click)="addClick()">
+            Add
+        </button>
+    </div>
+</div><br />
+<div class="col-md-12 row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="table-responsive">
+            <div>
+                <table class="table table-bordered" style="border-collapse: collapse;">
+                    <tr style="font-size:17px">
+                        <th>Sl No</th>
+                        <th>Service Provider</th>
+                        <th>Product Type</th>
+                        <th>Sub Product Name </th>
+                        <th>Service Provider Products</th>
+                        <th>Product Image</th>
+                        <!-- <th>Download</th> -->
+                        <th>Product Description</th>
+                        <th>Created By</th>
+                        <th>Created On</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr *ngFor="let aa of providers | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                        style="font-size:16px;font-family:DINNextRoundedLTPro ">
+                        <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                        <td>{{aa.serviceProviderId}}</td>
+                        <td>{{Getproduct(aa.productId)}}</td>
+                        <td>{{Getsubproductdata(aa.subproductId)}}</td>
+                        <td>{{aa.productName}}</td>
+                        <td>
+                            <div *ngIf="aa.productImg!=null  && (aa.productImgFileType == 'image/jpeg' ||
+                            aa.productImgFileType == 'image/png'||aa.productImgFileType == 'png'||aa.productImgFileType == 'Png')">
+                                <img src={{aa.productImg}} style="width: 100px; height: 100px; cursor: pointer;" />
+                            </div>
+                            <div *ngIf="(aa.productImg!=null) && (aa.productImgFileType == 'application/pdf' ||
+                            aa.productImgFileType == 'pdf')">
+                                <img src="assets/img/pdficon.png"
+                                    style="width: 100px; height: 100px; cursor: pointer;" />
+
+                            </div>
+                            <div *ngIf="(aa.productImg!=null) && (aa.productImgFileType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                            aa.productImgFileType == 'xlsx')">
+                                <img src="assets/img/xls.png" style="width: 100px; height: 100px; cursor: pointer;" />
+
+                            </div>
+                            <div *ngIf="(aa.productImg!=null) && (aa.productImgFileType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                            aa.productImgFileType == 'doc' || aa.productImgFileType == 'docx')">
+                                <img src="assets/img/docx.png" style="width: 100px; height: 100px; cursor: pointer;" />
+
+                            </div>
+                        </td>
+                        <!-- <td><a href="{{aa.productImg}}">Download</a></td> -->
+                        <td>
+                            <button style="background-color:#ff8000 " class="btn btn-success" data-toggle="modal" (click)="downloadfile(aa)">
+                                Download
+                            </button>
+                        </td>
+                        <td>{{aa.createdBy}}</td>
+                        <td>{{aa.createdOn|date:'short'}}</td>
+                        <td>
+                            <button style="background-color:#ff8000 " class="btn btn-success" data-toggle="modal"
+                                data-target="#basicExample" mdbWavesEffect (click)="editRole(aa)">
+                                Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteExample"
+                                mdbWavesEffect (click)="deleteserviceproduct(aa)">Delete</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br />
+        <pagination-controls (pageChange)="p = $event" style="float: right"></pagination-controls>
+        <br /><br />
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center"> Service Provider Products
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <form #subproductForm="ngForm">
+                    <div class="col-md-12 row">
+                        <div class="form-horizontal container">
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="padding-top: 13px;color: black">Service Provider
+                                    Type:</label>
+                                <div class="col-md-8">
+                                    <select (change)="onSelectservice($event.target.value)" class="form-control">
+                                        <option value="">Select Service Provider</option>
+                                        <option *ngFor="let do of Services" value={{do.id}}>
+                                            {{do.middleName}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div> <br />
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="padding-top: 13px;color: black">Product Type:</label>
+                                <div class="col-md-8">
+                                    <select (change)="onSelectproduct($event.target.value)" class="form-control">
+                                        <option value="">Select Product Type</option>
+                                        <option *ngFor="let do of products" value={{do.id}}>
+                                            {{do.productName}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div> <br /><br />
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="padding-top: 13px;color: black">Sub Product Type:</label>
+                                <div class="col-md-8">
+                                    <select (change)="onSelectsubproduct($event.target.value)" class="form-control">
+                                        <option value="">Select Sub Product Type</option>
+                                        <option *ngFor="let do of subproduct" value={{do.id}}>
+                                            {{do.subProductName}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div> <br />
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Product Name :</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="providername" name="providername"
+                                        placeholder="Enter Service Provider Name " [(ngModel)]="providername" />
+                                </div>
+                            </div><br />
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Product Image :</label>
+                                <div class="col-md-8">
+                                    <input #fileInput type="file" class="form-control" accept="image/*"
+                                        (change)="onChangeproductlogo($event)" />
+                                </div>
+                            </div><br />
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Product Description :</label>
+                                <div class="col-md-8">
+                                    <input #fileInput type="file" class="form-control"
+                                        (change)="onChangeproductdescription($event)" />
+                                </div>
+                            </div><br />
+                            <br />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-sm waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+                <button data-dismiss="modal" *ngIf="showSave" type="submit" class="btn btn-success btn-sm waves-light"
+                    mdbWavesEffect (click)="saveproductsdata(subproductForm)">Save</button>
+                <button data-dismiss="modal" *ngIf="showUpdate" type="submit" class="btn btn-success btn-sm waves-light"
+                    (click)="Updateproduct(subproductForm)">Update </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="deleteExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">Delete Service Provider </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body text-center">
+                <h3 style="text-align: center">Are you sure to delete..??</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal" mdbWavesEffect>Close</button>
+                <button data-dismiss="modal" type="submit" style="background-color: red" class="btn btn-danger"
+                    (click)="deleteserviceproductRow()" mdbWavesEffect>Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<!-- notification alert -->
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-4" *ngIf="dismissalert">
+        <div class="alert alert-info"
+            style="background-color: #545353;box-shadow: none;left: 245px; position: fixed;top: 550px;width: 350px;">
+            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="material-icons" style="color: white">close</i>
+            </button>
+            <span style="color: white;margin-top: 6px;">
+                <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+        </div>
+    </div>
+</div>

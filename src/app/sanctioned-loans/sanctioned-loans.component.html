@@ -1,0 +1,218 @@
+<app-header></app-header><br />
+<br /><br /><br />
+<br />
+<div class="container">
+
+    <div class="col-md-12 row">
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div class="col-md-2">&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div class="col-md-8 row card">
+
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="amountPerYear">Select Status</label>
+                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+            <option value="">Select Status</option>
+            <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+              {{do.workflowStateName}}
+            </option>
+          </select>
+                    <br /><br />
+                    <div class="col-md-12 row">
+                        <div class="col-md-10"></div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary waves-light" mdbWavesEffect (click)="SaveLoanDocumentationWrkflwDetails()">Send</button>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="amountPerYear">Comments</label>
+                    <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments" [(ngModel)]="comments"></textarea>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="text-align: center;">Documentation for Sanctioned Loans</h3>
+                </div>
+                <br />
+                <div class="panel-body">
+                    <div class="bodyTest">
+                        <form class="">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- first name input-->
+                                    <div class="form-group">
+                                        <label for="firstname" class="control-label">Loan ID</label>
+                                        <div class="">
+                                            <input id="loanid" name="loanid" readonly type="text" autocomplete="first-name" [(ngModel)]="loanid" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Customer ID
+                    </label>
+                                        <div class="">
+                                            <input id="customerid" name="customerid" type="text" [(ngModel)]="customerid" readonly autocomplete="last-name" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Customer Name</label>
+                                        <div class="">
+                                            <input id="firstname" name="firstname" type="text" [(ngModel)]="firstname" readonly autocomplete="last-name" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Sanctioned Amount</label>
+                                        <div class=""><br/>
+                                            <span style="display: flex;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input id="sanctionedamount" name="sanctionedamount" type="text" [(ngModel)]="sanctionedamount"
+                        autocomplete="last-name"  style=" margin-top: -2%;" class="form-control" /></span>
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Date of Sanctioned</label>
+                                        <div class="">
+                                            <input id="dateofsanctioned" name="dateofsanctioned" type="date" [(ngModel)]="dateofsanctioned" autocomplete="last-name" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname" class="control-label">Loan Type</label>
+                                        <div class="">
+                                            <input id="loantype" name="loantype" type="text" [(ngModel)]="loantype" autocomplete="last-name" class="form-control" />
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br /><br />
+                            <div class="col-md-12 row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <h3 style="text-align: center;">Documents</h3><br>
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>Document Name</th>
+                                            <!-- <th>View</th> -->
+                                            <th>Download</th>
+                                        </tr>
+                                        <tr *ngIf="this.CusomerDocuments.aadharFile != 'null'">
+                                            <td>Aadhar Card</td>
+                                            <!-- <td>
+                        <button type="button" class="btn btn-info"  (click)="viewdocument(1)">
+                          View Document
+                        </button>
+                      </td> -->
+                                            <td>
+                                                <button type="button" class="btn btn-success" (click)="DownloadFile(1)">
+                          Download
+                        </button>
+                                            </td>
+                                        </tr>
+                                        <tr *ngIf="this.CusomerDocuments.bankStatements != 'null'">
+                                            <td>Bank Statements</td>
+
+                                            <!-- <td>
+                        <button type="button" class="btn btn-info"  (click)="viewdocument(2)">
+                          View Document
+                        </button>
+                      </td> -->
+
+                                            <td>
+                                                <button type="button" class="btn btn-success" (click)="DownloadFile(2)">
+                          Download
+                        </button>
+                                            </td>
+                                        </tr>
+                                        <tr *ngIf="this.CusomerDocuments.gstCert != 'null'">
+                                            <td>GST Cerificate</td>
+
+                                            <!-- <td>
+                        <button type="button" class="btn btn-info"  (click)="viewdocument(3)">
+                          View Document
+                        </button>
+                      </td> -->
+
+                                            <td>
+                                                <button type="button" class="btn btn-success" (click)="DownloadFile(3)">
+                          Download
+                        </button>
+                                            </td>
+                                        </tr>
+                                        <tr *ngIf="this.CusomerDocuments.itReturnsFile != 'null'">
+                                            <td>It Returns File</td>
+
+                                            <!-- <td>
+                        <button type="button" class="btn btn-info"  (click)="viewdocument(4)">
+                          View Document
+                        </button>
+                      </td> -->
+
+                                            <td>
+                                                <button type="button" class="btn btn-success" (click)="DownloadFile(4)">
+                          Download
+                        </button>
+                                            </td>
+                                        </tr>
+                                        <tr *ngIf="this.CusomerDocuments.passportFile != 'null'">
+                                            <td>Passport File</td>
+
+                                            <!-- <td>
+                        <button type="button" class="btn btn-info"  (click)="viewdocument(5)">
+                          View Document
+                        </button>
+                      </td> -->
+
+                                            <td>
+                                                <button type="button" class="btn btn-success" (click)="DownloadFile(5)">
+                          Download
+                        </button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br /><br />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- panel -->
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br />

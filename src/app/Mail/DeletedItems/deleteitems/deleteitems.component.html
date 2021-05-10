@@ -1,0 +1,99 @@
+<app-header></app-header>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+
+<body class="bodycolor">
+    <div class="col-md-12 row" style="background-color: #ececec;">
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2" style="margin-left: -4%;">
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>   
+            <div class="mail-box" style="margin-left: -15%;">
+                <aside class="sm-side">
+                    <ul class="inbox-nav inbox-divider" style="list-style-type: none;">
+                        <li  style="margin-bottom: 10px;">
+                            <a (click)="gotoinbox()" style="color: black;cursor: pointer;margin-left: 12%;"><i class="fa fa-inbox" style="margin-top: 5%; "></i> Inbox</a>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <a (click)="gotosentitems()" style="color: black;cursor: pointer;margin-left: 12%;"><i class="fa fa-share" style="margin-top: 5%; "></i> Sent Items </a>
+                        </li>
+                        <li class="active">
+                            <a (click)="gotodeleteitems()" style="color: black;cursor: pointer;margin-left: 12%;"><i class=" fa fa-trash" style="margin-top: 5%; "></i> Delete Items</a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="col-md-8 card" style="margin-left: 4%;">
+            <div>&nbsp;</div>
+
+            <h2 style="text-align: center;color: #36dbe2;">Deleted Items</h2>
+            <div>&nbsp;</div>
+           
+            <div>
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="fromdate" name="fromdate"
+                            placeholder="Any Day" [(ngModel)]="fromdate"
+                            (change)="onChangefromdate(fromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label >To Date</label>
+                        <input type="date" class="form-control" id="todate" name="todate"
+                             placeholder="Any Day" [(ngModel)]="todate"
+                            (change)="onChangeTodate(todate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnpropother"
+                                (click)="cancel()">Cancel</button>
+                    </div>
+                </div>
+                <br/>
+                <div class="search-hero">
+                    <input class="form-control" type="text" name="SearchDeleteItems" [(ngModel)]="SearchDeleteItems" autocomplete="off" placeholder="&#61442; Search">
+                  </div>
+                <div class="col-md-12 row">
+                        <div class="col-md-2"></div><div class="col-md-10">
+                <div class="table-responsive"  style="overflow-x:visible;overflow-y: visible">
+                    <table class="table table-striped table-responsive table-bordered">
+                        <tr class="onhover" style="font-size:17px;cursor: pointer;">
+                            <th>Sl No</th>
+                            <th>From User </th>
+                            <th>Mail Id</th>
+                            <th>Comments</th>
+                            <th  style="cursor: pointer;" (click)="sortbydate()">Deleted Date</th>
+                        </tr>
+                        <tr *ngFor="let aa of DeletedMails | LockFilter: SearchDeleteItems  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                            style="font-size:16px;font-family:DINNextRoundedLTPro ">
+                            <td><a>{{ 5 * (p - 1) + (i+1) }}</a> </td>
+                            <td ><a>{{aa.fromUser}}</a></td>
+                            <td><a>{{aa.mailId}}</a></td>
+                            <td><a >{{aa.comments}}</a></td>
+                            <td><a>{{aa.deletedDate|date:'short'}}</a></td>
+
+                        </tr>
+                    </table>
+                </div></div></div>
+            </div>
+            <br />
+            <pagination-controls (pageChange)="p = $event" style="float: right"></pagination-controls>
+            <br /><br />
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+        </div>
+    </div>
+</body>

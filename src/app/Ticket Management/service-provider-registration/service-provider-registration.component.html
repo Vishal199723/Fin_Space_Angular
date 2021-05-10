@@ -1,0 +1,1491 @@
+<app-header></app-header>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="col-md-12">
+    <div class="col-md-8"></div>
+<div class="col-md-4">
+    <img src="./assets/img/backimage.png" id="back" title="Back" height="21px" (click)=goBack() />
+  </div>
+</div>
+<div class="col-md-12 row bodycolor">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="homecard">
+            <div style=" background-color: #36dbe2; border: solid 0px;">&nbsp;
+                <h2 style="text-align: center;color: white;">Service Provider Registration</h2>
+                <br />
+            </div>
+            <div class="row" style="text-align: center;">
+                <div style="text-align: center;margin-left: 9%;" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>&nbsp;</label>
+                    <select (change)="onSelectBAType($event.target.value)" class="form-control">
+                        <option value="">Select Service Provider Type</option>
+                        <option value="1">Individual</option>
+                        <option value="2">Company</option>
+                        <option value="3">Partnership</option>
+                    </select>
+                </div>
+                <div style="text-align: center;margin-left: 9%;" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label for="taluk">Select Service Type</label>
+                    <br />
+                    <ng-multiselect-dropdown [placeholder]="'Select Service Type'" [data]="ServiceTypeList"
+                        [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)" (onDeSelect)="onItemDeSelect($event)"
+                        (onDeSelectAll)="onItemDeSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div  *ngIf="individual">
+                <form id="regform" [formGroup]="SPRegistrationForm" class="col-md-12">
+                    <div class="col-md-12 row" *ngIf="individual">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+
+                        <div style="color: #36dbe2">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Full Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.loginName.errors }"
+                                        formControlName="loginName" type="text" class="form-control" name="loginName"
+                                        [(ngModel)]="loginName">
+                                    <div *ngIf="submitted && f.loginName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.loginName.errors.required">Login Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="firstname">Company Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }"
+                                        formControlName="companyName" type="text" class="form-control" name="firstname"
+                                        [(ngModel)]="companyName" autofocus>
+                                    <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.companyName.errors.required">Company Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="describeYourBusiness">Company Registration Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.companyregid.errors }"
+                                        formControlName="companyregid" type="text" class="form-control"
+                                        name="companyregid" [(ngModel)]="companyregid">
+                                    <div *ngIf="submitted && f.companyregid.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.companyregid.errors.required">Company
+                                            Registration Number is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="pincode">Postal Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }"
+                                        class="form-control" formControlName="pincode" type="number"
+                                        [(ngModel)]="pincode" (change)="getalldata()">
+                                    <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.pincode.errors.required">Postal Code is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="country">Country</label>
+                                    <input class="form-control" formControlName="country" type="text"
+                                        [(ngModel)]="country" readonly>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="state">State</label>
+                                    <input class="form-control" formControlName="state" type="text" [(ngModel)]="state"
+                                        readonly>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="district">District</label>
+                                    <input class="form-control" formControlName="district" type="text"
+                                        [(ngModel)]="district" readonly>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="taluk">Taluk</label>
+                                    <input class="form-control" formControlName="taluk" type="text" [(ngModel)]="taluk"
+                                        readonly>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="email">Email/Mobile Number</label>
+                                    <input (change)="Validatemail()"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                        formControlName="email" type="text" class="form-control" name="email"
+                                        [(ngModel)]="email">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.email.errors.pattern">Enter valid or Mobile
+                                            Number email
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p *ngIf="validmail" style="color: red;">Email or Mobile Number already exist!!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div *ngIf="enableotp" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="emailpar">OTP</label>
+                                    <input formControlName="otp" [(ngModel)]="otp" type="text" name="otp"
+                                        placeholder="OTP" (change)="Validateotp()"
+                                        [ngClass]="{ 'is-invalid': submitted && f.otp.errors }" class="form-control" />
+                                    <div *ngIf="submitted && f.otp.errors && enableotp" class="invalid-feedback"
+                                        style="margin-top: -20px;">
+                                        <div style="color: red;" *ngIf="f.otp.errors.required">OTP is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.otp.errors.pattern">Enter a valid
+                                            OTP</div>
+                                    </div>
+                                    <p *ngIf="validotp" style="color: red;">{{displayotpmsg}}</p>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" formControlName="pwd"
+                                        type="password" class="form-control" name="pwd" [(ngModel)]="pwd">
+                                    <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.pwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.pwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Confirm Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.conpwd.errors }"
+                                        formControlName="conpwd" type="password" class="form-control" name="conpwd"
+                                        [(ngModel)]="conpwd">
+                                    <div *ngIf="submitted && f.conpwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.conpwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.conpwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="registeredaddress">Registered Office Address</label>
+                                    <textarea formControlName="registeredaddress" class="form-control"
+                                        name="registeredaddress" [(ngModel)]="registeredaddress"
+                                        [ngClass]="{ 'is-invalid': submitted && f.registeredaddress.errors }"> </textarea>
+                                    <div *ngIf="submitted && f.registeredaddress.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.registeredaddress.errors.required">
+                                            Registered Office Address is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="corporateaddress">Corporate Office Address</label>
+                                    <textarea formControlName="corporateaddress" class="form-control"
+                                        name="corporateaddress" [(ngModel)]="corporateaddress"
+                                        [ngClass]="{ 'is-invalid': submitted && f.corporateaddress.errors }"> </textarea>
+                                    <div *ngIf="submitted && f.corporateaddress.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.corporateaddress.errors.required">
+                                            Corporate Office Address is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear"> Number of years experience</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.serviceperiod.errors }"
+                                        formControlName="serviceperiod" type="number" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="serviceperiod" autofocus>
+                                    <div *ngIf="submitted && f.serviceperiod.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.serviceperiod.errors.required">Service
+                                            Period(Yrs) is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Turnover in last year</label>
+                                    <span style="display: flex;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.amountPerYear.errors }"
+                                            formControlName="amountPerYear" type="number" class="form-control"
+                                            name="amountPerYear" [(ngModel)]="amountPerYear" autofocus
+                                            style=" margin-top: -2%;"></span>
+                                    <div *ngIf="submitted && f.amountPerYear.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.amountPerYear.errors.required">Turnover in
+                                            last year
+                                            is required</div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="grandTotal">Grand Total</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.grandTotal.errors }"
+                                        formControlName="grandTotal" type="number" class="form-control"
+                                        name="grandTotal" [(ngModel)]="grandTotal" autofocus>
+                                    <div *ngIf="submitted && f.grandTotal.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.grandTotal.errors.required">Grand Total is
+                                            required
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Company logo:</label>
+                                    <input #fileInput type="file" class="form-control"
+                                        (change)="onChangeCompanylogo($event)" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="grandTotal">GST No</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.gstnum.errors }"
+                                        formControlName="gstnum" type="text" class="form-control" name="gstnum"
+                                        [(ngModel)]="gstnum" autofocus>
+                                    <div *ngIf="submitted && f.gstnum.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.gstnum.errors.required">GST No is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                </div>
+                            </div>
+                        </div> -->
+                        <hr />
+                        <h3 style="padding-left:12px">Documents Required:</h3>
+                        <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Incorporation Certificate:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeIncorporationCert($event)" />
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Authorized Signatory:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeAuthorizedSign($event)" />
+                                </div> -->
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">IT PAN:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeITPAN($event)" />
+                                </div>
+                            </div>
+                        </div>
+
+
+        <!-- added -->
+        <br/>
+        <!-- Face -->
+        <div class="container fileUploadWrapper">
+            <h2 class="fs-title" style="text-align: center;">FACE RECOGNITION  </h2>
+            <div class="col-md-12">
+
+                <!-- upload -->
+                <div class="col-md-12 row fileupload">
+                    <h5 class="fs-title" style="text-align: center;">UPLOAD PANCARD PHOTO</h5>
+                </div>
+                <div class="col-md-6 row fileupload">
+                    <input type="file" accept="image/*" name="avatars" #fileField
+                    (change)="onChangeforImage($event)">
+                    <img [src]="croppedImage" height="200">
+                </div>
+
+
+                <ul style="list-style:none;">
+                    <br />
+
+                    <div style="text-align:center">
+                        <div>
+                            <p>{{seconds}}</p>
+                            <webcam [trigger]="triggerObservable"
+                                (imageCapture)="handleImage($event)"></webcam>
+                            <br />
+                            <button id="snapshotBtn"  class="btn btn-primary" (click)="triggerSnapshot();">Take A
+                                Snapshot</button>
+                        </div>
+                    </div>
+                    <div class="snapshot" *ngIf="webcamImage">
+                        <h2>Nice one!</h2>
+                        <img [src]="webcamImage.imageAsDataUrl" />
+                    </div>
+
+
+                </ul>
+                <br/>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    style="cursor: pointer;" (click)="verifyimage()">
+                    Done
+                </button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <!-- Signature -->
+        <div class="form-card" id="signf">
+            <h2 class="fs-title" style="text-align: center;">SIGNATURE VERIFICATION</h2>
+            <div class="container fileUploadWrapper">
+                <div class="col-md-12 row">
+                    <div class="col-md-4 row"></div>
+                    <div class="col-md-6 row fileupload">
+
+                        <img [src]="signatureurl" height="200">
+                    </div>
+                    <div class="col-md-12 row fileupload">
+                        <h5 class="fs-title" style="text-align: center;">UPLOAD SIGNED IMAGE</h5>
+                    </div>
+                    <div class="col-md-6 row fileupload">
+                        <input type="file" accept="image/*" name="avatars" #fileField
+                        (change)="onChangeforSignature($event)">
+                    </div>
+                    </div>
+                <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                    type png or jpg or jpeg</h3>
+            </div>
+            <!-- <div class="container fileUploadWrapper">
+                <div class="col-md-12 row">
+                    <div class="col-md-4 row"></div>
+                    <div class="col-md-6 row fileupload">
+
+                        <img [src]="signatureurltwo" height="200">
+                    </div>
+                    <div class="col-md-12 row fileupload">
+                        <h5 class="fs-title" style="text-align: center;">UPLOAD SCANNED PAN CARD IMAGE</h5>
+                    </div>
+                    <div class="col-md-6 row fileupload">
+                        <input type="file" accept="image/*" name="avatars" #fileField
+                        (change)="onChangeforSignatureTwo($event)">
+                    </div>
+                </div>
+                <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                    type png or jpg or jpeg</h3>
+            </div> -->
+            <br/>
+            <button type="button" class="btn btn-primary" data-dismiss="modal"
+            style="cursor: pointer;" (click)="verifysignature()">
+            Done
+        </button>
+        </div>
+    
+
+
+
+
+
+                        <br />
+                        <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">GST Certificate:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeGSTCert($event)" />
+                                </div>
+                            </div>
+                        </div> -->
+                        <hr />
+
+                        <h3 style="padding-left:12px">PayU Money Details:</h3>
+                        <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Salt ID</label>
+                                    <input formControlName="saltid" type="text" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="saltid" autofocus>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Key ID</label>
+                                    <input formControlName="keyid" type="text" class="form-control" name="amountPerYear"
+                                        [(ngModel)]="keyid" autofocus>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+        <!-- added -->
+        <br/>
+        <!-- Face -->
+        <!-- <div class="container fileUploadWrapper">
+            <h2 class="fs-title" style="text-align: center;">FACE VERIFICATION  </h2>
+            <div class="col-md-12">
+
+                upload
+                <div class="col-md-12 row fileupload">
+                    <h5 class="fs-title" style="text-align: center;">UPLOAD YOUR PANCARD PHOTO</h5>
+                </div>
+                <div class="col-md-6 row fileupload">
+                    <input type="file" accept="image/*" name="avatars" #fileField
+                    (change)="onChangeforImage($event)">
+                    <img [src]="imageurltwo" height="200">
+                </div>
+
+
+                <ul style="list-style:none;">
+                    <br />
+
+                    <div style="text-align:center">
+                        <div>
+                            <p>{{seconds}}</p>
+                            <webcam [trigger]="triggerObservable"
+                                (imageCapture)="handleImage($event)"></webcam>
+                            <br />
+                            <button id="snapshotBtn"  class="btn btn-primary" (click)="triggerSnapshot();">Take A
+                                Snapshot</button>
+                        </div>
+                    </div>
+                    <div class="snapshot" *ngIf="webcamImage">
+                        <h2>Nice one!</h2>
+                        <img [src]="webcamImage.imageAsDataUrl" />
+                    </div>
+
+
+                </ul>
+                <br/>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    style="cursor: pointer;" (click)="verifyimage()">
+                    Done
+                </button>
+            </div>
+        </div>
+        <br>
+        <br>
+        Signature
+        <div class="form-card" id="signf">
+            <h2 class="fs-title" style="text-align: center;">SIGNATURE VERIFICATION</h2>
+            <div class="container fileUploadWrapper">
+                <div class="col-md-12 row">
+                    <div class="col-md-4 row"></div>
+                    <div class="col-md-6 row fileupload">
+
+                        <img [src]="signatureurl" height="200">
+                    </div>
+                    <div class="col-md-12 row fileupload">
+                        <h5 class="fs-title" style="text-align: center;">UPLOAD SIGNED IMAGE</h5>
+                    </div>
+                    <div class="col-md-6 row fileupload">
+                        <input type="file" accept="image/*" name="avatars" #fileField
+                        (change)="onChangeforSignature($event)">
+                    </div>
+                    </div>
+                <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                    type png or jpg or jpeg</h3>
+            </div>
+            <!-- <div class="container fileUploadWrapper">
+                <div class="col-md-12 row">
+                    <div class="col-md-4 row"></div>
+                    <div class="col-md-6 row fileupload">
+
+                        <img [src]="signatureurltwo" height="200">
+                    </div>
+                    <div class="col-md-12 row fileupload">
+                        <h5 class="fs-title" style="text-align: center;">UPLOAD SCANNED PAN CARD IMAGE</h5>
+                    </div>
+                    <div class="col-md-6 row fileupload">
+                        <input type="file" accept="image/*" name="avatars" #fileField
+                        (change)="onChangeforSignatureTwo($event)">
+                    </div>
+                </div>
+                <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                    type png or jpg or jpeg</h3>
+            </div> 
+            <br/>
+            <button type="button" class="btn btn-primary" data-dismiss="modal"
+            style="cursor: pointer;" (click)="verifysignature()">
+            Done
+        </button>
+        </div>
+     -->
+
+
+
+
+                        <br />
+                        <!-- <div style="font-weight: 600;text-align: center;">
+                            Click Submit to accept and agree to the <a href="#/termsofuse">Terms and Conditions</a> and
+                            <a href="#/privacy">Privacy Policy</a>
+                        </div> -->
+
+                        <div>&nbsp;</div>
+                     
+                    </div>
+                </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF" (click)=goBack()
+                                    class="btn btnprop">Cancel</button>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button type="submit" style="background-color: #36dbe2;
+                                color:#FFFFFF" class="btn btnprop" 
+                                data-toggle="modal" data-target="#tandcpopup">
+                                    Submit
+                                </button>
+                                    
+                                    <br /><br />
+                            </div>
+                        </div>
+                    </div>
+               
+                </form>
+            </div>
+
+            <div  *ngIf="company">
+                <form id="regform" [formGroup]="SPRegistrationFormCompany">
+                    <div class="col-md-12 row" *ngIf="company">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+
+                        <div style="color: #36dce23b">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Owner First Name / Director First Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.loginName.errors }"
+                                        formControlName="loginName" type="text" class="form-control" name="loginName"
+                                        [(ngModel)]="loginName">
+                                    <div *ngIf="submitted && c.loginName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.loginName.errors.required">Login Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="firstname">Company Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.companyName.errors }"
+                                        formControlName="companyName" type="text" class="form-control" name="firstname"
+                                        [(ngModel)]="companyName" autofocus>
+                                    <div *ngIf="submitted && c.companyName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.companyName.errors.required">Company Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="describeYourBusiness">Company Registration Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.companyregid.errors }"
+                                        formControlName="companyregid" type="text" class="form-control"
+                                        name="companyregid" [(ngModel)]="companyregid">
+                                    <div *ngIf="submitted && c.companyregid.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.companyregid.errors.required">Company
+                                            Registration Number is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="pincode">Postal Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.pincode.errors }"
+                                        class="form-control" formControlName="pincode" type="number"
+                                        [(ngModel)]="pincode" (change)="getalldata()">
+                                    <div *ngIf="submitted && c.pincode.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.pincode.errors.required">Postal Code is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="country">Country</label>
+                                    <input class="form-control" formControlName="country" type="text"
+                                        [(ngModel)]="country" readonly>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="state">State</label>
+                                    <input class="form-control" formControlName="state" type="text" [(ngModel)]="state"
+                                        readonly>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="district">District</label>
+                                    <input class="form-control" formControlName="district" type="text"
+                                        [(ngModel)]="district" readonly>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="taluk">Taluk</label>
+                                    <input class="form-control" formControlName="taluk" type="text" [(ngModel)]="taluk"
+                                        readonly>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="email">Email/Mobile Number</label>
+                                    <input (change)="Validatemail()"
+                                        [ngClass]="{ 'is-invalid': submitted && c.email.errors }"
+                                        formControlName="email" type="text" class="form-control" name="email"
+                                        [(ngModel)]="email">
+                                    <div *ngIf="submitted &&c.email.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.email.errors.pattern">Enter valid or Mobile
+                                            Number email
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p *ngIf="validmail" style="color: red;">Email or Mobile Number already exist!!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div *ngIf="enableotp" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="emailpar">OTP</label>
+                                    <input formControlName="otp" [(ngModel)]="otp" type="text" name="otp"
+                                        placeholder="OTP" (change)="Validateotp()"
+                                        [ngClass]="{ 'is-invalid': submitted && c.otp.errors }" class="form-control" />
+                                    <div *ngIf="submitted && c.otp.errors && enableotp" class="invalid-feedback"
+                                        style="margin-top: -20px;">
+                                        <div style="color: red;" *ngIf="c.otp.errors.required">OTP is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="c.otp.errors.pattern">Enter a valid
+                                            OTP</div>
+                                    </div>
+                                    <p *ngIf="validotp" style="color: red;">{{displayotpmsg}}</p>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.pwd.errors }" formControlName="pwd"
+                                        type="password" class="form-control" name="pwd" [(ngModel)]="pwd">
+                                    <div *ngIf="submitted && c.pwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.pwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="c.pwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Confirm Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.conpwd.errors }"
+                                        formControlName="conpwd" type="password" class="form-control" name="conpwd"
+                                        [(ngModel)]="conpwd">
+                                    <div *ngIf="submitted && c.conpwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.conpwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="c.conpwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="registeredaddress">Registered Office Address</label>
+                                    <textarea formControlName="registeredaddress" class="form-control"
+                                        name="registeredaddress" [(ngModel)]="registeredaddress"
+                                        [ngClass]="{ 'is-invalid': submitted && c.registeredaddress.errors }"> </textarea>
+                                    <div *ngIf="submitted && c.registeredaddress.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.registeredaddress.errors.required">
+                                            Registered Office Address is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="corporateaddress">Corporate Office Address</label>
+                                    <textarea formControlName="corporateaddress" class="form-control"
+                                        name="corporateaddress" [(ngModel)]="corporateaddress"
+                                        [ngClass]="{ 'is-invalid': submitted && c.corporateaddress.errors }"> </textarea>
+                                    <div *ngIf="submitted && c.corporateaddress.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.corporateaddress.errors.required">
+                                            Corporate Office Address is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear"> Number of years experience</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.serviceperiod.errors }"
+                                        formControlName="serviceperiod" type="number" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="serviceperiod" autofocus>
+                                    <div *ngIf="submitted && c.serviceperiod.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.serviceperiod.errors.required">Service
+                                            Period(Yrs) is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Turnover in last year</label>
+                                    <span style="display: flex;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input [ngClass]="{ 'is-invalid': submitted && c.amountPerYear.errors }"
+                                            formControlName="amountPerYear" type="number" class="form-control"
+                                            name="amountPerYear" [(ngModel)]="amountPerYear" autofocus
+                                            style=" margin-top: -2%;"></span>
+                                    <div *ngIf="submitted && c.amountPerYear.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.amountPerYear.errors.required">Turnover in
+                                            last year
+                                            is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="grandTotal">Grand Total</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.grandTotal.errors }"
+                                        formControlName="grandTotal" type="number" class="form-control"
+                                        name="grandTotal" [(ngModel)]="grandTotal" autofocus>
+                                    <div *ngIf="submitted && c.grandTotal.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.grandTotal.errors.required">Grand Total is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Company logo:</label>
+                                    <input #fileInput type="file" class="form-control"
+                                        (change)="onChangeCompanylogo($event)" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="grandTotal">GST No</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.gstnum.errors }"
+                                        formControlName="gstnum" type="text" class="form-control" name="gstnum"
+                                        [(ngModel)]="gstnum" autofocus>
+                                    <div *ngIf="submitted && c.gstnum.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.gstnum.errors.required">GST No is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h3 style="padding-left:12px">Documents Required:</h3>
+                        <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Incorporation Certificate:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeIncorporationCert($event)" />
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Authorized Signatory:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeAuthorizedSign($event)" />
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">IT PAN:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeITPAN($event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">GST Certificate:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeGSTCert($event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <h3 style="padding-left:12px">PayU Money Details:</h3>
+                        <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Salt ID</label>
+                                    <input formControlName="saltid" type="text" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="saltid" autofocus>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Key ID</label>
+                                    <input formControlName="keyid" type="text" class="form-control" name="amountPerYear"
+                                        [(ngModel)]="keyid" autofocus>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- added -->
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="incorporation">Incorporation Type</label>
+
+                                    <select (change)="onSelectIncorporationType($event.target.value)"
+                                        class="form-control">
+                                        <option value="">Select Incorporation Type</option>
+                                        <option *ngFor="let do of IncorporationTypeList" value={{do.id}}>
+                                            {{do.incorporationName}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Date of Incorporation
+                                    </label>
+                                    <input formControlName="doincom" type="date" class="form-control" name="doincom"
+                                        [(ngModel)]="doincom" autofocus>
+                                </div>
+
+                                <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="boardresolutioncom">Board Resolution if Private Limited/
+                                        Parrtnership Deed
+                                        in case of Partnership
+                                    </label>
+                                    <input formControlName="boardresolutioncom" class="form-control"
+                                        name="boardresolutioncom" [(ngModel)]="boardresolutioncom">
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Experience in Current Business</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && c.serviceperiodcom.errors }"
+                                        formControlName="serviceperiodcom" type="number" class="form-control"
+                                        name="serviceperiodcom" [(ngModel)]="serviceperiodcom" autofocus>
+                                    <div *ngIf="submitted && c.serviceperiodcom.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="c.serviceperiodcom.errors.required">Service
+                                            Period(Yrs) is required</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+  
+    
+
+
+
+                        <br />
+                        <!-- <div style="font-weight: 600;text-align: center;">
+                            Click Submit to accept and agree to the <a href="#/termsofuse">Terms and Conditions</a> and
+                            <a href="#/privacy">Privacy Policy</a>
+                        </div> -->
+
+                        <div>&nbsp;</div>
+               
+
+    
+
+     
+
+
+
+                    </div>
+                </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF" (click)=goBack()
+                                    class="btn btnprop">Cancel</button>
+                            </div>
+            
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                    class="btn btnprop"
+                                    data-toggle="modal" data-target="#tandcpopupcompany">Submit</button><br /><br />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div  *ngIf="partnership">
+                <form id="regform" [formGroup]="SPRegistrationFormPartnership">
+                    <div class="col-md-12 row" *ngIf="partnership">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+
+                        <div style="color: #36dbe2">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Owner First Name / Director First Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.loginName.errors }"
+                                        formControlName="loginName" type="text" class="form-control" name="loginName"
+                                        [(ngModel)]="loginName">
+                                    <div *ngIf="submitted && p.loginName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.loginName.errors.required">Login Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="partnerNamepar">Partner Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.partnerNamepar.errors }" formControlName="partnerNamepar" type="text" class="form-control" name="partnerNamepar" [(ngModel)]="partnerNamepar">
+                                    <div *ngIf="submitted && p.partnerNamepar.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.partnerNamepar.errors.required">Partner Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="firstname">Firm Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.companyName.errors }"
+                                        formControlName="companyName" type="text" class="form-control" name="firstname"
+                                        [(ngModel)]="companyName" autofocus>
+                                    <div *ngIf="submitted && p.companyName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.companyName.errors.required">Company Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="describeYourBusiness">Firm Registration Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.companyregid.errors }"
+                                        formControlName="companyregid" type="text" class="form-control"
+                                        name="companyregid" [(ngModel)]="companyregid">
+                                    <div *ngIf="submitted && p.companyregid.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.companyregid.errors.required">Company
+                                            Registration Number is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="pincode">Postal Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.pincode.errors }"
+                                        class="form-control" formControlName="pincode" type="number"
+                                        [(ngModel)]="pincode" (change)="getalldata()">
+                                    <div *ngIf="submitted && p.pincode.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.pincode.errors.required">Postal Code is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="country">Country</label>
+                                    <input class="form-control" formControlName="country" type="text"
+                                        [(ngModel)]="country" readonly>
+
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="state">State</label>
+                                    <input class="form-control" formControlName="state" type="text" [(ngModel)]="state"
+                                        readonly>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="district">District</label>
+                                    <input class="form-control" formControlName="district" type="text"
+                                        [(ngModel)]="district" readonly>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="taluk">Taluk</label>
+                                    <input class="form-control" formControlName="taluk" type="text" [(ngModel)]="taluk"
+                                        readonly>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="email">Email/Mobile Number</label>
+                                    <input (change)="Validatemail()"
+                                        [ngClass]="{ 'is-invalid': submitted && p.email.errors }"
+                                        formControlName="email" type="text" class="form-control" name="email"
+                                        [(ngModel)]="email">
+                                    <div *ngIf="submitted && p.email.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.email.errors.pattern">Enter valid or Mobile
+                                            Number email
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p *ngIf="validmail" style="color: red;">Email or Mobile Number already exist!!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div *ngIf="enableotp" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="emailpar">OTP</label>
+                                    <input formControlName="otp" [(ngModel)]="otp" type="text" name="otp"
+                                        placeholder="OTP" (change)="Validateotp()"
+                                        [ngClass]="{ 'is-invalid': submitted && p.otp.errors }" class="form-control" />
+                                    <div *ngIf="submitted && p.otp.errors && enableotp" class="invalid-feedback"
+                                        style="margin-top: -20px;">
+                                        <div style="color: red;" *ngIf="p.otp.errors.required">OTP is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="p.otp.errors.pattern">Enter a valid
+                                            OTP</div>
+                                    </div>
+                                    <p *ngIf="validotp" style="color: red;">{{displayotpmsg}}</p>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.pwd.errors }" formControlName="pwd"
+                                        type="password" class="form-control" name="pwd" [(ngModel)]="pwd">
+                                    <div *ngIf="submitted &&p.pwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.pwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="p.pwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Confirm Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.conpwd.errors }"
+                                        formControlName="conpwd" type="password" class="form-control" name="conpwd"
+                                        [(ngModel)]="conpwd">
+                                    <div *ngIf="submitted && p.conpwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.conpwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="p.conpwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="registeredaddress">Registered Office Address</label>
+                                    <textarea formControlName="registeredaddress" class="form-control"
+                                        name="registeredaddress" [(ngModel)]="registeredaddress"
+                                        [ngClass]="{ 'is-invalid': submitted && p.registeredaddress.errors }"> </textarea>
+                                    <div *ngIf="submitted && p.registeredaddress.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.registeredaddress.errors.required">
+                                            Registered Office Address is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="corporateaddress">Corporate Office Address</label>
+                                    <textarea formControlName="corporateaddress" class="form-control"
+                                        name="corporateaddress" [(ngModel)]="corporateaddress"
+                                        [ngClass]="{ 'is-invalid': submitted && p.corporateaddress.errors }"> </textarea>
+                                    <div *ngIf="submitted && p.corporateaddress.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.corporateaddress.errors.required">
+                                            Corporate Office Address is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear"> Number of years experience</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.serviceperiod.errors }"
+                                        formControlName="serviceperiod" type="number" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="serviceperiod" autofocus>
+                                    <div *ngIf="submitted && p.serviceperiod.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.serviceperiod.errors.required">Service
+                                            Period(Yrs) is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Turnover in last year</label>
+                                    <span style="display: flex;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.amountPerYear.errors }"
+                                            formControlName="amountPerYear" type="number" class="form-control"
+                                            name="amountPerYear" [(ngModel)]="amountPerYear" autofocus
+                                            style=" margin-top: -2%;"></span>
+                                    <div *ngIf="submitted && p.amountPerYear.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.amountPerYear.errors.required">Turnover in
+                                            last year
+                                            is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="grandTotal">Grand Total</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.grandTotal.errors }"
+                                        formControlName="grandTotal" type="number" class="form-control"
+                                        name="grandTotal" [(ngModel)]="grandTotal" autofocus>
+                                    <div *ngIf="submitted && p.grandTotal.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.grandTotal.errors.required">Grand Total is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Firm logo:</label>
+                                    <input #fileInput type="file" class="form-control"
+                                        (change)="onChangeCompanylogo($event)" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="grandTotal">GST No</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.gstnum.errors }"
+                                        formControlName="gstnum" type="text" class="form-control" name="gstnum"
+                                        [(ngModel)]="gstnum" autofocus>
+                                    <div *ngIf="submitted && p.gstnum.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.gstnum.errors.required">GST No is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h3 style="padding-left:12px">Documents Required:</h3>
+                        <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Incorporation Certificate:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeIncorporationCert($event)" />
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">Authorized Signatory:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeAuthorizedSign($event)" />
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">IT PAN:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeITPAN($event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="permanentaddress">GST Certificate:</label>
+                                    <input class="form-control" #fileInput type="file"
+                                        (change)="onChangeGSTCert($event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <h3 style="padding-left:12px">PayU Money Details:</h3>
+                        <br />
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Salt ID</label>
+                                    <input formControlName="saltid" type="text" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="saltid" autofocus>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Key ID</label>
+                                    <input formControlName="keyid" type="text" class="form-control" name="amountPerYear"
+                                        [(ngModel)]="keyid" autofocus>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- added -->
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="incorporation">Incorporation Type</label>
+
+                                    <select (change)="onSelectIncorporationType($event.target.value)"
+                                        class="form-control">
+                                        <option value="">Select Incorporation Type</option>
+                                        <option *ngFor="let do of IncorporationTypeList" value={{do.id}}>
+                                            {{do.incorporationName}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Date of Incorporation
+                                    </label>
+                                    <input formControlName="doincom" type="date" class="form-control" name="doincom"
+                                        [(ngModel)]="doincom" autofocus>
+                                </div>
+
+                                <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="boardresolutioncom">Partner Resolution if Private Limited/
+                                        Parrtnership Deed
+                                        in case of Partnership
+                                    </label>
+                                    <input formControlName="boardresolutioncom" class="form-control"
+                                        name="boardresolutioncom" [(ngModel)]="boardresolutioncom">
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Experience in Current Business</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && p.serviceperiodcom.errors }"
+                                        formControlName="serviceperiodcom" type="number" class="form-control"
+                                        name="serviceperiodcom" [(ngModel)]="serviceperiodcom" autofocus>
+                                    <div *ngIf="submitted && p.serviceperiodcom.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="p.serviceperiodcom.errors.required">Service
+                                            Period(Yrs) is required</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+  
+    
+
+
+                        <br />
+                        <!-- <div style="font-weight: 600;text-align: center;">
+                            Click Submit to accept and agree to the <a href="#/termsofuse">Terms and Conditions</a> and
+                            <a href="#/privacy">Privacy Policy</a>
+                        </div> -->
+
+                        <div>&nbsp;</div>
+                  
+
+
+
+     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF" (click)=goBack()
+                                    class="btn btnprop">Cancel</button>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                    class="btn btnprop"
+                                    data-toggle="modal" data-target="#tandcpopuppartner">Submit</button><br /><br />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<!-- notification alert -->
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-4" *ngIf="dismissalert">
+        <div class="alert alert-info"
+            style="background-color: #545353;box-shadow: none;left: 245px; position: fixed;top: 550px;width: 350px;">
+            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="material-icons" style="color: white">close</i>
+            </button>
+            <span style="color: white;margin-top: 6px;">
+                <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="tandcpopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" style="overflow-y: scroll;height: 100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <span style="color: darkslateblue;text-transform: uppercase;">
+                        Consent Form
+                    </span>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <app-tou></app-tou>
+                <app-privacy></app-privacy>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                (click)="sendServiceProvider()" >Save</button>
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Cancel</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal modal-angular fade" id="tandcpopuppartner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" style="overflow-y: scroll;height: 100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <span style="color: darkslateblue;text-transform: uppercase;">
+                        Consent Form
+                    </span>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <app-tou></app-tou>
+                <app-privacy></app-privacy>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                (click)="sendServiceProviderForPartnership()" >Save</button>
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Cancel</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal modal-angular fade" id="tandcpopupcompany" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" style="overflow-y: scroll;height: 100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <span style="color: darkslateblue;text-transform: uppercase;">
+                        Consent Form
+                    </span>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <app-tou></app-tou>
+                <app-privacy></app-privacy>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                (click)="sendServiceProviderForCompany()" >Save</button>
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Cancel</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<button style="display:none;" id="openpopup"  data-toggle="modal" data-target="#ImageCropPopUp" ></button>
+
+
+  <div class="modal fade" id="ImageCropPopUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Crop Pancard</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <image-cropper
+            [imageChangedEvent]="imageChangedEvent"
+            [maintainAspectRatio]="false"
+            [aspectRatio]="4 / 4"
+            format="png"
+            (imageCropped)="imageCropped($event)"
+            (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()"
+            (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+    <img [src]="croppedImage" height="200">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btnprop waves-light next" data-dismiss="modal" mdbWavesEffectstyle="background: blue;" >Done</button> 
+
+        </div>
+      </div>
+    </div>
+  </div>

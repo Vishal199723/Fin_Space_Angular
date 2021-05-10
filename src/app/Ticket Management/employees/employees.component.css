@@ -1,0 +1,151 @@
+@media screen and (max-width:1600px){
+
+  #heading{
+    text-align: center;
+  }
+  
+  #addnew{
+    color: #FFFFFF;
+    font-weight: 500;
+    background-color: #6ddec1;
+    border-block-end-color: #6ddec1;
+    border: none;
+    height: 62px;
+    outline: none;
+    outline-color: #FFFFFF;
+  }
+  
+    #folderText{
+      margin-top: -40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.06em;
+      color: #758480;
+      text-align: center
+  }
+  
+  #labelname{
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 32px;
+      color: #66737E;
+      float:left;
+      margin-bottom: -1%;
+    }
+  
+    #SendBtn{
+      background: #10C7DF;
+      border: #10C7DF;
+      border-radius: 20px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: 0.15em;
+      color: #FFFFFF;
+      padding: 8px 26px 8px 26px;
+      outline-color: #FFFFFF;
+      outline: none;
+      margin-left: 35%;
+    }
+    
+    #CancelBtn{
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 32px;
+      letter-spacing: 0.06em;
+      color: #9BAAB6;
+      border: none;
+      background: none;
+      box-shadow: none;
+      left: 28%;
+      outline-color: #FFFFFF;
+      outline: none;
+     }
+
+}
+
+@media screen and (max-width:500px){
+
+#heading{
+  text-align: center;
+  margin-left: 96%;
+}
+
+#addnew{
+  color: #FFFFFF;
+  font-weight: 500;
+  background-color: #6ddec1;
+  border-block-end-color: #6ddec1;
+  border: none;
+  height: 62px;
+  outline: none;
+  outline-color: #FFFFFF;
+  margin-left: 200%;
+}
+
+  #folderText{
+    margin-top: -40px;
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #758480;
+    text-align: center
+}
+
+#labelname{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    float:left;
+    margin-bottom: -1%;
+  }
+
+  #SendBtn{
+    background: #10C7DF;
+    border: #10C7DF;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    padding: 8px 26px 8px 26px;
+    outline-color: #FFFFFF;
+    outline: none;
+    margin-left: 35%;
+  }
+  
+  #CancelBtn{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    color: #9BAAB6;
+    border: none;
+    background: none;
+    box-shadow: none;
+    left: 28%;
+    outline-color: #FFFFFF;
+    outline: none;
+   }
+
+}

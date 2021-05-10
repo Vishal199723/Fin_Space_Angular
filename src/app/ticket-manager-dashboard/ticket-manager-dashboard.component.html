@@ -1,0 +1,84 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<body class="" id = "menuslist">
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <p class="headtext">Dashboard</p>
+    <div>&nbsp;</div>
+    <div class="col-md-12 row" >
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">Mailbox</p>
+                <br /> <br />
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <button (click)="gotoinbox()"class="btn btnprop">View Messages</button>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">Assigned Services</p>
+                <p class="complaintext">{{AssignedServicesList.length}}</p>
+
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <button pageScroll href="#ShowAssignedDetails" class="btn btnprop"
+                            (click)="AssignedServicesTrue()">View Details</button>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">Completed Services</p>
+                <p class="complaintext">{{ResolvedServiceList.length}}</p>
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <button pageScroll href="#ShowCompletedDetails" class="btn btnprop"
+                            (click)="ResolvedServicesTrue()">View Details</button>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+      
+     
+    </div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+
+    <div class="col-md-12 row">
+     
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">PPU Customers</p>
+                <br /> <br />
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <button (click)="gotoppulist()"class="btn btnprop">Go to list</button>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+     
+    </div>
+</body>
+    <br /> <br />
+  

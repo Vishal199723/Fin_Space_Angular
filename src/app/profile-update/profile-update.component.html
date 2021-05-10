@@ -1,0 +1,270 @@
+<app-header></app-header>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<div class="col-md-12 row">
+    <div class="col-md-3">&nbsp;</div>
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <table class="table table-hover">
+
+                <tbody style="color: black">
+
+                    <tr>
+                        <td style="color: black;font-weight: 500">
+                            Photo </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td *ngIf="profileDetails"> <img [src]="profileDetails.userImage" class="img-responsive"
+                                height="100px" width="100px" alt=""
+                                style="float: right;border: solid 1px; border-radius: 58px;"></td>
+                        <!-- <td><b style="color: #0061ff;cursor: pointer;" data-toggle="modal"
+                                data-target="#EditProfilePhoto">Edit</b></td> -->
+                    </tr>
+                    <tr>
+                        <td style="color: black;font-weight: 500">
+                            Name </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td *ngIf="profileDetails"><b
+                                style="float: right;font-weight:500;">{{profileDetails.firstName}}&nbsp;{{profileDetails.lastName}}</b>
+                        </td>
+                        <td><b style="color: #0061ff;cursor: pointer;" data-toggle="modal"
+                                data-target="#EditName">Edit</b></td>
+                    </tr>
+                    <tr>
+                        <td style="color: black;font-weight: 500">
+                            Personal email </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td *ngIf="profileDetails"><b style="float: right;font-weight:500;">{{profileDetails.email}}</b>
+                        </td>
+                        <td *ngIf="!profileDetails.email"><b style="color: #0061ff;cursor: pointer;" data-toggle="modal"
+                                data-target="#EditEmail">Edit</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: black;font-weight: 500">
+                            Mobile </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td *ngIf="profileDetails"><b style="float: right;font-weight:500;">
+                                {{profileDetails.mobileNumber}}</b></td>
+                        <td *ngIf="!profileDetails.mobileNumber"><b style="color: #0061ff;cursor: pointer;" data-toggle="modal"
+                                data-target="#EditPhoneNumber">Edit</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: black;font-weight: 500">
+                            User Id </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><b style="float: right;font-weight:bold;">
+                                {{uid}}</b></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr *ngIf="logoexist">
+                        <td style="color: black;font-weight: 500">
+                            Company Logo </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td *ngIf="logoexist"> <img [src]="companylogo" class="img-responsive" height="120px"
+                                width="120px" alt="" style="float: right;"></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<!-- edit photo modal -->
+
+
+
+<!-- edit Name modal -->
+<div class="modal modal-angular fade" id="EditName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center;font-weight: 600">Name</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form [formGroup]="signupForm">
+                <div class="modal-body text-center">
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row" *ngIf="profileDetails">
+                        <label>First Name</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" class="form-control"
+                            placeholder="First Name" formControlName="FirstName" name="FirstName" type="text" autofocus
+                            [(ngModel)]="FirstName">
+                        <div class="col-md-12">&nbsp;</div>
+                        <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback"
+                            style="margin-top: -20px;">
+                            <div style="color: red;" *ngIf="f.FirstName.errors.required">First Name is
+                                required</div>
+                        </div>
+                        <label>Last Name</label>
+
+                        <input [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" class="form-control"
+                            placeholder="Last Name" formControlName="LastName" name="LastName" type="text" autofocus
+                            [(ngModel)]="LastName">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback" style="margin-top: -20px;">
+                            <div style="color: red;" *ngIf="f.LastName.errors.required">Last Name is
+                                required</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="UpdatecustomerName()"
+                    mdbWavesEffect>Update</button>
+                <button type="button" class="btn btn-warning" #closebutton data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- edit phonenumber modal -->
+<div class="modal modal-angular fade" id="EditPhoneNumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center;font-weight: 600">Update Phone Number
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form [formGroup]="editmobileForm">
+                <div class="modal-body text-center">
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row" *ngIf="profileDetails">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-6">
+                            <input class="form-control"
+                                [ngClass]="{ 'is-invalid': submittedmobile && m.MobileNumber.errors }"
+                                placeholder="Mobile Number" formControlName="MobileNumber" name="MobileNumber"
+                                type="text" autofocus [(ngModel)]="MobileNumber" />
+                            <div *ngIf="submittedmobile && m.MobileNumber.errors" class="invalid-feedback">
+                                <div *ngIf="m.MobileNumber.errors.pattern">Please Enter valid mobile number</div>
+                                <div *ngIf="m.MobileNumber.errors.required">Please Enter valid mobile number</div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-primary" (click)="SendMobileOTP()" mdbWavesEffect>Send
+                                OTP</button>
+                        </div>
+                        <div class="col-md-12">&nbsp;</div>
+
+                    </div>
+                </div>
+            </form>
+            <form *ngIf="enableotp" [formGroup]="otpForm" (ngSubmit)="UpdatecustomerMobileNumber()">
+                <div class="modal-body text-center">
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row" *ngIf="profileDetails">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-6">
+                            <input class="form-control" [ngClass]="{ 'is-invalid': submittedotp && o.OTP.errors }"
+                                placeholder="OTP" formControlName="OTP" name="OTP" type="text" autofocus
+                                [(ngModel)]="OTP">
+                            <div *ngIf="submittedotp && o.OTP.errors" class="invalid-feedback">
+                                <div *ngIf="o.OTP.errors.pattern">Please Enter valid OTP</div>
+                                <div *ngIf="o.OTP.errors.required">Please Enter valid OTP</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="UpdatecustomerMobileNumber()"
+                    mdbWavesEffect>Update</button>
+                <button type="button" class="btn btn-warning" #closeMobilebutton data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- edit email modal -->
+<div class="modal modal-angular fade" id="EditEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center;font-weight: 600">Update Email
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form [formGroup]="editemailForm">
+                <div class="modal-body text-center">
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row" *ngIf="profileDetails">
+                        <div class="col-md-8">
+                            <input class="form-control" [ngClass]="{ 'is-invalid': submittedemail && k.Email.errors }"
+                                placeholder="Email" formControlName="Email" name="Email" type="text" autofocus
+                                [(ngModel)]="Email" />
+                            <div *ngIf="submittedemail && k.Email.errors" class="invalid-feedback">
+                                <div *ngIf="k.Email.errors.required">Please Enter valid Email</div>
+                                <div *ngIf="k.Email.errors.email">Please Enter valid Email</div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-primary" (click)="SendEmaileOTP()" mdbWavesEffect>Send
+                                OTP</button>
+                        </div>
+                        <div class="col-md-12">&nbsp;</div>
+
+                    </div>
+                </div>
+            </form>
+            <form *ngIf="enableotp" [formGroup]="otpEmailForm" (ngSubmit)="UpdatecustomerEmail()">
+                <div class="modal-body text-center">
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row" *ngIf="profileDetails">
+                        <div class="col-md-6">
+                            <input class="form-control"
+                                [ngClass]="{ 'is-invalid': submitteemaildotp && e.EmailOTP.errors }" placeholder="OTP"
+                                formControlName="EmailOTP" name="EmailOTP" type="text" autofocus [(ngModel)]="EmailOTP">
+                            <div *ngIf="submitteemaildotp && e.EmailOTP.errors" class="invalid-feedback">
+                                <div *ngIf="e.EmailOTP.errors.pattern">Please Enter valid OTP</div>
+                                <div *ngIf="e.EmailOTP.errors.required">Please Enter valid OTP</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="UpdatecustomerEmail()"
+                    mdbWavesEffect>Update</button>
+                <button type="button" class="btn btn-warning" #closeEmailbutton data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

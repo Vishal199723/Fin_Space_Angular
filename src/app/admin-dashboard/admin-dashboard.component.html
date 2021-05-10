@@ -1,0 +1,160 @@
+<app-header></app-header>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<body class="bodycolor">
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <p class="headtext">Admin Dashboard</p>
+
+    <div>&nbsp;</div>
+    <div class="col-md-12 row" style=" background-color: #ececec;">
+        <div class="column">
+            <div class="card cardcolor">
+               
+                <p class="complaintext">Registered Users</p>
+                <p class="complaintext">{{UserList.length}}</p>
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <a pageScroll href="#ShowRegisteredUsers"> <button class="btn btnprop"
+                                (click)="GotoRegisteredUsers()">View Details</button></a>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">All Requested Services</p>
+                <p class="complaintext">{{RequestedServicesList.length}}</p>
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <a pageScroll href="#ShowRequestedDetails"> <button class="btn btnprop"
+                                (click)="GotoRequestedService()">View Details</button></a>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">Pending Services</p>
+                <p class="complaintext">{{AssignedServicesList.length}}</p>
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <a pageScroll href="#ShowPendingetails"> <button class="btn btnprop"
+                                (click)="GotoPendingService()">View Details</button></a>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+    </div><br/><br/>
+    <div class="col-md-12 row" style=" background-color: #ececec;">
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">Service Provider List</p>
+                <p class="complaintext">{{SPList.length}}</p>
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <a pageScroll href="#ShowSPList"> <button class="btn btnprop"
+                                (click)="GotoServiceProviders()">View Details</button></a>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">Business Associates List</p>
+                <p class="complaintext">{{BAList.length}}</p>
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <a pageScroll href="#ShowBAList"> <button class="btn btnprop"
+                                (click)="GotoBAsList()">View Details</button></a>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+        <div class="column">
+            <div class="card cardcolor">
+                <br />
+                <p class="complaintext">Completed Services</p>
+                <p class="complaintext">{{CompletedList.length}}</p>
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <a pageScroll href="#ShowcompletedList"> <button class="btn btnprop"
+                                (click)="GotoCompletedServices()">View Details</button></a>
+                    </div>
+                </div>
+                <br /> <br />
+            </div>
+        </div>
+    </div>
+
+    <div style=" background-color: #ececec;">&nbsp;</div>
+    <div style=" background-color: #ececec;">&nbsp;</div>
+  
+
+    <br /> <br />
+    <style>
+        .modalsize {
+            width: 950px;
+            max-width: 950px;
+            overflow-y: 50vh;
+        }
+
+        @media (max-width: 960px) {
+            .modalsize {
+                width: 450px;
+                max-width: 650px;
+                overflow-y: 50vh;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .modalsize {
+                width: 480px;
+                max-width: 550px;
+                overflow-y: 50vh;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .modalsize {
+                width: 380px;
+                max-width: 450px;
+                overflow-y: 50vh;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .modalsize {
+                width: 350px;
+                max-width: 450px;
+                overflow-y: 50vh;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .modalsize {
+                width: 310px;
+                max-width: 450px;
+                overflow-y: 50vh;
+            }
+        }
+    </style>
+ 

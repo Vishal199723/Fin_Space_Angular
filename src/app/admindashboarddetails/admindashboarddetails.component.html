@@ -1,0 +1,646 @@
+<app-header></app-header>
+    <div style=" background-color: #ececec;">&nbsp;</div>
+    <div style=" background-color: #ececec;">&nbsp;</div>
+    <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowRegisteredUsers" id="ShowRegisteredUsers">
+
+        <div class="col-md-2"></div>
+        <div class="col-md-8 card">
+            <div class="col-md-12">&nbsp;</div>
+            <div class="col-md-12">&nbsp;</div>
+            <div>
+                <h3 style="text-align: center;">All Users</h3>
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="Userfromdate" name="Userfromdate"
+                            placeholder="Any Day" [(ngModel)]="Userfromdate"
+                            (change)="onChangeUserfromdate(Userfromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>To Date</label>
+                        <input type="date" class="form-control" id="Usertodate" name="Usertodate" placeholder="Any Day"
+                            [(ngModel)]="Usertodate" (change)="onChangeUserTodate(Usertodate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnpropother" (click)="cancelUser()">Cancel</button>
+                    </div>
+                </div> <br />
+                <div class="search-hero">
+                    <input class="form-control" type="text" name="searchUsersText" [(ngModel)]="searchUsersText"
+                        autocomplete="off" placeholder="&#61442; Search">
+                </div>
+                <br />
+
+                <br />
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size: 17px;">
+                            <th>Sl No</th>
+                            <th>UserId</th>
+                            <th style="cursor: pointer;" (click)="sortuserbyname()">User Name</th>
+                            <th>Email</th>
+                            <th>PhoneNumber</th>
+                            <th>Pincode</th>
+                            <th>State</th>
+                            <th>City</th>
+                            <th>Role</th>
+                            <th style="cursor: pointer;" (click)="sortuserbydate()">Date</th>
+
+                        </tr>
+                        <tr *ngFor="let aa of UserList | LockFilter: searchUsersText 
+                    | paginate: { itemsPerPage: 5, currentPage: p };
+                  let i = index
+                " style="font-size: 16px; color:black;font-family: DINNextRoundedLTPro;">
+                            <td>{{ 5 * (p - 1) + (i + 1) }}</td>
+                            <td>{{ aa.userId }}</td>
+                            <td>{{ aa.userName}}</td>
+                            <td>{{ aa.email }}</td>
+                            <td>{{ aa.phoneNumber }}</td>
+                            <td>{{ aa.pincode }}</td>
+                            <td>{{ aa.state }}</td>
+                            <td>{{ aa.city }}</td>
+                            <td>{{GetRole(aa.role)}}</td>
+                            <td>{{ aa.createdOn | date}}</td>
+
+                        </tr>
+                    </table>
+                    <br />
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <br /><br />
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowRequestedDetails"
+        id="ShowRequestedDetails">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 card">
+            <div>
+                <br /> <br />
+                <h3 style="text-align: center;">Requested Services</h3>
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="servicefromdate" name="servicefromdate"
+                            placeholder="Any Day" [(ngModel)]="servicefromdate"
+                            (change)="onChangeServicefromdate(servicefromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>To Date</label>
+                        <input type="date" class="form-control" id="servicetodate" name="servicetodate"
+                            placeholder="Any Day" [(ngModel)]="servicetodate"
+                            (change)="onChangeServiceTodate(servicetodate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnpropother" (click)="cancelService()">Cancel</button>
+                    </div>
+                </div>
+                <br />
+                <div class="search-hero">
+                    <input class="form-control" type="text" name="SearchServices" [(ngModel)]="SearchServices"
+                        autocomplete="off" placeholder="&#61442; Search">
+                </div>
+
+
+                <br />
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size:17px">
+                            <th>Sl No</th>
+                            <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                            <!--<th>Service Provider</th>-->
+                            <th>Customer Number</th>
+                            <th>Information</th>
+                            <th>Service Time</th>
+                            <th style="cursor: pointer;" (click)="sortbyservicedate()">Service Date</th>
+                            <th>Assigned To</th>
+                            <!-- <th>Details</th> -->
+                            <th>Track Status</th>
+
+                        </tr>
+                        <tr *ngFor="let com  of RequestedServicesList | LockFilter: SearchServices  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                            style="font-size:16px;font-family: DINNextRoundedLTPro">
+                            <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                            <td>{{com.complaintId}} </td>
+                            <!--<td>{{com.serviceProvider}}</td>-->
+                            <td>{{com.contactNumber}}</td>
+                            <td>{{com.information}}</td>
+                            <td>{{com.serviceTime}}</td>
+                            <td>{{com.lastUpdated|date}}</td>
+                            <td>{{com.serviceProvider}}</td>
+                            <!-- <td> <input class="btn btn-info" type="button" data-toggle="modal"
+                                    data-target="#Fulldetails" (click)="getfulldeatails(com)" value="Details" /></td> -->
+                            <td (click)="GetTrackDetails(com)"> <input class="btn btnprop" type="button"
+                                    value="Track Status" /></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowPendingServices" id="ShowAssignedDetails">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 card">
+            <div>
+                <br /> <br />
+                <h3 style="text-align: center;">Assigned Services</h3>
+                <br />
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate"
+                            placeholder="Any Day" [(ngModel)]="Assignfromdate"
+                            (change)="onChangeAssignfromdate(Assignfromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>To Date</label>
+                        <input type="date" class="form-control" id="Assigntodate" name="Assigntodate"
+                            placeholder="Any Day" [(ngModel)]="Assigntodate"
+                            (change)="onChangeAssignTodate(Assigntodate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnpropother" (click)="cancelAssign()">Cancel</button>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="search-hero">
+                    <input class="form-control" type="text" name="SearchAssignedServices"
+                        [(ngModel)]="SearchAssignedServices" autocomplete="off" placeholder="&#61442; Search">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size:17px">
+                            <th>Sl No</th>
+                            <th style="cursor: pointer;" (click)="sortbyserviceid()">Service Id</th>
+                            <!--<th>Service Provider</th>-->
+                            <th>Customer Number</th>
+                            <th>Information</th>
+                            <th>Service Time</th>
+                            <th style="cursor: pointer;" (click)="sortbydate()">Service Date</th>
+                        </tr>
+                        <tr *ngFor="let com  of AssignedServicesList | LockFilter: SearchAssignedServices  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                            style="font-size:16px;font-family: DINNextRoundedLTPro">
+                            <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                            <td>{{com.complaintId}} </td>
+                            <!--<td>{{com.serviceProvider}}</td>-->
+                            <td>{{com.contactNumber}}</td>
+                            <td>{{com.information}}</td>
+                            <td>{{com.serviceTime}}</td>
+                            <td>{{com.lastUpdated|date}}</td>
+                        </tr>
+                    </table>
+                    <br />
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- added -->
+    <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowSPList" 
+    id="ShowSPList">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 card">
+            <div>
+                <br /> <br />
+                <h3 style="text-align: center;">Service Provider List</h3>
+                <br />
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate"
+                            placeholder="Any Day" [(ngModel)]="Assignfromdate"
+                            (change)="onChangeAssignfromdate(Assignfromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>To Date</label>
+                        <input type="date" class="form-control" id="Assigntodate" name="Assigntodate"
+                            placeholder="Any Day" [(ngModel)]="Assigntodate"
+                            (change)="onChangeAssignTodate(Assigntodate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnpropother" (click)="cancelAssign()">Cancel</button>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="search-hero">
+                    <input class="form-control" type="text" name="SearchAssignedServices"
+                        [(ngModel)]="SearchAssignedServices" autocomplete="off" placeholder="&#61442; Search">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size:17px">
+                            <th>Sl No</th>
+                            <th> Provider Id</th>
+                            <th>Company Name</th>
+                            <th>Company Reg Id</th>
+                            <th>Logo</th>
+                            <th>GST No.</th>
+                            <th style="cursor: pointer;">Pending Services</th>
+                            <th style="cursor: pointer;">Completed Services</th>
+
+                        </tr>
+                        <tr *ngFor="let com  of SPList | LockFilter: SearchAssignedServices  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                            style="font-size:16px;font-family: DINNextRoundedLTPro">
+                            <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                            <td>{{com.providerId}} </td>
+                            <td>{{com.companyName}}</td>
+                            <td>{{com.companyRegId}}</td>
+                            <td><img src="{{com.logo}}" class="img-circle" style="height: 100px;width: 150px;border: solid 2px;"/></td>
+                            <td>{{com.gstNo}}</td>
+                            <th style="cursor: pointer;" pageScroll href="#ShowSPPendingServices" (click)="getpendingSPServices(com.id)"><button class="btn btn-primary"> Pending Services</button></th>
+                            <th style="cursor: pointer;" pageScroll href="#ShowSPCompletedServices" (click)="getcompletedSPServices(com.id)"><button class="btn btn-primary"> Completed Services</button></th>
+
+                        </tr>
+                    </table>
+                    <br />
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowSPPendingServices" 
+    id="ShowSPPendingServices">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 card">
+            <div>
+                <br /> <br />
+                <h3 style="text-align: center;">Service Provider's Pending List</h3>
+                <br />
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate"
+                            placeholder="Any Day" [(ngModel)]="Assignfromdate"
+                            (change)="onChangeSPAssignfromdate(Assignfromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>To Date</label>
+                        <input type="date" class="form-control" id="Assigntodate" name="Assigntodate"
+                            placeholder="Any Day" [(ngModel)]="Assigntodate"
+                            (change)="onChangeSPAssignTodate(Assigntodate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnpropother" (click)="cancelAssign()">Cancel</button>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="search-hero">
+                    <input class="form-control" type="text" name="SearchAssignedServices"
+                        [(ngModel)]="SearchAssignedServices" autocomplete="off" placeholder="&#61442; Search">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size:17px">
+                            <th>Sl No</th>
+                            <th>Complaint Id</th>
+                            <th>Customer Id</th>
+                            <th>Customer Email</th>
+                            <th>Loan Type</th>
+                            <th>Contact Number</th>
+                            <th>Service Date</th>
+
+                        </tr>
+                        <tr *ngFor="let com  of SPPendingServicesList | LockFilter: SearchAssignedServices  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                            style="font-size:16px;font-family: DINNextRoundedLTPro">
+                            <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                            <td>{{com.complaintId}} </td>
+                            <td>{{com.cusId}}</td>
+                            <td>{{com.email}}</td>
+                            <td>{{com.request}}</td>
+                            <td>{{com.contactNumber}}}</td>
+                            <td>{{com.serviceDate|date}}</td>
+                        </tr>
+                    </table>
+                    <br />
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowSPCompletedServices" 
+    id="ShowSPCompletedServices">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 card">
+            <div>
+                <br /> <br />
+                <h3 style="text-align: center;">Service Provider's Completed Services</h3>
+                <br />
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate"
+                            placeholder="Any Day" [(ngModel)]="Assignfromdate"
+                            (change)="onChangeSPcompletedAssignfromdate(Assignfromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>To Date</label>
+                        <input type="date" class="form-control" id="Assigntodate" name="Assigntodate"
+                            placeholder="Any Day" [(ngModel)]="Assigntodate"
+                            (change)="onChangeSPcompletedAssignTodate(Assigntodate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnpropother" (click)="cancelAssign()">Cancel</button>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="search-hero">
+                    <input class="form-control" type="text" name="SearchAssignedServices"
+                        [(ngModel)]="SearchAssignedServices" autocomplete="off" placeholder="&#61442; Search">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size:17px">
+                            <th>Sl No</th>
+                            <th>Service Provider</th>
+                            <th>Customer Id</th>
+                            <th>To User</th>
+                            <th>Ticket Id</th>
+                            <th>Accepted Date</th>
+
+                        </tr>
+                        <tr *ngFor="let com  of SPCompletedServicesList | LockFilter: SearchAssignedServices  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                            style="font-size:16px;font-family: DINNextRoundedLTPro">
+                            <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                            <td>{{com.fromUser}} </td>
+                            <td>{{com.customerId}}</td>
+                            <td>{{com.toUser}}</td>
+                            <td>{{com.ticketId}}</td>
+                            <td>{{com.acceptedDate|date}}</td>
+
+                        </tr>
+
+                    </table>
+                    <br />
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- added -->
+  <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowBAList" id="ShowBAList">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 card">
+        <div>
+            <br /> <br />
+            <h3 style="text-align: center;">Business Associates List</h3>
+            <br />
+            <div class="col-md-12 row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <label>From Date</label>
+                    <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate"
+                        placeholder="Any Day" [(ngModel)]="Assignfromdate"
+                        (change)="onChangeAssignfromdate(Assignfromdate)" />
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <label>To Date</label>
+                    <input type="date" class="form-control" id="Assigntodate" name="Assigntodate"
+                        placeholder="Any Day" [(ngModel)]="Assigntodate"
+                        (change)="onChangeAssignTodate(Assigntodate)" />
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-3 row">
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <button class="btn btnpropother" (click)="cancelAssign()">Cancel</button>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="search-hero">
+                <input class="form-control" type="text" name="SearchAssignedServices"
+                    [(ngModel)]="SearchAssignedServices" autocomplete="off" placeholder="&#61442; Search">
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" style="border-collapse: collapse;">
+                    <tr style="font-size:17px">
+                        <th>Sl No</th>
+                        <th> BA Id</th>
+                        <th>Name</th>
+                        <!-- <th>Logo</th> -->
+                        <th>PAN No.</th>
+                        <!-- <th>Contact Number</th> -->
+                        <th>Email/Contact Number</th>
+                        <!-- <th style="cursor: pointer;">Pending Services</th>
+                        <th style="cursor: pointer;">Completed Services</th> -->
+
+                    </tr>
+                    <tr *ngFor="let com  of BAList | LockFilter: SearchAssignedServices  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                        style="font-size:16px;font-family: DINNextRoundedLTPro">
+                        <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                        <td>{{com.baId}} </td>
+                        <td>{{com.fullName}}</td>
+                        <td>{{com.panNumber}}</td>
+                        <!-- <td><img src="{{com.logo}}" class="img-circle" style="height: 100px;width: 150px;border: solid 2px;"/></td> -->
+                        <!-- <td>{{com.contactNumber}}</td> -->
+                        <td>{{com.email}}</td>
+                        <!-- <th style="cursor: pointer;" pageScroll href="#ShowSPPendingServices" (click)="getpendingSPServices(com.id)"><button class="btn btn-primary"> Pending Services</button></th>
+                        <th style="cursor: pointer;" pageScroll href="#ShowSPCompletedServices" (click)="getcompletedSPServices(com.id)"><button class="btn btn-primary"> Completed Services</button></th> -->
+
+                    </tr>
+                </table>
+                <br />
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+      <div class="col-md-12 row" style="background-color: #ececec;" *ngIf="ShowcompletedList" id="ShowcompletedList">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 card">
+            <div>
+                <br /> <br />
+                <h3 style="text-align: center;">All Completed Services</h3>
+                <br />
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>From Date</label>
+                        <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate"
+                            placeholder="Any Day" [(ngModel)]="Assignfromdate"
+                            (change)="onChangeSPcompletedAssignfromdate(Assignfromdate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <label>To Date</label>
+                        <input type="date" class="form-control" id="Assigntodate" name="Assigntodate"
+                            placeholder="Any Day" [(ngModel)]="Assigntodate"
+                            (change)="onChangeSPcompletedAssignTodate(Assigntodate)" />
+                    </div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3 row">
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <button class="btn btnpropother" (click)="cancelAssign()">Cancel</button>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="search-hero">
+                    <input class="form-control" type="text" name="SearchAssignedServices"
+                        [(ngModel)]="SearchAssignedServices" autocomplete="off" placeholder="&#61442; Search">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" style="border-collapse: collapse;">
+                        <tr style="font-size:17px">
+                            <th>Sl No</th>
+                            <th>Service Provider</th>
+                            <th>Customer Id</th>
+                            <th>Contact Number</th>
+                            <th>Email</th>
+                            <th>Request Type</th>
+                            <th>Accepted Date</th>
+
+                        </tr>
+                        <tr *ngFor="let com  of CompletedList | LockFilter: SearchAssignedServices  | paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+                            style="font-size:16px;font-family: DINNextRoundedLTPro">
+                            <td> {{ 5 * (p - 1) + (i+1) }}</td>
+                            <td>{{com.complaintId}} </td>
+                            <td>{{com.cusId}}</td>
+                            <td>{{com.contactNumber}}</td>
+                            <td>{{com.email}}</td>
+                            <td>{{com.request}}</td>
+                            <td>{{com.serviceDate|date}}</td>
+
+                        </tr>
+
+                    </table>
+                    <br />
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /> <br />
+    <style>
+        .modalsize {
+            width: 950px;
+            max-width: 950px;
+            overflow-y: 50vh;
+        }
+
+        @media (max-width: 960px) {
+            .modalsize {
+                width: 450px;
+                max-width: 650px;
+                overflow-y: 50vh;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .modalsize {
+                width: 480px;
+                max-width: 550px;
+                overflow-y: 50vh;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .modalsize {
+                width: 380px;
+                max-width: 450px;
+                overflow-y: 50vh;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .modalsize {
+                width: 350px;
+                max-width: 450px;
+                overflow-y: 50vh;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .modalsize {
+                width: 310px;
+                max-width: 450px;
+                overflow-y: 50vh;
+            }
+        }
+    </style>

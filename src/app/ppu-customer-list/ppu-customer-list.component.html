@@ -1,0 +1,179 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<br><br><br><br><br><br>
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+        <h4 style="text-align: center;color: black;">PPU Customer List</h4><br><br>
+        <div class="col-md-12 row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label>From Date</label>
+                <input type="date" class="form-control" id="PPUCusfromdate" name="PPUCusfromdate"
+                    placeholder="Any Day" [(ngModel)]="PPUCusfromdate"
+                    (change)="onChangeppulisfromdate(PPUCusfromdate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label >To Date</label>
+                <input type="date" class="form-control" id="PPUCustodate" name="PPUCustodate"
+                     placeholder="Any Day" [(ngModel)]="PPUCustodate"
+                    (change)="onChangeppulisTodate(PPUCustodate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <div class="col-md-12">&nbsp;</div>
+
+                <button class="btn btnpropother"
+                        (click)="cancelppulis()">Cancel</button>
+            </div>
+        </div>
+        <br/>
+        <div class="search-hero">
+            <input class="form-control" type="text" name="SearchPpuCusList" [(ngModel)]="SearchPpuCusList" autocomplete="off" placeholder="&#61442; Search">
+          </div>
+        <table class="table table-responisve table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>PPU ID</th>
+                    <th> Customer ID </th>
+                    <th style="cursor: pointer;" (click)="sortPPUbyserviceid()"> Ticket ID</th>
+                    <th style="cursor: pointer;" (click)="sortPPUbydate()"> Date </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aa of ppucutlist | LockFilter: SearchPpuCusList ;" >
+                    <td> {{aa.id}}</td>
+                    <td style="cursor: pointer;">{{aa.ppuid}}</td>
+                    <td style="cursor: pointer;">{{aa.customerId}}</td>
+                    <td>{{aa.ticketId}}</td>
+                    <td>{{aa.createdOn|date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-10">&nbsp;</div>
+</div>
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+        <h4 style="text-align: center;color: black;">PPU Registration Approved Customer Details</h4><br><br>
+        <div class="col-md-12 row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label>From Date</label>
+                <input type="date" class="form-control" id="Cusfromdate" name="Cusfromdate"
+                    placeholder="Any Day" [(ngModel)]="Cusfromdate"
+                    (change)="onChangecutlistfromdate(Cusfromdate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label >To Date</label>
+                <input type="date" class="form-control" id="Custodate" name="Custodate"
+                     placeholder="Any Day" [(ngModel)]="Custodate"
+                    (change)="onChangecutlistTodate(Custodate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <div class="col-md-12">&nbsp;</div>
+
+                <button class="btn btnpropother"
+                        (click)="cancelcutlist()">Cancel</button>
+            </div>
+        </div>
+        <br/>
+        <div class="search-hero">
+            <input class="form-control" type="text" name="SearchPpuAppList" [(ngModel)]="SearchPpuAppList" autocomplete="off" placeholder="&#61442; Search">
+          </div>
+        <table class="table table-responisve table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>PPU ID</th>
+                    <th style="cursor: pointer;" (click)="sortCusbyserviceid()"> Customer ID </th>
+                    <th> Customer Email</th>
+                    <th style="cursor: pointer;" (click)="sortCusbydate()"> Date </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aa of cutlist | LockFilter: SearchPpuAppList;" >
+                    <td> {{aa.id}}</td>
+                    <td style="cursor: pointer;" (click)="opendocpage(aa)">{{aa.ppuid}}</td>
+                    <td style="cursor: pointer;" (click)="opendocpage(aa)">{{aa.customerId}}</td>
+                    <td>{{aa.customerName}}</td>
+                    <td>{{aa.createdOn|date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-10">&nbsp;</div>
+</div>
+
+
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+        <h4 style="text-align: center;color: black;">PPU Documents Approved Customer Details</h4><br><br>
+        <div class="col-md-12 row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label>From Date</label>
+                <input type="date" class="form-control" id="PpuDocfromdate" name="PpuDocfromdate"
+                    placeholder="Any Day" [(ngModel)]="PpuDocfromdate"
+                    (change)="onChangeppudocfromdate(PpuDocfromdate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label >To Date</label>
+                <input type="date" class="form-control" id="PpuDoctodate" name="PpuDoctodate"
+                     placeholder="Any Day" [(ngModel)]="PpuDoctodate"
+                    (change)="onChangeppudocTodate(PpuDoctodate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <div class="col-md-12">&nbsp;</div>
+
+                <button class="btn btnpropother"
+                        (click)="cancelppudoc()">Cancel</button>
+            </div>
+        </div>
+        <br/>
+        <div class="search-hero">
+            <input class="form-control" type="text" name="SearchPpuDocAppList" [(ngModel)]="SearchPpuDocAppList" autocomplete="off" placeholder="&#61442; Search">
+          </div>
+        <table class="table table-responisve table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>PPU ID</th>
+                    <th style="cursor: pointer;" (click)="sortPPUDocbyserviceid()"> Customer ID </th>
+                    <th> Customer Email</th>
+                    <th style="cursor: pointer;" (click)="sortPPUDocbydate()"> Date </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aa of ppudoccutlist | LockFilter: SearchPpuDocAppList;" >
+                    <td> {{aa.id}}</td>
+                    <td style="cursor: pointer;" (click)="opendocpage(aa)">{{aa.ppuId}}</td>
+                    <td style="cursor: pointer;" (click)="opendocpage(aa)">{{aa.customerId}}</td>
+                    <td>{{aa.customerName}}</td>
+                    <td>{{aa.createdOn|date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-10">&nbsp;</div>
+</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+

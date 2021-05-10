@@ -1,0 +1,19 @@
+#signinbutton {
+    /* width: 16.5%;
+    height: 8%; */
+    border-radius: 20px;
+    background-color: #2b156f;
+    border: none;
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.btnprop{
+    background-color: #36dbe2;
+    text-align: center;
+    color: white;
+    margin-top: 3%;
+    
+  }

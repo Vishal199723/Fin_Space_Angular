@@ -1,0 +1,112 @@
+body {
+    overflow-x: hidden;
+  }
+  
+  .section-one {
+    background-color: #5f6bc1;
+    position: relative;
+    padding: 20px}
+    .section-one__title {
+      color: #fff;
+      font-size: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .section-one__descr {
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  
+  
+  .section-two {
+    background-color: #4854af;
+    padding: 10px 0 10px;
+    position: relative;
+    z-index: 10;}
+    .section-two__title {
+      color: #fff;
+      font-size: 35px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .section-two__descr {
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  
+  
+  /* -------------------------------------------------------------------------
+     begin Separator
+   * ------------------------------------------------------------------------- */
+  .separator {
+    bottom: -4px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+  
+    width: 100%;
+  }
+  /* -------------------------------------------------------------------------
+     end Separator
+   * ------------------------------------------------------------------------- */
+  
+  /* begin Media Max-Width 767
+  ============================================================================ */
+  
+  @media screen and (max-width: 767px) {
+    .section-one {
+      padding: 130px 0 190px;
+    }
+    .separator {
+      bottom: -110px;}
+      .separator__svg {
+        left: -20%;
+        position: relative;
+        transform: rotate(15deg);
+        width: 140%;
+      }
+    }
+  
+  
+  /* end Media Max-Width 767
+  ============================================================================ */
+
+  .btn-get-started {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: 0.5s;
+    color: #1d37f1;
+    border: 2px solid white;
+  }
+  .btn-get-started:hover {
+    background: rgb(47, 59, 146);
+    color: #fff;
+  }
+  .homecard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+  #image{
+    width: 80%;
+    height: 210px;
+   
+}
+
+  

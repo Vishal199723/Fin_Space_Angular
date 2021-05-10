@@ -1,0 +1,568 @@
+<app-header></app-header>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+
+<div class="col-md-12 row bodycolor">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="homecard">
+            <div style=" background-color: #36dbe2; border: solid 0px;">&nbsp;
+                <h2 style="text-align: center;color: white;">Service Provider Details</h2>
+                <br />
+            </div>
+        </div>
+
+        <div class="col-md-12 row" *ngIf="individual">
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-4 row" style="display: flex;">
+                    <label id="emaillabel">SP Type: &nbsp;</label>&nbsp;Individual
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-4 row ">
+                    <label for="Email " id="emaillabel ">Select Service Type :
+                        &nbsp;</label>&nbsp;{{SPInd.selectedServiceType}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Full Name : &nbsp;</label>&nbsp;{{SPInd.userName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Company Name : &nbsp;</label>&nbsp;{{SPInd.companyName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Company Registration Number :
+                        &nbsp;</label>&nbsp;{{SPInd.companyRegid}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Postal Code : &nbsp;</label>&nbsp;{{SPInd.pincode}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Country : &nbsp;</label>&nbsp;{{SPInd.countryName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">State : &nbsp;</label>&nbsp;{{SPInd.stateName}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">District : &nbsp;</label>&nbsp;{{SPInd.districtName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Taluk : &nbsp;</label>&nbsp;{{SPInd.talukName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Email/Mobile Number : &nbsp;</label>&nbsp;{{SPInd.email}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Registered Office Address : &nbsp;</label>&nbsp;{{SPInd.registeredAddress}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Corporate Office Address :
+                        &nbsp;</label>&nbsp;{{SPInd.corporateAddress}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Number of years experience :
+                        &nbsp;</label>&nbsp;{{SPInd.servicePeriod}}
+                </div>
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Salt ID : &nbsp;</label>&nbsp;{{SPInd.saltId}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Key ID : &nbsp;</label>&nbsp;{{SPInd.keyId}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="SPInd.companyLogo" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Company logo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="SPInd.itpan" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">IT PAN</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+
+        </div>
+
+        <div class="col-md-12 row" *ngIf="company">
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-4 row" style="display: flex;">
+                    <label id="emaillabel">SP Type: &nbsp;</label>&nbsp;Company
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-4 row ">
+                    <label for="Email " id="emaillabel ">Select Service Type :
+                        &nbsp;</label>&nbsp;{{SPCom.selectedservicetype}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Owner First Name / Director First Name:
+                        &nbsp;</label>&nbsp;{{SPCom.userName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Company Name : &nbsp;</label>&nbsp;{{SPCom.companyName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Company Registration Number :
+                        &nbsp;</label>&nbsp;{{SPCom.companyRegid}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Postal Code : &nbsp;</label>&nbsp;{{SPCom.pincode}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Country : &nbsp;</label>&nbsp;{{SPCom.countryName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">State : &nbsp;</label>&nbsp;{{SPCom.stateName}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">District : &nbsp;</label>&nbsp;{{SPCom.districtName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Taluk : &nbsp;</label>&nbsp;{{SPCom.talukName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Email/Mobile Number : &nbsp;</label>&nbsp;{{SPCom.email}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Registered Office Address : &nbsp;</label>&nbsp;{{SPCom.registeredAddress}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Corporate Office Address :
+                        &nbsp;</label>&nbsp;{{SPCom.corporateAddress}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Number of years experience :
+                        &nbsp;</label>&nbsp;{{SPCom.servicePeriod}}
+                </div>
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Turnover in last year : &nbsp;</label>&nbsp;{{SPCom.amountPerYear}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Grand Total : &nbsp;</label>&nbsp;{{SPCom.grandTotal}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">GST No : &nbsp;</label>&nbsp;{{SPCom.gstnum}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Salt ID : &nbsp;</label>&nbsp;{{SPCom.saltId}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Key ID : &nbsp;</label>&nbsp;{{SPCom.keyId}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Incorporation Type :
+                        &nbsp;</label>&nbsp;{{SPCom.incorporatedId}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Date of Incorporation : &nbsp;</label>&nbsp;{{SPCom.incorporationDate}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Experience in Current Business :
+                        &nbsp;</label>&nbsp;{{SPCom.experienceinCurrentBusiness}}
+                </div>
+
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="SPCom.companyLogo" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Company Logo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="SPCom.incorporationCertificate" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Incorporation Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="SPCom.authorizedSignature" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Authorized Signatory</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="SPCom.companylogo" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">IT PAN</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="SPCom.gstCertificate" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">GST Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="col-md-12 row" *ngIf="partnership">
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-4 row" style="display: flex;">
+                    <label id="emaillabel">SP Type: &nbsp;</label>&nbsp;Partnership
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-4 row ">
+                    <label for="Email " id="emaillabel ">Select Service Type :
+                        &nbsp;</label>&nbsp;{{SPPar.selectedServiceType}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Owner First Name / Director First Name:
+                        &nbsp;</label>&nbsp;{{SPPar.userName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Partner Name: &nbsp;</label>&nbsp;{{SPPar.partnerName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Firm Name : &nbsp;</label>&nbsp;{{SPPar.companyRegid}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Firm Registration Number: &nbsp;</label>&nbsp;{{SPPar.companyRegid}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Postal Code : &nbsp;</label>&nbsp;{{SPPar.Pincode}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Country : &nbsp;</label>&nbsp;{{SPPar.countryName}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">State : &nbsp;</label>&nbsp;{{SPPar.stateName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">District : &nbsp;</label>&nbsp;{{SPPar.districtName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Taluk : &nbsp;</label>&nbsp;{{SPPar.talukName}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Email/Mobile Number : &nbsp;</label>&nbsp;{{SPPar.email}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Registered Office Address : &nbsp;</label>&nbsp;{{SPPar.registeredAddress}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Corporate Office Address :
+                        &nbsp;</label>&nbsp;{{SPPar.corporateAddress}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Number of years experience :
+                        &nbsp;</label>&nbsp;{{SPPar.servicePeriod}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Turnover in last year : &nbsp;</label>&nbsp;{{SPPar.amountPerYear}}
+                </div>
+
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Grand Total : &nbsp;</label>&nbsp;{{SPPar.grandTotal}}
+                </div>
+
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">GST No : &nbsp;</label>&nbsp;{{SPPar.gstnum}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Salt ID : &nbsp;</label>&nbsp;{{SPPar.saltId}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Key ID : &nbsp;</label>&nbsp;{{SPPar.keyId}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Incorporation Type :
+                        &nbsp;</label>&nbsp;{{SPPar.incorporatedId}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Date of Incorporation : &nbsp;</label>&nbsp;{{SPPar.incorporationDate}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Experience in Current Business :
+                        &nbsp;</label>&nbsp;{{SPPar.experienceinCurrentBusiness}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+
+            <div class="col-md-12 row">
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="SPPar.companyLogo" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Firm logo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="SPPar.incorporationCertificate" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Incorporation Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="SPPar.authorizedSignature" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Authorized Signatory</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="SPPar.itpan" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">IT PAN</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="SPPar.gstCertificate" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">GST Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-1"></div>
+
+
+    <br /> <br />
+
+    <div class="col-md-12 row">
+        <div class="col-md-2">&nbsp;</div>
+        <div class="col-md-8">
+
+            <div class="col-md-12 row">
+
+                <div class="col-md-6">
+                    <label for="amountPerYear">Select Status</label>
+                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                        <option value="">Select Status</option>
+                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                            {{do.workflowStateName}}
+                        </option>
+                    </select>
+                    <br /><br />
+                </div>
+            </div>
+            <div class="col-md-12 row">
+                <div class="col-md-6">
+                    <label for="amountPerYear">Comments</label>
+                    <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments"
+                        [(ngModel)]="comments"></textarea>
+                </div>
+                <br />
+            </div>
+            <br /> 
+            
+            <div class="col-md-12 row">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                        (click)="SendSPapprovalStatus()">Send</button><br>
+                </div>
+            </div><br>
+            <br>
+        </div>
+    </div>
+
+</div>
+
+
+<br /><br /><br /><br /> <br />

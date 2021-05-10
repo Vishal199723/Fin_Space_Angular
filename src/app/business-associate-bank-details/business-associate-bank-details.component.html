@@ -1,0 +1,147 @@
+<app-header></app-header>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+
+<div class="col-md-12 row bodycolor">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="homecard">
+
+            <form id="bankdetails" [formGroup]="BABankDetails">
+
+                <div style=" background-color: #36dbe2;
+                        border: solid 0px;
+                        height: 88px;">&nbsp;
+                    <h2 style="text-align: center;color: white;">Business Associate Bank Details</h2>
+                </div>
+
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+
+                        <div style="color: #36dbe2">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Bank Name</label>
+                                    <br />
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.bankname.errors }"
+                                        formControlName="bankname" type="text" class="form-control" name="bankname"
+                                        [(ngModel)]="bankname" autofocus>
+                                    <div *ngIf="submitted && f.bankname.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.bankname.errors.required">Bank Name required</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Branch </label>
+                                    <input  [ngClass]="{ 'is-invalid': submitted && f.bankbranch.errors }" formControlName="bankbranch" type="text" class="form-control"
+                                        name="bankbranch" [(ngModel)]="bankbranch" autofocus>
+
+                                        <div *ngIf="submitted && f.bankbranch.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.bankbranch.errors.required">Bank Name required</div>
+                                        </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">IFSC Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.ifsccode.errors }" formControlName="ifsccode" type="text" class="form-control" name="ifsccode"
+                                        [(ngModel)]="ifsccode" autofocus>
+                                        <div *ngIf="submitted && f.ifsccode.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.ifsccode.errors.required">IFSC code required</div>
+                                        </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account holder Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.accountname.errors }"
+                                     formControlName="accountname" type="text" class="form-control"
+                                        name="accountname" [(ngModel)]="accountname" autofocus>
+                                        <div *ngIf="submitted && f.accountname.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.accountname.errors.required">Name required</div>
+                                        </div>
+                                </div>
+                          
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.accountnumber.errors }"
+                                        formControlName="accountnumber" type="number" class="form-control"
+                                        name="accountnumber" [(ngModel)]="accountnumber" autofocus>
+                                    <div *ngIf="submitted && f.accountnumber.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.accountnumber.errors.required">Account Number
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Coinfirm Account Number </label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.coinaccountnumber.errors }"
+                                     formControlName="coinaccountnumber" type="text" class="form-control"
+                                        name="coinaccountnumber" [(ngModel)]="coinaccountnumber" autofocus>
+                                        <div *ngIf="submitted && f.coinaccountnumber.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.coinaccountnumber.errors.required">Account Number
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account Type</label>
+                                    <select (change)="onselectbankaccounttype($event.target.value)" 
+                                        class="form-control">
+                                        <option value="">Select Account Type </option>
+                                        <option value="Savings">Savings</option>
+                                        <option value="Salary">Salary</option>
+                                        <option value="Current">Current</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div>&nbsp;</div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                        class="btn btnprop">Cancel</button>
+                                </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                        class="btn btnprop" (click)="SaveBABankDetails()">Save</button><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<!-- notification alert -->
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-4" *ngIf="dismissalert">
+        <div class="alert alert-info"
+            style="background-color: #545353;box-shadow: none;left: 245px; position: fixed;top: 550px;width: 350px;">
+            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="material-icons" style="color: white">close</i>
+            </button>
+            <span style="color: white;margin-top: 6px;">
+                <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+        </div>
+    </div>
+</div>

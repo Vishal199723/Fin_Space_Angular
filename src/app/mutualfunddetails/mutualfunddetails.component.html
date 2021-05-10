@@ -1,0 +1,837 @@
+<app-header></app-header>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row" style="background-color: #c2b6b6;
+background-image: linear-gradient(315deg, #c2b6b6 0%, #576574 74%);">
+    <div class="col-md-12">&nbsp;</div>
+    <div class="col-md-12 row" *ngIf="roleid=='2'">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <button class="btn btn-primary" (click)="DownloadForm()">Download</button>
+        </div>
+    </div>
+    <div id="print-section" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+      
+        <div class="col-md-1"></div>
+        <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10">
+
+            <div class="homecard"  align="center" style=" margin-left: 0px;margin-right: 0px;margin-top: 1%">
+                <div class="col-md-12 row ">&nbsp;</div>
+
+                <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Mutual Fund</h2>
+                <br>
+                <div class="col-md-12">&nbsp;</div>
+
+                <div class="col-md-12">&nbsp;</div>
+                <!-- <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-4 row">
+                        <label id="emaillabel">Customer Id : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.applicant != null">{{mutualfunddetails.customerid}}</span> 
+                      
+                    </div>
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-4 row ">
+                        <label id="emaillabel ">INVESTMENT TYPE : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.investment == '1'">Lump Sum</span> 
+                        <span *ngIf="mutualfunddetails.investment == '2'">Lump sum with SIP</span> 
+                        <span *ngIf="mutualfunddetails.investment == '3'">Single Cheque Multiple Schemes</span> 
+                    </div>
+                </div> -->
+
+                <div class="col-md-12">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">APPLICANT INFO</h4>
+                <div class="col-md-12">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">First
+                    Applicant:</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-2 row">&nbsp;</div>
+                    <div class="col-md-3 row">
+                        <label for="Email " id="emaillabel"> Name : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.firstname != null">{{mutualfunddetails.firstname}}</span>
+                    </div>
+
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.pannumber != null">{{mutualfunddetails.pannumber}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DOB : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.birthdata != null">{{mutualfunddetails.birthdata}}</span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Address : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.addr != null">{{mutualfunddetails.addr}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Aadhaar : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.aadhaar != null">{{mutualfunddetails.aadhaar}}</span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-12">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left;  margin-left: 13%; ">Second
+                    Applicant:</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-2 row">&nbsp;</div>
+                    <div class="col-md-3 row">
+                        <label id="emaillabel"> Name : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.name != null">{{mutualfunddetails.name}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.panno != null">{{mutualfunddetails.panno}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DOB : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.birth != null">{{mutualfunddetails.birth}}</span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Address : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.number != null">{{mutualfunddetails.number}}</span>
+
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Aadhaar : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.aadhaarsec != null">{{mutualfunddetails.aadhaarsec}}</span>
+
+                    </div>
+
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">Third
+                    Applicant:</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-2 row">&nbsp;</div>
+                    <div class="col-md-3 row">
+                        <label id="emaillabel"> Name : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.thirdname != null">{{mutualfunddetails.thirdname}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.pannum != null">{{mutualfunddetails.pannum}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DOB : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.datebirth != null">{{mutualfunddetails.datebirth}}</span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Address : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.addthird != null">{{mutualfunddetails.addthird}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Aadhaar : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.aadhaathird != null">{{mutualfunddetails.aadhaathird}}</span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; "> GUARDIAN INFO</h4>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-2 row">&nbsp;</div>
+                    <div class="col-md-3 row">
+                        <label id="emaillabel"> Name : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.guardian != null">{{mutualfunddetails.guardian}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.guardianpan != null">{{mutualfunddetails.guardianpan}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DOB : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.guardianbirth != null">{{mutualfunddetails.guardianbirth}}</span>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Address : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.addguardian != null">{{mutualfunddetails.addguardian}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Aadhaar : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.aadharguard != null">{{mutualfunddetails.aadharguard}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Tel No. : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.telephone != null">{{mutualfunddetails.telephone}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Relationship with Applicant : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.relationship != null">{{mutualfunddetails.relationship}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Proof of relationship : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.proof != null">{{mutualfunddetails.proof}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">TAX STATUS</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Resident Individual : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.resident != null">{{mutualfunddetails.resident}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">NRI : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.nri != null">{{mutualfunddetails.nri}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">HUF : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.hufdata != null">{{mutualfunddetails.hufdata}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Sole Proprietor : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.proprietor != null">{{mutualfunddetails.proprietor}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Provident Fund : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.fund != null">{{mutualfunddetails.fund}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Others : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.others != null">{{mutualfunddetails.others}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">FIIs : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.fiIsdata != null">{{mutualfunddetails.fiIsdata}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Club/society : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.society != null">{{mutualfunddetails.society}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PIO : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.piodata != null">{{mutualfunddetails.piodata}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Partnership : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.partnership != null">{{mutualfunddetails.partnership}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">QFI : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.qfidata != null">{{mutualfunddetails.qfidata}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">GROSS ANNUAL INCOME</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">First applicant : &nbsp;</label>
+                        <span
+                            *ngIf="mutualfunddetails.firstapplicate != null">{{mutualfunddetails.firstapplicate}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Second applicant : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.secapplicate != null">{{mutualfunddetails.secapplicate}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Third applicant : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.thrdapplicate != null">{{mutualfunddetails.thrdapplicate}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">DETAILS FOR INDIVIDUAL</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">First
+                    Applicant</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Place of birth : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.placeofbirth != null">{{mutualfunddetails.placeofbirth}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Country of birth : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.country != null">{{mutualfunddetails.country}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Citizenship/Nationality : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.nationality != null">{{mutualfunddetails.nationality}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">second
+                    Applicant</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Place of birth : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.secondplace != null">{{mutualfunddetails.secondplace}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Country of birth : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.secondcountry != null">{{mutualfunddetails.secondcountry}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Citizenship/Nationality : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.citizenship != null">{{mutualfunddetails.citizenship}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">Third
+                    Applicant</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Place of birth : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.thirdplace != null">{{mutualfunddetails.thirdplace}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Country of birth : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.thirdcountry != null">{{mutualfunddetails.thirdcountry}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Citizenship/Nationality : &nbsp;</label>
+                        <span
+                            *ngIf="mutualfunddetails.thirdnationlity != null">{{mutualfunddetails.thirdnationlity}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">NOMINATION DETAIL</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Nominee name/s : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.nominee != null">{{mutualfunddetails.nominee}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.nomineepan != null">{{mutualfunddetails.nomineepan}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Relationship with investor : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.investor != null">{{mutualfunddetails.investor}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Allocation : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.allocation != null">{{mutualfunddetails.allocation}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">INVESTMENT & PAYMENT</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Multiple Investment : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.investment != null">{{mutualfunddetails.investment}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Lump sum : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.lumpsum != null">{{mutualfunddetails.lumpsum}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">SIP : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.sipdata != null">{{mutualfunddetails.sipdata}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Dividend Payout Mode : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.payout != null">{{mutualfunddetails.payout}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">DEMAT ACCOUNT</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">DP ID : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.dpid != null">{{mutualfunddetails.dpid}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Beneficiary acc/client ID : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.beneficiary != null">{{mutualfunddetails.beneficiary}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DP Name : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.dpname != null">{{mutualfunddetails.dpname}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">BANK ACCOUNT DETAILS FOR PAYOUT</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Name of the Bank : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.bankname != null">{{mutualfunddetails.bankname}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Account no. : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.accountnum != null">{{mutualfunddetails.accountnum}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">IFSC Code : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.ifcscode != null">{{mutualfunddetails.ifcscode}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Branch Address : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.branchaddress != null">{{mutualfunddetails.branchaddress}}</span>
+
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Account Type : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.accountype != null">{{mutualfunddetails.accountype}}</span>
+
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">MICR Code : &nbsp;</label>
+                        <span *ngIf="mutualfunddetails.micrcode != null">{{mutualfunddetails.micrcode}}</span>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+
+                <div class="col-md-12 row" *ngIf="role=='1'">
+
+                    <div class="col-md-4 row">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role=='1'">
+                        <button (click)="EditMutualfundDetails()" id="signinbutton">Edit</button>
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="col-md-1 row">
+                    </div>
+
+
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12 ">&nbsp;</div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+        <div class="col-md-1 "></div>
+        <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+            <div class="homecard " id="signin" align="center "
+                style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                <div id="downloadid"  *ngIf="certificatesexist">
+                    <div class="col-md-12 row">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Uploaded Documents</h4>
+
+                    <div class="col-md-12 row">&nbsp;</div>
+                    <div class="col-md-12 row">
+                        <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                        <div class="col-md-4 row" *ngFor="let item of CertificateDisplay">
+                            <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'image/jpeg' ||
+                                     item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                <img [src]="item.certificate" height="100" width="100" />
+                                <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                <!-- <div class="col-md-12 row">
+                                                <div class="col-md-2 row">&nbsp;</div>
+                                                <div class="col-md-10 row">
+                                                    <p style="text-align: center;">{{item.fileName}}</p>
+                                                </div>
+                                            </div> -->
+                            </div>
+                            <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/pdf' ||
+                                     item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                <img src="assets/img/pdficon.png"
+                                    style="width: 100px; height: 100px; cursor: pointer;" />
+                                <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                <!-- <div class="col-md-12 row">
+                                                <div class="col-md-2 row">&nbsp;</div>
+                                                <div class="col-md-10 row">
+                                                    <p style="text-align: center;">{{item.fileName}}</p>
+                                                </div>
+                                            </div> -->
+                            </div>
+                            <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                                     item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                <img src="assets/img/xls.png" style="width: 100px; height: 100px; cursor: pointer;" />
+                                <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                <!-- <div class="col-md-12 row">
+                                                <div class="col-md-2 row">&nbsp;</div>
+                                                <div class="col-md-10 row">
+                                                    <p style="text-align: center;">{{item.fileName}}</p>
+                                                </div>
+                                            </div> -->
+                            </div>
+                            <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                                     item.documentType == 'doc' || item.documentType == 'docx')"
+                                (click)="ViewDoc(item)">
+                                <img src="assets/img/docx.png" style="width: 100px; height: 100px; cursor: pointer;" />
+                                <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                <!-- <div class="col-md-12 row">
+                                                <div class="col-md-2 row">&nbsp;</div>
+                                                <div class="col-md-10 row">
+                                                    <p style="text-align: center;">{{item.fileName}}</p>
+                                                </div>
+                                            </div> -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">&nbsp;</div>
+
+                    <div *ngIf="enableothercertificates">
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Other Uploaded Documents</h4>
+
+                        <div class="col-md-12 row">
+
+                            <div class="col-md-3 row" *ngFor="let item of allcertificates">
+                                <div *ngIf="item.actualCertificateName!=null  && (item.documentType == 'image/jpeg' ||
+                                     item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                    <img [src]="item.certificate" height="100" width="100" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/pdf' ||
+                                     item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/pdficon.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                                     item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/xls.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                                     item.documentType == 'doc' || item.documentType == 'docx')"
+                                    (click)="ViewDoc(item)">
+                                    <img src="assets/img/docx.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 row" *ngIf="role=='1'">
+                    <div class="col-md-5 row">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role=='1'">
+                        <button (click)="EditCertificatesDetails()" id="signinbutton">Edit</button>
+
+                    </div>
+                    <br />
+
+
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12" *ngIf="role!='2'">
+                    <div class="col-md-12 row" *ngIf="!showapprove">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div class="col-md-2">&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div class="col-md-8 row card">
+                            <br />
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <label for="amountPerYear">Select Group/Customer</label>
+                                <select (change)="onselecttouser($event.target.value)" class="form-control">
+                                    <option selected="selected" value="">Select Here</option>
+                                    <option selected="selected" value="1">Customer</option>
+                                    <option selected="selected" value="2">Group</option>
+                                </select>
+                            </div>
+                            <br /><br />
+                            <div class="row" *ngIf="operation == '1'" style="margin-top: -8%;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <br />
+                                    <label for="amountPerYear">Select Status</label>
+                                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                                        <option value="">Select Status</option>
+                                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                                            {{do.workflowStateName}}
+                                        </option>
+                                    </select>
+                                    <br /><br />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" *ngIf="operation == '1'">
+                                <br />
+                                <div>
+                                    <label for="amountPerYear">Comments</label>
+                                    <textarea type="text" class="form-control" placeholder="Enter Your Comments"
+                                        name="comments" [(ngModel)]="comments"></textarea>
+                                </div>
+                                <br /><br />
+                                <div>
+                                    <label for="amountPerYear">Upload File</label>
+                                    <input type="file" (change)="onChangeApproveFiles($event)" />
+                                </div>
+                                <br /><br />
+                                <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                                    (click)="SendVerificationtoCustomer()" style="width: 50%;">Send</button>
+                                <br /><br />
+                            </div>
+
+                            <div class="row" *ngIf="operation == '2'" style="margin-top: -8%;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <br />
+                                    <label for="amountPerYear">Select Status</label>
+                                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                                        <option value="">Select Status</option>
+                                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                                            {{do.workflowStateName}}
+                                        </option>
+                                    </select>
+                                </div><br />
+
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" *ngIf="operation == '2'">
+                                <br />
+                                <div>
+                                    <label for="amountPerYear">Comments</label>
+                                    <textarea type="text" class="form-control" placeholder="Enter Your Comments"
+                                        name="comments" [(ngModel)]="comments"></textarea>
+                                </div>
+                                <br /><br />
+                                <div>
+                                    <label for="amountPerYear">Upload File</label>
+                                    <input type="file" (change)="onChangeApproveFiles($event)" />
+                                </div>
+                                <br /><br />
+                                <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                                    (click)="SendVerificationtoApprover()" style="width: 50%;">Send</button>
+                                <br /><br />
+                            </div>
+
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-5 row">&nbsp;</div>
+                        <div class="col-md-4 row">
+                            <button *ngIf="showapprove" type="button" (click)="approve()"
+                                id="signinbutton">Approve</button>
+
+                        </div>
+                        <br />
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 row ">&nbsp;</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 row ">&nbsp;</div>
+    <div class="col-md-12 row ">&nbsp;</div>
+
+
+</div>

@@ -1,0 +1,943 @@
+
+#container{
+    width: 700px;
+    height: auto;
+    background-color:white; 
+    border: solid 2px #36dbe2; 
+    border-radius: 10px;
+   
+}
+
+#legend{
+  width: 40%;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: DIN Next Rounded LT Pro;
+  color: #36dbe2;
+}
+
+#emaillabel{
+  width: 206px;
+  height: 24px;
+  display: flex;
+  justify-content: left;
+  margin-left: 75px;
+  float: left;
+  font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
+  color: #66737E;
+  margin-bottom: 1%;
+}
+#inputbutton{
+  width: 550px;
+  height: 46px;
+  border-radius: 4px;
+  background: #EAF1F7;
+  background-image: none;
+  font-size: 18px;
+  font-family: DIN Next Rounded LT Pro;
+  border: white;
+  outline-color: white;
+}
+#inputbutton1{
+  width: 550px;
+  height: 46px;
+  border-radius: 4px;
+  background: #EAF1F7;
+  color:#36dbe2 ;
+  font-size: 30px;
+  font-weight: bolder;
+  background-image: none;
+  margin-bottom: 6px;
+  border: white;
+  outline-color: white;
+}
+input[type=checkbox]:checked:before {    
+  content: '\2714';
+  color: #36dbe2;
+  left: -1px;
+  top: 8px;
+  left: 6px;
+  height: 10px;
+  margin: -17% 9%;
+}
+input[type=checkbox]:before {
+  content: "";
+  display: block;
+  width: 62%;
+  height: 62%;
+  margin: -10% -10%;
+  border-radius: 50%;
+}
+input[type=checkbox] {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  /* border-radius: 50%; */
+  outline: none;
+  border: 0px solid #EAF1F7;
+  background: #EAF1F7;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-left: -532px;
+}
+#multicheckbox{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  color:#EAF1F7;
+  margin-top: -9px;
+  border-radius: 3px;
+}
+/* input[type=checkbox] {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  outline: none;
+  border: 2px solid #EAF1F7;
+  background: #EAF1F7;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-left: -532px;
+}
+input[type=checkbox]:checked:after {    
+  content: '\2714';
+  color: #36dbe2;
+  left: -1px;
+  top: 8px;
+  left: 6px;
+  height: 10px;
+}
+/* input[type=checkbox]:checked:before {    
+  content: '\2714';
+  color: #36dbe2;
+  left: -1px;
+  top: 8px;
+  left: 6px;
+  height: 10px;
+  margin: -17% 9%;
+} */
+/* input[type=checkbox]:before {
+  content: "";
+  display: block;
+  width: 62%;
+  height: 62%;
+  margin: -38% -11%;
+  border-radius: 50%;
+}  */
+
+#rememberme{
+  font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 32px;
+  color: #66737E;
+  margin-left: -402px;
+  margin-top: -30px;
+}
+#checkbox{
+    /* position: absolute; */
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin-left: -532px;
+    border-radius: 3px;
+
+    /* display:flex;
+    justify-content: left;
+    float: left;
+    color:grey;
+    margin-left: 75px; */
+}
+#forgot{
+    width: 249px;
+    height: 24px;
+    color: #66737E;
+    font-family: DIN Next Rounded LT Pro;
+    font-size: 16px;
+    font-weight: normal;
+    float: right;
+    margin-right: 54px;
+    margin-top: -42px;
+}
+#click{
+  color:#36dbe2 ;
+  text-decoration: none;
+  font-family: DIN Next Rounded LT Pro;
+}
+#signinbutton{
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  background-color:  #10C7DF;
+  border: none;
+  font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.15em;
+  color: #FFFFFF;
+  margin-top: -60px;
+  outline: none;
+  outline-color: #FFFFFF;
+  cursor: pointer;
+}
+
+#logo{
+    width: 50%;
+    height: 30%;
+}
+#needaccount{
+  width: 262px;
+  height: 24px;
+  font-family: DIN Next Rounded LT Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
+  color: #66737E;
+}
+#signup{
+  color:#36dbe2;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: DIN Next Rounded LT Pro;
+}
+
+@media screen and (max-width:780px){
+    #container{
+        width: 90%;
+        height: 480px;
+        background-color:white; 
+        border: solid 2px #36dbe2; 
+        border-radius: 10px;
+    }
+   
+#legend{
+  width: 40%;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: DIN Next Rounded LT Pro;
+  color: #36dbe2;
+}
+
+    #emaillabel{
+      width: 29.4%;
+      height: 24px;
+      display: flex;
+      justify-content: left;
+      margin-left: 7.1%;
+      float: left;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 32px;
+      color: #66737E;
+      font-size: medium;
+      margin-bottom: 1%;
+    }
+    #logo{
+        width: 70%;
+        height: 30%;
+    }
+    #inputbutton{
+      width: 86%;
+      height: 40px;
+      border-radius: 4px;
+      background: #EAF1F7;
+      background-image: none;
+      font-size: 18px;
+      font-family: DIN Next Rounded LT Pro;
+      border: white;
+      outline-color: white;
+    }
+    #inputbutton1{
+      width: 86%;
+      height: 40px;
+      border-radius: 4px;
+      background: #EAF1F7;
+      color:#36dbe2 ;
+      font-size: 30px;
+      font-weight: bolder;
+      background-image: none;
+      margin-bottom: 12px;
+      border: white;
+      outline-color: white;
+    }
+
+    input[type=checkbox]:checked:before {    
+      content: '\2714';
+      color: #36dbe2;
+      left: -1px;
+      top: 8px;
+      left: 6px;
+      height: 10px;
+      margin: -17% 9%;
+    }
+    input[type=checkbox]:before {
+      content: "";
+      display: block;
+      width: 62%;
+      height: 62%;
+      margin: -10% -10%;
+      border-radius: 50%;
+    }
+    input[type=checkbox] {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      /* border-radius: 50%; */
+      outline: none;
+      border: 0px solid #EAF1F7;
+      background: #EAF1F7;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-left: -404px;
+    }
+    #multicheckbox{
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      color:#EAF1F7;
+      margin-top: -9px;
+      border-radius: 3px;
+    }
+    /* input[type=checkbox] {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      outline: none;
+      border: 2px solid #EAF1F7;
+      background: #EAF1F7;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-left: -404px;
+    }
+    input[type=checkbox]:checked:after {    
+      content: '\2714';
+      color: #36dbe2;
+      left: -1px;
+      top: 8px;
+      left: 6px;
+      height: 10px;
+    } */
+    #rememberme{
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 32px;
+      color: #66737E;
+      margin-left: -280px;
+      margin-top: -30px;
+    }
+    #checkbox{
+     /* display:flex;
+        justify-content: left;
+        float: left;
+        color:grey;
+        margin-left: 50px; */
+        font-size: medium; 
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+        margin-left: -532px;
+        border-radius: 3px;
+    }
+  
+    #forgot{
+        width: 249px;
+        height: 24px;
+        color: #66737E;
+        font-family: DIN Next Rounded LT Pro;
+        font-size: 16px;
+        font-weight: normal;
+        float: right;
+        margin-right:5%;
+        margin-top: -42px;
+    }
+    #click{
+      color:#36dbe2 ;
+      text-decoration: none;
+      font-family: DIN Next Rounded LT Pro;
+      font-size: 16px;
+    }
+    #signinbutton{
+      width: 28.57%;
+      height: 30px;
+      border-radius: 20px;
+      background-color:  #10C7DF;
+      border: none;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.15em;
+      color: #FFFFFF;
+      margin-top: -60px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+    
+    
+    #needaccount{
+        width: 37.4%;
+      height: 24px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 32px;
+      text-align: center;
+      color: #66737E;
+    }
+    #signup{
+      color:#36dbe2;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 18px;
+      font-family: DIN Next Rounded LT Pro;
+    }
+   
+}
+
+@media screen and (max-width:768px){
+  #container{
+      width: 90%;
+      height: 480px;
+      background-color:white; 
+      border: solid 2px #36dbe2; 
+      border-radius: 10px;
+  }
+
+#legend{
+  width: 40%;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: DIN Next Rounded LT Pro;
+  color: #36dbe2;
+}
+
+  #emaillabel{
+    width: 29.4%;
+    height: 24px;
+    display: flex;
+    justify-content: left;
+    margin-left: 7.1%;
+    float: left;
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 32px;
+    color: #66737E;
+    font-size: medium;
+    margin-bottom: 1%;
+  }
+  #logo{
+      width: 70%;
+      height: 30%;
+  }
+  #inputbutton{
+    width: 86%;
+    height: 40px;
+    border-radius: 4px;
+    background: #EAF1F7;
+    background-image: none;
+    font-size: 18px;
+    font-family: DIN Next Rounded LT Pro;
+    border: white;
+    outline-color: white;
+  }
+  #inputbutton1{
+    width: 86%;
+    height: 40px;
+    border-radius: 4px;
+    background: #EAF1F7;
+    color:#36dbe2 ;
+    font-size: 30px;
+    font-weight: bolder;
+    background-image: none;
+    margin-bottom: 9px;
+    border: white;
+    outline-color: white;
+  }
+
+  input[type=checkbox]:checked:before {    
+    content: '\2714';
+    color: #36dbe2;
+    left: -1px;
+    top: 8px;
+    left: 6px;
+    height: 10px;
+    margin: -17% 9%;
+  }
+  input[type=checkbox]:before {
+    content: "";
+    display: block;
+    width: 62%;
+    height: 62%;
+    margin: -10% -10%;
+    border-radius: 50%;
+  }
+  input[type=checkbox] {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    /* border-radius: 50%; */
+    outline: none;
+    border: 0px solid #EAF1F7;
+    background: #EAF1F7;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: -574px;
+  }
+  #multicheckbox{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    color:#EAF1F7;
+    margin-top: -9px;
+    border-radius: 3px;
+  }
+  
+  /* input[type=checkbox] {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    outline: none;
+    border: 2px solid #EAF1F7;
+    background: #EAF1F7;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: -574px;
+  }
+  input[type=checkbox]:checked:after {    
+    content: '\2714';
+    color: #36dbe2;
+    left: -1px;
+    top: 8px;
+    left: 6px;
+    height: 10px;
+  } */
+  #rememberme{
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    color: #66737E;
+    margin-left: -450px;
+    margin-top: -30px;
+  }
+
+  #forgot{
+      width: 249px;
+      height: 24px;
+      color: #66737E;
+      font-family: DIN Next Rounded LT Pro;
+      font-size: 16px;
+      font-weight: normal;
+      float: right;
+      margin-right:5%;
+      margin-top: -42px;
+  }
+  #click{
+    color:#36dbe2 ;
+    text-decoration: none;
+    font-family: DIN Next Rounded LT Pro;
+    font-size: 16px;
+  }
+  #signinbutton{
+    width: 28.57%;
+    height: 30px;
+    border-radius: 20px;
+    background-color:  #10C7DF;
+    border: none;
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    margin-top: -60px;
+    outline: none;
+    outline-color: #FFFFFF;
+  }
+  
+  
+  #needaccount{
+      width: 37.4%;
+    height: 24px;
+    font-family: DIN Next Rounded LT Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    color: #66737E;
+  }
+  #signup{
+    color:#36dbe2;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: DIN Next Rounded LT Pro;
+  }
+ 
+}
+
+@media screen and (max-width:500px){
+    #container{
+        width: 85%;
+        height: 480px;
+        background-color:white; 
+        border: solid 2px #36dbe2; 
+        border-radius: 10px;
+    }
+
+
+    #legend{
+      width: 40%;
+      font-size: 25px;
+      font-weight: bold;
+      font-family: DIN Next Rounded LT Pro;
+      color: #36dbe2;
+    }
+
+    #emaillabel{
+      width: 46.81%;
+      height: 24px;
+      display: flex;
+      justify-content: left;
+      margin-left: 11.36%;
+      float: left;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 32px;
+      color: #66737E;
+      font-size: small;
+      margin-bottom: 1%;
+    }
+    #logo{
+        width: 70%;
+        height: 30%;
+    }
+    #inputbutton{
+      width: 77.27%;
+      height: 40px;
+      border-radius: 4px;
+      background: #EAF1F7;
+      background-image: none;
+      font-size: 18px;
+      font-family: DIN Next Rounded LT Pro;
+      border: white;
+      outline-color: white;
+    }
+    #inputbutton1{
+      width: 77.27%;
+      height: 40px;
+      border-radius: 4px;
+      background: #EAF1F7;
+      color:#36dbe2 ;
+      font-size: 30px;
+      font-weight: bolder;
+      background-image: none;
+      margin-bottom: 10px;
+      border: white;
+      outline-color: white;
+    }
+
+    input[type=checkbox]:checked:before {    
+      content: '\2714';
+      color: #36dbe2;
+      left: -1px;
+      top: 8px;
+      left: 6px;
+      height: 10px;
+      margin: -29% 9%;
+    }
+    input[type=checkbox]:before {
+      content: "";
+      display: block;
+      width: 62%;
+      height: 62%;
+      margin: -10% -10%;
+      border-radius: 50%;
+    }
+    input[type=checkbox] {
+      -webkit-appearance: none;
+      width: 13px;
+      height: 13px;
+      /* border-radius: 50%; */
+      outline: none;
+      border: 0px solid #EAF1F7;
+      background: #EAF1F7;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-left: -235px;
+      margin-bottom: 1px;
+    }
+    #multicheckbox{
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      color:#EAF1F7;
+      margin-top: -9px;
+      border-radius: 3px;
+    }
+
+    #rememberme{
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 32px;
+      color: #66737E;
+      margin-left: -125px;
+      margin-top: -30px;
+    }
+    #forgot{
+        height: 24px;
+        color: #66737E;
+        font-family: DIN Next Rounded LT Pro;
+        font-size:14px;
+        font-weight: normal;
+        margin-top: -42px;
+        float: right;
+        margin-right: -9.78%;
+    }
+    #click{
+      color:#36dbe2 ;
+      float: right;
+      margin-right: 52px;
+      margin-top: -47px;
+      font-size: 14px;
+      text-decoration: none;
+      font-family: DIN Next Rounded LT Pro;
+    }
+    #signinbutton{
+      width: 45%;
+      height: 30px;
+      border-radius: 20px;
+      background-color:  #10C7DF;
+      border: none;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.15em;
+      color: #FFFFFF;
+      margin-top: -60px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }
+    #needaccount{
+        width: 59.5%;
+      height: 24px;
+      padding-top: 40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 32px;
+      text-align: center;
+      color: #66737E;
+    }
+
+    #signup{
+      color:#36dbe2;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: DIN Next Rounded LT Pro;
+    }
+   
+}
+
+@media screen and (max-width:335px){
+    #container{
+        width:90%;
+        height: 499px;
+        background-color:white; 
+        border: none; 
+    }
+
+    #legend{
+      width:40%;
+      font-size: 25px;
+      font-weight: bold;
+      font-family: DIN Next Rounded LT Pro;
+      color: #36dbe2;
+    }
+
+    #emaillabel{
+      width: 64.37%;
+      height: 24px;
+      display: flex;
+      justify-content: left;
+      margin-left: 0px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 32px;
+      color: #66737E;
+      font-size: smaller;
+      margin-bottom: 1%;
+    }
+    #logo{
+        width: 70%;
+        height: 30%;
+    }
+    #inputbutton{
+      width: 100%;
+      height: 40px;
+      border-radius: 4px;
+      background: #EAF1F7;
+      background-image: none;
+      font-size: 18px;
+      font-family: DIN Next Rounded LT Pro;
+      border: white;
+      outline-color: white;
+    }
+    #inputbutton1{
+      width: 100%;
+      height: 40px;
+      border-radius: 4px;
+      background: #EAF1F7;
+      color:#36dbe2 ;
+      font-size: 30px;
+      font-weight: bolder;
+      background-image: none;
+      margin-bottom: 12px;
+      border: white;
+    outline-color: white;
+    }
+    input[type=checkbox]:checked:before {    
+      content: '\2714';
+      color: #36dbe2;
+      left: -1px;
+      top: 8px;
+      left: 6px;
+      height: 10px;
+      margin: -17% 9%;
+    }
+    input[type=checkbox]:before {
+      content: "";
+      display: block;
+      width: 62%;
+      height: 62%;
+      margin: -10% -10%;
+      border-radius: 50%;
+    }
+    input[type=checkbox] {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      /* border-radius: 50%; */
+      outline: none;
+      border: 0px solid #EAF1F7;
+      background: #EAF1F7;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-left: -532px;
+    }
+    /* input[type=checkbox] {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      outline: none;
+      border: 2px solid #EAF1F7;
+      background: #EAF1F7;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-left: -532px;
+    }
+    input[type=checkbox]:checked:after {    
+      content: '\2714';
+      color: #36dbe2;
+      left: -1px;
+      top: 8px;
+      left: 6px;
+      height: 10px;
+    } */
+    #rememberme{
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 32px;
+      color: #66737E;margin-left: -402px;
+      margin-top: -30px;
+    }
+    
+    #forgot{
+        height: 24px;
+        color: #66737E;
+        font-family: DIN Next Rounded LT Pro;
+        font-size:small;
+        font-weight: normal;
+        margin-top: -21px;
+        float: right;
+        margin-right: 0px;
+    }
+    #click{
+      color:#36dbe2 ;
+      text-decoration: none;
+      font-family: DIN Next Rounded LT Pro;
+      font-size: 13px;
+    }
+    #signinbutton{
+        width: 62.5%;
+      height: 30px;
+      border-radius: 20px;
+      background-color:  #10C7DF;
+      border: none;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.15em;
+      color: #FFFFFF;
+      margin-top: -60px;
+      outline: none;
+      outline-color: #FFFFFF;
+    }   
+    
+    #needaccount{
+      width: 81.87%;
+      height: 24px;
+      padding-top: 40px;
+      font-family: DIN Next Rounded LT Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 32px;
+      text-align: center;
+      color: #66737E;
+    }
+    #signup{
+      color:#36dbe2;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: DIN Next Rounded LT Pro;
+    }
+   
+}

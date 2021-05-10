@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<br><br><br><br><br><br>
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+        <h3 style="text-align: center;color: black;">PPU Application Customer Details</h3><br><br>
+        <table class="table table-responisve table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ticket ID</th>
+                    <th>PPU ID</th>
+                    <th> Customer ID </th>
+                    <th> Customer Email</th>
+                    <th> Date </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aa of cutlist;" >
+                    <td> {{aa.id}}</td>
+                    <td style="cursor: pointer;" (click)="opendocpage(aa)">{{aa.ticketId}}</td>
+                    <td style="cursor: pointer;" (click)="opendocpage(aa)">{{aa.ppuid}}</td>
+                    <td style="cursor: pointer;" (click)="opendocpage(aa)">{{aa.customerId}}</td>
+                    <td>{{aa.customerName}}</td>
+                    <td>{{aa.createdOn|date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-10">&nbsp;</div>
+</div>

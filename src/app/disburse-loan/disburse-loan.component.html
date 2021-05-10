@@ -1,0 +1,148 @@
+<app-header></app-header><br />
+<br /><br /><br /><br />
+<div class="container">
+
+  <div class="col-md-12 row">
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div class="col-md-2">&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div class="col-md-8 row card">
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <label for="amountPerYear">Select Status</label>
+          <select (change)="onSelectStatus($event.target.value)" class="form-control">
+            <option value="">Select Status</option>
+            <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+              {{do.workflowStateName}}
+            </option>
+          </select>
+          <br /><br />
+          <div class="col-md-12 row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                (click)="SaveLoanDisbursementDetails()">Send</button>
+            </div>
+          </div>
+
+          <br />
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <label for="amountPerYear">Comments</label>
+          <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments"
+            [(ngModel)]="comments"></textarea>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="text-align: center;">Disburse Loans</h3><br />
+        </div>
+        <br />
+        <div class="panel-body">
+          <div class="bodyTest">
+            <form class="">
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- first name input-->
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Loan ID</label>
+                    <div class="">
+                      <input id="loanid" name="loanid" type="text" autocomplete="first-name" readonly
+                        [(ngModel)]="loanid" class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Customer ID
+                    </label>
+                    <div class="">
+                      <input id="custid" name="custid" type="text" [(ngModel)]="custid" autocomplete="last-name"
+                        readonly class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Customer Name</label>
+                    <div class="">
+                      <input id="customername" name="customername" type="text" [(ngModel)]="customername"
+                        autocomplete="last-name" readonly class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Sanctioned Amount</label>
+                    <div class="">
+                      <input id="sanctionedamount" name="sanctionedamount" type="text" [(ngModel)]="sanctionedamount"
+                        autocomplete="last-name" readonly class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Date of Sanctioned</label>
+                    <div class="">
+                      <input id="dateofsanctioned" name="dateofsanctioned" type="date" [(ngModel)]="dateofsanctioned"
+                        autocomplete="last-name" class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Loan Type</label>
+                    <div class="">
+                      <input id="loantype" name="loantype" type="text" [(ngModel)]="loantype" autocomplete="last-name"
+                        readonly class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Disburse Amount</label>
+                    <div class="">
+                      <input id="disburseamount" name="disburseamount" type="number" autocomplete="last-name"
+                        [(ngModel)]="disburseamount" class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6"></div>
+              </div>
+              <br />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br /><br /><br />

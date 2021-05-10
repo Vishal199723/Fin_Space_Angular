@@ -1,0 +1,565 @@
+<app-header></app-header>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+
+<div class="col-md-12 row bodycolor">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="homecard">
+            <div style=" background-color: #36dbe2; border: solid 0px;">&nbsp;
+                <h2 style="text-align: center;color: white;">Service Provider Details</h2>
+                <br />
+            </div>
+        </div>
+
+        <div class="col-md-12 row" *ngIf="individual">
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-4 row" style="display: flex;">
+                    <label id="emaillabel">SP Type: &nbsp;</label>&nbsp;Individual
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-4 row ">
+                    <label for="Email " id="emaillabel ">Select Service Type :
+                        &nbsp;</label>&nbsp;{{BAInd.typesofServiceOffered}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">First Name : &nbsp;</label>&nbsp;{{BAInd.firstName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Middle Name : &nbsp;</label>&nbsp;{{BAInd.middleName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Last Name :
+                        &nbsp;</label>&nbsp;{{BAInd.lastName}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Email/Mobile Number : &nbsp;</label>&nbsp;{{BAInd.email}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Father's / Husband's Name : &nbsp;</label>&nbsp;{{BAInd.fatherorHusbandName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Occupation : &nbsp;</label>&nbsp;{{BAInd.occupation}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Date of Birth : &nbsp;</label>&nbsp;{{BAInd.dateofBirth}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Experience in Years : &nbsp;</label>&nbsp;{{BAInd.experience}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">PAN Number : &nbsp;</label>&nbsp;{{BAInd.panNumber}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Flat/ House No : &nbsp;</label>&nbsp;{{BAInd.flatNumber}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Building Name :
+                        &nbsp;</label>&nbsp;{{BAInd.buildingName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Street Address 1:
+                        &nbsp;</label>&nbsp;{{BAInd.address}}
+                </div>
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Street Address 2 : &nbsp;</label>&nbsp;{{BAInd.addtresstwo}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Postal Code : &nbsp;</label>&nbsp;{{BAInd.pincode}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Country: &nbsp;</label>&nbsp;{{BAInd.countryName}}
+                </div>
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">State : &nbsp;</label>&nbsp;{{BAInd.stateName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">District : &nbsp;</label>&nbsp;{{BAInd.districtName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Taluk: &nbsp;</label>&nbsp;{{BAInd.talukName}}
+                </div>
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="BAInd.companyLogo" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">UPLOAD SIGNED IMAGE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="BAInd.itpan" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">PANCARD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+
+        </div>
+
+        <div class="col-md-12 row" *ngIf="company">
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-4 row" style="display: flex;">
+                    <label id="emaillabel">SP Type: &nbsp;</label>&nbsp;Company
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-4 row ">
+                    <label for="Email " id="emaillabel ">Select Service Type :
+                        &nbsp;</label>&nbsp;{{BACom.typesofServiceOffered}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Owner First Name / Director First Name:
+                        &nbsp;</label>&nbsp;{{BACom.ownerName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Middle Name: &nbsp;</label>&nbsp;{{BACom.middleName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Last Name: &nbsp;</label>&nbsp;{{BACom.lastName}}
+                </div>
+                
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Email/Mobile Number :
+                        &nbsp;</label>&nbsp;{{BACom.email}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Company Name : &nbsp;</label>&nbsp;{{BACom.companyName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">PAN Number : &nbsp;</label>&nbsp;{{BACom.panNumber}}
+                </div>
+                
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Flat/ House No : &nbsp;</label>&nbsp;{{BACom.flatNumber}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Building Name : &nbsp;</label>&nbsp;{{BACom.buildingName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Street Address 1 : &nbsp;</label>&nbsp;{{BACom.address}}
+                </div>
+               
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+               
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Street Address 2 : &nbsp;</label>&nbsp;{{BACom.addtresstwo}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Postal Code : &nbsp;</label>&nbsp;{{BACom.pincode}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Country :
+                        &nbsp;</label>&nbsp;{{BACom.countryName}}
+                </div>
+               
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+               
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">State :
+                        &nbsp;</label>&nbsp;{{BACom.stateName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">District : &nbsp;</label>&nbsp;{{BACom.districtName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Taluk : &nbsp;</label>&nbsp;{{BACom.talukName}}
+                </div>
+                
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Date of Incorporation : &nbsp;</label>&nbsp;{{BACom.dateofIncorporation}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Experience in Current Business : &nbsp;</label>&nbsp;{{BACom.experience}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Incorporation Type: &nbsp;</label>&nbsp;{{BACom.incorporationType}}
+                </div>
+                
+            </div>
+            
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="BACom.boardofResolution" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Board of Resolution Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="BACom.pan" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Company Pan Card</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="BACom.gst" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">GST Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="BACom.incorporationCertificate" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Company Incorporation Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 row">
+                    <div  (click)="ViewDoc(item)">
+                        <img [src]="BACom.agreement" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Agreement</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-12 row" *ngIf="partnership">
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-4 row" style="display: flex;">
+                    <label id="emaillabel">SP Type: &nbsp;</label>&nbsp;Partnership
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-4 row ">
+                    <label for="Email " id="emaillabel ">Select Service Type :
+                        &nbsp;</label>&nbsp;{{BAPar.typesofServiceOffered}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Owner Name / Director Name:
+                        &nbsp;</label>&nbsp;{{BAPar.OwnerName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Partner Name: &nbsp;</label>&nbsp;{{BAPar.partnerName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Firm Name : &nbsp;</label>&nbsp;{{BAPar.companyName}}
+                </div>
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Email/Mobile Number: &nbsp;</label>&nbsp;{{BAPar.email}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Flat/ House No : &nbsp;</label>&nbsp;{{BAPar.flatNumber}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Building Name : &nbsp;</label>&nbsp;{{BAPar.buildingName}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Street Address 1 : &nbsp;</label>&nbsp;{{BAPar.address}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Street Address 2 : &nbsp;</label>&nbsp;{{BAPar.addtresstwo}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Postal Code : &nbsp;</label>&nbsp;{{BAPar.pincode}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Country : &nbsp;</label>&nbsp;{{BAPar.countryName}}
+                </div>
+                 
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">State :
+                        &nbsp;</label>&nbsp;{{BAPar.stateName}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">District :
+                        &nbsp;</label>&nbsp;{{BAPar.districtName}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Taluk : &nbsp;</label>&nbsp;{{BAPar.talukName}}
+                </div>
+
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">PAN Number : &nbsp;</label>&nbsp;{{BAPar.panNumber}}
+                </div>
+
+            </div>
+
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Incorporation Type : &nbsp;</label>&nbsp;{{BAPar.incorporationType}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row" style="display: flex;">
+                    <label id="emaillabel">Date of Incorporation : &nbsp;</label>&nbsp;{{BAPar.dateofIncorporation}}
+                </div>
+                <div class="col-md-1 row ">&nbsp;</div>
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Partner Resolution if Private Limited/ Parrtnership Deed in case of Partnership : 
+                        &nbsp;</label>&nbsp;{{BAPar.boardResolution}}
+                </div>
+
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row">
+                <div class="col-md-2 row">&nbsp;</div>
+
+                <div class="col-md-3 row ">
+                    <label for="Email " id="emaillabel ">Experience in Current Business :
+                        &nbsp;</label>&nbsp;{{BAPar.experience}}
+                </div> 
+            </div>
+            <div class="col-md-12 row ">&nbsp;</div>
+
+            <div class="col-md-12 row">
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="BAPar.boardofResolution" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Partner Resolution Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="BAPar.pan" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Pan Card</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="BAPar.gst" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">GST Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="BAPar.incorporationCertificate" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Incorporation Certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 row">
+                    <div   (click)="ViewDoc(item)">
+                        <img [src]="BAPar.agreement" height="100" width="100" />
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-10 row">
+                                <p style="text-align: center;">Agreement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+
+    <br /> <br />
+
+    <div class="col-md-12 row">
+        <div class="col-md-2">&nbsp;</div>
+        <div class="col-md-8">
+            <div class="col-md-12 row">
+                <div class="col-md-6">
+                    <label for="amountPerYear">Select Status</label>
+                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                        <option value="">Select Status</option>
+                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                            {{do.workflowStateName}}
+                        </option>
+                    </select>
+                    <br /><br />
+                </div>
+            </div>
+            <div class="col-md-12 row">
+                <div class="col-md-6">
+                    <label for="amountPerYear">Comments</label>
+                    <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments"
+                        [(ngModel)]="comments"></textarea>
+                </div>
+                <br />
+            </div>
+            <br />             
+            <div class="col-md-12 row">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                        (click)="SendBAapprovalStatus()">Send</button><br>
+                </div>
+            </div><br>
+            <br>
+        </div>
+    </div>
+
+</div>
+
+
+<br /><br /><br /><br /> <br />

@@ -1,0 +1,275 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<div class="register">
+
+  <h2 style="text-align: center;">User List</h2>
+  <div>&nbsp;</div>
+  <div class="row col-sm-12">
+    <div class="col-sm-9"></div>
+    <div class="col-sm-2">
+      <button class="btn btnprop" class="btn btn-success" data-toggle="modal" data-target="#adduser" mdbWavesEffect
+        (click)="addUser()">
+        Add
+      </button>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+  <br />
+  <div class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div>
+        <div class="table-responsive" style="overflow-x: visible; height: 300px;">
+          <table class="table table-responsive" style="border-collapse: collapse;">
+            <tr class="thead-dark" style="font-size: 17px;">
+              <th>Sl No</th>
+              <th>UserId</th>
+              <th>User Name</th>
+              <th>Email</th>
+              <th>PhoneNumber</th>
+              <th>Pincode</th>
+              <th>State</th>
+              <th>City</th>
+              <th>Role</th>
+              <th>Rights</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+            <tr *ngFor="let aa of UserList
+                | paginate: { itemsPerPage: 5, currentPage: p };
+              let i = index
+            " style="font-size: 16px; color:black;font-family: DINNextRoundedLTPro;">
+              <td>{{ 5 * (p - 1) + (i + 1) }}</td>
+              <td>{{ aa.userId }}</td>
+              <td>{{ aa.userName}}</td>
+              <td>{{ aa.email }}</td>
+              <td>{{ aa.phoneNumber }}</td>
+              <td>{{ aa.pincode }}</td>
+              <td>{{ aa.state }}</td>
+              <td>{{ aa.city }}</td>
+              <td>{{GetRole(aa.role)}}</td>
+              <td>{{ aa.displayRights }}</td>
+
+              <td>
+                <button class="btn btn-success" data-toggle="modal" data-target="#adduser" (click)="EditUser(aa)">
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteExample" (click)="deleteUser(aa)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </table>
+          <br />
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          <br /><br />
+          <br /><br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br /><br />
+
+<div class="modal modal-angular fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width: 800px;max-width:700px;overflow-y: 50vh;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">Add User</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body text-center">
+          <div class="col-md-12 row">
+            <div class="form-horizontal container">
+              <div class="col-md-12 row" *ngIf="showSave">
+                <label class="col-md-4" style="color:black;padding-top: 13px">First Name:</label>
+                <div class="col-md-8">
+
+                  <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name"
+                    [(ngModel)]="fname" />
+                </div>
+              </div>
+              <div class="col-md-12 row" *ngIf="showSave">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Last Name:</label>
+                <div class="col-md-8">
+
+                  <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name"
+                    [(ngModel)]="lname" />
+                </div>
+              </div>
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Email
+                  :</label>
+                <div class="col-md-8" *ngIf="showSave">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="Email"
+                    [(ngModel)]="email" (change)="Validatemail()" />
+                  <h5 *ngIf="validmail" style="color: red;text-align: left;
+                    font-size: 14px;
+                    margin-left: 10px">Email already exist!!</h5>
+                </div>
+                <div class="col-md-8" *ngIf="!showSave">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="Email"
+                    [(ngModel)]="email" readonly />
+
+                </div>
+              </div>
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Pin Code:</label>
+                <div class="col-md-8">
+                  <input type="number" class="form-control" id="pincode" name="pincode" placeholder="Pin Code"
+                    [(ngModel)]="pincode" (change)="getalldata()" /> </div>
+              </div>
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">State:</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" id="state" name="state" placeholder="State"
+                    [(ngModel)]="state" readonly /> </div>
+              </div>
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">City
+                  :</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" id="city" name="city" placeholder="City" [(ngModel)]="city"
+                    readonly />
+                </div>
+              </div>
+
+              <div class="col-md-12 row" *ngIf="showSave">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Street Address
+                  :</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" id="staddress" name="staddress" placeholder="Street Address"
+                    [(ngModel)]="staddress" /> </div>
+              </div>
+              <div class="col-md-12 row" *ngIf="showSave">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Street Address 2:</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" id="staddress2" name="staddress2"
+                    placeholder="Street Address Line 2" [(ngModel)]="staddress2" />
+                </div>
+              </div>
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Phone Number:</label>
+                <div class="col-md-8" *ngIf="showSave">
+                  <input type="text" class="form-control" id="phnno" name="phnno" placeholder="Phone Number"
+                    [(ngModel)]="phnno" /> 
+                    <h5 *ngIf="validmobile" style="color: red;font-size: 15px">Mobile Number already exist!!</h5>
+
+                  </div>
+                    <div class="col-md-8" *ngIf="!showSave">
+                      <input type="text" class="form-control" id="phnno" name="phnno" placeholder="Phone Number"
+                        [(ngModel)]="phnno" readonly/> </div>
+              </div>
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">User Name:</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="User Name"
+                    [(ngModel)]="username" /> </div>
+              </div>
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">User Role:</label>
+                <div class="col-md-8">
+                  <select (change)="onSelectRole($event.target.value)" class="form-control">
+                    <option value="">Select Role</option>
+                    <option *ngFor="let do of RoleList" value={{do.id}} [selected]="do.id == roleid">
+                      {{do.roleName}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">User Rights:</label>
+                <div class="col-md-8">
+                  <ng-multiselect-dropdown
+                  [placeholder]="'Select Rights'"
+                  [settings]="dropdownSettings"
+                  [data]="AllRights"
+                  [(ngModel)]="selectedItems"
+                  (onSelect)="onItemSelect($event)"
+                  (onSelectAll)="onSelectAll($event)"
+                  (onDeSelect)="onItemDeSelect($event)"
+                  (onDeSelectAll)="onItemDeSelectAll($event)"
+                >
+                </ng-multiselect-dropdown
+                >
+                </div>
+              </div>
+          <br />
+              <div class="col-md-12 row" *ngIf="showSave">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Image:</label>
+                <div class="col-md-8">
+                  <input type="file" class="form-control" accept="image/*" name="avatars" #fileField
+                    (change)="onChange($event)">
+                </div>
+              </div>
+              <br />
+            </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning btn-sm waves-light" data-dismiss="modal"
+          mdbWavesEffect>Close</button>
+        <button *ngIf="showSave" type="submit" class="btn btn-success btn-sm waves-light" mdbWavesEffect
+          (click)="SaveUser(UserForm)" data-dismiss="modal">Save</button>
+        <button *ngIf="showUpdate" type="submit" class="btn btn-success btn-sm waves-light"
+          (click)="UpdateUser(UserForm)" data-dismiss="modal">Update </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="modal modal-angular fade" id="deleteExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">Delete User</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 style="text-align: center">Are you sure to delete..??</h3>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" mdbWavesEffect>Close</button>
+        <button type="submit" data-dismiss="modal" style="background-color: red" class="btn btn-danger"
+          (click)="deleteUserRow()" mdbWavesEffect>Delete</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- notification alert -->
+<div class="col-md-12 row">
+  <div class="col-md-2">&nbsp;</div>
+  <div class="col-md-4" *ngIf="dismissalert">
+    <div class="alert alert-info" style="
+        background-color: #545353;
+        box-shadow: none;
+        left: 145px;
+        position: fixed;
+        top: 480px;
+        width: 350px;
+      ">
+      <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons" style="color: white;">close</i>
+      </button>
+      <span style="color: white; margin-top: 6px;">
+        <b style="text-transform: capitalize; font-size: 14px;">
+          {{ notify }}</b></span>
+    </div>
+  </div>
+</div>

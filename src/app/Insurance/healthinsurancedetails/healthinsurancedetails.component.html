@@ -1,0 +1,1431 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<mat-horizontal-stepper #stepper>
+    <!-- <mat-step>
+        <div>
+            <button mat-button matStepperPrevious></button>
+            <button mat-button (click)="stepper.reset()"></button>
+        </div>
+    </mat-step> -->
+</mat-horizontal-stepper>
+<mat-horizontal-stepper style="background-color :  #c2b6b6;
+background-image :  linear-gradient(315deg, #c2b6b6 0%, #576574 74%);
+" #stepper1>
+
+
+<mat-step label="Step 1" state="details" style="text-align :  center;    height :  96%;width :  136%;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+        <div class="col-md-1"></div>
+        <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10">
+
+            <div class="homecard" id="signin" align="center" style=" margin-left :  0px;margin-right :  0px;margin-top :  1%">
+                <h2 style="font-family :  DINNextRoundedLTPro;color :  #2b156f;">Personal Details</h2>
+
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12">&nbsp;</div>
+
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12">&nbsp;</div>
+
+                <div class="col-md-12">
+                    <div class="col-md-12 row">
+                        <div class="col-md-2 row">&nbsp;</div>
+                        <div class="col-md-3 row" style="display :  flex;">
+                            <label id="emaillabel">First Name : </label>&nbsp;{{fname}}
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Middle Name : </label>&nbsp;{{mname}}
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Last Name : </label>&nbsp;{{lname}}
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Place of Birth : </label>&nbsp;{{placebirth}}
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Gender : </label>&nbsp;{{gender}}
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel "> Marital Status : </label>&nbsp;{{marital}}
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Mobile Number : </label>&nbsp;{{mobile}}
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel "> Date of Birth : </label>&nbsp;{{dob | date :  'shortDate'}}
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Religion : </label>&nbsp;{{religion}}
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Caste : </label>&nbsp;{{caste}} Brahmin
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel "> Qualification : </label>&nbsp;{{qualification}}
+
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Occupation : </label>&nbsp;{{occupation}}
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel "> Email : </label>&nbsp;{{email}}
+
+                        </div>
+
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Designation : </label>&nbsp;{{designation}}
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <h3 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; "> Residential Address</h3>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Postal Code : </label>&nbsp;{{rPostal}}
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Country : </label>&nbsp;{{rCountry}} India
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel "> State : </label>&nbsp;{{rState}}
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">District : </label>&nbsp;{{rDistrict}}
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Address one : </label>&nbsp;{{rAddress1}}
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address two : </label>&nbsp;{{rAddress2}}
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <h3 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; ">Permanent Address</h3>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Postal Code : </label>&nbsp;{{pPostal}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Country : </label>&nbsp;{{pCountry}} India
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> State : </label>&nbsp;{{pState}}
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">District : </label>&nbsp;{{pDistrict}}
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Address one : </label>&nbsp;{{pAddress1}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Address two : </label>&nbsp;{{pAddress2}}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <BR />
+                <div class="col-md-12 row">
+                    <div class="col-md-3 row" *ngIf="role=='1'">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role!='1'">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role=='1'">
+                        <button (click)="EditPersonalDetails()" id="signinbutton">Edit</button>
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="col-md-1 row">
+                    </div>
+                    <div class="col-md-4 row">
+                        <button (click)="signIn(stepper1)" id="signinbutton">NEXT</button>
+                    </div>
+
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</mat-step>
+<mat-step label="Step 2 " state="account" style="text-align :  center; height :  96%; width :  136%; ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+        <div class="col-md-1 "></div>
+        <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+            <div class="homecard " id="signin " align="center "
+                style=" margin-left :  0px;margin-right :  0px;margin-top :  1% ">
+                <h2 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; ">Bank Details</h2>
+
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+
+                <div class="col-md-12 ">
+                    <div class="container" style="margin-top: 5%">
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Bank Account Type</th>
+                                    <th>Bank Name</th>
+                                    <th>Branch</th>
+                                    <th>IFSC Code</th>
+                                    <th>Cheque Facility</th>
+                                    <!-- <th>Loan Facility</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of bankdetails">
+                                    <td>{{data.banktypeid}}</td>
+                                    <td>{{data.bankname}} </td>
+                                    <td>{{data.branch}} </td>
+                                    <td>{{data.ifscecode}} </td>
+                                    <td>{{data.chequefacility}}</td>
+                                    <!-- <td>{{data.loanfacility}}</td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12 row ">
+
+
+                        <div class="col-md-12 ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <h3
+                            style="font-family: DINNextRoundedLTPro;color: #2b156f;text-align: center;    margin-left: 42%; ">
+                            Identity Details</h3>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Ration Card Number:</label>
+                                &nbsp;{{userBankDetails.rationCardNum}}
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Aadhar
+                                    Number:</label>&nbsp;{{userBankDetails.aadharNum}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Voter ID
+                                    Number:</label>&nbsp;{{userBankDetails.voterId}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">PAN Number:</label>&nbsp;{{userBankDetails.panNum}}
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-4 row ">
+                                <label for="Email " id="emaillabel ">Service Tax
+                                    Number:</label>&nbsp;{{userBankDetails.serviceTaxNum}}
+
+                            </div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Passport
+                                    Number:</label>&nbsp;{{userBankDetails.passportNum}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Life Insurance
+                                    Value:</label>&nbsp;{{userBankDetails.lifeInsuranceValue}}
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Is
+                                    Confirm:</label>&nbsp;{{userBankDetails.isConfirm}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+
+
+                        <BR />
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h3 style="font-family: DINNextRoundedLTPro;color: #2b156f;margin-left: 15%; ">Uploaded
+                            Documents</h3> <br>
+                        <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;margin-left: 15%; ">Download
+                            Documents</h5> <br>
+
+                        <ol>
+                            <li *ngIf="userBankDetails.aadharFile"><a
+                                    href="{{userBankDetails.aadharFile}}">Aadhar</a></li>
+                            <li *ngIf="userBankDetails.bankStatements"><a
+                                    href="{{userBankDetails.bankStatements}}">Bank Statement</a></li>
+                            <li *ngIf="userBankDetails.gstCert"><a href="{{userBankDetails.gstCert}}">GST</a></li>
+                            <li *ngIf="userBankDetails.itReturnsFile"><a
+                                    href="{{userBankDetails.itReturnsFile}}">ITR</a></li>
+                            <li *ngIf="userBankDetails.passportFile"><a
+                                    href="{{userBankDetails.passportFile}}">Passport</a></li>
+                          
+                            <li *ngIf="userBankDetails.voterIdFile"><a href="{{userBankDetails.voterIdFile}}">Voter
+                                    ID</a></li>
+
+                        </ol>
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <div class="col-md-2 row" *ngFor="let item of bankdocs">
+                            <div *ngIf="item.documentType == 'image/jpeg' ||
+                            item.documentType == 'image/png'" (click)="ViewBankFamDoc(item)">
+                                <img [src]="item.file" height="100" width="100" />
+                                <div class="col-md-12 row">
+                                    <div class="col-md-2 row">&nbsp;</div>
+                                    <div class="col-md-10 row">
+                                        <p style="text-align: center;">{{item.documentName}}</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div *ngIf=" (item.documentType == 'application/pdf' ||
+                            item.documentType == 'pdf')" (click)="ViewBankFamDoc(item)">
+                                <img src="assets/img/pdficon.png"
+                                    style="width: 100px; height: 100px; cursor: pointer;" />
+                                <div class="col-md-12 row">
+                                    <div class="col-md-2 row">&nbsp;</div>
+                                    <div class="col-md-10 row">
+                                        <p style="text-align: center;">{{item.documentName}}</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div *ngIf=" (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                            item.documentType == 'xlsx')" (click)="ViewBankFamDoc(item)">
+                                <img src="assets/img/xls.png"
+                                    style="width: 100px; height: 100px; cursor: pointer;" />
+                                <div class="col-md-12 row">
+                                    <div class="col-md-2 row">&nbsp;</div>
+                                    <div class="col-md-10 row">
+                                        <p style="text-align: center;">{{item.documentName}}</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div *ngIf=" (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                            item.documentType == 'doc' || item.documentType == 'docx')"
+                                (click)="ViewBankFamDoc(item)">
+                                <img src="assets/img/docx.png"
+                                    style="width: 100px; height: 100px; cursor: pointer;" />
+                                <div class="col-md-12 row">
+                                    <div class="col-md-2 row">&nbsp;</div>
+                                    <div class="col-md-10 row">
+                                        <p style="text-align: center;">{{item.documentName}}</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                </div>
+                <br>
+                <div class="col-md-12 row">
+                    <div class="col-md-3 row" *ngIf="role=='1'">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role!='1'">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role=='1'">
+                        <button (click)="EditBankDetails()" id="signinbutton">Edit</button>
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="col-md-1 row">
+                    </div>
+                    <div class="col-md-4 row">
+                        <button (click)="bankIn(stepper1)" id="signinbutton">NEXT</button>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</mat-step>
+<mat-step label="Step 3 " state="account" style="text-align :  center; height :  96%; width :  136%; ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+        <div class="col-md-1 "></div>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
+            <div class="homecard " id="eignin " align="center " style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Health Insurance</h2>
+
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Details of person(s) proposed to be insured</h4>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Sources of funds:</label>
+                           <span *ngIf="healthinsurancedetails.sourcefund != null">{{healthinsurancedetails.sourcefund}}</span>
+                           
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Monthly Income:</label>
+                           <span *ngIf="healthinsurancedetails.monthincome != null">{{healthinsurancedetails.monthincome}}</span> 
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th style=" width: 22%;">Details</th>
+                                <th>Member 1</th>
+                                <th>Member 2</th>
+                                <th>Member 3</th>
+                                <th>Member 4</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.detailsfirst != null">{{healthinsurancedetails.detailsfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.detailsthrd != null">{{healthinsurancedetails.detailsthrd}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.detailsthird != null">{{healthinsurancedetails.detailsthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.detailsfour != null">{{healthinsurancedetails.detailsfour}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>DOB</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.dateofbirthFirst != null">{{healthinsurancedetails.dateofbirthFirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.dateofbirthsec != null">{{healthinsurancedetails.dateofbirthsec}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.dateofbirthtrd != null">{{healthinsurancedetails.dateofbirthtrd}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.dateofbirthfourth != null">{{healthinsurancedetails.dateofbirthfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.genderfirst != null">{{healthinsurancedetails.genderfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.gendersec != null">{{healthinsurancedetails.gendersec}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.genderthrd != null">{{healthinsurancedetails.genderthrd}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.genderfour != null">{{healthinsurancedetails.genderfour}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Nationality</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.nationalityfirst != null">{{healthinsurancedetails.nationalityfirst}}</span> 
+]                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.nationalitysec != null">{{healthinsurancedetails.nationalitysec}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.nationalitytrd != null">{{healthinsurancedetails.nationalitytrd}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.nationality != null">{{healthinsurancedetails.nationality}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Relationship with proposer</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.proposertfirst != null">{{healthinsurancedetails.proposertfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.proposersec != null">{{healthinsurancedetails.proposersec}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.proposerthrd != null">{{healthinsurancedetails.proposerthrd}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.proposertforth != null">{{healthinsurancedetails.proposertforth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Marital Status</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.statusfirst != null">{{healthinsurancedetails.statusfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.statussecond != null">{{healthinsurancedetails.statussecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.statusthird != null">{{healthinsurancedetails.statusthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.statusfourth != null">{{healthinsurancedetails.statusfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Occupation</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.insuranceone != null">{{healthinsurancedetails.insuranceone}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.insurancetwo != null">{{healthinsurancedetails.insurancetwo}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.insurancethrd != null">{{healthinsurancedetails.insurancethrd}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.insurancefour != null">{{healthinsurancedetails.insurancefour}}</span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>Height(in cm)</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.othersfirst != null">{{healthinsurancedetails.Oothersfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.otherstwo != null">{{healthinsurancedetails.otherstwo}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.othersthree != null">{{healthinsurancedetails.othersthree}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.othersfour != null">{{healthinsurancedetails.othersfour}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Weight (in kg)</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.insuredone != null">{{healthinsurancedetails.insuredone}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.insuredsec != null">{{healthinsurancedetails.insuredsec}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.insuredthrd != null">{{healthinsurancedetails.insuredthrd}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.insuredfour != null">{{healthinsurancedetails.insuredfour}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Diabetes</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.diabetesfirst != null">{{healthinsurancedetails.diabetesfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.diabetessecond != null">{{healthinsurancedetails.diabetessecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.diabetesthird != null">{{healthinsurancedetails.diabetesthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.diabetesfourth != null">{{healthinsurancedetails.diabetesfourth}}</span> 
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>Hypertension</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.nomineefirst != null">{{healthinsurancedetails.nomineefirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.nomineesecond != null">{{healthinsurancedetails.nomineesecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.nomineethird != null">{{healthinsurancedetails.nomineethird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.nomineefourth != null">{{healthinsurancedetails.nomineefourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Respiratory disorder</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.relationfirst != null">{{healthinsurancedetails.relationfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.relationsecond != null">{{healthinsurancedetails.relationsecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.relationthird != null">{{healthinsurancedetails.relationthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.relationfourth != null">{{healthinsurancedetails.relationfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>HIV/AIDS/STD</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.medicalfirst != null">{{healthinsurancedetails.medicalfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.medicalsecond != null">{{healthinsurancedetails.medicalsecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.medicalthird != null">{{healthinsurancedetails.medicalthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.medicalfourth != null">{{healthinsurancedetails.medicalfourth}}</span> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Liver disease </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.liverfirst != null">{{healthinsurancedetails.liverfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.liversecond != null">{{healthinsurancedetails.liversecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.liverthird != null">{{healthinsurancedetails.liverthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.liverfourth != null">{{healthinsurancedetails.liverfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Cancer/Tumor</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.cancerfirst != null">{{healthinsurancedetails.cancerfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.cancersecond != null">{{healthinsurancedetails.cancersecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.cancerthird != null">{{healthinsurancedetails.cancerthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.cancerfourth != null">{{healthinsurancedetails.cancerfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Heart disease</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.heartfirst != null">{{healthinsurancedetails.heartfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.heartsecond != null">{{healthinsurancedetails.heartsecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.heartthird != null">{{healthinsurancedetails.heartthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.heartfourth != null">{{healthinsurancedetails.heartfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Arthritis/Joint pain</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.arthritisfirst != null">{{healthinsurancedetails.arthritisfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.arthritissecond != null">{{healthinsurancedetails.arthritissecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.arthritisthird != null">{{healthinsurancedetails.arthritisthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.arthritisfourth != null">{{healthinsurancedetails.arthritisfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Kidney Disease</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.kidneyfirst != null">{{healthinsurancedetails.kidneyfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.kidneysecond != null">{{healthinsurancedetails.kidneysecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.kidneythird != null">{{healthinsurancedetails.kidneythird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.kidneyfourth != null">{{healthinsurancedetails.kidneyfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Paralysis/Stroke</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.paralysisfirst != null">{{healthinsurancedetails.paralysisfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.paralysissecond != null">{{healthinsurancedetails.paralysissecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.paralysisthird != null">{{healthinsurancedetails.paralysisthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.paralysisfourth != null">{{healthinsurancedetails.paralysisfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Congenital Disease</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.congenitalfirst != null">{{healthinsurancedetails.congenitalfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.congenitalsecond != null">{{healthinsurancedetails.congenitalsecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.congenitalthird != null">{{healthinsurancedetails.congenitalthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.congenitalfourth != null">{{healthinsurancedetails.congenitalfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Injurt</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.injurtfirst != null">{{healthinsurancedetails.injurtfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.injurtsecond != null">{{healthinsurancedetails.injurtsecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.injurtthird != null">{{healthinsurancedetails.injurtthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.injurtfourth != null">{{healthinsurancedetails.injurtfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Other(Specify)</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.specifyfirst != null">{{healthinsurancedetails.specifyfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.specifysecond != null">{{healthinsurancedetails.specifysecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.specifythird != null">{{healthinsurancedetails.specifythird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.specifyfourth != null">{{healthinsurancedetails.specifyfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Details of Drugs/Medicine prescribed</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.drugsfirst != null">{{healthinsurancedetails.drugsfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.drugssecond != null">{{healthinsurancedetails.drugssecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.drugsthird != null">{{healthinsurancedetails.drugsthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.drugsfourth != null">{{healthinsurancedetails.drugsfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Consume tobacco or alchohol?</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.tobaccofirst != null">{{healthinsurancedetails.tobaccofirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.tobaccosecond != null">{{healthinsurancedetails.tobaccosecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.tobaccothird != null">{{healthinsurancedetails.tobaccothird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.tobaccofourth != null">{{healthinsurancedetails.tobaccofourth}}</span>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Previous/Current health Insurance Details</h4>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th style=" width: 22%;">Details</th>
+                                <th>Member 1</th>
+                                <th>Member 2</th>
+                                <th>Member 3</th>
+                                <th>Member 4</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Name of insurer</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.personone != null">{{healthinsurancedetails.personone}}</span>
+\                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.personsec != null">{{healthinsurancedetails.personsec}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.personsthrd != null">{{healthinsurancedetails.personsthrd}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.personsfourth != null">{{healthinsurancedetails.personsfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Policy no.</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.policyfirst != null">{{healthinsurancedetails.policyfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.policysec != null">{{healthinsurancedetails.policysec}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.policythrd != null">{{healthinsurancedetails.policythrd}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.policyfour != null">{{healthinsurancedetails.policyfour}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Policy period(from&to)</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.periodone != null">{{healthinsurancedetails.periodone}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.periodsecond != null">{{healthinsurancedetails.periodsecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.periodthrd != null">{{healthinsurancedetails.periodthrd}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.periodfourth != null">{{healthinsurancedetails.periodfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Sum Insured</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.sumfirst != null">{{healthinsurancedetails.sumfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.sumsecond != null">{{healthinsurancedetails.sumsecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.sumthird != null">{{healthinsurancedetails.sumthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.sumfourth != null">{{healthinsurancedetails.sumfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Previous Claim?</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.filedfirst != null">{{healthinsurancedetails.filedfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.filedsecond != null">{{healthinsurancedetails.filedsecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.filedthird != null">{{healthinsurancedetails.filedthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.filedfourth != null">{{healthinsurancedetails.filedfourth}}</span> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Has any proposal of life, criticalillness or health insurance beendeclined, cancelled or charged ahigher premium?</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.healthfirst != null">{{healthinsurancedetails.healthfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.healthsecond != null">{{healthinsurancedetails.healthsecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.healththird != null">{{healthinsurancedetails.healththird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.healthfourth != null">{{healthinsurancedetails.healthfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Are any of the persons proposed for insurance covered under any other health insurance policy with the Company? (Including Critical Illness</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.coveredfirst != null">{{healthinsurancedetails.coveredfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.coveredsecond != null">{{healthinsurancedetails.coveredsecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.coveredthird != null">{{healthinsurancedetails.coveredthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.coveredfourth != null">{{healthinsurancedetails.coveredfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Applying for portability</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.companyfirst != null">{{healthinsurancedetails.companyfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.companysecond != null">{{healthinsurancedetails.companysecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.companythird != null">{{healthinsurancedetails.companythird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.companyfourth != null">{{healthinsurancedetails.companyfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Name of the family Physician</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.infirmityfirst != null">{{healthinsurancedetails.infirmityfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.infirmitysecond != null">{{healthinsurancedetails.infirmitysecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.infirmitythird != null">{{healthinsurancedetails.infirmitythird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.infirmityfourth != null">{{healthinsurancedetails.infirmityfourth}}</span> 
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Contact</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.contactfirst != null">{{healthinsurancedetails.contactfirst}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.contactsecond != null">{{healthinsurancedetails.contactsecond}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.contactthird != null">{{healthinsurancedetails.contactthird}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.contactfourth != null">{{healthinsurancedetails.contactfourth}}</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.Emailfirst != null">{{healthinsurancedetails.Emailfirst}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.Emailsecond != null">{{healthinsurancedetails.Emailsecond}}</span>
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.Emailthird != null">{{healthinsurancedetails.Emailthird}}</span> 
+                                </td>
+                                <td>
+                                   <span *ngIf="healthinsurancedetails.Emailfourth != null">{{healthinsurancedetails.Emailfourth}}</span>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Premium Payment Details</h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Cheque/DD/Credit Card/Debit Card:</label>
+                           <span *ngIf="healthinsurancedetails.debitcard != null">{{healthinsurancedetails.debitcard}}</span> 
+                           
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Cheque/DD no./Amount:</label>
+                           <span *ngIf="healthinsurancedetails.chequeamt != null">{{healthinsurancedetails.chequeamt}}</span> 
+                           
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Bank Name:</label>
+                           <span *ngIf="healthinsurancedetails.bnkname != null">{{healthinsurancedetails.bnkname}}</span>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Cheque date:</label>
+                           <span *ngIf="healthinsurancedetails.chequedate != null">{{healthinsurancedetails.chequedate}}</span>
+                            
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Name of the payer:</label>
+                           <span *ngIf="healthinsurancedetails.nmpayer != null">{{healthinsurancedetails.nmpayer}}</span> 
+                          
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <br>
+                <div class="col-md-12 row">
+                    <div class="col-md-3 row" *ngIf="role=='1'">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role!='1'">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role=='1'">
+                        <button (click)="EditHealthInsuranceDetails()" id="signinbutton">Edit</button>
+
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="col-md-1 row">
+                    </div>
+                    <div class="col-md-4 row">
+                        <button (click)="healthinsurance(stepper1)" id="signinbutton">NEXT</button>
+                    </div>
+
+                </div>
+                <br>
+              <br /><br /><br />
+            </div>
+        </div>
+    </div>
+</mat-step>
+
+<mat-step label="Step 4" state="Certificates" style="text-align: center; height: 96%; width: 136%; ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+        <div class="col-md-1 "></div>
+        <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+            <div class="homecard " id="signin " align="center "
+                style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                <div *ngIf="certificatesexist">
+                    <div class="col-md-12 row">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Uploaded Documents</h4>
+
+                    <div class="col-md-12 row">&nbsp;</div>
+                    <div class="col-md-12 row">
+                        <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                        <div class="col-md-4 row" *ngFor="let item of CertificateDisplay">
+                            <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'image/jpeg' ||
+                         item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                <img [src]="item.certificate" height="100" width="100" />
+                                <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                <!-- <div class="col-md-12 row">
+                                    <div class="col-md-2 row">&nbsp;</div>
+                                    <div class="col-md-10 row">
+                                        <p style="text-align: center;">{{item.fileName}}</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/pdf' ||
+                         item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                <img src="assets/img/pdficon.png"
+                                    style="width: 100px; height: 100px; cursor: pointer;" />
+                                <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                <!-- <div class="col-md-12 row">
+                                    <div class="col-md-2 row">&nbsp;</div>
+                                    <div class="col-md-10 row">
+                                        <p style="text-align: center;">{{item.fileName}}</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                         item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                <img src="assets/img/xls.png"
+                                    style="width: 100px; height: 100px; cursor: pointer;" />
+                                <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                <!-- <div class="col-md-12 row">
+                                    <div class="col-md-2 row">&nbsp;</div>
+                                    <div class="col-md-10 row">
+                                        <p style="text-align: center;">{{item.fileName}}</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                         item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                <img src="assets/img/docx.png"
+                                    style="width: 100px; height: 100px; cursor: pointer;" />
+                                <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                <!-- <div class="col-md-12 row">
+                                    <div class="col-md-2 row">&nbsp;</div>
+                                    <div class="col-md-10 row">
+                                        <p style="text-align: center;">{{item.fileName}}</p>
+                                    </div>
+                                </div> -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">&nbsp;</div>
+
+                    <div *ngIf="enableothercertificates">
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Other Uploaded Documents</h4>
+
+                        <div class="col-md-12 row">
+
+                            <div class="col-md-3 row" *ngFor="let item of allcertificates">
+                                <div *ngIf="item.actualCertificateName!=null  && (item.documentType == 'image/jpeg' ||
+                         item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                    <img [src]="item.certificate" height="100" width="100" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/pdf' ||
+                         item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/pdficon.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                         item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/xls.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                         item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/docx.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 row">
+                    <div class="col-md-5 row">&nbsp;</div>
+                    <div class="col-md-4 row" *ngIf="role=='1'">
+                        <button (click)="EditCertificatesDetails()" id="signinbutton">Edit</button>
+
+                    </div>
+                    <br />
+
+
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row" *ngIf="!showapprove">
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div class="col-md-2">&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div class="col-md-8 row card">
+                        <br />
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label for="amountPerYear">Select Group/Customer</label>
+                            <select (change)="onselecttouser($event.target.value)" class="form-control">
+                                <option selected="selected" value="">Select Here</option>
+                                <option selected="selected" value="1">Customer</option>
+                                <option selected="selected" value="2">Group</option>
+                            </select>
+                        </div>
+                        <br /><br />
+                        <div class="row" *ngIf="operation == '1'" style="margin-top: -8%;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <br />
+                                <label for="amountPerYear">Select Status</label>
+                                <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                                    <option value="">Select Status</option>
+                                    <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                                        {{do.workflowStateName}}
+                                    </option>
+                                </select>
+                                <br /><br />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" *ngIf="operation == '1'">
+                            <br />
+                            <div>
+                                <label for="amountPerYear">Comments</label>
+                                <textarea type="text" class="form-control" placeholder="Enter Your Comments"
+                                    name="comments" [(ngModel)]="comments"></textarea>
+                            </div>
+                            <br /><br />
+                            <div>
+                                <label for="amountPerYear">Upload File</label>
+                                <input type="file" (change)="onChangeApproveFiles($event)" />
+                            </div>
+                            <br /><br />
+                            <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                                (click)="SendVerificationtoCustomer()" style="width: 50%;">Send</button>
+                            <br /><br />
+                        </div>
+
+                        <div class="row" *ngIf="operation == '2'" style="margin-top: -8%;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <br />
+                                <label for="amountPerYear">Select Status</label>
+                                <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                                    <option value="">Select Status</option>
+                                    <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                                        {{do.workflowStateName}}
+                                    </option>
+                                </select>
+                            </div><br />
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" *ngIf="operation == '2'">
+                            <br />
+                            <div>
+                                <label for="amountPerYear">Comments</label>
+                                <textarea type="text" class="form-control" placeholder="Enter Your Comments"
+                                    name="comments" [(ngModel)]="comments"></textarea>
+                            </div>
+                            <br /><br />
+                            <div>
+                                <label for="amountPerYear">Upload File</label>
+                                <input type="file" (change)="onChangeApproveFiles($event)" />
+                            </div>
+                            <br /><br />
+                            <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                                (click)="SendVerificationtoApprover()" style="width: 50%;">Send</button>
+                            <br /><br />
+                        </div>
+
+                    </div>
+                    <br /><br />
+                </div>
+                <div class="col-md-12 row">
+                    <div class="col-md-5 row">&nbsp;</div>
+                    <div class="col-md-4 row">
+                        <button *ngIf="showapprove" type="button" (click)="approve()"
+                            id="signinbutton">Approve</button>
+
+                    </div>
+                    <br />
+
+                </div>
+
+
+
+                <div class="col-md-12 row ">&nbsp;</div>
+
+            </div>
+        </div>
+    </div>
+</mat-step>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+    <!-- Icon overrides. -->
+    <!-- #docregion override-icons -->
+    <ng-template matStepperIcon="details">
+        <mat-icon>account_circle</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="family">
+        <mat-icon>family_restroom</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="account">
+        <mat-icon>account_balance</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="homei">
+        <mat-icon>home</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="business">
+        <mat-icon>business</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="vehicalloan">
+        <mat-icon>directions_car</mat-icon>
+    </ng-template>
+
+</mat-horizontal-stepper>

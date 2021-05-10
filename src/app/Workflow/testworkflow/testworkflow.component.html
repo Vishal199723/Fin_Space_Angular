@@ -1,0 +1,78 @@
+<app-header></app-header>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+
+<body class="bodycolor">
+
+    <div class="col-md-12 row" style="background-color: #ececec;">
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div class="col-md-2">&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div class="col-md-8 row card">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <label for="amountPerYear">Select Status</label>
+                <select (change)="onselecttouser($event.target.value)" class="form-control">                   
+                    <option selected="selected" value="">Select Here</option>
+                    <option selected="selected" value="1">Customer</option>
+                    <option selected="selected" value="2">Group</option>
+                </select>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">&nbsp;</div>
+            <div class="row" *ngIf="operation == '1'">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="amountPerYear">Select Status</label>
+                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                        <option value="">Select Status</option>
+                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                            {{do.workflowStateName}}
+                        </option>
+                    </select>
+                    <br /><br />
+                    <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                        (click)="SendVerificationtoCustomer()">Send</button>
+                    <br /><br />
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="amountPerYear">Comments</label>
+                    <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments"
+                        ng-model="comments"></textarea>
+
+                </div>
+            </div>
+
+            <div class="row" *ngIf="operation == '2'">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="amountPerYear">Select Status</label>
+                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                        <option value="">Select Status</option>
+                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                            {{do.workflowStateName}}
+                        </option>
+                    </select>
+                    <br /><br />
+                    <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                        (click)="SendVerificationtoApprover()">Send</button>
+                    <br /><br />
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="amountPerYear">Comments</label>
+                    <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments"
+                        ng-model="comments"></textarea>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</body>

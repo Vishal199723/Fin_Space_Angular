@@ -1,0 +1,53 @@
+.homecard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 4px;
+    text-align: center;
+    background-color: white;
+    color: black;
+  }
+  #btn{
+    background-color: #36dbe2;
+    color: #FFFFFF;
+    width: 100%;
+    height: 125%;
+    border-radius: 10px;
+    /* background-color: #2b156f; */
+    border: none;
+    color: white;
+    /* font-size: 22px; */
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+  .bodycolor{
+    background-color: #ececec;
+  }
+  .search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  .wrapper input[type="text"] {
+    position: relative; 
+}
+
+input { font-family: 'FontAwesome'; } /* This is for the placeholder */
+
+.wrapper:before {
+    font-family: 'FontAwesome';
+    color:red;
+    position: relative;
+    left: -5px;
+    content: "\f007";
+}
+.btnprop{
+  border-radius: 4px;
+  background-color: Grey;
+  text-align: center;
+  color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 45px;
+}
+  

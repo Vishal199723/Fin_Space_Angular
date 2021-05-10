@@ -1,0 +1,1542 @@
+<app-header></app-header>
+<br /><br /><br /><br />
+
+<div class="col-md-12 row">
+  <div class="col-md-2">&nbsp;</div>
+  <div class="col-md-8">
+    <h3 style="text-align: center;color: black;">Details</h3><br><br>
+    <div class="col-md-12 row">
+      <div *ngIf="showaccntnumber" class="col-md-6"><label for="amountPerYear">Account Number</label>
+        <input type="text" class="form-control" name="accountnum" [(ngModel)]="accountnum" />
+      </div>
+      <div class="col-md-6">
+        <label for="amountPerYear">Select Status</label>
+        <select (change)="onSelectStatus($event.target.value)" class="form-control">
+          <option value="">Select Status</option>
+          <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+            {{do.workflowStateName}}
+          </option>
+        </select>
+        <br /><br />
+      </div>
+    </div>
+    <div class="col-md-12 row">
+      <div class="col-md-6">
+        <label for="amountPerYear">Comments</label>
+        <textarea type="text" class="form-control" placeholder="Enter Your Comments" name="comments"
+          [(ngModel)]="comments"></textarea>
+      </div>
+      <br />
+    </div>
+    <br />
+    <div class="col-md-12 row">
+      <div class="col-md-6">
+        <label for="amountPerYear">Upload File</label><br />
+        <input type="file" (change)="onChange($event)" />
+      </div><br>
+     
+    </div>
+    <br>
+    <div class="col-md-12 row">
+      <div class="col-md-6">
+      <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+        (click)="SendSBAVerificationtoApprover()">Send</button><br>
+    </div> </div><br>
+    <br>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">1.Personal Information</h3>
+        </div>
+        <br />
+        <div class="panel-body">
+          <div class="bodyTest">
+            <form class="">
+              <div class="row">
+                <div class="col-sm-6">
+            
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Customer ID</label>
+                    <div class="">
+                      <input id="customerid" name="customerid" type="text" autocomplete="first-name" [(ngModel)]="customerid" readonly
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Full Name</label>
+                    <div class="">
+                      <input id="firstname" name="firstname" type="text" autocomplete="last-name" [(ngModel)]="firstname"readonly
+                          class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">DOB</label>
+                    <div class="">
+                      <input id="dob" name="dob" type="date" autocomplete="last-name" [(ngModel)]="dob"readonly
+                      class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="gender" class="control-label">Gender</label>
+                    <div class="">
+                      <input id="gender" name="gender" type="text" autocomplete="last-name" [(ngModel)]="gender"readonly
+                      class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Specimen Signature</label>
+                    <div class="">
+                      <input type="file" name="file" id="file" autocomplete="first-name" class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">CounterSigned</label>
+                    <div class="">
+                      <input id="CounterSigned" name="CounterSigned" type="text" autocomplete="last-name"  [(ngModel)]="CounterSigned"
+                      class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-3">
+                 
+
+                  <button type="submit" id="button">
+                    Upload
+                  </button>
+                </div>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h5 class="panel-title">Mailing Address</h5>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Father/Husband/Guardian</label>
+                    <div class="">
+                      <input id="guardian" name="guardian" type="text" autocomplete="first-name" [(ngModel)]="guardian"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Address</label>
+                    <div class="">
+                      <input id="address" name="address" type="text" autocomplete="last-name"  [(ngModel)]="address"
+                       class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Pin Code</label>
+                    <div class="">
+                      <input id="pincode" name="pincode" type="text" autocomplete="last-name" class="form-control" [(ngModel)]="pincode" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Mobile</label>
+                    <div class="">
+                      <input id="Mobile" name="Mobile" type="number" autocomplete="last-name" [(ngModel)]="Mobile"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+         
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Email Id</label>
+                    <div class="">
+                      <input id="emailid" name="emailid" type="text" autocomplete="first-name"[(ngModel)]="emailid"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6"></div>
+              </div>
+              <div class="panel-heading">
+                <h6 class="panel-title">
+                  Note:Personal Details of the applicant as per registration
+                  form.
+                </h6>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  2.Personal Details(All the fields are mandatory)
+                </h3>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Name of the branch</label>
+                    <div class="">
+                      <input id="branchname" name="branchname" type="text" autocomplete="first-name" [(ngModel)]="branchname"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Title</label>
+                    <div class="">
+                      <input id="Title" name="Title" type="text" autocomplete="last-name"[(ngModel)]="Title"
+                       class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+           
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Pan No</label>
+                    <div class="">
+                      <input id="pannumber" name="pannumber" type="text" autocomplete="first-name" [(ngModel)]="pannumber"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">A/c No</label>
+                    <div class="">
+                      <input id="accntnumber" name="accntnumber" type="text" autocomplete="last-name" [(ngModel)]="accntnumber"
+                       class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+            
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Debit Card |No</label>
+                    <div class="">
+                      <input id="cardnumber" name="cardnumber" type="text" autocomplete="first-name" [(ngModel)]="cardnumber"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Form 60</label>
+                    <div class="">
+                      <input id="form60" name="form60" type="text" autocomplete="last-name" class="form-control"[(ngModel)]="form60" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Form 61</label>
+                    <div class="">
+                      <input id="form61" name="form61" type="text" autocomplete="first-name"[(ngModel)]="form61"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h5 class="panel-title">
+                  Guardian Details
+                </h5>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+    
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">RelationShip with Minor</label>
+                    <div class="">
+                      <input id="relationwithminor" name="relationwithminor" type="text" autocomplete="first-name"[(ngModel)]="relationwithminor"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Gender</label>
+                    <div class="">
+                      <input id="nomineegender" name="nomineegender" type="text" autocomplete="last-name"[(ngModel)]="nomineegender"
+                       class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+              
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">DOB</label>
+                    <div class="">
+                      <input id="gurdiandob" name="gurdiandob" type="date" autocomplete="first-name"[(ngModel)]="gurdiandob"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6"></div>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  3. Additional Information
+                </h3>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+       
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Aadhaar No</label>
+                    <div class="">
+                      <input id="aadharnum" name="aadharnum" type="text" autocomplete="first-name"[(ngModel)]="aadharnum"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Education</label>
+                    <div class="">
+                      <input id="education" name="education" type="text" autocomplete="last-name" class="form-control" [(ngModel)]="education"/>
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+     
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Gross Annual Income</label>
+                    <div class="">
+                      <input id="grossannualincome" name="grossannualincome" type="text" autocomplete="first-name" [(ngModel)]="grossannualincome"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Profession</label>
+                    <div class="">
+                      <input id="Profession" name="Profession" type="text" autocomplete="first-name" [(ngModel)]="Profession"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+             
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Marital Status</label>
+                    <div class="">
+                      <input id="maritalstatus" name="maritalstatus" type="text" autocomplete="first-name" [(ngModel)]="maritalstatus"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Religion</label>
+                    <div class="">
+                      <input id="Religion" name="Religion" type="text" autocomplete="first-name" [(ngModel)]="Religion"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+       
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Category</label>
+                    <div class="">
+                      <input id="Category" name="Category" type="text" autocomplete="first-name"[(ngModel)]="Category"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6"></div>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  4.Communication Details
+                </h3>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+        
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Father/Hus/Gu</label>
+                    <div class="">
+                      <input id="fatherorhus" name="fatherorhus" type="text" autocomplete="first-name"[(ngModel)]="fatherorhus"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Address</label>
+                    <div class="">
+                      <input id="address" name="address" type="text" autocomplete="first-name" [(ngModel)]="address"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Village/City</label>
+                    <div class="">
+                      <input id="villageorcity" name="villageorcity" type="text" autocomplete="first-name"[(ngModel)]="villageorcity"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+         
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">District</label>
+                    <div class="">
+                      <input id="District" name="District" type="text" autocomplete="first-name" [(ngModel)]="District"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">State</label>
+                    <div class="">
+                      <input id="State" name="State" type="text" autocomplete="first-name"[(ngModel)]="State"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Pin Code</label>
+                    <div class="">
+                      <input id="pincode" name="pincode" type="text" autocomplete="first-name"[(ngModel)]="pincode"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Mobile</label>
+                    <div class="">
+                      <input id="mobile" name="mobile" type="number" autocomplete="first-name"[(ngModel)]="mobile"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Email ID</label>
+                    <div class="">
+                      <input id="email" name="email" type="text" autocomplete="first-name"[(ngModel)]="email"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6"></div>
+              </div>
+              <div class="panel-heading">
+                <h5 class="panel-title">
+                  Census Code Details
+                </h5>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">State Code</label>
+                    <div class="">
+                      <input id="statecode" name="statecode" type="text" autocomplete="first-name"[(ngModel)]="statecode"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Sub District Code</label>
+                    <div class="">
+                      <input id="subdistrictcode" name="subdistrictcode" type="text" autocomplete="first-name"[(ngModel)]="subdistrictcode"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Village Code</label>
+                    <div class="">
+                      <input id="villagecode" name="villagecode" type="text" autocomplete="first-name"[(ngModel)]="villagecode"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Account Details</label>
+                    <div class="">
+                      <input id="accountdetails" name="accountdetails" type="text" autocomplete="first-name"[(ngModel)]="accountdetails"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Risk Catagorization</label>
+                    <div class="">
+                      <input id="riskcategorization" name="riskcategorization" type="text" autocomplete="first-name"[(ngModel)]="riskcategorization"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">District Code</label>
+                    <div class="">
+                      <input id="districtcode" name="districtcode" type="text" autocomplete="first-name"[(ngModel)]="districtcode"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Ward No</label>
+                    <div class="">
+                      <input id="wardnum" name="wardnum" type="text" autocomplete="first-name"[(ngModel)]="wardnum"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Block A/C</label>
+                    <div class="">
+                      <input id="blockaccnt" name="blockaccnt" type="text" autocomplete="first-name"[(ngModel)]="blockaccnt"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Threshold Limit Inr</label>
+                    <div class="">
+                      <input id="thersoldlimit" name="thersoldlimit" type="text" autocomplete="first-name"[(ngModel)]="thersoldlimit"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  5.(a.) Nomination (Form DA-1)
+                </h3>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Nominee Full Name</label>
+                    <div class="">
+                      <input id="nomineefullname" name="nomineefullname" type="text" autocomplete="first-name" [(ngModel)]="nomineefullname"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">RelationShip</label>
+                    <div class="">
+                      <input id="relationShip" name="relationShip" type="text" autocomplete="first-name"[(ngModel)]="relationShip"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Print Name on Passbook</label>
+                    <div class="">
+                      <input id="printnameonpassbook" name="printnameonpassbook" type="text" autocomplete="first-name" [(ngModel)]="printnameonpassbook"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">DOB</label>
+                    <div class="">
+                      <input id="nomineedateofbirth" name="nomineedateofbirth" type="date" autocomplete="first-name" [(ngModel)]="nomineedateofbirth"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Address</label>
+                    <div class="">
+                      <input id="nomineeaddress" name="nomineeaddress" type="text" autocomplete="first-name" [(ngModel)]="nomineeaddress"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Village/City</label>
+                    <div class="">
+                      <input id="nomineevillagecity" name="nomineevillagecity" type="text" autocomplete="first-name" [(ngModel)]="nomineevillagecity"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">District</label>
+                    <div class="">
+                      <input id="nomineedistrict" name="nomineedistrict" type="text" autocomplete="first-name" [(ngModel)]="nomineedistrict"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">State</label>
+                    <div class="">
+                      <input id="nomineestate" name="nomineestate" type="text" autocomplete="first-name"[(ngModel)]="nomineestate"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Pin Code</label>
+                    <div class="">
+                      <input id="nomineepincode" name="nomineepincode" type="text" autocomplete="first-name"[(ngModel)]="nomineepincode"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                </div>
+              </div>
+              <div class="panel-heading">
+                <h6 class="panel-title">
+                  If Nominee Is Minor
+                </h6>
+                <p>
+                  As the nominee is a minor on this date.I appoint the following
+                  to receive the amount of the deposite on behalf of the nominee
+                  death during the minority. if the nominee
+                </p>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Full Name of Appointed Nominee</label>
+                    <div class="">
+                      <input id="fullnameofappointednominee" name="fullnameofappointednominee" type="text" autocomplete="first-name"[(ngModel)]="fullnameofappointednominee"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Address</label>
+                    <div class="">
+                      <input id="addressofappointednominee" name="addressofappointednominee" type="text" autocomplete="first-name" [(ngModel)]="addressofappointednominee"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">DOB</label>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <div class="">
+                      <input id="dobofappointednominee" name="dobofappointednominee" type="date" autocomplete="first-name" [(ngModel)]="dobofappointednominee"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+          
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label" style="text-align: justify;">Nominee Under Section 45
+                      ZA of Banking Regulation Act,
+                      1949 and Rule 2(1) of the banking companies Rules 1965 in
+                      respect of bank Deposits.I Nominee the persomn mentioned
+                      above whom in the event of deposit in the account may be
+                      returned by the account opening branch.</label>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <div class="">
+                      <input id="signatureoftheapplicant" name="signatureoftheapplicant" type="text" autocomplete="first-name" class="form-control" [(ngModel)]="signatureoftheapplicant"
+                        placeholder="Signature of applicant" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  5.(b.) Nomination Witness (Form DA-1)
+                </h3>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Witness 1</label>
+                    <div class="">
+                      <input id="witnessone" name="witnessone" type="text" autocomplete="first-name"  [(ngModel)]="witnessone"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Name </label>
+                    <div class="">
+                      <input id="witnessname" name="witnessname" type="text" autocomplete="first-name" [(ngModel)]="witnessname"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Address
+                    </label>
+                    <div class="">
+                      <input id="witnessaddress" name="witnessaddress" type="text" autocomplete="first-name" [(ngModel)]="witnessaddress"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Date </label>
+                    <div class="">
+                      <input id="datee" name="datee" type="date" autocomplete="first-name" [(ngModel)]="datee"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Place </label>
+                    <div class="">
+                      <input id="placee" name="placee" type="text" autocomplete="first-name"[(ngModel)]="placee"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Mobile </label>
+                    <div class="">
+                      <input id="witnessmobile" name="witnessmobile" type="number" autocomplete="first-name"[(ngModel)]="witnessmobile"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Signature
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="witnessonesign" name="witnessonesign" type="text" autocomplete="first-name" class="form-control"[(ngModel)]="witnessonesign"
+                        placeholder="Witness 1 Signature" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Witness 2</label>
+                    <div class="">
+                      <input id="witnesstwo" name="witnesstwo" type="text" autocomplete="first-name" [(ngModel)]="witnesstwo"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Name </label>
+                    <div class="">
+                      <input id="witnesstwoname" name="witnesstwoname" type="text" autocomplete="first-name" [(ngModel)]="witnesstwoname"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Address
+                    </label>
+                    <div class="">
+                      <input id="witnesstwoaddress" name="witnesstwoaddress" type="text" autocomplete="first-name" [(ngModel)]="witnesstwoaddress"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Date </label>
+                    <div class="">
+                      <input id="witnesstwodate" name="witnesstwodate" type="date" autocomplete="first-name" [(ngModel)]="witnesstwodate"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">place </label>
+                    <div class="">
+                      <input id="witnesstwoplace" name="witnesstwoplace" type="text" autocomplete="first-name" [(ngModel)]="witnesstwoplace"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Mobile </label>
+                    <div class="">
+                      <input id="witnesstwomobile" name="witnesstwomobile" type="number" autocomplete="first-name"[(ngModel)]="witnesstwomobile"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Signature
+                    </label>
+                    <div class="">
+                      <input id="witnesstwosign" name="witnesstwosign" type="text" autocomplete="first-name" class="form-control"[(ngModel)]="witnesstwosign"
+                        placeholder="Witness 2 Signature" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                </div>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="panel-title">
+                      For Branch use Only
+                    </h6>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="panel-title">
+                      Permitted to open account in this branch under product
+                      code
+                    </h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <p class="panel-title">
+                    !. Customer Passes Screeningt and De-Duplicate of
+                    customer-ID
+                    <br />2.KYC documents Verifies, Compilance Confirmed.
+                  </p>
+                </div>
+
+                <div class="col-sm-6"></div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Supervisor officer(sp No.)
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class=""> 
+                    <input id="supervisiorofcer" name="supervisiorofcer" type="text" autocomplete="first-name"[(ngModel)]="supervisiorofcer"
+                      class="form-control" />
+                    <p class="help-block"></p>
+                  </div>
+                </div>
+              </div>
+              <hr />
+
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  6.(a).Form 60(To be filled by those who do not have pan)
+                </h3>
+              </div>
+              <br />
+              <div class="panel-heading">
+                <h6 class="panel-title">
+                  <p>
+                    Form of declaration to be filled by a person who does not
+                    have a permanent account number and who is specified in rul
+                    1148
+                  </p>
+                </h6>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Full Name of Declarant
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="fullnameofdeclarant" name="fullnameofdeclarant" type="text" autocomplete="first-name" [(ngModel)]="fullnameofdeclarant"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Address of the Declarant
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="addressofdeclarant" name="addressofdeclarant" type="text" autocomplete="first-name" [(ngModel)]="addressofdeclarant"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Particulars of Transaction
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="particularsoftransaction" name="particularsoftransaction" type="text" autocomplete="first-name" [(ngModel)]="particularsoftransaction"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Amount of Transaction
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="amountoftransaction" name="amountoftransaction" type="text" autocomplete="first-name" [(ngModel)]="amountoftransaction"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-heading">
+                <p>
+                  Are you assessed to tax?
+                  <br />
+                  (i)Details of ward/circle/range where the last returns of
+                  income was fields<br />
+                  (ii)Reasons for not having Pan<br />
+                  Details of the document being produced in support of address
+                  in field(2).
+                </p>
+              </div>
+              <br />
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  6.(b).Form 61(To be filled by those who do not have pan in
+                  case of agriculture)
+                </h3>
+              </div>
+              <br />
+              <div class="panel-heading">
+                <h6 class="panel-title">
+                  <p>
+                    Form of declaration to be filled by a person who has
+                    agriculture income and is not in receipt of any other income
+                    tax in respect of transaction specified rull 114B.
+                  </p>
+                </h6>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Full Name of Declarant
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="fullnameofdeclarantone" name="fullnameofdeclarantone" type="text" autocomplete="first-name" [(ngModel)]="fullnameofdeclarantone"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Address of the Declarant
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="addressofdeclarantone" name="addressofdeclarantone" type="text" autocomplete="first-name"[(ngModel)]="addressofdeclarantone"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Particulars of Transaction
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="particularsofdeclarantone" name="particularsofdeclarantone" type="text" autocomplete="first-name"[(ngModel)]="particularsofdeclarantone"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <label for="firstname" class="control-label">Amount of Transaction
+                  </label>
+                  <div class="form-group">
+                    <div class="">
+                      <input id="amountofofdeclarantone" name="amountofofdeclarantone" type="text" autocomplete="first-name"[(ngModel)]="amountofofdeclarantone"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-heading">
+                <p>
+                  Details of the document bei\ produced in support of address in
+                  field(2)<br />
+                  I hereby declare my source of income is from agriculture and i
+                  am not required to mpay incom-tax on any other.
+                </p>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  7. Introduction(Not Mandatory)
+                </h3>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Introducer Name</label>
+                    <div class="">
+                      <input id="introducername" name="introducername" type="text" autocomplete="first-name"[(ngModel)]="introducername"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Know Applicant for(months)</label>
+                    <div class="">
+                      <input id="knowapplicantformonths" name="knowapplicantformonths" type="text" autocomplete="first-name"[(ngModel)]="knowapplicantformonths"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Introducer Customer-Id</label>
+                    <div class="">
+                      <input id="introducercustomerid" name="introducercustomerid" type="text" autocomplete="first-name" [(ngModel)]="introducercustomerid"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Account No</label>
+                    <div class="">
+                      <input id="introduceraccountnumber" name="introduceraccountnumber" type="text" autocomplete="first-name"[(ngModel)]="introduceraccountnumber"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6"></div>
+              </div>
+              <br />
+              <div class="panel-heading">
+                <p>
+                  I Confirm that i am an account holder with bank for ever 6
+                  months.I confirm that i personally know more that 6 months and
+                  confirm his/her stated identity,occupation and address.
+                </p>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Date </label>
+                    <div class="">
+                      <input id="introducerdate" name="introducerdate" type="date" autocomplete="first-name" [(ngModel)]="introducerdate"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">A/c>6 months<br />Sign Verified
+                    </label>
+                    <div class="">
+                      <input id="introducersignverified" name="introducersignverified" type="text" autocomplete="first-name" [(ngModel)]="introducersignverified"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  8.Business Correspondent/facilitator
+                </h3>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Name of BC/Facilatator</label>
+                    <div class="">
+                      <input id="nameoffacilitator" name="nameoffacilitator" type="text" autocomplete="first-name" [(ngModel)]="nameoffacilitator"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">No of BC/Facilitator</label>
+                    <div class="">
+                      <input id="numberoffacilitator" name="numberoffacilitator" type="text" autocomplete="last-name" class="form-control" [(ngModel)]="numberoffacilitator" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Sign of BC/Facilitator</label>
+                    <div class="">
+                      <input id="signoffacilitator" name="signoffacilitator" type="text" autocomplete="last-name" class="form-control" [(ngModel)]="signoffacilitator"/>
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  10.Declaration
+                </h3>
+              </div>
+              <br />
+              <div class="row">
+                <tr>
+                  <td colspan="2">
+                    <h6 style="text-align: justify;">
+                      I. I understand that a booklet on the Banking Codes &
+                      Standards board of India Code(BCSBI) posted on your
+                      website shall be provided to me on demand.
+                    </h6>
+                    <h6 style="text-align: justify;">
+                      I do hereby declare that what is stated above is true to
+                      the best of my knowledge and belief.
+                    </h6>
+                    <h6><b>Terms and Conditions for small account</b></h6>
+                    <h6 style="text-align: justify;">
+                      Please open a Savings Bank account in the name specified
+                      above. The Saving Bank rules and regulations including
+                      those relating to Small Account have been explained to me
+                      and I agree to abide by the same. An additional photograph
+                      of sole applicant is attached.
+                    </h6>
+                    <h6><b>Terms & Conditions for all other accounts:</b></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <h6 style="text-align: justify;">
+                      II. I confirm having received, read and understand(a) the
+                      accounts rules and hereby agree to be bound by the terms &
+                      conditions outlined in these rules which govern the
+                      account(s) which I am opening/will open and (b)amendments
+                      to the rules made from time to time and those relating to
+                      various services availed by me when displayed by the Bank
+                      on its notice board or on its website and those relating
+                      to various services offered by the Bank including but not
+                      limited to a debit card, credit card, internet banking
+                      mobile banking, and other facilities listed in this form.
+                      The usage of these facilities is governed by the terms and
+                      conditions stipulated by the bank from time to time
+                    </h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <h6 style="text-align: justify;">
+                      III. I understand that all operations effected through my
+                      Debit Card at any of the ATM/POSEDC Machines installed by
+                      Bank or installed by other Banks and permitted to be used
+                      by Debit cardholders of Bank are binding on me. I do
+                      hereby acknowledge the receipt of terms and conditions
+                      governing the network operation of Debit Card an fi have
+                      agreed to the terms and conditions and also agree to abide
+                      by any amendment to the terms and conditions a may be
+                      stipulated by the Bank from time to time
+                    </h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <h6 style="text-align: justify;">
+                      IV. I understand to utilize the Bank Debit card strictly
+                      in accordance with the Exchange Control Regulations and
+                      understand that in the event of my failure to do so, I
+                      would be liable for action under FEMA guidelines issued
+                      from time to time and will also be debarred from
+                      International Card facility at the instance of Reserve
+                      Bank of India .
+                    </h6>
+                  </td>
+                </tr>
+                <tr></tr>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Date</label>
+                    <div class="">
+                      <input id="declarationdate" name="declarationdate" type="date" autocomplete="first-name" [(ngModel)]="declarationdate"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Place</label>
+                    <div class="">
+                      <input id="declarationplace" name="declarationplace" type="text" autocomplete="first-name"[(ngModel)]="declarationplace"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+          
+                  <div class="form-group">
+                    <label for="firstname" class="control-label">Signature</label>
+                    <div class="">
+                      <input id="declarationsign" name="declarationsign" type="text" autocomplete="first-name"[(ngModel)]="declarationsign"
+                        class="form-control" />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="col-md-12 row">
+                <diV class="col-md-5"></diV>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-primary waves-light" mdbWavesEffect style="width:40% ;"
+                    (click)="printform()">Print</button><br>
+                  </div><br>
+              </div>
+              <br/><br/>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<br /><br /><br />

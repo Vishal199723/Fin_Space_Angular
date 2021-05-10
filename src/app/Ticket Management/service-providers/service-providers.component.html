@@ -1,0 +1,109 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2" *ngFor="let item of Prividers" style="text-align: center;">
+        <img src={{item.logo}} style="width: 100px; height: 100px; cursor: pointer;" />
+        <div>&nbsp;</div>
+        <button class="btn btnprop" data-toggle="modal" data-target="#requestservice" (click)="RequestService(item)"
+            mdbWavesEffect>Request for Service</button>
+        <div>&nbsp;</div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div class="modal modal-angular fade" id="requestservice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <p style="color: darkslateblue;text-transform: uppercase;">{{SelectedSP}}</p> &nbsp;Service
+                    Requests
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="col-md-12 row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <table class="table-bordered">
+                            <thead>
+                                <th style=" padding: 10px">Request Type</th>
+                                <th style=" padding: 10px">Send</th>
+                            </thead>
+                            <tbody *ngFor="let item of ServieRequestTypeList">
+                                <tr style=" padding: 10px">
+                                    <td>{{item.requestName}}</td>
+                                    <td style="padding: 6px">
+                                        <button class="btn btnprop" data-dismiss="modal" mdbWavesEffect (click)="SendRequest(item)">Send
+                                            Request</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .modalsize {
+     width:750px;
+     max-width: 950px;
+     overflow-y: 50vh;
+       }
+       @media (max-width: 960px){
+     .modalsize {
+       width: 550px;
+       max-width:650px;
+       overflow-y: 50vh;
+     }
+   }
+   @media (max-width: 755px){
+     .modalsize {
+       width: 550px;
+       max-width:650px;
+       overflow-y: 50vh;
+     }
+   }
+   @media (max-width: 575px){
+     .modalsize {
+       width: 480px;
+       max-width:550px;
+       overflow-y: 50vh;
+     }
+   }
+   @media (max-width: 460px){
+     .modalsize {
+       width: 300px;
+       max-width:450px;
+       overflow-y: 50vh;
+     }
+   }
+   @media (max-width: 390px){
+     .modalsize {
+       width: 290px;
+       max-width:450px;
+       overflow-y: 50vh;
+     }
+   }
+   @media (max-width: 320px){
+     .modalsize {
+       width: 270px;
+       max-width:450px;
+       overflow-y: 50vh;
+     }
+   }
+   </style>

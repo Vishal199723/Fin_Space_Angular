@@ -1,0 +1,203 @@
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/custom.js"></script>
+<!-- Header -->
+<header class="header_outer">
+    <div class="custome_container">
+        <nav class="nav_outer">
+            <a href="javascript:void(0);" class="main_logo">
+                <figure>
+                    <img src="assets/Images/logo.png" alt="Logo">
+                </figure>
+            </a>
+            <div class="custom_menu">
+                <button class="mobile_menu_btn"><span></span></button>
+                <div class="main_menu">
+                    <ul>
+                        <li><a href="#home" id="font">Home</a></li>
+                        <!-- <li *ngIf="isLoggedIn">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    About Us
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#misvis">Mission & Vision</a>
+                                    <a href="#service" id="font">Our Services</a>
+                                    <a href="#contact" id="font">Contact Us</a>
+                                </div>
+                            </div>
+                        </li> -->
+                        <li *ngIf="!isLoggedIn"><a href="#misvis" id="font">About</a></li>
+                        <li *ngIf="!isLoggedIn"><a href="#service" id="font">Our Services</a></li>
+                        <li *ngIf="!isLoggedIn"><a href="#contact" id="font">Contact Us</a></li>
+                        <li *ngIf="!isLoggedIn"><a href="#partner" class="cmn_btn" id="font">Become a Partner</a></li>
+                        <li *ngIf="isLoggedIn"><a href="#/inbox" id="font">Mailbox </a></li>
+                        <li *ngIf="isLoggedIn && roleid=='1'"><a href="#/customerdashboard" id="font">Dashboard</a></li>
+                        <li *ngIf="isLoggedIn && (roleid=='3' || roleid=='4')"><a href="#/tmdashboard" id="font">Dashboard</a>
+                        </li>
+                        <li *ngIf="isLoggedIn && roleid=='2'"><a href="#/spdashboard" id="font">Dashboard</a></li>
+                        <li *ngIf="isLoggedIn && roleid=='5'"><a href="#/empdashboard" id="font">Dashboard</a></li>
+                        <li *ngIf="isLoggedIn && roleid=='1008'"><a href="#/babdetails" id="font">BankDetails</a></li>
+                        <li *ngIf="isLoggedIn && roleid=='1008'"><a href="#/badashboard" id="font">Dashboard</a></li>
+                        <li *ngIf="isLoggedIn && roleid=='1009'"><a href="#/admindashboard" id="font">Dashboard</a></li>
+                        <li *ngIf="!isLoggedIn">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                    
+                                    SignUp
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a href="#/signup" class="dropdown-item" id="font">Customer</a>
+                                    <a href="#/bareg" class="dropdown-item" id="font">Business Associate</a>
+                                    <a href="#/serviceproviderregistration" class="dropdown-item" id="font">Service Provider</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li *ngIf="isLoggedIn && (roleid=='1005' || roleid=='1006' || roleid=='1007')"
+                            style="cursor: pointer;">
+                            <a (click)="gotootherdashboard()" id="font">Dashboard </a>
+                        </li>
+                        <li *ngIf="isLoggedIn && (roleid=='1010' || roleid=='1011' || roleid=='1012')"
+                            style="cursor: pointer;">
+                            <a (click)="gotoppudashboard()" id="font">Dashboard </a>
+                        </li>
+
+                        <!-- <li *ngIf="isLoggedIn && roleid=='1009'">
+                                <div class="dropdown" >
+                                    <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Masters
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <ul *ngFor="let aa of MastersData" style="list-style-type: none;margin-left: -10%;">
+                                            <li><a href="#{{aa.menuURL}}" class="dropdown-item">{{aa.menuFileName}} </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li> -->
+                        <li class="nav-item dropdown" *ngIf="isLoggedIn && roleid=='1009'">
+                            <div ngbDropdown class="d-inline-block dropdown" style="cursor: pointer;">
+                                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle
+                                    style="color:black;" id="font">Masters</a>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary" style="background-color: #f3f3f3;overflow-y: scroll;
+                                         height: 400px;overflow-x: scroll;width: 350px;">
+                                    <ul *ngFor="let aa of MastersData" style="list-style-type: none;margin-left: -10%;">
+                                        <li><a href="#{{aa.menuURL}}" class="dropdown-item">{{aa.menuFileName}} </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" *ngIf="isLoggedIn">
+                            <div ngbDropdown class="d-inline-block dropdown" style="cursor: pointer;">
+                                <a id="dropdownBasic1" ngbDropdownToggle id="font">File Management</a>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary"
+                                    style="background-color: #f3f3f3;padding-right: 14px">
+                                    <a href="#/allfolders" class="dropdown-item" id="font">My Objects</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li *ngIf="isLoggedIn" style="cursor: pointer;" (click)="gotoprofile()"><a
+                                style="color: green;text-transform: capitalize;" id="font"> {{username}}</a></li>
+                        <li *ngIf="isLoggedIn" (click)="Logout()" style="cursor: pointer;"><a id="font">Logout</a></li>
+                    </ul>
+                </div>
+                <a *ngIf="!isLoggedIn" href="#/signin" id="font"><span><i class="fas fa-lock"></i></span>Login</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+         <img src="assets/img/Finspace-01.png" style="height: 60px;
+               width: 190px"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          
+                <ul class="navbar-nav ml-auto" style="font-weight: bold">
+
+                    <li >
+                        <a  href="#/home">Home&nbsp;&nbsp;&nbsp;</a></li>
+                
+                    <li  *ngIf="!isLoggedIn">
+                        <a  href="#/ProductsPage">Products and Services&nbsp;&nbsp;&nbsp;</a></li>
+                
+                    <li class="nav-item dropdown" *ngIf="!isLoggedIn">
+                        <div ngbDropdown class="d-inline-block dropdown" style="cursor: pointer;">
+                            <a  id="dropdownBasic1" ngbDropdownToggle>SignUp</a>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary"
+                                style="background-color: #f3f3f3;">
+                                <a href="#/signup" class="dropdown-item">Customer</a>
+                                <a href="#/bareg" class="dropdown-item">Business Associate</a>
+                                <a href="#/serviceproviderregistration" class="dropdown-item">Service Provider</a>
+                            </div>
+                        </div>
+                    </li>
+                
+                    <li *ngIf="!isLoggedIn" class="get-started">
+                        <a href="#/signin">&nbsp;&nbsp;&nbsp;LogIn</a>
+                    </li>
+                
+                    <li *ngIf="isLoggedIn && roleid=='1'"><a href="#/customerdashboard">Dashboard &nbsp;&nbsp;&nbsp;</a></li>
+                    <li *ngIf="isLoggedIn && (roleid=='3' || roleid=='4')"><a href="#/tmdashboard">Dashboard&nbsp;&nbsp;&nbsp; </a></li>
+                    <li *ngIf="isLoggedIn && roleid=='2'"><a href="#/spdashboard">Dashboard&nbsp;&nbsp;&nbsp; </a></li>
+                    <li *ngIf="isLoggedIn && roleid=='5'"><a href="#/empdashboard">Dashboard&nbsp;&nbsp;&nbsp; </a></li>
+                    <li *ngIf="isLoggedIn && roleid=='1008'"><a href="#/babdetails">BankDetails&nbsp;&nbsp;&nbsp; </a></li>
+                    <li *ngIf="isLoggedIn && roleid=='1008'"><a href="#/badashboard">Dashboard&nbsp;&nbsp;&nbsp; </a></li>
+                    <li *ngIf="isLoggedIn && roleid=='1009'"><a href="#/admindashboard">Dashboard&nbsp;&nbsp;&nbsp; </a></li>
+                
+                
+                    <li *ngIf="isLoggedIn && (roleid=='1005' || roleid=='1006' || roleid=='1007')" style="cursor: pointer;"><a
+                            (click)="gotootherdashboard()">Dashboard&nbsp;&nbsp;&nbsp; </a></li>
+                    <li *ngIf="isLoggedIn && (roleid=='1010' || roleid=='1011' || roleid=='1012')" style="cursor: pointer;"><a
+                            (click)="gotoppudashboard()">Dashboard &nbsp;&nbsp;&nbsp;</a></li>
+                    
+                    <li class="nav-item dropdown" *ngIf="isLoggedIn && ( roleid=='1009' || roleid=='3015')" style="margin-top: -1.2%;">
+                        <div ngbDropdown class="d-inline-block dropdown" style="cursor: pointer;">
+                            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle style="color:black;">Masters</a>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary" style="background-color: #f3f3f3;padding-right: 14px;overflow-y: scroll;
+                                                                     height: 400px;overflow-x: scroll;width: 250px;">
+                                <ul *ngFor="let aa of MastersData" style="list-style-type: none;margin-left: -10%;">
+                                    <li><a href="#{{aa.menuURL}}" class="dropdown-item">{{aa.menuFileName}}&nbsp;&nbsp;&nbsp;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li *ngIf="isLoggedIn"><a href="#/inbox">Mailbox&nbsp;&nbsp;&nbsp;</a></li>
+                    <li class="nav-item dropdown" *ngIf="isLoggedIn">
+                        <div ngbDropdown class="d-inline-block dropdown" style="cursor: pointer;">
+                            <a id="dropdownBasic1" ngbDropdownToggle>File Management</a>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary"
+                                style="background-color: #f3f3f3;padding-right: 14px">
+                                <a href="#/allfolders" class="dropdown-item">My Objects</a>
+                
+                            </div>
+                        </div>
+                    </li>
+                    <li *ngIf="isLoggedIn" style="cursor: pointer;" (click)="gotoprofile()"><a
+                            style="color: green;text-transform: capitalize;">&nbsp;&nbsp;&nbsp; {{username}}&nbsp;&nbsp;&nbsp;</a></li>
+                
+                    <li *ngIf="isLoggedIn" (click)="Logout()" style="cursor: pointer;"><a>Logout</a></li>
+                
+                </ul>
+        
+        </div>
+    </div>
+</nav> -->

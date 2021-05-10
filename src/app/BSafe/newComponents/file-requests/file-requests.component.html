@@ -1,0 +1,191 @@
+<app-nav-bar></app-nav-bar>
+
+<br/>
+<br/>
+<br/>
+
+
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12 row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+        <b style="font-size: 24px;">Object requests</b>
+    </div>
+    <div class="col-md-4" style="text-align: right;">
+        <a class="dropdown-item" (click)="FileRequestpopup()" data-toggle="modal" data-target="#Filereqpopupone" style="cursor: pointer;">Request Objects</a>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<div class="col-md-12 row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4" id="openreq">
+        <a class="dropdown-item" (click)="GetOpenRequest()" style="cursor: pointer;">Open Request</a>
+    </div>
+    <div class="col-md-4" id="closereq">
+        <a class="dropdown-item" (click)="GetCloseRequest()" style="cursor: pointer;">Closed Request</a>
+    </div>
+</div>
+
+<div class="col-md-12 row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" *ngIf="Open">
+        <table class="table table-hover">
+            <tbody *ngFor="let data of OpenReturnDetails">
+                <tr>
+                    <td style="color: black;font-weight: 500">
+                        &nbsp;{{data.requestingFor}}</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+
+                        <div ngbDropdown class="dropdown" placement="bottom-left">
+                            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i
+                                class="fa fa-gear" style="cursor: pointer;" aria-hidden="true"></i></a>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                                <a class="dropdown-item" (click)="CloseRequest(data)" style="cursor: pointer;">Close Request</a>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="col-md-8" *ngIf="Close">
+        <table class="table table-hover">
+            <tbody *ngFor="let data1 of ClosedReturnDetails" style="color: black">
+                <tr>
+                    <td style="color: black;font-weight: 500">
+                        &nbsp;{{data1.requestingFor}}</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+
+                        <div ngbDropdown class="dropdown" placement="bottom-left">
+                            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i
+                            class="fa fa-gear" style="cursor: pointer;" aria-hidden="true"></i></a>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                                <a class="dropdown-item" (click)="OpenRequest(data1)" style="cursor: pointer;">Open Request</a>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<br/>
+<br/>
+<br/>
+
+<div class="modal modal-angular fade" id="Filereqpopupone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    Create Object request
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <form #SendFileFolderDetails="ngForm" >
+                    <h5 class="modal-title" id="modal-basic-title">What are you requesting?</h5><br/>
+                    <input type="text" id="requestingfor" [(ngModel)]="requestingfor" class="form-control" name="requestingfor"><br/>
+        
+                    <h5 class="modal-title" id="modal-basic-title">Where should these Object go in your BSafe?</h5><br/>
+                    <select class="form-control" style="height: 57px;" (change)="OnSelectFolder($event.target.value)">
+              <option value=""> Select Folder </option>
+              <option *ngFor="let I of Folders" value={{I.folderID}}>
+                  {{I.folderName}}
+              </option>
+          </select>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop" (click)="fileandfoldername(SendFileFolderDetails)" data-toggle="modal" data-target="#Filereqpopuptwo" data-dismiss="modal"
+                mdbWavesEffect>Next</button>
+
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="Filereqpopuptwo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title" style="text-align: center;font-weight: 600"><b>Send Object request</b>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <div class="col-lg-12 row" *ngFor="let mem of selectedFriend">
+                    {{mem.friendName}}<br/>
+                </div>
+                <form #SendRequestForm="ngForm" (ngSubmit)="SendRequestTo(SendRequestForm)">
+                    <h5 class="modal-title" id="modal-basic-title">Select Friends?</h5><br/>
+                    <select class="form-control" style="height: 57px;" (change)="FileReqMembers($event.target.value)">
+                <option value=""> Select Friend </option>
+                <option *ngFor="let I of Friends.friendsList" value={{I.uid}}>
+                    {{I.friendName}}
+                </option>
+            </select>
+                    <br/>
+        
+                    <input type="text" id="optionalmsg" placeholder="Add an optional message" [(ngModel)]="optionalmsg" class="form-control" name="optionalmsg"><br/>
+        
+        
+                    <br />
+                    <input type="checkbox" [(ngModel)]="theCheckbox" data-md-icheck (change)="OnClickCheckbox($event)" />&nbsp;<b style="font-size: 12px;">Create separate private folders for each user </b>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop" (click)="fileandfoldername(SendRequestForm)" data-dismiss="modal"
+                mdbWavesEffect>Next</button>
+
+                <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Close</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- OTHER PROGRESS BAR Anusha-->
+<div class="col-lg-12 row" style="z-index: 100;" *ngIf="showper">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-7" style="left: 20%;position:fixed;top:86%;width: 60%;">
+        <p *ngIf="errormsg"><b style="color: black;">{{notify}} </b></p>
+        <p class="alert alert-info" style="box-shadow: white;background-color: white;" *ngIf="generalprogressbar">
+            <b *ngIf="folderCreating && !foldercreated" style="color: black;">{{Creatingmsg}} :{{n}}%</b>
+
+            <img src="assets/img/tick.png" height="20px;" width="20px;" *ngIf="foldercreated && !folderCreating">&nbsp;&nbsp;
+            <b style="color: black;" *ngIf="foldercreated &&  !folderCreating">&nbsp;&nbsp; {{createdmsg}} </b>
+            <br />
+            <progress value={{n}} max="100" style="width: 100%;height: 7px;"> </progress>&nbsp;&nbsp;{{n}}%
+        </p>
+
+    </div>
+</div>

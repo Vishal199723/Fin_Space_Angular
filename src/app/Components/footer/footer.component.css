@@ -1,0 +1,38 @@
+ /*--------------------------------------------------------------
+  # Footer
+  --------------------------------------------------------------*/
+  #footer {
+
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+    padding:14px 0;
+    color: black;
+    font-size: 14px;
+    position: fixed;
+    background-color: #eaeaea;
+    top:94%;
+    z-index: 1;
+  }
+  .copyright {
+    background: #fff;
+    padding: 10px 0;
+    margin-top: -10px;
+}
+  #footer .credits {
+    font-size: 13px;
+    padding-top: 5px;
+    color: #222222;
+  }
+  
+  #footer .footer-links a {
+    color: #222222;
+    padding-left: 15px;
+  }
+  
+  #footer .footer-links a:first-child {
+    padding-left: 0;
+  }
+  
+  #footer .footer-links a:hover {
+    color: chocolate;
+  }
+  /* --------------------------------------------------------------------------------- */

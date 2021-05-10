@@ -1,0 +1,201 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div class="col-md-12 row bodycolor">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="card">
+            <form id="regform" [formGroup]="SendRequestForm">
+                <div>&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div>&nbsp;</div>
+                        <div style="color: darkslateblue">
+                            <h4>To: {{SelectedSP}}</h4>
+                            <br />
+                            <h4>Request Type : &nbsp;{{SelectedService.requestName}}</h4>
+                        </div>
+                        <br />
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="placeofbith">Full Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"
+                                        formControlName="fullName" type="text" class="form-control" name="fullName"
+                                        [(ngModel)]="fullName">
+                                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.fullName.errors.required">Full Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="contactnumber">Mobile Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.contactnumber.errors }"
+                                        formControlName="contactnumber" type="tel" class="form-control"
+                                        name="contactnumber" [(ngModel)]="contactnumber">
+                                    <div *ngIf="submitted && f.contactnumber.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.contactnumber.errors.required">Mobile
+                                            Number
+                                            is required</div>
+                                        <div style="color: red;" *ngIf="f.contactnumber.errors.pattern">Enter valid
+                                            Mobile number</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="postalcode">Postal Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.postalcode.errors }"
+                                        formControlName="postalcode" type="number" class="form-control" name="postalcode"
+                                        [(ngModel)]="postalcode" (change)="getalldata()">
+                                    <div *ngIf="submitted && f.postalcode.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.email.errors.required">Postal Code is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.email.errors.pattern">Enter valid Postal Code 
+                                        </div>
+                                     
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="country">Country</label>
+                                    <input formControlName="country" type="text" class="form-control" name="country"
+                                        [(ngModel)]="country" readonly>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="state">State</label>
+                                    <input
+                                        formControlName="state" type="text" class="form-control" name="state"
+                                        [(ngModel)]="state" readonly>
+                                  
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="district">District</label>
+                                    <input
+                                        formControlName="district" type="text" class="form-control" name="district"
+                                        [(ngModel)]="district" readonly>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                               
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="district">Addres Line One</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.address1.errors }"
+                                        formControlName="address1" type="text" class="form-control" name="address1"
+                                        [(ngModel)]="address1" >
+                                        <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.address1.errors.required">Address  Line One is
+                                                required</div>
+                                        </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="placeofbith">Address Line Two</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.address2.errors }"
+                                        formControlName="address2" type="text" class="form-control" name="address2"
+                                        [(ngModel)]="address2">
+                                    <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.address2.errors.required">Address  Line Two is
+                                            required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                              
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="email">Email</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                        formControlName="email" type="text" class="form-control" name="email"
+                                        [(ngModel)]="email">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.email.errors.required">Email is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.email.errors.email">Enter valid email address
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="date">Service Date</label>
+                                    <input formControlName="date" type="text" class="form-control" name="date"
+                                        [(ngModel)]="date" readonly>
+
+                                </div>
+                                <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="placeofbith">Message(if any)</label>
+                                    <input 
+                                        formControlName="info" type="text" class="form-control" name="info"
+                                        [(ngModel)]="info">
+                                  
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                             
+                               
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label for="placeofbith">Required Time to Complete this process(in Hrs)</label>
+                                    <input
+                                        formControlName="servicetime" type="number" class="form-control"
+                                        name="servicetime" [(ngModel)]="servicetime">
+                                   
+                                </div>
+                            </div>
+                        </div> -->
+                   
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" class="btn btnprop">Cancel</button>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" class="btn btnprop"
+                                        (click)="sendRequestToServiceProvider()">Submit</button><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<!-- notification alert -->
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-4" *ngIf="dismissalert">
+      <div class="alert alert-info"
+        style="background-color: #545353;box-shadow: none;left: 245px; position: fixed;top: 500px;width: 350px;">
+        <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <i class="material-icons" style="color: white">close</i>
+        </button>
+        <span style="color: white;margin-top: 6px;">
+          <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+      </div>
+    </div>
+  </div>

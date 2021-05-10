@@ -1,0 +1,513 @@
+<app-header></app-header>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div id="maindivv">
+    <h2 id="heading">DASHBOARD</h2>
+    <br /><br />
+    <div class="form-group">
+        <div class="row" id="maindiv">
+            <div class="col-md-3 column">
+                <br />
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <i class="fas fa-tag" id="faicon"></i>
+                        </div>
+                        <div class="flip-box-back">
+                            <h2 class="loanname">Product Categories</h2>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <div class=" col-md-1 grid_box1">
+            </div>
+            <div class="col-md-3 column">
+                <br />
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <i class="fas fa-tags" id="faicon"></i>
+                        </div>
+                        <div class="flip-box-back">
+                            <h2 class="loanname">Products</h2>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <div class=" col-md-1 grid_box1">
+            </div>
+            <div class="col-md-3 column">
+                <br />
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <i class="fas fa-users" id="faicon"></i>
+                        </div>
+                        <div class="flip-box-back" (click)="RouteToSPEmployees()">
+                            <h2 class="loanname" (click)="RouteToSPEmployees()">Employees</h2>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+<div class="col-md-12 ng-scope">&nbsp;</div>
+
+<div class="row" id="divtwoo">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="panel-heading" data-toggle="collapse" data-target="#collapse1" id="divone">
+            <h4 id="tickethead">
+                <b>All Services</b>
+            </h4>
+
+        </div>
+        <div class="col-md-12 row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label>From Date</label>
+                <input type="date" class="form-control" id="Newfromdate" name="Newfromdate" placeholder="Any Day"
+                    [(ngModel)]="Newfromdate" (change)="onChangeNewfromdate(Newfromdate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <label>To Date</label>
+                <input type="date" class="form-control" id="Newtodate" name="Newtodate" placeholder="Any Day"
+                    [(ngModel)]="Newtodate" (change)="onChangeNewTodate(Newtodate)" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3 row">
+                <div class="col-md-12">&nbsp;</div>
+
+                <button class="btn btnpropother" (click)="cancelNew()">Cancel</button>
+            </div>
+        </div>
+        <br />
+        <div class="search-hero" style="padding-bottom: 10px;">
+            <input class="form-control" type="text" name="SearchAllServices" [(ngModel)]="SearchAllServices"
+                autocomplete="off" placeholder="&#61442; Search">
+        </div>
+        <br />
+        <div class="col-md-12 row">
+            <div class="col-md-1 row"></div>
+            <div class="col-md-8 row">
+
+                <table class="table table-bordered" id="table">
+                    <thead class="">
+                        <tr style="color: black; text-align: center">
+                            <th>Sl No</th>
+                            <th>Service Id</th>
+                            <th>Customer Id</th>
+                            <th> Customer Name</th>
+                            <th>Assign</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- ngRepeat: com in TicketDetails -->
+                        <tr *ngFor="let com of TicketDetails| LockFilter: SearchAllServices;let i = index"
+                            class="ng-scope">
+                            <td>{{i+1}}</td>
+                            <td>{{com.complaintId}}</td>
+                            <td>{{com.cusId}}</td>
+                            <td>{{com.name}}</td>
+                            <td (click)="Assigntoemployee(com)" style="cursor: pointer;"><i class="fa fa-paper-plane"
+                                    data-toggle="modal" data-target="#AssignTask"></i></td>
+                            <td> <button (click)="Assigntoemployee(com)" type="button" id="reassignbtn"
+                                    data-toggle="modal" data-target="#SendtoRV">
+                                    Send to RV
+                                </button></td>
+                                <td> <button class="btn btn-primary" (click)="DownloadForm(com)" type="button" 
+                                   >
+                                  View and Download
+                                </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<div class="col-md-12" id="divtwo">
+    <div class="panel-heading" data-toggle="collapse" data-target="#collapse1" id="divthree">
+        <h4 id="headthree">
+            <b>Assigned Services</b>
+        </h4>
+
+    </div>
+    <div>&nbsp;</div>
+    <br />
+    <div class="col-md-12 row" id= "datediv">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-3 row">
+            <label>From Date</label>
+            <input type="date" class="form-control" id="Assignfromdate" name="Assignfromdate" placeholder="Any Day"
+                [(ngModel)]="Assignfromdate" (change)="onChangeAssignfromdate(Assignfromdate)" />
+        </div>
+        <div class="col-md-1"></div>
+
+        <div class="col-md-3 row">
+            <label>To Date</label>
+            <input type="date" class="form-control" id="Assigntodate" name="Assigntodate" placeholder="Any Day"
+                [(ngModel)]="Assigntodate" (change)="onChangeAssignTodate(Assigntodate)" />
+        </div>
+        <div class="col-md-1"></div>
+
+        <div class="col-md-3 row">
+            <div class="col-md-12">&nbsp;</div>
+
+            <button class="btn btnpropother" (click)="cancelAssign()">Cancel</button>
+        </div>
+    </div>
+    <br />
+    <div class="search-hero" id= "searchdiv">
+        <input class="form-control" type="text" name="SearchAssignedServices" [(ngModel)]="SearchAssignedServices"
+            autocomplete="off" placeholder="&#61442; Search">
+    </div>
+    <div class="">
+        <div class="">
+            <div class="col-md-12 row" id="btndiv">
+                <div class="col-md-10"></div>
+                <div class="col-md-1">
+                    <button id="btn" type="submit" (click)="print()">Print</button>
+                </div>
+                <!-- <div class="col-md-2">
+                        <button id ="btn" type="submit" (click)="download()">Download</button>
+                    </div> -->
+            </div><br /><br />
+            <table class="table table-bordered table-responsive">
+                <thead class="">
+                    <tr style="color: black; text-align: center">
+                        <th>Sl No</th>
+                        <th style="cursor: pointer;" (click)="sortbyassignserviceid()">Service Id</th>
+                        <th>Customer Number</th>
+                        <th>Information</th>
+                        <th>Assigned Time</th>
+                        <th style="cursor: pointer;" (click)="sortbyservicedate()">Assigned Date</th>
+                        <!-- <th>Assigned To</th>
+                        <th>Assigned Time</th> -->
+                        <th>Acceptance Status</th>
+                        <th>Work Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let com of EmployeeAssignedTaskss | LockFilter: SearchAssignedServices;let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{com.complaintId}} </td>
+                        <td>{{com.contactNumber}}</td>
+                        <td>{{com.information}}</td>
+                        <td>{{com.serviceTime}}</td>
+                        <td>{{com.serviceDate|date}}</td>
+                        <!-- <td>{{com.employeeName}}</td>
+                        <td>{{com.lastUpdated}}</td>
+                        <td>
+                            {{com.isaccepted}}&nbsp;&nbsp;
+                            <i class="fa fa-paper-plane" ng-if="com.isaccepted == 'No'" aria-hidden="true"
+                                ng-click="againassign(com)"></i>
+                        </td> -->
+                        <td>{{GetAcceptanceStatus(com)}}</td>
+                        <td>{{com.statusName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+<div class="col-md-12 row" id="divfour">
+    <div class="col=md-4">&nbsp;</div>
+    <div class="col-md-6" data-toggle="modal" data-target="#ReAssignTask">
+        <button type="button" id="reassignbtn" (click)="makedatanull()">
+            Reassign of Service
+        </button>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="SendtoRV" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" id="popupone">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                        id="closeinto">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p class="modal-title w-100" id="folderText">
+                        Sending to Registration Verification</p>
+                </div>
+                <br />
+                <form #AssignTaskForm="ngForm">
+                    <!-- (ngSubmit)="SaveNewFolder(AssignTaskForm)" -->
+                    <div class="col-md-12 form-group row">
+                        <br>
+                        <label id="labelname">Service Id</label>
+                        <input type="text" [(ngModel)]="complaintId" class="form-control" id="inputbox"
+                            name="ComplaintId" readonly style="background-image: none;" />
+                        <br>
+                        <label id="labelname">Contact Number</label>
+                        <input type="text" [(ngModel)]="contactno" class="form-control" id="inputbox"
+                            name="ContactNumber" readonly style="background-image: none;" />
+                        <br>
+                        <label id="labelname">Address</label>
+                        <textarea type="text" [(ngModel)]="address" class="form-control" id="inputbox" name="Address"
+                            readonly style="background-image: none;"></textarea>
+                        <br>
+                        <label id="labelname">Information</label>
+                        <input type="text" [(ngModel)]="information" class="form-control" id="inputbox"
+                            name="Information" style="background-image: none;" readonly />
+                        <br>
+                        <label id="labelname">Service Date</label>
+                        <input type="text" [(ngModel)]="sdate" class="form-control" id="inputbox" name="ServiceDate"
+                            style="background-image: none;" readonly />
+                        <br>
+                        <label id="labelname">Service Time</label>
+                        <input type="text" [(ngModel)]="stime" class="form-control" id="inputbox" name="ServiceTime"
+                            style="background-image: none;" readonly />
+                        <br>
+                        <!-- <label id="labelname">Required Time(Hrs)</label>
+                        <input type="text" [(ngModel)]="requiredtime" class="form-control" id="inputbox"
+                            name="RequiredTime" style="background-image: none;" />
+                        <br> -->
+                        <label id="labelname">Workflow State</label>
+                        <select (change)="onSelectState($event.target.value)" class="form-control">
+                            <option value="" id="selectdropdown">Select State</option>
+                            <option *ngFor="let state of WorkflowStates" value={{state.workflowStateId}}>
+                                {{state.workflowStateName}}
+                            </option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <button type="submit" id="SendBtn" class="btn btn-success btn-sm waves-light" mdbWavesEffect
+                    data-dismiss="modal" (click)="SendMailToRV()">SEND</button>
+                <!--  (click)="cancelnewfolder()" -->
+                <button type="button" class="btn btn-sm waves-light" id="CancelBtn" data-dismiss="modal"
+                    mdbWavesEffect>CANCEL</button>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="AssignTask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" id="popupone">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                        id="closeinto">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p class="modal-title w-100" id="folderText">
+                        Assign Service to Employee</p>
+                </div>
+                <br />
+                <form #AssignTaskForm="ngForm">
+                    <!-- (ngSubmit)="SaveNewFolder(AssignTaskForm)" -->
+                    <div class="col-md-12 form-group row">
+                        <label id="labelname">To Employee</label>
+                        <select (change)="onSelectEmployee($event.target.value)" class="form-control">
+                            <option value="" id="selectdropdown">Select Employee</option>
+                            <option *ngFor="let emp of SPEmployees" value={{emp.uniqueEmpId}}>
+                                {{emp.employeeName}}
+                            </option>
+                        </select>
+                        <br>
+                        <label id="labelname">Service Id</label>
+                        <input type="text" [(ngModel)]="complaintId" class="form-control" id="inputbox"
+                            name="ComplaintId" readonly style="background-image: none;" />
+                        <br>
+                        <label id="labelname">Contact Number</label>
+                        <input type="text" [(ngModel)]="contactno" class="form-control" id="inputbox"
+                            name="ContactNumber" readonly style="background-image: none;" />
+                        <br>
+                        <label id="labelname">Address</label>
+                        <textarea type="text" [(ngModel)]="address" class="form-control" id="inputbox" name="Address"
+                            readonly style="background-image: none;"></textarea>
+                        <br>
+                        <label id="labelname">Information</label>
+                        <input type="text" [(ngModel)]="information" class="form-control" id="inputbox"
+                            name="Information" style="background-image: none;" readonly />
+                        <br>
+                        <label id="labelname">Service Date</label>
+                        <input type="text" [(ngModel)]="sdate" class="form-control" id="inputbox" name="ServiceDate"
+                            style="background-image: none;" readonly />
+                        <br>
+                        <label id="labelname">Service Time</label>
+                        <input type="text" [(ngModel)]="stime" class="form-control" id="inputbox" name="ServiceTime"
+                            style="background-image: none;" readonly />
+                        <br>
+                        <label id="labelname">Required Time(Hrs)</label>
+                        <input type="text" [(ngModel)]="requiredtime" class="form-control" id="inputbox"
+                            name="RequiredTime" style="background-image: none;" />
+                        <br>
+                        <label id="labelname">Workflow State</label>
+                        <select (change)="onSelectState($event.target.value)" class="form-control">
+                            <option value="" id="selectdropdown">Select State</option>
+                            <option *ngFor="let state of WorkflowStates" value={{state.workflowStateId}}>
+                                {{state.workflowStateName}}
+                            </option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <button type="submit" id="SendBtn" class="btn btn-success btn-sm waves-light" mdbWavesEffect
+                    (click)="SendMailToEmployee()">SEND</button>
+                <!--  (click)="cancelnewfolder()" -->
+                <button type="button" class="btn btn-sm waves-light" id="CancelBtn" #closebutton data-dismiss="modal"
+                    mdbWavesEffect>CANCEL</button>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-angular fade" id="ReAssignTask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" id="popuptwo">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                        id="closeinto">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p class="modal-title w-100" id="folderText">
+                        Reassign Service</p>
+                </div>
+                <br />
+                <form #ReAssignTaskForm="ngForm">
+                    <!-- (ngSubmit)="SaveNewFolder(AssignTaskForm)" -->
+                    <div class="col-md-12 form-group row">
+                        <label id="labelname">To Employee</label>
+                        <select (change)="onSelectEmployee($event.target.value)" class="form-control">
+                            <option value="" id="selectdropdown">Select Employee</option>
+                            <option *ngFor="let emp of SPEmployees" value={{emp.uniqueEmpId}}>
+                                {{emp.employeeName}}
+                            </option>
+                        </select>
+                        <br>
+                        <br>
+                        <label id="labelname">Service Id</label>
+                        <input type="text" [(ngModel)]="complaintId" class="form-control" id="inputbox"
+                            name="ComplaintId" (change)="GetReAssigndetails()"  style="background-image: none;" />
+                        <br>
+                     
+                        <label id="labelname">Information</label>
+                        <input type="text" [(ngModel)]="information" class="form-control" id="inputbox"
+                            name="Information" style="background-image: none;" readonly />
+                        <br>
+                        <label id="labelname">Service Date</label>
+                        <input type="text" [(ngModel)]="sdate" class="form-control" id="inputbox" name="ServiceDate"
+                            style="background-image: none;" readonly />
+                        <br>
+                        <label id="labelname">Service Time</label>
+                        <input type="text" [(ngModel)]="stime" class="form-control" id="inputbox" name="ServiceTime"
+                            style="background-image: none;" readonly />
+                        <br>
+                        <label id="labelname">Required Time(Hrs)</label>
+                        <input type="text" [(ngModel)]="requiredtime" class="form-control" id="inputbox"
+                            name="RequiredTime" style="background-image: none;" />
+                        <br>
+                        <label id="labelname">Workflow State</label>
+                        <select (change)="onSelectState($event.target.value)" class="form-control">
+                            <option value="" id="selectdropdown">Select State</option>
+                            <option *ngFor="let state of WorkflowStates" value={{state.workflowStateId}}>
+                                {{state.workflowStateName}}
+                            </option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <button type="submit" id="SendBtn" class="btn btn-success btn-sm waves-light" mdbWavesEffect
+                    (click)="ReAssignTask()">SEND</button>
+                <!-- (click)="ShareMailToUsers(AddFolderForm)" (click)="cancelnewfolder()" -->
+                <button type="button" class="btn btn-sm waves-light" #reassignclosebutton id="CancelBtn" data-dismiss="modal"
+                    mdbWavesEffect>CANCEL</button>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+    .modalsize {
+        width: 600px;
+        max-width: 950px;
+        overflow-y: 50vh;
+    }
+
+    @media (max-width: 960px) {
+        .modalsize {
+            width: 450px;
+            max-width: 650px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .modalsize {
+            width: 480px;
+            max-width: 550px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 460px) {
+        .modalsize {
+            width: 380px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .modalsize {
+            width: 350px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .modalsize {
+            width: 310px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+</style>

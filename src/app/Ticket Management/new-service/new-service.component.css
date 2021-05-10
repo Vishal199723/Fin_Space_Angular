@@ -1,0 +1,53 @@
+ /* Style the counter cards */
+ .homecard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 4px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }
+  .headtext{
+    font-family: DIN Next Rounded LT Pro;
+    text-align: center;
+    color:#36dbe2;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .bodycolor{
+    background-color: #ececec;
+  }
+  #image{
+    width: 80%;
+    height: 210px;
+   
+}
+
+@media screen and (max-width:768px){
+
+    #image{
+        width: 50%;
+        height: 210px;
+        
+           }
+
+}
+
+@media screen and (max-width:500px){
+
+    #image{
+        width: 80%;
+        height: 210px;
+      
+    }
+
+}
+
+@media screen and (max-width:335px){
+
+    #image{
+        width: 80%;
+        height:  210px;
+       
+    }  
+}

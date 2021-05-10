@@ -1,0 +1,51 @@
+
+<app-header></app-header>
+<br>
+<br>
+<br>
+<br>
+<br />
+<div id="signin" align="center" id="signin"
+    style="background: linear-gradient(0deg, rgb(67, 67, 72) -8.79%, rgb(215, 212, 222) 36.31%, rgba(153, 119, 234, 0) 95.86%); margin-left: 0px;margin-right: 0px;height: 100%;margin-top: 6%"
+    (window:resize)="onResize($event)">
+
+    <fieldset id="container">
+        <br />
+        <legend align="center" id="legend">Finspace</legend>
+
+        <label for="Email" id="emaillabel">Email Address/Mobile No</label>
+        <input (keyup.enter)="signIn()"  (blur)="updateEmail($event.currentTarget.value)" class="form-control"
+            type="text" id="inputbutton" [(ngModel)]="email">
+        <br />
+        <label for="Password" style="float: left;color: grey;" id="emaillabel">Password</label>
+        <input (keyup.enter)="signIn()" (blur)="updatePassword($event.currentTarget.value)" class="form-control"
+            type="password" id="inputbutton1" [(ngModel)]="password">
+        <div *ngIf="isLoginError" class="red-text center error-message"
+            style="font-size:18px;color:red;font-family:  'DIN Next Rounded LT Pro',  ;">
+            <i class="material-icons"></i>
+            <h5 style="text-align: center;font-family: DIN Next Rounded LT Pro;"><b>Incorrect Username or Password</b>
+            </h5>
+        </div><br/>
+        <!-- <input  type="checkbox" (click)="checkbox($event.target.value)">
+        <p id="rememberme">Remember me</p> -->
+        <!-- <mat-checkbox id="checkbox" #check (click)="checkbox(check.value)">Remember me</mat-checkbox> -->
+       
+       <br/> <span id="forgot" *ngIf="width1">Forgot Password? &nbsp;<a href="#" [routerLink]="['/forgotpw']"
+            id="click" >Click here</a> </span>
+        <span id="forgot" *ngIf="width2">Forgot Password?</span> <br /><a href="#" *ngIf="width2" id="click"
+            [routerLink]="['/forgotpw']"
+            id="click">Click here</a>
+        <span id="forgot" *ngIf="width3">Forgot Password?</span> <br /><a href="#" *ngIf="width3"
+            [routerLink]="['/forgotpw']"
+            style="color:#36dbe2 ;float: right;margin-right: 0px;margin-top: -21px;font-size: small;text-decoration: none;font-family: DIN Next Rounded LT Pro;">Click
+            here</a>
+        <br />
+        <div  (keyup.enter)="signIn()"  style="display: flex;justify-content: center;" [separatorKeyCodes]="[13]">
+            <button (keyup.enter)="signIn()" id="signinbutton" [separatorKeyCodes]="[13]" (click)="signIn()">SIGN IN</button>
+        </div>
+        <span id="needaccount">Need an account?
+            &nbsp; <a href="#" [routerLink]="['/signup']"
+                id="signup">Sign up here</a> </span>
+      
+    </fieldset>
+</div>

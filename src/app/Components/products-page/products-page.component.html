@@ -1,0 +1,129 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<section id="services" class="services section-bg">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Loan Products</h2>
+            <!-- <p>
+                Virtual Tour of SBI Home Loans takes you to a world of SBI Home Loan processes viz. sourcing, processing, sanctioning and documentation, which in turn make your journey pleasant with SBI Home Loan.
+            </p> -->
+        </div>
+        <div class="row">
+            <div *ngFor="let item of loanlist"
+                class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 boxleft" data-aos="zoom-in">
+                <div class="icon-box icon-box-green" style="width:230px;margin-top: 15px;cursor: pointer;"
+                    (click)="SendRequest(item.loanTypeId,4)">
+                    <div class="icon">
+                        <i class="fa fa-business-time" style="font-size: 25px;" *ngIf="item.loanTypeId==1"></i>
+                        <i class="fa fa-motorcycle" style="font-size: 25px;" *ngIf="item.loanTypeId==2"></i>
+                        <i class="fa fa-edit" style="font-size: 25px;" *ngIf="item.loanTypeId==3"></i>
+                        <i class="fa fa-chart-line" style="font-size: 25px;" *ngIf="item.loanTypeId==4"></i>
+                        <i class="fa fa-building" style="font-size: 25px;" *ngIf="item.loanTypeId==5"></i>
+                        <i class="fa fa-copy" style="font-size: 25px;" *ngIf="item.loanTypeId==6"></i>
+                        <i class="fa fa-coins" style="font-size: 25px;" *ngIf="item.loanTypeId==1001"></i>
+                        <i class="fa fa-user-graduate" style="font-size: 25px;"
+                            *ngIf="item.loanTypeId==1002"></i>
+                        <i class="fa fa-home" style="font-size: 25px;" *ngIf="item.loanTypeId==1003"></i>
+                        <i class="fa fa-coins" style="font-size: 25px;" *ngIf="item.loanTypeId==1004"></i>
+                    </div>
+                    <h4 class="title"><a>{{item.loanType}}</a></h4>
+
+                </div>
+                <br />
+            </div>
+            <br />
+        </div>
+
+
+        <br />
+    </div>
+</section>
+<div>&nbsp;</div>
+<section id="services" class="services section-bg">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Insurance Products</h2>
+
+        </div>
+        <div class="row">
+            <div *ngFor="let item of insurancelist"
+                class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 boxleft" data-aos="zoom-in">
+                <div class="icon-box icon-box-pink" style="width:230px;margin-top: 15px;cursor: pointer;"
+                    (click)="SendRequest(item.insuranceTypeId,5)">
+                    <div class="icon">
+                        <i class="fa fa-hand-holding-heart" style="font-size: 25px;"
+                            *ngIf="item.insuranceType=='Life Insurance'"></i>
+                        <i class="fa fa-hand-holding-heart" style="font-size: 25px;"
+                            *ngIf="item.insuranceType=='Term Life Insurance'"></i>
+                        <i class="fa fa-motorcycle" style="font-size: 25px;"
+                            *ngIf="item.insuranceType=='Motor Insurance'"></i>
+                        <i class="fa fa-car-crash" style="font-size: 25px;"
+                            *ngIf="item.insuranceType=='Accident Insurance'"></i>
+                        <i class="fa fa-hospital" style="font-size: 25px;"
+                            *ngIf="item.insuranceType=='Health Insurance'"></i>
+                        <i class="fa fa-home" style="font-size: 25px;"
+                            *ngIf="item.insuranceType=='Home Insurance'"></i>
+                    </div>
+                    <h4 class="title"><a>{{item.insuranceType}}</a></h4>
+
+                </div>
+                <br />
+            </div>
+            <br />
+        </div>
+        <br />
+    </div>
+</section>
+
+
+<section id="services" class="services section-bg">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Investment Products</h2>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of inestments"
+                class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 boxleft" data-aos="zoom-in">
+                <div class="icon-box icon-box-pink" style="width:230px;margin-top: 15px;cursor: pointer;"
+                    (click)="SendRequest(item.id,6)">
+                    <div class="icon">
+                        <i class="fa fa-coins" style="font-size: 25px;" *ngIf="item.id==1"></i>
+                        <i class="fa fa-rupee-sign" style="font-size: 25px;" *ngIf="item.id==2"></i>
+
+                    </div>
+                    <h4 class="title"><a>{{item.investmentTypeName}}</a></h4>
+                </div>
+                <br />
+            </div>
+            <br />
+        </div>
+        <br />
+    </div>
+</section>
+
+<!-- <section id="services" class="services section-bg">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Mutual Fund</h2>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12 row">
+
+            <div class="col-md-5 ">&nbsp;</div>
+            
+                <div class="homecard" class="col-md-4 " (click)="SendRequest()"
+                class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 boxleft" data-aos="zoom-in">
+                <img src="./assets/img/fund3.png" style="width: 200px; height: 200px; cursor: pointer;" />
+         
+            </div>              
+            <div class="col-md-4 ">&nbsp;</div>
+
+          </div>
+            <br />
+        </div>
+        <br />
+    </div>
+</section> -->

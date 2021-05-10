@@ -1,0 +1,197 @@
+<app-header></app-header>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<h2 style="text-align:center">Commission Details</h2>
+<div>&nbsp;</div>
+
+<div class="row col-sm-12">
+    <div class="col-sm-9"></div>
+    <div class="col-sm-1">
+      <button style="background-color: green" class="btn btn-success" data-toggle="modal" data-target="#basicExample"
+        mdbWavesEffect (click)="addClick()">
+        Add
+      </button>
+    </div>
+  </div>
+  <br /><br />
+
+
+  <div class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="table-responsive">
+        <div style="overflow-x:visible;height: 300px;overflow-y: visible">
+          <table class="table table-bordered" style="border-collapse: collapse;">
+            <tr style="font-size:17px">
+              <th>Sl No</th>
+              <th>Service Provider Id</th>
+              <th>SP Name</th>
+              <!-- <th>Bussiness Associate Id</th>
+              <th>Bussiness Associate Name</th> -->
+              <th>Product</th>
+              <th>SubProduct</th>
+              <th>Percantage </th>
+              <th>Created On</th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr *ngFor="let aa of Commissions| paginate: { itemsPerPage: 5, currentPage: p };let i = index"
+              style="font-size:16px;font-family:DINNextRoundedLTPro ">
+              <td> {{ 5 * (p - 1) + (i+1) }}</td>
+              <td>{{aa.sbId}}</td>
+              <td>{{aa.spname}}</td>
+              <td>{{aa.product}}</td>
+              <td>{{aa.subProduct}}</td>
+              <td>{{aa.commissionPersent}}</td>
+              <td>{{aa.createdOn|date}}</td>
+              <td>
+                <button style="background-color:#ff8000 " class="btn btn-success" data-toggle="modal"
+                  data-target="#basicExample" mdbWavesEffect (click)="editCommission(aa)">
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteExample" mdbWavesEffect
+                  (click)="deleteCommission(aa)">Delete</button>
+              </td>
+            </tr>
+          </table>
+  
+          <br />
+          <pagination-controls (pageChange)="p = $event" style="float: right" ></pagination-controls>
+        </div>
+      </div>
+      <br /><br /><br /><br />
+    </div>
+  </div>
+
+
+  <br /><br /><br />
+<div class="modal modal-angular fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center"> City</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body text-center">
+        <form #CommissionForm="ngForm">
+          <div class="col-md-12 row">
+            <div class="form-horizontal container">
+              <!-- <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">BA :</label>
+                <div class="col-md-8">
+                  <select (change)="onSelectBA($event.target.value)" class="form-control">
+                    <option value="">Select Business Associate</option>
+                    <option *ngFor="let do of BusinessAssociates" value={{do.id}} [selected]="do.id == baid">
+                      {{do.fullName}}
+                    </option>
+                  </select>
+                </div>
+              </div><br /> -->
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">SP :</label>
+                <div class="col-md-8">
+                  <select (change)="onSelectSP($event.target.value)" class="form-control">
+                    <option value="">Select Service Provider</option>
+                    <option *ngFor="let do of ServiceProviders" value={{do.id}}
+                      [selected]="do.id == spid">
+                      {{do.companyName}}
+                    </option>
+                  </select>
+                </div>
+              </div><br />
+
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Product :</label>
+                <div class="col-md-8">
+                  <select (change)="onSelectproduct($event.target.value)" class="form-control">
+                    <option value="">Select Product</option>
+                    <option *ngFor="let do of products" value={{do.id}}
+                      [selected]="do.id == productid">
+                      {{do.productName}}
+                    </option>
+                  </select>
+                </div>
+              </div><br />
+
+
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Sub Product :</label>
+                <div class="col-md-8">
+                  <select (change)="onSelectsubproduct($event.target.value)" class="form-control">
+                    <option value="">Select Sub Product</option>
+                    <option *ngFor="let do of subproducts" value={{do.id}}
+                      [selected]="do.id == subproductid">
+                      {{do.subProductName}}
+                    </option>
+                  </select>
+                </div>
+              </div><br />
+
+
+              <div class="col-md-12 row">
+                <label class="col-md-4" style="color:black;padding-top: 13px">Commission Percentage :</label>
+                <div class="col-md-8">
+                  <input type="number" class="form-control" id="percent" name="percent"
+                    placeholder="Enter Percentage" [(ngModel)]="percent" />
+                </div>
+              </div><br />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning btn-sm waves-light" data-dismiss="modal"
+           mdbWavesEffect>Close</button>
+        <button *ngIf="showSave" data-dismiss="modal" type="submit" class="btn btn-success btn-sm waves-light" mdbWavesEffect
+          (click)="SaveCommissionDetails(CommissionForm)">Save</button>
+        <button *ngIf="showUpdate" data-dismiss="modal" type="submit" class="btn btn-success btn-sm waves-light"
+          (click)="UpdateCommissionDetails(CommissionForm)">Update </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-angular fade" id="deleteExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">Delete</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 style="text-align: center">Are you sure to delete..??</h3>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" 
+          mdbWavesEffect>Close</button>
+        <button type="submit" data-dismiss="modal" style="background-color: red" class="btn btn-danger" (click)="deleteCommissionRow()"
+          mdbWavesEffect>Delete</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- notification alert -->
+<div class="col-md-12 row">
+  <div class="col-md-2">&nbsp;</div>
+  <div class="col-md-4" *ngIf="dismissalert">
+    <div class="alert alert-info"
+      style="background-color: #545353;box-shadow: none;left: 245px; position: fixed;top: 550px;width: 350px;">
+      <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons" style="color: white">close</i>
+      </button>
+      <span style="color: white;margin-top: 6px;">
+        <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+    </div>
+  </div>
+</div>
+<br /> <br />

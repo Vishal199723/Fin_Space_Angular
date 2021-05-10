@@ -1,0 +1,2661 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<mat-horizontal-stepper #stepper>
+    <!-- <mat-step>
+        <div>
+            <button mat-button matStepperPrevious></button>
+            <button mat-button (click)="stepper.reset()"></button>
+        </div>
+    </mat-step> -->
+</mat-horizontal-stepper>
+<mat-horizontal-stepper style="background-color :  #c2b6b6;
+background-image :  linear-gradient(315deg, #c2b6b6 0%, #576574 74%);
+" #stepper1>
+
+    <mat-step label="Step 1" state="details" style="text-align :  center;    height :  96%;width :  136%;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+            <div class="col-md-1"></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10">
+
+                <div class="homecard" id="signin" align="center" style=" margin-left :  0px;margin-right :  0px;margin-top :  1%">
+                    <h2 style="font-family :  DINNextRoundedLTPro;color :  #2b156f;">Personal Details</h2>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-3 row" style="display :  flex;">
+                                <label id="emaillabel">First Name : &nbsp;</label>&nbsp;{{fname}}
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Middle Name : &nbsp;</label>&nbsp;{{mname}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Last Name : &nbsp;</label>&nbsp;{{lname}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Place of Birth : &nbsp;</label>&nbsp;{{placebirth}}
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Gender : &nbsp;</label>&nbsp;{{gender}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Marital Status : &nbsp;</label>&nbsp;{{marital}}
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel "> Mobile Number : &nbsp;</label>&nbsp;{{mobile}}
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Date of Birth :
+                                    &nbsp;</label>&nbsp;{{dob | date : 'shortDate'}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Religion : &nbsp;</label>&nbsp;{{religion}}
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Caste : &nbsp;</label>&nbsp;{{caste}} Brahmin
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Qualification :
+                                    &nbsp;</label>&nbsp;{{qualification}}
+
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Occupation : &nbsp;</label>&nbsp;{{occupation}}
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-4 row ">
+                                <label id="emaillabel "> Email : &nbsp;</label>&nbsp;{{email}}
+
+                            </div>
+
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Designation : &nbsp;</label>&nbsp;{{designation}}
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <h3 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; "> Residential Address</h3>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Postal Code : &nbsp;</label>&nbsp;{{rPostal}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Country : &nbsp;</label>&nbsp;{{rCountry}} India
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> State : &nbsp;</label>&nbsp;{{rState}}
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">District : &nbsp;</label>&nbsp;{{rDistrict}}
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Address one : &nbsp;</label>&nbsp;{{rAddress1}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Address two : &nbsp;</label>&nbsp;{{rAddress2}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <h3 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; ">Permanent Address</h3>
+
+                      
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Postal Code : &nbsp;</label>&nbsp;{{pPostal}}
+
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Country : &nbsp;</label>&nbsp;{{pCountry}} India
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel "> State : &nbsp;</label>&nbsp;{{pState}}
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">District : &nbsp;</label>&nbsp;{{pDistrict}}
+                                </div>
+
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">Address one : &nbsp;</label>&nbsp;{{pAddress1}}
+
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">Address two : &nbsp;</label>&nbsp;{{pAddress2}}
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <BR />
+                    <!-- <button (click)="signIn(stepper1)" id="signinbutton">NEXT</button> -->
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditPersonalDetails()" id="signinbutton">Edit</button>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="signIn(stepper1)" id="signinbutton">NEXT</button>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step label="Step 2 " state="family" style="text-align: center; height: 96%; width: 136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center " style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Family Details</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+
+                    <div class="col-md-12 ">
+                        <div class="col-md-12 ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Family Type:</label> &nbsp;
+                                <span *ngIf="familyDetails?.familyTypeString != null">{{familyDetails?.familyTypeString}}</span>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Number of Dependents:</label>&nbsp;
+                                <span *ngIf="familyDetails?.numberofDependents != null">{{familyDetails.numberofDependents}}</span>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Number of Children:</label>&nbsp;
+                                <span *ngIf="familyDetails.numberofChildren != null">{{familyDetails.numberofChildren}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Annual Income in Rs. :</label>&nbsp;
+                                <span *ngIf="familyDetails.annualIncomeAmount != null">{{familyDetails.annualIncomeAmount}}</span>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Income from Other sources in Rs. :</label>&nbsp;
+                                <span *ngIf="familyDetails.otherSourceAmount != null">{{familyDetails.otherSourceAmount}}</span>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Total Annual Income:</label>&nbsp;
+                                <span *ngIf="familyDetails.totalAmount != null">{{familyDetails.totalAmount}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <h3 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Nominee Details</h3>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Name:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeName != null">{{familyDetails.nomineeName}}</span>
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Relationship:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeReationship != null">{{familyDetails.nomineeReationship}}</span>
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Name on Passbook:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeNameonPassbook != null">{{familyDetails.nomineeNameonPassbook}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Date of Birth:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeDOB != null">{{familyDetails.nomineeDOB|date}}</span>
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Postal Code:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineePincode != null">{{familyDetails.nomineePincode}}</span>
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Country:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeReationship != null">{{familyDetails.nomineeCountry}}</span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">State:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeState != null">{{familyDetails.nomineeState}}</span>
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">District:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeDistrict != null">{{familyDetails.minorNomineeAddress}}</span>
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Address Line One:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeAddress != null">{{familyDetails.nomineeAddress1}}</span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Address Line Two:</label>&nbsp;
+                                <span *ngIf="familyDetails.nomineeVillageOrCity != null">{{familyDetails.nomineeAddress2}}</span>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <h3 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Minor Nominee</h3>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Name:</label>&nbsp;
+                                <span *ngIf="familyDetails.minorNomineeName != null">{{familyDetails.minorNomineeName}}</span>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Date of Birth:</label>&nbsp;
+                                <span *ngIf="familyDetails.minorNomineeDOB != null">{{familyDetails.minorNomineeDOB|date}}</span>
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Postal Code:</label>&nbsp;{{familyDetails.nomineePincode}}
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Country:</label>&nbsp;{{familyDetails.minorNomineeName}}
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> State:</label>&nbsp;{{familyDetails.nomineeState}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">District:</label>&nbsp;{{familyDetails.nomineeDistrict}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Address Line One:</label>&nbsp;
+                                <span *ngIf="familyDetails.minorNomineeAddress != null">{{familyDetails.minorAddress1}}</span>
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Address Line Two:</label>&nbsp;
+                                <span *ngIf="familyDetails.minorNomineeAddress != null">{{familyDetails.minorAddress2}}</span>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                    </div>
+                    <br>
+                    <!-- <button (click)="details(stepper1)" id="signinbutton">NEXT</button> -->
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditFamilyDetails()" id="signinbutton">Edit</button>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="details(stepper1)"  id="signinbutton">NEXT</button>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step label="Step 3 " state="account" style="text-align :  center; height :  96%; width :  136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center " style=" margin-left :  0px;margin-right :  0px;margin-top :  1% ">
+                    <h2 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; ">Bank Details</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="container" style="margin-top :  5%">
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Bank Account Type</th>
+                                    <th>Bank Name</th>
+                                    <th>Branch</th>
+                                    <th>IFSC Code</th>
+                                    <th>Cheque Facility</th>
+                                    <!-- <th>Loan Facility</th> -->
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of bankdetails">
+                                    <td>{{data.accounttypename}}</td>
+                                    <td>{{data.bankname}} </td>
+                                    <td>{{data.branch}} </td>
+                                    <td>{{data.ifscecode}} </td>
+                                    <td>{{data.chequefacility}}</td>
+                                    <!-- <td>{{data.loanfacility}}</td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12 row ">
+
+
+                        <div class="col-md-12 ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <h3 style="font-family :  DINNextRoundedLTPro;color :  #2b156f;margin-left :  10%; ">Identity Details
+                        </h3>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Ration Card Number : &nbsp;</label> &nbsp;{{userBankDetails.rationCardNum}}
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Aadhar Number :
+                                    &nbsp;</label>&nbsp;{{userBankDetails.aadharNum}}
+
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Voter ID Number :
+                                    &nbsp;</label>&nbsp;{{userBankDetails.voterId}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">PAN Number : &nbsp;</label>&nbsp;{{userBankDetails.panNum}} 
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-4 row ">
+                                <label for="Email " id="emaillabel ">Service Tax Number :
+                                    &nbsp;</label>&nbsp;{{userBankDetails.serviceTaxNum}}
+
+                            </div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Passport Number :
+                                    &nbsp;</label>&nbsp;{{userBankDetails.passportNum}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Life Insurance Value :
+                                    &nbsp;</label>&nbsp;{{userBankDetails.lifeInsuranceValue}}
+
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Is Confirm :
+                                    &nbsp;</label>&nbsp;{{userBankDetails.isConfirm}}
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+
+
+                        <BR />
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h3 style="font-family :  DINNextRoundedLTPro;color :  #2b156f;margin-left :  10%; ">Uploaded Documents
+                        </h3>
+                        <br>
+                        <ol>
+                            <li *ngIf="userBankDetails.aadharFile">
+                                <a href="{{userBankDetails.aadharFile}}">Aadhar</a>
+                            </li>
+                            <li *ngIf="userBankDetails.bankStatements">
+                                <a href="{{userBankDetails.bankStatements}}">Bank Statement</a>
+                            </li>
+                            <li *ngIf="userBankDetails.gstCert">
+                                <a href="{{userBankDetails.gstCert}}">GST</a>
+                            </li>
+                            <li *ngIf="userBankDetails.itReturnsFile">
+                                <a href="{{userBankDetails.itReturnsFile}}">ITR</a>
+                            </li>
+                            <li *ngIf="userBankDetails.passportFile">
+                                <a href="{{userBankDetails.passportFile}}">Passport</a>
+                            </li>
+
+                        </ol>
+                        <br>
+
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                    </div>
+
+                    <BR />
+                    <!-- <button (click)="bankIn(stepper1)" id="signinbutton">NEXT</button> -->
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditBankDetails()" id="signinbutton">Edit</button>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="bankIn(stepper1)"  id="signinbutton">NEXT</button>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step label="Step 4 " state="homei" style="text-align :  center; height :  96%; width :  136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center " style=" margin-left :  0px;margin-right :  0px;margin-top :  1% ">
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <h2 style="font-family :  DINNextRoundedLTPro;color :  #2b156f; ">Asset Details</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="container" style="margin-top :  5%">
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Fixed Asset</th>
+                                    <th>Location with Address</th>
+                                    <th>Measurement</th>
+                                    <th>Guidance Value</th>
+                                    <th>Present Value</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of fixedassetDetails.fixedAssets;let i = index" style="font-size : 16px;font-family : DINNextRoundedLTPro ">
+
+                                    <td>
+                                        {{data.fixedAssetId}}
+                                    </td>
+                                    <td>{{data.placeallocation}}</td>
+
+                                    <td>{{data.measurement}}</td>
+                                    <td>{{data.giidancevalue}}</td>
+                                    <td>{{data.presentvalue}}</td>
+                                    <td>{{data.total}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="container" style="margin-top :  5%">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Movable Asset</th>
+                                    <th>Model</th>
+                                    <th>Date Of Purchase</th>
+                                    <th>Quantity</th>
+                                    <th>Present Value</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let dat of fixedassetDetails.movableAssets;let i = index" style="font-size : 16px;font-family : DINNextRoundedLTPro ">
+                                    <td>
+                                        {{dat.movableAssetId}}
+                                    </td>
+                                    <td>{{dat.model}}</td>
+                                    <td>{{dat.dateofpurchase|date}}</td>
+                                    <td>{{dat.quantity}}</td>
+                                    <td>{{dat.prevalues}}</td>
+                                    <td>
+                                        {{dat.cartotal}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <!-- <button (click)="homeIn(stepper1)" id="signinbutton">NEXT</button> -->
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditHomeVehicleDetails()" id="signinbutton">Edit</button>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="homeIn(stepper1)"  id="signinbutton">NEXT</button>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+    <mat-step label="Step 5" state="vehicalloan" style="text-align :  center; height :  96%; width :  136%; ">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center " style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Project Loan</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Name Of the Company / Firm:</label>
+                            <span>{{projectLoanDetails.companyfirm}}</span>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label for="Email " id="emaillabel ">Ploat/Building/Plat Name and Number:</label>
+                            <span>{{projectLoanDetails.ploat}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-2 row ">
+                            <label for="Email " id="emaillabel ">Street Name:</label>
+                            <span *ngIf="projectLoanDetails.streetname != null">{{projectLoanDetails.streetname}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">City:</label>
+                            <span *ngIf="projectLoanDetails.towname != null">{{projectLoanDetails.towname}}</span>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Telephone No:</label>
+                            <span *ngIf="projectLoanDetails.telephoneno != null">{{projectLoanDetails.telephoneno}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">Mobile No:</label>
+                            <span *ngIf="projectLoanDetails.mobile != null">{{projectLoanDetails.mobile}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Fax:</label>
+                            <span *ngIf="projectLoanDetails.fax != null">{{projectLoanDetails.fax}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Loan Applied for:</label>
+                            <span *ngIf="projectLoanDetails.ancestral != null">{{projectLoanDetails.ancestral}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Purpose of Loan:</label>
+                            <span *ngIf="projectLoanDetails.encumbered != null">{{projectLoanDetails.encumbered}}</span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">When and how the loan will be repaid?:</label>
+                            <span *ngIf="projectLoanDetails.loanac  != null">{{projectLoanDetails.loanac }}</span>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Name of the Chief/ Promoter/ Chief Executive:
+                            </label>
+                            <span *ngIf="projectLoanDetails.outstanding != null">{{projectLoanDetails.outstanding}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Your House:</label>
+                            <span *ngIf="projectLoanDetails.bank == 'true'">Owned</span>
+                            <span *ngIf="projectLoanDetails.bank == null">Rented</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+                        <!-- <div class="col-md-5 row ">
+                            <label id="emaillabel ">What is your academic qualification? Is related to your line of
+                                trade?:
+                            </label>                          
+                            <span *ngIf="projectLoanDetails.academicqualification != null">{{projectLoanDetails.academicqualification}}</span>
+                        </div> -->
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label for="Email " id="emaillabel ">What is your academic qualification? Is related to your
+                                line of trade?:
+                            </label>
+                            <span *ngIf="projectLoanDetails.academicqualification != null">{{projectLoanDetails.academicqualification}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label for="Email " id="emaillabel ">Your Account Number? What would be the minimum balance
+                                in the account?:</label>
+                            <span *ngIf="projectLoanDetails.deductions != null">{{projectLoanDetails.deductions}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label for="Email " id="emaillabel ">Are you assessed the Income-Tax:</label>
+                            <!-- <span *ngIf="projectLoanDetails.intax == null">Yes</span> -->
+                            <span *ngIf="projectLoanDetails.salary == 'true'">   Yes</span>
+                            <span *ngIf="projectLoanDetails.intax == 'true'">   No</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label for="Email " id="emaillabel ">Do you have a life insurance Policy?:</label>
+                            <span *ngIf="projectLoanDetails.insur == 'true'">   Yes</span>
+                            <span *ngIf="projectLoanDetails.insurpol == 'true'">   No</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Year of commencement of business:</label>
+                            <span *ngIf="projectLoanDetails.purchased != null">{{projectLoanDetails.purchased}}</span>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">Loan Amount:</label>
+                            <span *ngIf="projectLoanDetails.inclusive != null">{{projectLoanDetails.inclusive}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">State the profit / loss and sales turnover for the last 3 financial year</h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">First Year:</label>
+                            <span *ngIf="projectLoanDetails.incomesource != null">{{projectLoanDetails.incomesource}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Second Year:</label>
+                            <span *ngIf="projectLoanDetails.allowance != null">{{projectLoanDetails.allowance}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Three Year:</label>
+                            <span *ngIf="projectLoanDetails.thrdyr != null">{{projectLoanDetails.thrdyr}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Tell us about your factory Premises:</label>
+                            <span *ngIf="projectLoanDetails.premises == null">Yes</span>
+                            <span *ngIf="projectLoanDetails.premises != null">No</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Tell us about your product:</label>
+                            <span *ngIf="projectLoanDetails.applicant != null">{{projectLoanDetails.applicant}}</span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">How do you plan to produce it?:</label>
+                            <span *ngIf="projectLoanDetails.produce != null">{{projectLoanDetails.produce}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Does the product require special know how? If so, are you in
+                                possession of the know:</label>
+                            <span *ngIf="projectLoanDetails.prospecial != null">{{projectLoanDetails.prospecial}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">What are raw materials required?:</label>
+                            <span *ngIf="projectLoanDetails.materials != null">{{projectLoanDetails.materials}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Whether your line of activity falls under priority sector?:
+                            </label>
+                            <span *ngIf="projectLoanDetails.sector == null">{{projectLoanDetails.sector}}</span> &nbsp;&nbsp;&nbsp;
+                            <span *ngIf="projectLoanDetails.board == 'true'">No</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">How do you plan to produces them? Are they available on credit? If
+                                so what are the terms of credit?:</label>
+                            <span *ngIf="projectLoanDetails.terms != null">{{projectLoanDetails.terms}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">How do you plan to ensure the quality of your product? Any special
+                                steps being taken?:</label>
+                            <span *ngIf="projectLoanDetails.special != null">{{projectLoanDetails.special}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel ">Whether you need skilled labour? Please describe your plants for
+                                skilled labour?:</label>
+                            <span *ngIf="projectLoanDetails.skilled != null">{{projectLoanDetails.skilled}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel ">Any special reason to locate your business at the present location?
+                                Is there any advantage in
+                                procuring the raw materials locally? Is the local market big enough to subscribe the
+                                finished
+                                product of your firm? Any other advantage?:</label>
+                            <span *ngIf="projectLoanDetails.advantage != null">{{projectLoanDetails.advantage}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Manufacturing process in brief:</label>
+                            <span *ngIf="projectLoanDetails.manufacturing != null">{{projectLoanDetails.manufacturing}}</span>
+
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">What the level of competition for the product? How do
+                                you plan to meet the competition?:</label>
+                            <span *ngIf="projectLoanDetails.competition != null">{{projectLoanDetails.competition}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Give the total outside liabilities for the last 3 years and your tangible network:</h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">PARAMETER:</label>
+                            <span *ngIf="projectLoanDetails.parameter != null">{{projectLoanDetails.parameter}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Total outside liabilities:</label>
+                            <span *ngIf="projectLoanDetails.outside != null">{{projectLoanDetails.outside}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Tangible net worth(including loans from friends and relatives):
+                            </label>
+                            <span *ngIf="projectLoanDetails.tangible != null">{{projectLoanDetails.tangible}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label for="Email " id="emaillabel ">TOL / TNW:</label>
+                            <span *ngIf="projectLoanDetails.balance != null">{{projectLoanDetails.balance}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">What is the quality of your receivables? How many months’ sales do they represent? Can you give an ageing of your receivables?
+                    </h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label for="Email " id="emaillabel ">AGE Less than 1 months old:</label>
+                            <span *ngIf="projectLoanDetails.modelname != null">{{projectLoanDetails.modelname}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">AGE 1 to 2 months old:</label>
+                            <span *ngIf="projectLoanDetails.old != null">{{projectLoanDetails.old}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">AGE 2 to 3 months old:</label>
+                            <span *ngIf="projectLoanDetails.employed != null">{{projectLoanDetails.employed}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">INFORMATION REGARDING REPAYMENT OF DEBTS - I</h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Debts incurred in connection with
+                    </h4>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">AGE More than 3 months old:</label>
+                            <span *ngIf="projectLoanDetails.monthold != null">{{projectLoanDetails.monthold}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Total percentage:</label>
+                            <span *ngIf="projectLoanDetails.finishloan != null">{{projectLoanDetails.finishloan}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel "> What is the quality of your finished goods inventory? Are they sold
+                                against order / as and when
+                                produced? Are they kept in stock for long? How many months’ sales do they represent?:
+                            </label>
+                            <span *ngIf="projectLoanDetails.concern != null">{{projectLoanDetails.concern}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel "> What will be the time period between procurement of raw materials
+                                to realization of sale proceeds?
+                                Can you cut short the cycle without increasing your liability?:
+                            </label>
+                            <span *ngIf="projectLoanDetails.period != null">{{projectLoanDetails.period}}</span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; "> Give the details of cost and the means of finance for your project</h4>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;"> Land :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.person != null">{{projectLoanDetails.person}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.personone != null">{{projectLoanDetails.personone}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.persondata != null">{{projectLoanDetails.persondata}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">
+                        Building:</h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.persontwo != null">{{projectLoanDetails.persontwo}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.persontwodta != null">{{projectLoanDetails.persontwodta}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.pertwodta != null">{{projectLoanDetails.pertwodta}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">
+                        Machinery:</h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.personthree != null">{{projectLoanDetails.personthree}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.personthredta != null">{{projectLoanDetails.personthredta}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.personval != null">{{projectLoanDetails.personval}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">Other Items :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.otheritem != null">{{projectLoanDetails.otheritem}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.otheritemone != null">{{projectLoanDetails.otheritemone}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.otheritemtwo != null">{{projectLoanDetails.otheritemtwo}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">From own sources:
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.ownsource != null">{{projectLoanDetails.ownsource}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.ownsourceone != null">{{projectLoanDetails.ownsourceone}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">Bank loan :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.bankloans != null">{{projectLoanDetails.bankloans}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.bankloandata != null">{{projectLoanDetails.bankloandata}}</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">
+                        Friends and relatives:</h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.friends != null">{{projectLoanDetails.friends}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.friendsrela != null">{{projectLoanDetails.friendsrela}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">Others :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.othersdata != null">{{projectLoanDetails.othersdata}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.othersdatee != null">{{projectLoanDetails.othersdatee}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">Total :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.totaldata != null">{{projectLoanDetails.totaldata}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.totaltwo != null">{{projectLoanDetails.totaltwo}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel ">Has the project been vetted by consultancy cell of the Bank or
+                                consultants of repute? Give details:</label>
+                            <span *ngIf="projectLoanDetails.registration != null">{{projectLoanDetails.registration}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label for="Email " id="emaillabel ">What is the repayment period you are looking for the
+                                term loan? What will be the annual cash
+                                accruals? What will be your liability towards payment of installments and interest on
+                                term
+                                loan in a year?:</label>
+                            <span *ngIf="projectLoanDetails.authorised != null">{{projectLoanDetails.authorised}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">What is the collateral you would be able to offer? GIVE DETAILS</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">Item :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.benefit != null">{{projectLoanDetails.benefit}}</span>
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.relationship != null">{{projectLoanDetails.relationship}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.studying != null">{{projectLoanDetails.studying}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">Value :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.course != null">{{projectLoanDetails.course}}</span>
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.obtained != null">{{projectLoanDetails.obtained}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.evidence != null">{{projectLoanDetails.evidence}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">Basis :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.under != null">{{projectLoanDetails.under}}</span>
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.annualincome != null">{{projectLoanDetails.annualincome}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.borrower != null">{{projectLoanDetails.borrower}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float: left;margin-left: 13%;">Total :
+                    </h5>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.deposite != null">{{projectLoanDetails.deposite}}</span>
+                        </div>
+
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.additional != null">{{projectLoanDetails.additional}}</span>
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <span *ngIf="projectLoanDetails.account != null">{{projectLoanDetails.account}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Anything else you would like to tell about your business:</label>
+                            <span *ngIf="projectLoanDetails.membership != null">{{projectLoanDetails.membership}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel "> Please tall us about your future plans:</label>
+                            <span *ngIf="projectLoanDetails.futureplan != null">{{projectLoanDetails.futureplan}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">What is the level of sales you are projecting? Briefly describe the
+                                basis:</label>
+                            <span *ngIf="projectLoanDetails.officedatp != null">{{projectLoanDetails.officedatp}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel "> What is the level of receivables you are expecting in terms of
+                                month’s sale?:</label>
+                            <span *ngIf="projectLoanDetails.receivables != null">{{projectLoanDetails.receivables}}</span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Application Type:</label>
+                            <span *ngIf="projectLoanDetails.income == 'true'">New</span>
+                            <span *ngIf="projectLoanDetails.operative == 'true'">Update</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Account Holder Type:</label>
+                            <span *ngIf="projectLoanDetails.holder != null">{{projectLoanDetails.holder}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">US Reportable:</label>
+                            <span *ngIf="projectLoanDetails.reportable != null">{{projectLoanDetails.reportable}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Other Reportable:</label>
+                            <span *ngIf="projectLoanDetails.mortgagor != null">{{projectLoanDetails.mortgagor}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Proof of Identity</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Certificate of Incorporation / Formation:</label>
+                            <span *ngIf="projectLoanDetails.formation != null">{{projectLoanDetails.formation}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Officially valid document(s) in respect of person authorized to
+                                transact:
+                            </label>
+                            <span *ngIf="projectLoanDetails.transact != null">{{projectLoanDetails.transact}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Resolution of Board / Managing Committee:</label>
+                            <span *ngIf="projectLoanDetails.letter != null">{{projectLoanDetails.letter}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Memorandum and article of Association / Partnership /Trust Document:
+                            </label>
+                            <span *ngIf="projectLoanDetails.proaddress != null">{{projectLoanDetails.proaddress}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Activity proof (For dole proprietorship only):</label>
+                            <span *ngIf="projectLoanDetails.proprietorship != null">{{projectLoanDetails.proprietorship}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Other:</label>
+                            <span *ngIf="projectLoanDetails.area != null">{{projectLoanDetails.area}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Proof Of Address (POA)</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-6 row ">
+                            <label id="emaillabel ">Registered Office Address In India(If Applicable) / Place of
+                                Business:
+                            </label>
+                            <span *ngIf="projectLoanDetails.candidate != null">{{projectLoanDetails.candidate}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-4 row ">
+                            <label id="emaillabel ">Address Type:</label>
+                            <span *ngIf="projectLoanDetails.squares != null">{{projectLoanDetails.squares}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Proof Of Address:</label>
+                            <span *ngIf="projectLoanDetails.classfield != null">{{projectLoanDetails.classfield}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Certificate of Incorporation / Formation:</label>
+                            <span *ngIf="projectLoanDetails.persquare != null">{{projectLoanDetails.persquare}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Registration Certificate:</label>
+                            <span *ngIf="projectLoanDetails.estimate != null">{{projectLoanDetails.estimate}}</span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Address Line 1:</label>
+                            <span *ngIf="projectLoanDetails.foundation != null">{{projectLoanDetails.foundation}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line 2:</label>
+                            <span *ngIf="projectLoanDetails.roofing != null">{{projectLoanDetails.roofing}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line 3:</label>
+                            <span *ngIf="projectLoanDetails.sanitary != null">{{projectLoanDetails.sanitary}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">City:</label>
+                            <span *ngIf="projectLoanDetails.flooring != null">{{projectLoanDetails.flooring}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">District:</label>
+                            <span *ngIf="projectLoanDetails.presentstate != null">{{projectLoanDetails.presentstate}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">PIN/Post Code:</label>
+                            <span *ngIf="projectLoanDetails.presentstate != null">{{projectLoanDetails.presentstate}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Sate / UT Name:</label>
+                            <span *ngIf="projectLoanDetails.building != null">{{projectLoanDetails.building}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">State / UT Code:</label>
+                            <span *ngIf="projectLoanDetails.statecode != null">{{projectLoanDetails.statecode}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Country Name:</label>
+                            <span *ngIf="projectLoanDetails.country != null">{{projectLoanDetails.country}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Country Code:</label>
+                            <span *ngIf="projectLoanDetails.stock != null">{{projectLoanDetails.stock}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> (ii)Correspondence / Local Address Details
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Proof Of Address:</label>
+                            <span *ngIf="projectLoanDetails.refundable != null">{{projectLoanDetails.refundable}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Certificate of Incorporation / Formation:</label>
+                            <span *ngIf="projectLoanDetails.fundpro != null">{{projectLoanDetails.fundpro}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Registration Certificate:</label>
+                            <span *ngIf="projectLoanDetails.others != null">{{projectLoanDetails.others}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line 1:</label>
+                            <span *ngIf="projectLoanDetails.bankfrom != null">{{projectLoanDetails.bankfrom}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line 2:</label>
+                            <span *ngIf="projectLoanDetails.durable != null">{{projectLoanDetails.durable}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line 3:</label>
+                            <span *ngIf="projectLoanDetails.consumer != null">{{projectLoanDetails.consumer}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">City:</label>
+                            <span *ngIf="projectLoanDetails.rental != null">{{projectLoanDetails.rental}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">District:</label>
+                            <span *ngIf="projectLoanDetails.house != null">{{projectLoanDetails.house}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">PIN/Post Code:</label>
+                            <span *ngIf="projectLoanDetails.expected != null">{{projectLoanDetails.expected}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Sate / UT Name:</label>
+                            <span *ngIf="projectLoanDetails.advance != null">{{projectLoanDetails.advance}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">State / UT Code:</label>
+                            <span *ngIf="projectLoanDetails.unable != null">{{projectLoanDetails.unable}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Country Name:</label>
+                            <span *ngIf="projectLoanDetails.escalation != null">{{projectLoanDetails.escalation}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Country Code.:</label>
+                            <span *ngIf="projectLoanDetails.accumulation != null">{{projectLoanDetails.accumulation}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> (iii)Address in the Jurisdiction where Entity is Residence Outside India for Tax Purposes Details</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Same as Current / Permanent / Overseas Address:</label>
+                            <span *ngIf="projectLoanDetails.preowner != null">{{projectLoanDetails.preowner}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Same as Correspondence / Local Address Details:</label>
+                            <span *ngIf="projectLoanDetails.purchase != null">{{projectLoanDetails.purchase}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Type:</label>
+                            <span *ngIf="projectLoanDetails.land != null">{{projectLoanDetails.land}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Proof Of Address:</label>
+                            <span *ngIf="projectLoanDetails.agreed != null">{{projectLoanDetails.agreed}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Certificate of Incorporation / Formation:</label>
+                            <span *ngIf="projectLoanDetails.paid != null">{{projectLoanDetails.paid}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Registration Certificate:</label>
+                            <span *ngIf="projectLoanDetails.entered != null">{{projectLoanDetails.entered}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> Probable date of registration and amount Rp.</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line 1:</label>
+                            <span *ngIf="projectLoanDetails.probable != null">{{projectLoanDetails.probable}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line 2:</label>
+                            <span *ngIf="projectLoanDetails.amtrs != null">{{projectLoanDetails.amtrs}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line 3:</label>
+                            <span *ngIf="projectLoanDetails.proposedatp != null">{{projectLoanDetails.proposedatp}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">City:</label>
+                            <span *ngIf="projectLoanDetails.children != null">{{projectLoanDetails.children}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">District:</label>
+                            <span *ngIf="projectLoanDetails.districtdata != null">{{projectLoanDetails.districtdata}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">PIN/Post Code:</label>
+                            <span *ngIf="projectLoanDetails.schcolg != null">{{projectLoanDetails.schcolg}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Sate / UT Name:</label>
+                            <span *ngIf="projectLoanDetails.utname != null">{{projectLoanDetails.utname}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> State / UT Code:</label>
+                            <span *ngIf="projectLoanDetails.conveyance != null">{{projectLoanDetails.conveyance}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Country Name:</label>
+                            <span *ngIf="projectLoanDetails.conname != null">{{projectLoanDetails.conname}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Country Code:</label>
+                            <span *ngIf="projectLoanDetails.concode != null">{{projectLoanDetails.concode}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Details of Related Persons/ Beneficial Owner
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Number of Related Persons:</label>
+                            <span *ngIf="projectLoanDetails.rent != null">{{projectLoanDetails.rent}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Number of Beneficial Owners:</label>
+                            <span *ngIf="projectLoanDetails.annualin != null">{{projectLoanDetails.annualin}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-8 row ">
+                            <label id="emaillabel ">Tax Residence of India only and not other Country outside India:
+                            </label>
+                            <span *ngIf="projectLoanDetails.agriculture == 'true'">Yes</span>
+                            <span *ngIf="projectLoanDetails.residence == 'true'">No</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Tax Residence of US:</label>
+                            <span *ngIf="projectLoanDetails.taxresidenew == 'true'">New</span>
+                            <span *ngIf="projectLoanDetails.taxreside == 'true'">Update</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">US TIN:</label>
+                            <span *ngIf="projectLoanDetails.investment != null">{{projectLoanDetails.investment}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">A US Person:</label>
+                            <span *ngIf="projectLoanDetails.usperson == 'true'">Yes</span>
+                            <span *ngIf="projectLoanDetails.uspersondata == 'true'">No</span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">A Specified US Person:</label>
+                            <span *ngIf="projectLoanDetails.ontherdata == 'true'">Yes</span>
+                            <span *ngIf="projectLoanDetails.specified == 'true'">No</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">Tax Resident Outside India other than US:</label>
+                            <span *ngIf="projectLoanDetails.required == 'true'">  NO</span>
+                            <span *ngIf="projectLoanDetails.required == null">  Yes</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Country Code:</label>
+                            <span *ngIf="projectLoanDetails.respect != null">{{projectLoanDetails.respect}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> TIN / Functional Equivalent:</label>
+                            <span *ngIf="projectLoanDetails.household != null">{{projectLoanDetails.household}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">A Governmental Entity:</label>
+                            <span *ngIf="projectLoanDetails.education == 'true'">Yes</span>
+                            <span *ngIf="projectLoanDetails.governmental == 'true'">No</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">An International Organization: :</label>
+                            <span *ngIf="projectLoanDetails.entertainment == 'true'">Yes</span>
+                            <span *ngIf="projectLoanDetails.international == 'true'">No</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">A Central Bank:</label>
+                            <span *ngIf="projectLoanDetails.telephone == 'true'">  Yes</span>
+                            <span *ngIf="projectLoanDetails.central == 'true'">   No</span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel ">A Financial Institution:</label>
+                            <span *ngIf="projectLoanDetails.petrol == 'true'">  Yes</span>
+                            <span *ngIf="projectLoanDetails.petrol == null"> No</span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Nature Of Business</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Manufacture:</label>
+                            <span *ngIf="projectLoanDetails.repayment != null">{{projectLoanDetails.repayment}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Trade:</label>
+                            <span *ngIf="projectLoanDetails.monthcome != null">{{projectLoanDetails.monthcome}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Retailer:</label>
+                            <span *ngIf="projectLoanDetails.expenditure != null">{{projectLoanDetails.expenditure}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+
+                        <div class="col-md-2 row ">&nbsp;</div>
+
+
+                        <div class="col-md-2 row ">
+                            <label for="Email " id="emaillabel ">Service Provider:</label>
+                            <span *ngIf="projectLoanDetails.service   == null">  True</span>
+                            <span *ngIf="projectLoanDetails.service   != null">  False</span>
+                        </div>
+
+                        <div class="col-md-2 row ">
+                            <label for="Email " id="emaillabel ">Export / Import:</label>
+                            <span *ngIf="projectLoanDetails.exImport == null">  True</span>
+                            <span *ngIf="projectLoanDetails.exImport != null">  False</span>
+                        </div>
+                        <div class="col-md-2 row ">
+                            <label for="Email " id="emaillabel ">Other:</label>
+                            <span *ngIf="projectLoanDetails.otherprovider  != null">True</span>
+                            <span *ngIf="projectLoanDetails.otherprovider != null">False</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Industry Code:</label>
+                            <span *ngIf="projectLoanDetails.over != null">{{projectLoanDetails.over}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Other:</label>
+                            <span *ngIf="projectLoanDetails.applied != null">{{projectLoanDetails.applied}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-3 row ">&nbsp;</div>
+                        <label id="emaillabel ">Other:</label>
+                        <span *ngIf="projectLoanDetails.valuelak != null">  0-5 Lakh</span>
+                        <span *ngIf="projectLoanDetails.tenlakh != null">  5-10 Lakh</span>
+                        <span *ngIf="projectLoanDetails.twentylakhs != null">  10-25 Lakh</span>
+                        <span *ngIf="projectLoanDetails.onecre != null">  25 Lakh - 1 Cr</span>
+                        <span *ngIf="projectLoanDetails.onetofive != null">  1 - 5 Cr</span>
+                        <span *ngIf="projectLoanDetails.fiftycr != null">  5 - 50Cr</span>
+                        <span *ngIf="projectLoanDetails.hundredcr != null">  50 - 100 Cr</span>
+                        <span *ngIf="projectLoanDetails.crmore != null">  50 - 100 Cr</span>
+
+
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+
+
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Mode Of Operations</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <label for="Email " id="emaillabel ">1.</label>
+                        <span *ngIf="projectLoanDetails.singledata != null">Single</span>
+                        <span *ngIf="projectLoanDetails.jointly != null">Jointly</span>
+                        <span *ngIf="projectLoanDetails.severally != null">Severally</span>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <label for="Email " id="emaillabel ">2. As per Board Resolution</label>
+                        <!-- <span *ngIf="projectLoanDetails.resolution != null">As per Board Resolution</span> -->
+                        <span *ngIf="projectLoanDetails.boardResolution != null">True</span>
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <label for="Email " id="emaillabel ">Other</label>
+                        <!-- <span *ngIf="projectLoanDetails.resolution != null">As per Board Resolution</span> -->
+                        <span *ngIf="projectLoanDetails.boardResoluother != null">True</span>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <label for="Email " id="emaillabel ">3.</label>
+                        <span *ngIf="projectLoanDetails.internet != null">As per Board ResolutionCorporate Internet
+                            Banking</span>
+                        <span *ngIf="projectLoanDetails.viewing != null">Viewing Rights</span>
+                        <span *ngIf="projectLoanDetails.transaction != null">Transaction Rights</span>
+                        <span *ngIf="projectLoanDetails.chequebook != null">Cheque Book</span>
+                        <span *ngIf="projectLoanDetails.debitcd != null">Business Debit Card</span>
+
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+
+                        <div class="col-md-2 row ">&nbsp;</div>
+
+                        <label for="Email " id="emaillabel ">4.</label>
+                        <span *ngIf="projectLoanDetails.swiping != null">POS Facility (card Swiping Machine)</span>
+                        <span *ngIf="projectLoanDetails.alerts != null">SMS Alerts</span>
+                        <span *ngIf="projectLoanDetails.facilityup != null">Cash Pick up Facility</span>
+                        <span *ngIf="projectLoanDetails.collectsta != null">Sate Bank Collect</span>
+                    </div>
+                    <div class="col-md-1 row ">
+
+                    </div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <label for="Email " id="emaillabel ">5.</label>
+                        <span *ngIf="projectLoanDetails.frequency != null">Statement Frequency</span>
+                        <span *ngIf="projectLoanDetails.fremonth != null">Monthly</span>
+                        <span *ngIf="projectLoanDetails.quarterlyfre != null">Quarterly</span>
+                        <span *ngIf="projectLoanDetails.yearlythalf != null">Half-Yearlyt</span>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Account Variant</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <span *ngIf="projectLoanDetails.normal != null">Normal Current Account (MBA Rs 10000)</span>
+                        <span *ngIf="projectLoanDetails.power != null"> &nbsp;&nbsp;Power Gain Current Account (MBA Rs.
+                            200000)</span>
+                        <span *ngIf="projectLoanDetails.currentpack != null">&nbsp;&nbsp;Power Pack Current Account (MBA Rs
+                            500000)</span>
+                        <span *ngIf="projectLoanDetails.pOS != null">&nbsp;&nbsp;Power POS Current Account</span>
+                        <span *ngIf="projectLoanDetails.jyoti != null">&nbsp;&nbsp;Power Jyoti (MBA Rs 50000)</span>
+                        <span *ngIf="projectLoanDetails.uploaded != null">&nbsp;&nbsp;Power Jyoti (Pre Uploaded)(MBA Rs
+                            50000)</span>
+                        <span *ngIf="projectLoanDetails.surbhi != null">&nbsp;&nbsp;Surbhi Current Account (MBA Rs 10000)</span>
+                        <span *ngIf="projectLoanDetails.surbhiother != null">&nbsp;&nbsp;Other</span>
+
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Nomination: Applicable only for sale proprietorship
+                    </h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <span *ngIf="projectLoanDetails.nomination != null">I / We want to make a nomination in My/Our
+                            Account</span>
+
+                        <span *ngIf="projectLoanDetails.accountour != null">I / We do not want to make a nomination in
+                            My/Our Account</span>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Nomination Form (DA1)</h4>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel ">Nomination under Section 45Z of the Banking Regulation Act, 1949 and
+                                rule 2(1) of Banking Companies
+                                (Nomination) Rule 1985 in the respect of Bank Deposits.I / We :</label>
+                            <span *ngIf="projectLoanDetails.commitment != null">{{projectLoanDetails.commitment}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-10 row ">
+                            <label id="emaillabel ">nominate the following person to whom in the event of my / our /
+                                minor's death amount of Deposit,
+                                particulars where are given below, may be returned by State Bank of India :</label>
+                            <span *ngIf="projectLoanDetails.about != null">{{projectLoanDetails.about}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> I/we want the name of the nominee to be printed on the Passbook:
+                            </label>
+                            <span *ngIf="projectLoanDetails.cheques != null">{{projectLoanDetails.cheques}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Details of Deposit:</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Type of Deposit:</label>
+                            <span *ngIf="projectLoanDetails.arrangement != null">{{projectLoanDetails.arrangement}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Account Number:</label>
+                            <span *ngIf="projectLoanDetails.casefield != null">{{projectLoanDetails.casefield}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Details of Nominee:</h4>
+                    <div class="col-md-12">&nbsp;</div>
+
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Name:</label>
+                            <span *ngIf="projectLoanDetails.details != null">{{projectLoanDetails.details}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Relationship with Depositor:</label>
+                            <span *ngIf="projectLoanDetails.annum != null">{{projectLoanDetails.annum}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Age:</label>
+                            <span *ngIf="projectLoanDetails.obligant != null">{{projectLoanDetails.obligant}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">DOB:</label>
+                            <span *ngIf="projectLoanDetails.employedat != null">{{projectLoanDetails.employedat}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line One :</label>
+                            <span *ngIf="projectLoanDetails.net != null">{{projectLoanDetails.net}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line Two :</label>
+                            <span *ngIf="projectLoanDetails.comment != null">{{projectLoanDetails.comment}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel ">Address Line Three :</label>
+                            <span *ngIf="projectLoanDetails.remittance != null">{{projectLoanDetails.remittance}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;"> CREDIT APPRAISAL REPORT</h4>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> City:</label>
+                            <span *ngIf="projectLoanDetails.legal != null">{{projectLoanDetails.legal}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> PIN Code:</label>
+                            <span *ngIf="projectLoanDetails.opinion != null">{{projectLoanDetails.opinion}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-3 row ">
+                            <label id="emaillabel "> Sate:</label>
+                            <span *ngIf="projectLoanDetails.report != null">{{projectLoanDetails.report}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12 row ">
+                        <div class="col-md-2 row ">&nbsp;</div>
+                        <div class="col-md-5 row ">
+                            <label id="emaillabel "> As the nominee is minor on this date, I/ we Appoint Shri/Smt:
+                            </label>
+                            <span *ngIf="projectLoanDetails.existing != null">{{projectLoanDetails.existing}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-2 row ">
+                            <label id="emaillabel ">Age:</label>
+                            <span *ngIf="projectLoanDetails.renovation != null">{{projectLoanDetails.renovation}}</span>
+
+                        </div>
+                        <div class="col-md-1 row ">&nbsp;</div>
+                        <div class="col-md-2 row ">
+                            <label id="emaillabel ">Years:</label>
+                            <span *ngIf="projectLoanDetails.eligibility != null">{{projectLoanDetails.eligibility}}</span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <!-- <button (click)="projectloan(stepper1)" id="signinbutton">NEXT</button> -->
+                
+                
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditProjectDetails()" id="signinbutton">Edit</button>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button (click)="projectloan(stepper1)" id="signinbutton">NEXT</button>
+                        </div>
+
+                    </div>
+                
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12">&nbsp;</div>
+            </div>
+            <br>
+
+            <br /><br /><br /><br />
+
+        </div>
+
+    </mat-step>
+
+    <mat-step label="Step 6" state="Certificates" style="text-align: center; height: 96%; width: 136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center "
+                    style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                    <div *ngIf="certificatesexist">
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Uploaded Documents</h4>
+
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <div class="col-md-12 row">
+                            <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                            <div class="col-md-4 row" *ngFor="let item of CertificateDisplay">
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'image/jpeg' ||
+                             item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                    <img [src]="item.certificate" height="100" width="100" />
+                                    <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/pdf' ||
+                             item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/pdficon.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                             item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/xls.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                             item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/docx.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                    <p style="text-align: center;"><br />{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">&nbsp;</div>
+
+                        <div *ngIf="enableothercertificates">
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Other Uploaded Documents</h4>
+
+                            <div class="col-md-12 row">
+
+                                <div class="col-md-3 row" *ngFor="let item of allcertificates">
+                                    <div *ngIf="item.actualCertificateName!=null  && (item.documentType == 'image/jpeg' ||
+                             item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                        <img [src]="item.certificate" height="100" width="100" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/pdf' ||
+                             item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/pdficon.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                             item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/xls.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                             item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/docx.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 row" *ngIf="!showapprove">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div class="col-md-2">&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div class="col-md-8 row card">
+                            <br />
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <label for="amountPerYear">Select Group/Customer</label>
+                                <select (change)="onselecttouser($event.target.value)" class="form-control">
+                                    <option selected="selected" value="">Select Here</option>
+                                    <option selected="selected" value="1">Customer</option>
+                                    <option selected="selected" value="2">Group</option>
+                                </select>
+                            </div>
+                            <br /><br />
+                            <div class="row" *ngIf="operation == '1'" style="margin-top: -8%;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <br />
+                                    <label for="amountPerYear">Select Status</label>
+                                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                                        <option value="">Select Status</option>
+                                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                                            {{do.workflowStateName}}
+                                        </option>
+                                    </select>
+                                    <br /><br />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" *ngIf="operation == '1'">
+                                <br />
+                                <div>
+                                    <label for="amountPerYear">Comments</label>
+                                    <textarea type="text" class="form-control" placeholder="Enter Your Comments"
+                                        name="comments" [(ngModel)]="comments"></textarea>
+                                </div>
+                                <br /><br />
+                                <div>
+                                    <label for="amountPerYear">Upload File</label>
+                                    <input type="file" (change)="onChangeApproveFiles($event)" />
+                                </div>
+                                <br /><br />
+                                <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                                    (click)="SendVerificationtoCustomer()" style="width: 50%;">Send</button>
+                                <br /><br />
+                            </div>
+
+                            <div class="row" *ngIf="operation == '2'" style="margin-top: -8%;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <br />
+                                    <label for="amountPerYear">Select Status</label>
+                                    <select (change)="onSelectStatus($event.target.value)" class="form-control">
+                                        <option value="">Select Status</option>
+                                        <option *ngFor="let do of WFStatusList" value={{do.workflowStateId}}>
+                                            {{do.workflowStateName}}
+                                        </option>
+                                    </select>
+                                </div><br />
+
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" *ngIf="operation == '2'">
+                                <br />
+                                <div>
+                                    <label for="amountPerYear">Comments</label>
+                                    <textarea type="text" class="form-control" placeholder="Enter Your Comments"
+                                        name="comments" [(ngModel)]="comments"></textarea>
+                                </div>
+                                <br /><br />
+                                <div>
+                                    <label for="amountPerYear">Upload File</label>
+                                    <input type="file" (change)="onChangeApproveFiles($event)" />
+                                </div>
+                                <br /><br />
+                                <button type="button" class="btn btn-primary waves-light" mdbWavesEffect
+                                    (click)="SendVerificationtoApprover()" style="width: 50%;">Send</button>
+                                <br /><br />
+                            </div>
+
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 row" *ngIf="roleid=='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid!='1'">&nbsp;</div>
+                        <div class="col-md-4 row" *ngIf="roleid=='1'">
+                            <button (click)="EditCertificatesDetails()" id="signinbutton">Edit</button>
+                        </div>
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-4 row">
+                            <button *ngIf="showapprove" type="button" (click)="approve()" id="signinbutton">Approve</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+    </mat-step>
+    <br /><br /><br /><br /> <br />
+
+
+
+    <!-- Icon overrides. -->
+    <!-- #docregion override-icons -->
+    <ng-template matStepperIcon="details">
+        <mat-icon>account_circle</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="family">
+        <mat-icon>family_restroom</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="account">
+        <mat-icon>account_balance</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="homei">
+        <mat-icon>home</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="business">
+        <mat-icon>business</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="vehicalloan">
+        <mat-icon>directions_car</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="upload">
+        <mat-icon>cloud_upload</mat-icon>
+    </ng-template>
+
+</mat-horizontal-stepper>

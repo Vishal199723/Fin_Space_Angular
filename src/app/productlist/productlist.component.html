@@ -1,0 +1,141 @@
+<app-header></app-header>
+<!-- <br /><br />
+<div class="panel-heading">
+    <h3 class="panel-title">Loans</h3>
+  </div>
+<div class="container">
+    <div class="col-md-12 row">
+        <div *ngFor="let aa of loanlist">
+            <div class="col-md-3 loantypedispaly" >
+                <h2 class="loanname">{{aa.loanType}}</h2>
+            </div>
+        </div>
+       
+    </div>
+</div> -->
+
+
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<div>
+    <br /><br />
+    <div class="col-md-12 row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="text-align: center;">
+            <h2 id="heading" >Loan Products</h2>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+  
+    <br /><br />
+    <div class="container">       
+        <div class="col-md-12 row">
+            <div class="col-md-4" *ngFor="let aa of loanlist">
+                <div class="flip-box" (click)="OpenSPlist(aa.loanTypeId)">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <!-- <i class="fas fa-tag" id="faicon"></i> -->
+                            <h2 class="loanname">{{aa.loanType}}</h2>
+                        </div>
+                        <div class="flip-box-back">
+                            <h2 class="loanname">{{aa.loanType}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div>
+    <br /><br />
+    <div class="form-group">
+        <h2 id="heading" style="margin-left: 30%;">Loan Products</h2>
+        <br />
+        <div class="col-md-12 grid_box1">
+            <div class="row" id="maindiv" *ngFor="let aa of loanlist">
+
+                <div class="col-md-1 grid_box1">
+                </div>
+                <div class="col-md-3 column" (click)="OpenSPlist(aa.loanTypeId)">
+                    <br />
+                    <div class="flip-box">
+                        <div class="flip-box-inner">
+                            <div class="flip-box-front">
+                                <i class="fas fa-tag" id="faicon"></i>
+                            </div>
+                            <div class="flip-box-back">
+                                <h2 class="loanname">{{aa.loanType}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</div> -->
+
+
+<style>
+    .modalsize {
+        width: 600px;
+        max-width: 950px;
+        overflow-y: 50vh;
+    }
+
+    @media (max-width: 960px) {
+        .modalsize {
+            width: 450px;
+            max-width: 650px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .modalsize {
+            width: 480px;
+            max-width: 550px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 460px) {
+        .modalsize {
+            width: 380px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .modalsize {
+            width: 350px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .modalsize {
+            width: 310px;
+            max-width: 450px;
+            overflow-y: 50vh;
+        }
+    }
+
+    .heading {
+        text-align: center;
+        color: #90827d;
+        /* margin-left: 32%; */
+        text-align: center;
+    }
+</style>

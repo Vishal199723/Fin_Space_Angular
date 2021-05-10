@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<br>
+<div class="col-md-12 row">
+    <div class="col-md-1">&nbsp;</div>
+    <div class="col-md-10">
+        <h3 style="text-align: center;color: black;">Commission Details</h3><br><br>
+        <div class="col-md-12 row" id="btndiv">
+            <div class="col-md-9"></div>
+            <div class="col-md-1">
+                <button id ="btn" type="submit" (click)="print()">Print</button>
+            </div>
+            <div class="col-md-2">
+                <button id ="btn" type="submit" (click)="download()">Download</button>
+            </div>
+        </div>
+        <br /><br />
+
+        <table class="table table-responisve table-bordered" id="print-section">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>SP ID </th>
+                    <th>Ticket ID</th>
+                    <th>Loan Type</th>
+                    <th>Commission Amount</th>
+                    <th>Date </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aa of loanlist;" >
+                    <td style="cursor: pointer;">{{aa.customerId}}</td>
+                    <td style="cursor: pointer;">{{aa.spId}}</td>
+                    <td>{{aa.ticketId}}</td>
+                    <td>{{aa.loanType}}</td>
+                    <td>&#x20B9; {{aa.commissionAmount}} /-</td>
+                    <td>{{aa.createdOn|date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-10">&nbsp;</div>
+</div>

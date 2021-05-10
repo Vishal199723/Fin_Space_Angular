@@ -1,0 +1,64 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2" *ngFor="let item of Prividers" style="text-align: center;">
+        <img src={{item.logo}} style="width: 100px; height: 100px; cursor: pointer;" />
+        <div>&nbsp;</div>
+        <button class="btn btnprop" data-toggle="modal"  data-target="#requestservice" (click)="GetLoanProducts(item)"
+            mdbWavesEffect>{{item.serviceProviderName}}</button>
+        <div>&nbsp;</div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<br/><br/><br/>
+<div class="col-md-12 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="text-align: center;">
+        <h2 *ngIf="plist">
+        {{spname}}
+    </h2></div>
+    <div class="col-md-4"></div>
+</div>
+<br/>
+<div class="col-md-12 row" *ngIf="plist">
+    
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+      <div class="table-responsive">
+        <div style="overflow-x:visible;height: 300px;overflow-y: visible">
+          <table class="table table-bordered" style="border-collapse: collapse;">
+            <tr style="font-size:17px">
+              <th>Sl No</th>
+              <th>Service Provider</th>
+              <th>Product Name</th>              
+              <th>Apply</th>
+            </tr>
+            <tr *ngFor="let aa of loanproducts | paginate: { itemsPerPage: 5, currentPage: p };let i = index" style="font-size:16px;font-family:DINNextRoundedLTPro ">
+              <td>{{ 5 * (p - 1) + (i+1) }}</td>
+              <td>
+                {{spname}}
+              </td>
+              <td>{{aa.productName}}</td>
+              <td>            
+                <button id="signinbutton" class="btn btn-danger" data-toggle="modal" data-target="#deleteExample" mdbWavesEffect
+                (click)="openfundform(aa)">Apply</button>
+              </td>
+             
+            </tr>
+          </table>
+  
+          <br />
+          <pagination-controls (pageChange)="p = $event" style="float: right"></pagination-controls>
+        </div>
+      </div>
+      <br /><br /><br /><br />
+    </div>
+  </div>
+
+

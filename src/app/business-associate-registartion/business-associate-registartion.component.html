@@ -1,0 +1,2185 @@
+<app-header></app-header>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="col-md-12">
+    <div class="col-md-8"></div>
+<div class="col-md-4">
+    <img src="./assets/img/backimage.png" id="back" title="Back" height="21px" (click)=goBack() />
+  </div>
+</div>
+<div class="col-md-12 row bodycolor">
+ 
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="homecard">
+
+            <div style="background-color: #36dbe2;border: solid 0px;">&nbsp;
+                <h2 style="text-align: center;color: white;">Business Associate Registration</h2>
+                <br/>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+            <div class="row" style="text-align: center;">
+                <div style="text-align: center;margin-left: 9%;" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label>&nbsp;</label>
+                    <select (change)="onSelectBAType($event.target.value)" class="form-control">
+                        <option value="">Select Business Associate Type</option>
+                        <option value="1">Individual</option>
+                        <option value="2">Company</option>
+                        <option value="3">Partnership</option>
+                    </select>
+                </div>
+                <div style="text-align: center;margin-left: 9%;" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label for="taluk">Select Service Type</label>
+                    <br />
+                    <ng-multiselect-dropdown [placeholder]="'Select Service Type'" [data]="ServiceTypeList" [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelect)="onItemDeSelect($event)"
+                        (onDeSelectAll)="onItemDeSelectAll($event)">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div *ngIf="individual">
+                <form id="regform" [formGroup]="BARegistrationFormindividual">
+                    <div class="col-md-12 row" *ngIf="individual">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div>&nbsp;</div>
+                            <div>&nbsp;</div>
+
+                            <div style="color: #36dbe2">
+                            </div>
+                            
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="placeofbith">First Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.loginNameind.errors }" formControlName="loginNameind" type="text" class="form-control" name="loginNameind" [(ngModel)]="loginNameind">
+                                        <div *ngIf="submitted && f.loginNameind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.loginNameind.errors.required">Login Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="placeofbith">Middle Name</label>
+                                        <input formControlName="middlenameind" type="text" class="form-control" name="middlenameind" [(ngModel)]="middlenameind">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="placeofbith">Last Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.lastnameind.errors }" formControlName="lastnameind" type="text" class="form-control" name="lastnameind" [(ngModel)]="lastnameind">
+                                        <div *ngIf="submitted && f.lastnameind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.lastnameind.errors.required">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="emailind">Email/Mobile Number</label>
+                                        <input (change)="Validatemail()" [ngClass]="{ 'is-invalid': submitted && f.emailind.errors }" formControlName="emailind" type="text" class="form-control" name="emailind" [(ngModel)]="emailind">
+                                        <div *ngIf="submitted && f.emailind.errors" class="invalid-feedback">
+                                          
+                                            <div style="color: red;" *ngIf="f.emailind.errors.pattern">Enter valid email or Mobile Number 
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p *ngIf="validmail" style="color: red;">Email or Mobile Number  already exist!!</p>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="enableotp" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="emailpar">OTP</label>
+                                        <input  formControlName="otpind" [(ngModel)]="otpind" type="text" name="otpind"
+                                        placeholder="OTP" (change)="Validateotp()" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.otpind.errors }" class="form-control"/>
+                                    <div *ngIf="submitted && f.otpind.errors && enableotp" class="invalid-feedback"
+                                        style="margin-top: -20px;">
+                                        <div style="color: red;" *ngIf="f.otpind.errors.required">OTP is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.otpind.errors.pattern">Enter a valid
+                                            OTP</div>
+                                    </div>
+                                    <p *ngIf="validotp" style="color: red;">{{displayotpmsg}}</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="dob">Password</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.pwdind.errors }" formControlName="pwdind" type="password" class="form-control" name="pwdind" [(ngModel)]="pwdind">
+                                        <div *ngIf="submitted && f.pwdind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.pwdind.errors.required">Password is required
+                                            </div>
+                                            <div style="color: red;" *ngIf="f.pwdind.errors.pattern">Password must include minimum of 8 and special characters</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="dob">Confirm Password</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.conpwdind.errors }" formControlName="conpwdind" type="password" class="form-control" name="conpwdind" [(ngModel)]="conpwdind">
+                                        <div *ngIf="submitted && f.conpwdind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.conpwdind.errors.required">Password is required
+                                            </div>
+                                            <div style="color: red;" *ngIf="f.conpwdind.errors.pattern">Password must include minimum of 8 and special characters</div>
+                                        </div>
+                                    </div>
+                              
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="fathernameind">Father's / Husband's Name</label>
+                                        <input  [ngClass]="{ 'is-invalid': submitted && f.fathernameind.errors }" formControlName="fathernameind" type="text" class="form-control" name="fathernameind" [(ngModel)]="fathernameind">
+                                        <div *ngIf="submitted && f.fathernameind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.fathernameind.errors.required">Father / Husband Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="occupation"> Occupation</label>
+                                        <select (change)="onSelectoccupation($event.target.value)" class="form-control">
+                                            <option value="">Select Occupation</option>
+                                            <option *ngFor="let do of occupations" value={{do.occupationId}}>
+                                                {{do.occupationName}}
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="amountPerYear">Date of Birth
+                                        </label>
+                                        <input formControlName="dobind" type="date" class="form-control" name="dobind" [(ngModel)]="dobind" autofocus>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="amountPerYear">Experience in Years</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.serviceperiodind.errors }" formControlName="serviceperiodind" type="number" class="form-control" name="serviceperiodind" [(ngModel)]="serviceperiodind" autofocus>
+                                        <div *ngIf="submitted && f.serviceperiodind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.serviceperiodind.errors.required">
+                                                Experience in Years</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="amountPerYear">PAN Number
+                                        </label>
+                                        <!-- <input formControlName="pannum" type="text" class="form-control" name="pannum"
+                                            [(ngModel)]="pannum" autofocus> -->
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.pannumind.errors }" formControlName="pannumind" type="text" class="form-control" name="pannumind" [(ngModel)]="pannumind" autofocus>
+                                        <div *ngIf="submitted && f.pannumind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.pannumind.errors.required">PAN Number required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="flatnumind">Flat/ House No</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.flatnumind.errors }" class="form-control" formControlName="flatnumind" type="text" [(ngModel)]="flatnumind">
+                                        <div *ngIf="submitted && f.flatnumind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.flatnumind.errors.required">Flat/ House No is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="buldinameind">Building Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.buldinameind.errors }" class="form-control" formControlName="buldinameind" type="text" [(ngModel)]="buldinameind">
+                                        <div *ngIf="submitted && f.buldinameind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.buldinameind.errors.required">Building Name is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="saddoneind">Street Address 1 </label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.saddoneind.errors }" class="form-control" formControlName="saddoneind" type="text" [(ngModel)]="saddoneind">
+                                        <div *ngIf="submitted && f.saddoneind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.saddoneind.errors.required">Building Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="saddtwoind">Street Address 2 </label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.saddtwoind.errors }" class="form-control" formControlName="saddtwoind" type="text" [(ngModel)]="saddtwoind">
+                                        <div *ngIf="submitted && f.saddtwoind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.saddtwoind.errors.required">Building Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="pincodeind">Postal Code</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.pincodeind.errors }" class="form-control" formControlName="pincodeind" type="text" [(ngModel)]="pincodeind" (change)="getalldata()">
+                                        <div *ngIf="submitted && f.pincodeind.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="f.pincodeind.errors.required">Postal Code is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="countryind">Country</label>
+                                        <input class="form-control" formControlName="countryind" type="text" [(ngModel)]="countryind" readonly>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="stateind">State</label>
+                                        <input class="form-control" formControlName="stateind" type="text" [(ngModel)]="stateind" readonly>
+
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="districtind">District</label>
+                                        <input class="form-control" formControlName="districtind" type="text" [(ngModel)]="districtind" readonly>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="talukind">Taluk</label>
+                                        <input class="form-control" formControlName="talukind" type="text" [(ngModel)]="talukind" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!-- added -->
+                                    <br/>
+                                    <!-- Face -->
+                                    <div class="container fileUploadWrapper">
+                                        <h2 class="fs-title" style="text-align: center;">FACE RECOGNITION  </h2>
+                                        <div class="col-md-12">
+
+                                            <!-- upload -->
+                                            <div class="col-md-12 row fileupload">
+                                                <h5 class="fs-title" style="text-align: center;">UPLOAD PANCARD PHOTO</h5>
+                                            </div>
+                                            <div class="col-md-6 row fileupload">
+                                                <input type="file" accept="image/*" name="avatars" #fileField
+                                                (change)="onChangeforImage($event)">
+                                                <img [src]="croppedImage" height="200">
+                                            </div>
+
+
+                                            <ul style="list-style:none;">
+                                                <br />
+
+                                                <div style="text-align:center">
+                                                    <div>
+                                                        <p>{{seconds}}</p>
+                                                        <webcam [trigger]="triggerObservable"
+                                                            (imageCapture)="handleImage($event)"></webcam>
+                                                        <br />
+                                                        <button id="snapshotBtn" (click)="triggerSnapshot();">Take A
+                                                            Snapshot</button>
+                                                    </div>
+                                                </div>
+                                                <div class="snapshot" *ngIf="webcamImage">
+                                                    <h2>Nice one!</h2>
+                                                    <img [src]="webcamImage.imageAsDataUrl" />
+                                                </div>
+
+
+                                            </ul>
+                                            <br/>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                style="cursor: pointer;" (click)="verifyimage()">
+                                                Done
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <!-- Signature -->
+                                    <div class="form-card" id="signf">
+                                        <h2 class="fs-title" style="text-align: center;">UPLOAD SIGNATURE</h2>
+                                        <div class="container fileUploadWrapper">
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-4 row"></div>
+                                                <div class="col-md-6 row fileupload">
+
+                                                    <img [src]="signatureurl" height="200">
+                                                </div>
+                                                <div class="col-md-12 row fileupload">
+                                                    <h5 class="fs-title" style="text-align: center;">UPLOAD SIGNED IMAGE</h5>
+                                                </div>
+                                                <div class="col-md-6 row fileupload">
+                                                    <input type="file" accept="image/*" name="avatars" #fileField
+                                                    (change)="onChangeforSignature($event)">
+                                                </div>
+                                                </div>
+                                            <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                                                type png or jpg or jpeg</h3>
+                                        </div>
+                                        <!-- <div class="container fileUploadWrapper">
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-4 row"></div>
+                                                <div class="col-md-6 row fileupload">
+
+                                                    <img [src]="signatureurltwo" height="200">
+                                                </div>
+                                                <div class="col-md-12 row fileupload">
+                                                    <h5 class="fs-title" style="text-align: center;">UPLOAD SCANNED PAN CARD IMAGE</h5>
+                                                </div>
+                                                <div class="col-md-6 row fileupload">
+                                                    <input type="file" accept="image/*" name="avatars" #fileField
+                                                    (change)="onChangeforSignatureTwo($event)">
+                                                </div>
+                                            </div>
+                                            <h3 *ngIf="validfile" style="color: red;">Please Upload Only One File of
+                                                type png or jpg or jpeg</h3>
+                                        </div> -->
+                                        <br/>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        style="cursor: pointer;" (click)="verifysignature()">
+                                        Done
+                                    </button>
+                                    </div>
+                                
+
+
+                        </div>
+                    </div>
+                    <hr />
+                    
+                    <div>&nbsp;</div>
+                    <!-- <div style="font-weight: 600;text-align: center;">
+                        Click Submit to accept and agree to the <a href="#/consent">Consent</a>  
+                    </div> -->
+                    <div>&nbsp;</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF" class="btn btnprop" (click)=goBack() >Cancel</button>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                 class="btn btnprop"  data-toggle="modal" data-target="#consentpopup">Submit</button><br /><br />
+                            </div>
+                        </div>
+                    </div>  
+                </form>
+            </div>
+
+            <div *ngIf="company">
+                <form id="regform" [formGroup]="BARegistrationFormcompany">
+                    <div class="col-md-12 row" *ngIf="company">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div>&nbsp;</div>
+                            <div>&nbsp;</div>
+
+                            <div style="color: #36dbe2">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="placeofbith">Owner First Name / Director First Name</label>
+                                        <input formControlName="ownerNamecom" type="text" class="form-control" name="ownerNamecom" [(ngModel)]="ownerNamecom">
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="placeofbith">Middle Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.middlenamecom.errors }" formControlName="middlenamecom" type="text" class="form-control" name="middlenamecom" [(ngModel)]="middlenamecom">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="placeofbith">Last Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.lastnamecom.errors }" formControlName="lastnamecom" type="text" class="form-control" name="lastnamecom" [(ngModel)]="lastnamecom">
+                                        <div *ngIf="submitted && d.lastnamecom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.lastnamecom.errors.required">Login Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="emailcom">Email/Mobile Number</label>
+                                        <input (change)="Validatemail()" [ngClass]="{ 'is-invalid': submitted && d.emailcom.errors }" formControlName="emailcom" type="text" class="form-control" name="emailcom" [(ngModel)]="emailcom">
+                                        <div *ngIf="submitted && d.emailcom.errors" class="invalid-feedback">
+                                            
+                                            <div style="color: red;" *ngIf="d.emailcom.errors.pattern">Enter valid Email or Mobile Number 
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p *ngIf="validmail" style="color: red;">Email or Mobile Number  already exist!!</p>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="enableotp" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="emailpar">OTP</label>
+                                        <input  formControlName="otpcom" [(ngModel)]="otpcom" type="text" name="otpcom"
+                                        placeholder="OTP" (change)="Validateotp()" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.otpcom.errors }" class="form-control"/>
+                                    <div *ngIf="submitted && f.otpcom.errors && enableotp" class="invalid-feedback"
+                                        style="margin-top: -20px;">
+                                        <div style="color: red;" *ngIf="f.otpcom.errors.required">OTP is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.otpcom.errors.pattern">Enter a valid
+                                            OTP</div>
+                                    </div>
+                                    <p *ngIf="validotp" style="color: red;">{{displayotpmsg}}</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="dob">Password</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.pwdcom.errors }" formControlName="pwdcom" type="password" class="form-control" name="pwdcom" [(ngModel)]="pwdcom">
+                                        <div *ngIf="submitted && d.pwdcom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.pwdcom.errors.required">Password is required
+                                            </div>
+                                            <div style="color: red;" *ngIf="d.pwdcom.errors.pattern">Password must include minimum of 8 and special characters</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="dob">Confirm Password</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.conpwdcom.errors }" formControlName="conpwdcom" type="password" class="form-control" name="conpwdcom" [(ngModel)]="conpwdcom">
+                                        <div *ngIf="submitted && d.conpwdcom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.conpwdcom.errors.required">Password is required
+                                            </div>
+                                            <div style="color: red;" *ngIf="d.conpwdcom.errors.pattern">Password must include minimum of 8 and special characters</div>
+                                        </div>
+                                    </div>
+
+                                 
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="firstname">Company Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.companyNamecom.errors }" formControlName="companyNamecom" type="text" class="form-control" name="companyNamecom" [(ngModel)]="companyNamecom" autofocus>
+                                        <div *ngIf="submitted && d.companyNamecom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.companyNamecom.errors.required">Company Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="amountPerYear">PAN Number
+                                        </label>
+                                        <input formControlName="pannumcom" type="text" class="form-control" name="pannumcom" [(ngModel)]="pannumcom" autofocus>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="flatnumcom">Flat/ House No</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.flatnumcom.errors }" class="form-control" formControlName="flatnumcom" type="text" [(ngModel)]="flatnumcom">
+                                        <div *ngIf="submitted && d.flatnumcom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.flatnumcom.errors.required">Flat/ House No is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="buldinamecom">Building Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.buldinamecom.errors }" class="form-control" formControlName="buldinamecom" type="text" [(ngModel)]="buldinamecom">
+                                        <div *ngIf="submitted && d.buldinamecom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.buldinamecom.errors.required">Building Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="saddonecom">Street Address 1 </label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.saddonecom.errors }" class="form-control" formControlName="saddonecom" type="text" [(ngModel)]="saddonecom">
+                                        <div *ngIf="submitted && d.saddonecom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.saddonecom.errors.required">Building Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="saddtwocom">Street Address 2 </label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.saddtwocom.errors }" class="form-control" formControlName="saddtwocom" type="text" [(ngModel)]="saddtwocom">
+                                        <div *ngIf="submitted && d.saddtwocom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.saddtwocom.errors.required">Building Name is required
+                                            </div>
+                                        </div>
+                                  
+
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="pincodecom">Postal Code</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.pincodecom.errors }" class="form-control" formControlName="pincodecom" type="text" [(ngModel)]="pincodecom" (change)="getalldataone()">
+                                        <div *ngIf="submitted && d.pincodecom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.pincodecom.errors.required">Postal Code is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="countrycom">Country</label>
+                                        <input class="form-control" formControlName="countrycom" type="text" [(ngModel)]="countrycom" readonly>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="statecom">State</label>
+                                        <input class="form-control" formControlName="statecom" type="text" [(ngModel)]="statecom" readonly>
+
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="districtcom">District</label>
+                                        <input class="form-control" formControlName="districtcom" type="text" [(ngModel)]="districtcom" readonly>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="talukcom">Taluk</label>
+                                        <input class="form-control" formControlName="talukcom" type="text" [(ngModel)]="talukcom" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="incorporation">Incorporation Type</label>
+
+                                        <select (change)="onSelectIncorporationType($event.target.value)" class="form-control">
+                                            <option value="">Select Incorporation Type</option>
+                                            <option *ngFor="let do of IncorporationTypeList" value={{do.id}}>
+                                                {{do.incorporationName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="amountPerYear">Date of Incorporation
+                                        </label>
+                                        <input formControlName="doincom" type="date" class="form-control" name="doincom" [(ngModel)]="doincom" autofocus>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="amountPerYear">Experience in Current Business</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && d.serviceperiodcom.errors }" formControlName="serviceperiodcom" type="number" class="form-control" name="serviceperiodcom" [(ngModel)]="serviceperiodcom" autofocus>
+                                        <div *ngIf="submitted && d.serviceperiodcom.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="d.serviceperiodcom.errors.required">Service Period(Yrs) is required</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="boardresolutioncom">Board Resolution if Private Limited/
+                                            Parrtnership Deed
+                                            in case of Partnership
+                                        </label>
+                                        <input formControlName="boardresolutioncom" class="form-control" name="boardresolutioncom" [(ngModel)]="boardresolutioncom">
+                                    </div> -->
+                                </div>
+                            </div>
+                            <br/>
+                            <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;text-align: center; ">Upload Documents</h4><br/>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">Board of Resolution Certificate</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforboardofresolution($event)">
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">Company Pan Card</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforcompanypan($event)">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">GST Certificate</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforcompanygst($event)">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                                            
+                            <br/>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">Company Incorporation Certificate</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforcompanyincorporation($event)">
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">Agreement</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforcompanyagreement($event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+
+                            <br/>
+                            <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f;text-align: center; ">Other Documents</h2><br/>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Document Name</th>
+                                        <th>Document</th>
+        
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let field of documentArray; let i = index">
+        
+                                        <td>
+                                            {{field.code}}
+                                            <!-- <input [(ngModel)]="field.code" class="form-control" type="text" name="{{field.code}}" /> -->
+                                        </td>
+                                        <td>
+                                            {{field.otherdocactualname}}
+                                            <!-- <input [(ngModel)]="field.otherdocactualname" class="form-control" type="text" name="{{field.otherdocactualname}}" /> -->
+                                        </td>
+        
+        
+                                        <td>
+                                            <button class="btn btn-default" type="button" (click)="deleteFieldValueDocument(i)">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+        
+                                        <td>
+                                            <!-- <input class="form-control" type="text" id="otherdocumentnameee" [(ngModel)]="otherdocumentnameee" name="otherdocumentnameee" /> -->
+                                            <input formControlName="otherdocumentnameee" type="text" class="form-control" name="otherdocumentnameee" [(ngModel)]="otherdocumentnameee" autofocus>
+
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="file" id="otherdocument" (change)="OnChangeOtherDocs($event)" name="otherdocument" />
+                                        </td>
+        
+        
+                                        <td>
+                                            <button class="btn btn-default" type="button" (click)="addDocFieldValue()">Add</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                          
+                            <!-- <div>&nbsp;</div>
+                            <div style="font-weight: 600;text-align: center;">
+                                Click Submit to accept and agree to the <a href="#/consent">Consent</a>  
+                            </div> -->
+                            <div>&nbsp;</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                        <button type="submit" style=" background-color: #2f3b3b;color:#FFFFFF" class="btn btnprop" (click)=goBack()>Cancel</button>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                        <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF" 
+                                        class="btn btnprop" 
+                                        data-toggle="modal" data-target="#consentpopupcompany">Submit</button><br /><br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div *ngIf="partnership">
+                <form id="regform" [formGroup]="BARegistrationFormindividualpartnership">
+                    <div class="col-md-12 row" *ngIf="partnership">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <div>&nbsp;</div>
+                            <div>&nbsp;</div>
+
+                            <div style="color: #36dbe2">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="loginNamepar">Owner Name / Director Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.loginNamepar.errors }" formControlName="loginNamepar" type="text" class="form-control" name="loginNamepar" [(ngModel)]="loginNamepar">
+                                        <div *ngIf="submitted && p.loginNamepar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.loginNamepar.errors.required">Login Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="partnerNamepar">Partner Name</label>
+                                        <input formControlName="partnerNamepar" type="text" class="form-control" name="partnerNamepar" [(ngModel)]="partnerNamepar">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="companyNamepar">Firm Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.companyNamepar.errors }" formControlName="companyNamepar" type="text" class="form-control" name="companyNamepar" [(ngModel)]="companyNamepar" autofocus>
+                                        <div *ngIf="submitted && p.companyNamepar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.companyNamepar.errors.required">Company Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="emailpar">Email/Mobile Number</label>
+                                        <input (change)="Validatemail()" [ngClass]="{ 'is-invalid': submitted && p.emailpar.errors }" formControlName="emailpar" type="text" class="form-control" name="emailpar" [(ngModel)]="emailpar">
+                                        <div *ngIf="submitted && p.emailpar.errors" class="invalid-feedback">
+                                          
+                                            <div style="color: red;" *ngIf="p.emailpar.errors.pattern">Enter valid email or Mobile Number 
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 *ngIf="validmail" style="color: red;">Email or Mobile Number  already exist!!</h5>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="enableotp" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="emailpar">OTP</label>
+                                        <input class="form-control"  formControlName="otppar" [(ngModel)]="otppar" type="text" name="otppar"
+                                        placeholder="OTP" (change)="Validateotp()" 
+                                        [ngClass]="{ 'is-invalid': submitted && f.otppar.errors }" />
+                                    <div *ngIf="submitted && f.otppar.errors && enableotp" class="invalid-feedback"
+                                        style="margin-top: -20px;">
+                                        <div style="color: red;" *ngIf="f.otppar.errors.required">OTP is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.otppar.errors.pattern">Enter a valid
+                                            OTP</div>
+                                    </div>
+                                    <p *ngIf="validotp" style="color: red;">{{displayotpmsg}}</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="pwdpar">Password</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.pwdpar.errors }" formControlName="pwdpar" type="password" class="form-control" name="pwdpar" [(ngModel)]="pwdpar">
+                                        <div *ngIf="submitted && p.pwdpar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.pwdpar.errors.required">Password is required
+                                            </div>
+                                            <div style="color: red;" *ngIf="p.pwdpar.errors.pattern">Password must include minimum of 8 and special characters</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="dob">Confirm Password</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.conpwdpar.errors }" formControlName="conpwdpar" type="password" class="form-control" name="conpwdpar" [(ngModel)]="conpwdpar">
+                                        <div *ngIf="submitted && p.conpwdpar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.conpwdpar.errors.required">Password is required
+                                            </div>
+                                            <div style="color: red;" *ngIf="p.conpwdpar.errors.pattern">Password must include minimum of 8 and special characters</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                               
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="flatnumpar">Flat/ House No</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && f.flatnumpar.errors }" class="form-control" formControlName="flatnumpar" type="text" [(ngModel)]="flatnumpar">
+                                        <div *ngIf="submitted && p.flatnumpar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.flatnumpar.errors.required">Flat/ House No is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="buldinamepar">Building Name</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.buldinamepar.errors }" class="form-control" formControlName="buldinamepar" type="text" [(ngModel)]="buldinamepar">
+                                        <div *ngIf="submitted && p.buldinamepar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.buldinamepar.errors.required">Building Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="saddonepar">Street Address 1 </label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.saddonepar.errors }" class="form-control" formControlName="saddonepar" type="text" [(ngModel)]="saddonepar">
+                                        <div *ngIf="submitted && p.saddonepar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.saddonepar.errors.required"> is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="saddtwopar">Street Address 2 </label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.saddtwopar.errors }" class="form-control" formControlName="saddtwopar" type="text" [(ngModel)]="saddtwopar">
+                                        <div *ngIf="submitted && p.saddtwopar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.saddtwopar.errors.required"> is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="pincodepar">Postal Code</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.pincodepar.errors }" class="form-control" formControlName="pincodepar" type="text" [(ngModel)]="pincodepar" (change)="getalldatatwo()">
+                                        <div *ngIf="submitted && p.pincodepar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.pincodepar.errors.required">Postal Code is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="countrypar">Country</label>
+                                        <input class="form-control" formControlName="countrypar" type="text" [(ngModel)]="countrypar" readonly>
+
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="statepar">State</label>
+                                        <input class="form-control" formControlName="statepar" type="text" [(ngModel)]="statepar" readonly>
+
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="districtpar">District</label>
+                                        <input class="form-control" formControlName="districtpar" type="text" [(ngModel)]="districtpar" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="talukpar">Taluk</label>
+                                        <input class="form-control" formControlName="talukpar" type="text" [(ngModel)]="talukpar" readonly>
+
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="amountPerYear">PAN Number
+                                        </label>
+                                        <input formControlName="pannumpar" type="text" class="form-control" name="pannumpar" [(ngModel)]="pannumpar" autofocus>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="incorporation">Incorporation Type</label>
+
+                                        <select (change)="onSelectIncorporationType($event.target.value)" class="form-control">
+                                            <option value="">Select Incorporation Type</option>
+                                            <option *ngFor="let do of IncorporationTypeList" value={{do.id}}>
+                                                {{do.incorporationName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="amountPerYear">Date of Incorporation
+                                        </label>
+                                        <input formControlName="doinpar" type="date" class="form-control" name="doinpar" [(ngModel)]="doinpar" autofocus>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="boardresolutionpar">Partner Resolution if Private Limited/
+                                            Parrtnership Deed
+                                            in case of Partnership
+                                        </label>
+                                        <input formControlName="boardresolutionpar" class="form-control" name="boardresolutionpar" [(ngModel)]="boardresolutionpar">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <label for="serviceperiodpar">Experience in Current Business</label>
+                                        <input [ngClass]="{ 'is-invalid': submitted && p.serviceperiodpar.errors }" formControlName="serviceperiodpar" type="number" class="form-control" name="serviceperiodpar" [(ngModel)]="serviceperiodpar" autofocus>
+                                        <div *ngIf="submitted && p.serviceperiodpar.errors" class="invalid-feedback">
+                                            <div style="color: red;" *ngIf="p.serviceperiodpar.errors.required">Service Period(Yrs) is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <br/>
+                            <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;text-align: center; ">Upload Documents</h4><br/>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">Partner Resolution Certificate</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforpartnerresolution($event)">
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">Pan Card</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforpanpartnership($event)">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">GST Certificate</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforpartnershipgst($event)">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">Incorporation Certificate</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforpartnershipincorporation($event)">
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-12 row fileupload">
+                                            <h6 class="fs-title" style="text-align: center;">Agreement</h6>
+                                        </div>
+                                        <div class="col-md-12 row fileupload">
+                                            <input type="file" name="avatars" #fileField (change)="onChangeforpartnershipagreement($event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+
+                            <br/>
+                            <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f;text-align: center; ">Other Documents</h2><br/>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Document Name</th>
+                                        <th>Document</th>
+        
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let field of documentArraypartnership; let i = index">
+        
+                                        <td>
+                                            {{field.code}}
+                                            <!-- <input [(ngModel)]="field.otherdocumentnamepartnshp" class="form-control" type="text" name="{{field.otherdocumentnamepartnshp}}" /> -->
+                                        </td>
+                                        <td>
+                                            {{field.otherdocactualnamepartnshp}}
+                                            <!-- <input [(ngModel)]="field.otherdocactualnamepartnshp" class="form-control" type="text" name="{{field.otherdocactualnamepartnshp}}" /> -->
+                                        </td>
+        
+        
+                                        <td>
+                                            <button class="btn btn-default" type="button" (click)="deleteFieldValueDocumentpartnshp(i)">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+        
+                                        <td>
+                                            <input formControlName="otherdocumentnamepartnshp" type="text" class="form-control" name="otherdocumentnamepartnshp" [(ngModel)]="otherdocumentnamepartnshp" autofocus>
+
+                                            <!-- <input class="form-control" type="text" id="otherdocumentnamepartnshp" [(ngModel)]="newDocAttributepartnshp.otherdocumentnamepartnshp" name="otherdocumentnamepartnshp" /> -->
+        
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="file" id="otherdocumentpartnshp" (change)="OnChangeOtherDocspartnshp($event)" name="otherdocumentpartnshp" />
+                                        </td>
+        
+        
+                                        <td>
+                                            <button class="btn btn-default" type="button" (click)="addDocFieldValuepartnshp()">Add</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+ 
+                            <!-- <div style="font-weight: 600;text-align: center;">
+                                Click Submit to accept and agree to the <a href="#/consent">Consent</a>  
+                            </div> -->
+                            <div>&nbsp;</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                        <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF" (click)=goBack() class="btn btnprop">Cancel</button>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                        <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF" 
+                                        class="btn btnprop"  
+                                        data-toggle="modal" data-target="#consentpopuppartner"
+                                        >Submit</button><br /><br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <form id="regform" [formGroup]="BARegistrationForm">
+                <!-- <div class="col-md-12 row" *ngIf="individual">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+                        <div style="color: #36dbe2">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="email">Email</label>
+                                    <input (change)="Validatemail()"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                        formControlName="email" type="text" class="form-control" name="email"
+                                        [(ngModel)]="email">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.email.errors.required">Email is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.email.errors.email">Enter valid email address
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 *ngIf="validmail" style="color: red;">Email already exist!!</h5>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="contactnumber">Mobile Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.contactnumber.errors }"
+                                        formControlName="contactnumber" type="tel" class="form-control"
+                                        name="contactnumber" [(ngModel)]="contactnumber" (change)="Validatephnumber()">
+                                    <div *ngIf="submitted && f.contactnumber.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.contactnumber.errors.required">Mobile Number
+                                            is required</div>
+                                        <div style="color: red;" *ngIf="f.contactnumber.errors.pattern">Enter valid
+                                            Mobile number</div>
+                                    </div>
+                                    <h5 *ngIf="validmobile" style="color: red;font-size: 15px">Mobile Number already
+                                        exist!!</h5>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">First Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.loginName.errors }"
+                                        formControlName="loginName" type="text" class="form-control" name="loginName"
+                                        [(ngModel)]="loginName">
+                                    <div *ngIf="submitted && f.loginName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.loginName.errors.required">Login Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Middle Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.middlename.errors }"
+                                        formControlName="middlename" type="text" class="form-control" name="middlename"
+                                        [(ngModel)]="middlename">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Last Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
+                                        formControlName="lastname" type="text" class="form-control" name="lastname"
+                                        [(ngModel)]="lastname">
+                                    <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.lastname.errors.required">Login Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" formControlName="pwd"
+                                        type="password" class="form-control" name="pwd" [(ngModel)]="pwd">
+                                    <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.pwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.pwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Coinfirm Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.conpwd.errors }"
+                                        formControlName="conpwd" type="password" class="form-control" name="conpwd"
+                                        [(ngModel)]="conpwd">
+                                    <div *ngIf="submitted && f.conpwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.conpwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.conpwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="fathername">Father / Husband Name</label>
+                                    <input (change)="Validatemail()"
+                                        [ngClass]="{ 'is-invalid': submitted && f.fathername.errors }"
+                                        formControlName="fathername" type="text" class="form-control" name="fathername"
+                                        [(ngModel)]="fathername">
+                                    <div *ngIf="submitted && f.fathername.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.fathername.errors.required">Father / Husband
+                                            Name is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="occupation"> Occupation</label>
+                                    <select (change)="onSelectoccupation($event.target.value)" class="form-control">
+                                        <option value="">Select Occupation</option>
+                                        <option *ngFor="let do of occupations" value={{do.occupationId}}>
+                                            {{do.occupationName}}
+                                        </option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Date of Birth
+                                    </label>
+                                    <input formControlName="dob" type="date" class="form-control" name="dob"
+                                        [(ngModel)]="dob" autofocus>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Experience in Years</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.serviceperiod.errors }"
+                                        formControlName="serviceperiod" type="number" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="serviceperiod" autofocus>
+                                    <div *ngIf="submitted && f.serviceperiod.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.serviceperiod.errors.required">Experience in
+                                            Years</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">PAN Number
+                                    </label>
+                                    <input formControlName="pannum" type="text" class="form-control" name="pannum"
+                                        [(ngModel)]="pannum" autofocus>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="flatnum">Flat/ House No</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.flatnum.errors }"
+                                        class="form-control" formControlName="flatnum" type="text"
+                                        [(ngModel)]="flatnum">
+                                    <div *ngIf="submitted && f.flatnum.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.flatnum.errors.required">Flat/ House No is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="buldiname">Building Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.buldiname.errors }"
+                                        class="form-control" formControlName="buldiname" type="text"
+                                        [(ngModel)]="buldiname">
+                                    <div *ngIf="submitted && f.buldiname.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.buldiname.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="saddone">Street Address 1 </label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.saddone.errors }"
+                                        class="form-control" formControlName="saddone" type="text"
+                                        [(ngModel)]="saddone">
+                                    <div *ngIf="submitted && f.saddone.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.saddone.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="saddtwo">Street Address 2 </label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.saddtwo.errors }"
+                                        class="form-control" formControlName="saddtwo" type="text"
+                                        [(ngModel)]="saddtwo">
+                                    <div *ngIf="submitted && f.saddtwo.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.saddtwo.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="pincode">Postal Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }"
+                                        class="form-control" formControlName="pincode" type="text" [(ngModel)]="pincode"
+                                        (change)="getalldata()">
+                                    <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.pincode.errors.required">Postal Code is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="country">Country</label>
+                                    <input class="form-control" formControlName="country" type="text"
+                                        [(ngModel)]="country" readonly>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="state">State</label>
+                                    <input class="form-control" formControlName="state" type="text" [(ngModel)]="state"
+                                        readonly>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="district">District</label>
+                                    <input class="form-control" formControlName="district" type="text"
+                                        [(ngModel)]="district" readonly>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="taluk">Taluk</label>
+                                    <input class="form-control" formControlName="taluk" type="text" [(ngModel)]="taluk"
+                                        readonly>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="taluk">Select Service Type</label>
+                                    <br />
+                                    <ng-multiselect-dropdown [placeholder]="'Select Service Type'"
+                                        [data]="ServiceTypeList" [(ngModel)]="selectedItems"
+                                        [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                                        (onSelectAll)="onSelectAll($event)" (onDeSelect)="onItemDeSelect($event)"
+                                        (onDeSelectAll)="onItemDeSelectAll($event)">
+                                    </ng-multiselect-dropdown>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Types of Services Offered
+                                    </label>
+                                    <textarea formControlName="TypesofServiceOffered" type="text" class="form-control"
+                                        name="TypesofServiceOffered" [(ngModel)]="TypesofServiceOffered"
+                                        autofocus></textarea>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Detailed List of Services & Rates Matrix
+                                    </label>
+                                    <textarea formControlName="servicelist" type="text" class="form-control"
+                                        name="servicelist" [(ngModel)]="servicelist" autofocus></textarea>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Bank Name</label>
+                                    <br />
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.bankname.errors }"
+                                        formControlName="bankname" type="text" class="form-control" name="bankname"
+                                        [(ngModel)]="bankname" autofocus>
+                                    <div *ngIf="submitted && f.bankname.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.bankname.errors.required">Bank Name</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Branch </label>
+                                    <input formControlName="bankbranch" type="text" class="form-control"
+                                        name="bankbranch" [(ngModel)]="bankbranch" autofocus>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">IFSC Code</label>
+                                    <input formControlName="ifsccode" type="text" class="form-control" name="ifsccode"
+                                        [(ngModel)]="ifsccode" autofocus>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account holder Name</label>
+                                    <input formControlName="accountname" type="text" class="form-control"
+                                        name="accountname" [(ngModel)]="accountname" autofocus>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.accountnumber.errors }"
+                                        formControlName="accountnumber" type="number" class="form-control"
+                                        name="accountnumber" [(ngModel)]="accountnumber" autofocus>
+                                    <div *ngIf="submitted && f.accountnumber.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.accountnumber.errors.required">Account Number
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Coinfirm Account Number </label>
+                                    <input formControlName="coinaccountnumber" type="text" class="form-control"
+                                        name="coinaccountnumber" [(ngModel)]="coinaccountnumber" autofocus>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account Type</label>
+                                    <select (change)="onselectbankaccounttype($event.target.value)"
+                                        class="form-control">
+                                        <option value="">Select Account Type </option>
+                                        <option value="Savings">Savings</option>
+                                        <option value="Salary">Salary</option>
+                                        <option value="Current">Current</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div>&nbsp;</div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                        class="btn btnprop">Cancel</button>
+                                </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                        class="btn btnprop" (click)="saveIndividualBA()">Submit</button><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="col-md-12 row" *ngIf="company">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+
+                        <div style="color: #36dbe2">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="email">Email</label>
+                                    <input (change)="Validatemail()"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                        formControlName="email" type="text" class="form-control" name="email"
+                                        [(ngModel)]="email">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.email.errors.required">Email is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.email.errors.email">Enter valid email address
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 *ngIf="validmail" style="color: red;">Email already exist!!</h5>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="contactnumber">Contact Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.contactnumber.errors }"
+                                        formControlName="contactnumber" type="tel" class="form-control"
+                                        name="contactnumber" [(ngModel)]="contactnumber" (change)="Validatephnumber()">
+                                    <div *ngIf="submitted && f.contactnumber.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.contactnumber.errors.required">Mobile Number
+                                            is required</div>
+                                        <div style="color: red;" *ngIf="f.contactnumber.errors.pattern">Enter valid
+                                            Mobile number</div>
+                                    </div>
+                                    <h5 *ngIf="validmobile" style="color: red;font-size: 15px">Mobile Number already
+                                        exist!!</h5>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="firstname">Company Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }"
+                                        formControlName="companyName" type="text" class="form-control" name="firstname"
+                                        [(ngModel)]="companyName" autofocus>
+                                    <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.companyName.errors.required">Company Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Owner First Name / Director First Name</label>
+                                    <input formControlName="ownerName" type="text" class="form-control" name="ownerName"
+                                        [(ngModel)]="ownerName">
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Middle Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.middlename.errors }"
+                                        formControlName="middlename" type="text" class="form-control" name="middlename"
+                                        [(ngModel)]="middlename">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Last Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
+                                        formControlName="lastname" type="text" class="form-control" name="lastname"
+                                        [(ngModel)]="lastname">
+                                    <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.lastname.errors.required">Login Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" formControlName="pwd"
+                                        type="password" class="form-control" name="pwd" [(ngModel)]="pwd">
+                                    <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.pwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.pwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Coinfirm Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.conpwd.errors }"
+                                        formControlName="conpwd" type="password" class="form-control" name="conpwd"
+                                        [(ngModel)]="conpwd">
+                                    <div *ngIf="submitted && f.conpwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.conpwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.conpwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">PAN Number
+                                    </label>
+                                    <input formControlName="pannum" type="text" class="form-control" name="pannum"
+                                        [(ngModel)]="pannum" autofocus>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="flatnum">Flat/ House No</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.flatnum.errors }"
+                                        class="form-control" formControlName="flatnum" type="text"
+                                        [(ngModel)]="flatnum">
+                                    <div *ngIf="submitted && f.flatnum.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.flatnum.errors.required">Flat/ House No is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="buldiname">Building Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.buldiname.errors }"
+                                        class="form-control" formControlName="buldiname" type="text"
+                                        [(ngModel)]="buldiname">
+                                    <div *ngIf="submitted && f.buldiname.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.buldiname.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="saddone">Street Address 1 </label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.saddone.errors }"
+                                        class="form-control" formControlName="saddone" type="text"
+                                        [(ngModel)]="saddone">
+                                    <div *ngIf="submitted && f.saddone.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.saddone.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="saddtwo">Street Address 2 </label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.saddtwo.errors }"
+                                        class="form-control" formControlName="saddtwo" type="text"
+                                        [(ngModel)]="saddtwo">
+                                    <div *ngIf="submitted && f.saddtwo.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.saddtwo.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="pincode">Postal Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }"
+                                        class="form-control" formControlName="pincode" type="text" [(ngModel)]="pincode"
+                                        (change)="getalldata()">
+                                    <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.pincode.errors.required">Postal Code is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="country">Country</label>
+                                    <input class="form-control" formControlName="country" type="text"
+                                        [(ngModel)]="country" readonly>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="state">State</label>
+                                    <input class="form-control" formControlName="state" type="text" [(ngModel)]="state"
+                                        readonly>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="district">District</label>
+                                    <input class="form-control" formControlName="district" type="text"
+                                        [(ngModel)]="district" readonly>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="taluk">Taluk</label>
+                                    <input class="form-control" formControlName="taluk" type="text" [(ngModel)]="taluk"
+                                        readonly>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="incorporation">Incorporation Type</label>
+
+                                    <select (change)="onSelectIncorporationType($event.target.value)"
+                                        class="form-control">
+                                        <option value="">Select Incorporation Type</option>
+                                        <option *ngFor="let do of IncorporationTypeList" value={{do.id}}>
+                                            {{do.incorporationName}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Date of Incorporation
+                                    </label>
+                                    <input formControlName="doin" type="date" class="form-control" name="doin"
+                                        [(ngModel)]="doin" autofocus>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="boardresolution">Board Resolution if Private Limited/ Parrtnership Deed
+                                        in case of Partnership
+                                    </label>
+                                    <input formControlName="boardresolution" class="form-control" name="boardresolution"
+                                        [(ngModel)]="boardresolution">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Experience in Current Business</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.serviceperiod.errors }"
+                                        formControlName="serviceperiod" type="number" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="serviceperiod" autofocus>
+                                    <div *ngIf="submitted && f.serviceperiod.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.serviceperiod.errors.required">Service
+                                            Period(Yrs) is required</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <br>
+                        <hr />
+                        <div>&nbsp;</div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                        class="btn btnprop">Cancel</button>
+                                </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                        class="btn btnprop" (click)="saveCompanyBA()">Submit</button><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="col-md-12 row" *ngIf="partnership">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
+
+                        <div style="color: #36dbe2">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="email">Email</label>
+                                    <input (change)="Validatemail()"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                        formControlName="email" type="text" class="form-control" name="email"
+                                        [(ngModel)]="email">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.email.errors.required">Email is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.email.errors.email">Enter valid email address
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <h5 *ngIf="validmail" style="color: red;">Email already exist!!</h5>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="contactnumber">Contact Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.contactnumber.errors }"
+                                        formControlName="contactnumber" type="tel" class="form-control"
+                                        name="contactnumber" [(ngModel)]="contactnumber" (change)="Validatephnumber()">
+                                    <div *ngIf="submitted && f.contactnumber.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.contactnumber.errors.required">Mobile Number
+                                            is required</div>
+                                        <div style="color: red;" *ngIf="f.contactnumber.errors.pattern">Enter valid
+                                            Mobile number</div>
+                                    </div>
+                                    <h5 *ngIf="validmobile" style="color: red;font-size: 15px">Mobile Number already
+                                        exist!!</h5>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="firstname">Company Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }"
+                                        formControlName="companyName" type="text" class="form-control" name="firstname"
+                                        [(ngModel)]="companyName" autofocus>
+                                    <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.companyName.errors.required">Company Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Owner Name / Director Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.loginName.errors }"
+                                        formControlName="loginName" type="text" class="form-control" name="loginName"
+                                        [(ngModel)]="loginName">
+                                    <div *ngIf="submitted && f.loginName.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.loginName.errors.required">Login Name is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="placeofbith">Partner Name</label>
+                                    <input formControlName="partnerName" type="text" class="form-control"
+                                        name="partnerName" [(ngModel)]="partnerName">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" formControlName="pwd"
+                                        type="password" class="form-control" name="pwd" [(ngModel)]="pwd">
+                                    <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.pwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.pwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="dob">Coinfirm Password</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.conpwd.errors }"
+                                        formControlName="conpwd" type="password" class="form-control" name="conpwd"
+                                        [(ngModel)]="conpwd">
+                                    <div *ngIf="submitted && f.conpwd.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.conpwd.errors.required">Password is required
+                                        </div>
+                                        <div style="color: red;" *ngIf="f.conpwd.errors.pattern">Password must include
+                                            minimum of 8 and special characters</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="flatnum">Flat/ House No</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.flatnum.errors }"
+                                        class="form-control" formControlName="flatnum" type="text"
+                                        [(ngModel)]="flatnum">
+                                    <div *ngIf="submitted && f.flatnum.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.flatnum.errors.required">Flat/ House No is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="buldiname">Building Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.buldiname.errors }"
+                                        class="form-control" formControlName="buldiname" type="text"
+                                        [(ngModel)]="buldiname">
+                                    <div *ngIf="submitted && f.buldiname.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.buldiname.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="saddone">Street Address 1 </label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.saddone.errors }"
+                                        class="form-control" formControlName="saddone" type="text"
+                                        [(ngModel)]="saddone">
+                                    <div *ngIf="submitted && f.saddone.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.saddone.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="saddtwo">Street Address 2 </label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.saddtwo.errors }"
+                                        class="form-control" formControlName="saddtwo" type="text"
+                                        [(ngModel)]="saddtwo">
+                                    <div *ngIf="submitted && f.saddtwo.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.saddtwo.errors.required">Building Name is
+                                            required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="pincode">Postal Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }"
+                                        class="form-control" formControlName="pincode" type="text" [(ngModel)]="pincode"
+                                        (change)="getalldata()">
+                                    <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.pincode.errors.required">Postal Code is
+                                            required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="country">Country</label>
+                                    <input class="form-control" formControlName="country" type="text"
+                                        [(ngModel)]="country" readonly>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="state">State</label>
+                                    <input class="form-control" formControlName="state" type="text" [(ngModel)]="state"
+                                        readonly>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="district">District</label>
+                                    <input class="form-control" formControlName="district" type="text"
+                                        [(ngModel)]="district" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="taluk">Taluk</label>
+                                    <input class="form-control" formControlName="taluk" type="text" [(ngModel)]="taluk"
+                                        readonly>
+
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">PAN Number
+                                    </label>
+                                    <input formControlName="pannum" type="text" class="form-control" name="pannum"
+                                        [(ngModel)]="pannum" autofocus>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="incorporation">Incorporation Type</label>
+
+                                    <select (change)="onSelectIncorporationType($event.target.value)"
+                                        class="form-control">
+                                        <option value="">Select Incorporation Type</option>
+                                        <option *ngFor="let do of IncorporationTypeList" value={{do.id}}>
+                                            {{do.incorporationName}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Date of Incorporation
+                                    </label>
+                                    <input formControlName="doin" type="date" class="form-control" name="doin"
+                                        [(ngModel)]="doin" autofocus>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="registeredaddress">Registered Office Address</label>
+                                    <textarea formControlName="registeredaddress" class="form-control"
+                                        name="registeredaddress" [(ngModel)]="registeredaddress"
+                                        [ngClass]="{ 'is-invalid': submitted && f.registeredaddress.errors }"> </textarea>
+                                    <div *ngIf="submitted && f.registeredaddress.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.registeredaddress.errors.required">
+                                            Registered Office Address is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="boardresolution">Board Resolution if Private Limited/ Parrtnership Deed
+                                        in case of Partnership
+                                    </label>
+                                    <input formControlName="boardresolution" class="form-control" name="boardresolution"
+                                        [(ngModel)]="boardresolution">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Experience in Current Business</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.serviceperiod.errors }"
+                                        formControlName="serviceperiod" type="number" class="form-control"
+                                        name="serviceperiod" [(ngModel)]="serviceperiod" autofocus>
+                                    <div *ngIf="submitted && f.serviceperiod.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.serviceperiod.errors.required">Service
+                                            Period(Yrs) is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="TypesofServiceOffered">Types of Services Offered
+                                    </label>
+                                    <textarea formControlName="TypesofServiceOffered" type="text" class="form-control"
+                                        name="TypesofServiceOffered" [(ngModel)]="TypesofServiceOffered"
+                                        autofocus></textarea>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="servicelist">Detailed List of Services & Rates Matrix
+                                    </label>
+                                    <textarea formControlName="servicelist" type="text" class="form-control"
+                                        name="servicelist" [(ngModel)]="servicelist" autofocus></textarea>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Bank Name</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.bankname.errors }"
+                                        formControlName="bankname" type="text" class="form-control" name="bankname"
+                                        [(ngModel)]="bankname" autofocus>
+                                    <div *ngIf="submitted && f.bankname.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.bankname.errors.required">Bank Name</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Branch </label>
+                                    <input formControlName="bankbranch" type="text" class="form-control"
+                                        name="bankbranch" [(ngModel)]="bankbranch" autofocus>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">IFSC Code</label>
+                                    <input formControlName="ifsccode" type="text" class="form-control" name="ifsccode"
+                                        [(ngModel)]="ifsccode" autofocus>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account holder Name</label>
+                                    <input formControlName="accountname" type="text" class="form-control"
+                                        name="accountname" [(ngModel)]="accountname" autofocus>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account Number</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.accountnumber.errors }"
+                                        formControlName="accountnumber" type="number" class="form-control"
+                                        name="accountnumber" [(ngModel)]="accountnumber" autofocus>
+                                    <div *ngIf="submitted && f.accountnumber.errors" class="invalid-feedback">
+                                        <div style="color: red;" *ngIf="f.accountnumber.errors.required">Account Number
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Coinfirm Account Number </label>
+                                    <input formControlName="coinaccountnumber" type="text" class="form-control"
+                                        name="coinaccountnumber" [(ngModel)]="coinaccountnumber" autofocus>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <label for="amountPerYear">Account Type</label>
+                                    <select (change)="onselectbankaccounttype($event.target.value)"
+                                        class="form-control">
+                                        <option value="">Select Account Type </option>
+                                        <option value="Savings">Savings</option>
+                                        <option value="Salary">Salary</option>
+                                        <option value="Current">Current</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <hr />
+                        <div>&nbsp;</div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                        class="btn btnprop">Cancel</button>
+                                </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <button type="submit" style=" background-color: #36dbe2;color:#FFFFFF"
+                                        class="btn btnprop" (click)="savePartnershipBA()">Submit</button><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <label for="describeYourBusiness">Company Registration Number</label>
+                    <input [ngClass]="{ 'is-invalid': submitted && f.companyregid.errors }"
+                        formControlName="companyregid" type="text" class="form-control" name="companyregid"
+                        [(ngModel)]="companyregid">
+                    <div *ngIf="submitted && f.companyregid.errors" class="invalid-feedback">
+                        <div style="color: red;" *ngIf="f.companyregid.errors.required">Company
+                            Registration Number is required</div>
+                    </div>
+                </div> -->
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <div class="col-md-12 row">
+    <ng-multiselect-dropdown [placeholder]="'Select Service Type'" [data]="ServiceTypeList" [(ngModel)]="selectedItems"
+        [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+        (onDeSelect)="onItemDeSelect($event)" (onDeSelectAll)="onItemDeSelectAll($event)">
+    </ng-multiselect-dropdown>
+</div> -->
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<div class="bodycolor">&nbsp;</div>
+<!-- notification alert -->
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-4" *ngIf="dismissalert">
+        <div class="alert alert-info" style="background-color: #545353;box-shadow: none;left: 245px; position: fixed;top: 550px;width: 350px;">
+            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="material-icons" style="color: white">close</i>
+            </button>
+            <span style="color: white;margin-top: 6px;">
+                <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal modal-angular fade" id="consentpopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" style="    overflow-y: scroll;
+    height: 100%;
+">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <span style="color: darkslateblue;text-transform: uppercase;">
+                        Consent Form
+                    </span>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <app-consent></app-consent>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                (click)="saveIndividualBA()" >Accept</button>
+                <!-- <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Cancel</button> -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal modal-angular fade" id="consentpopuppartner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" style="    overflow-y: scroll;
+    height: 100%;
+">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <span style="color: darkslateblue;text-transform: uppercase;">
+                        Consent Form
+                    </span>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <app-consent></app-consent>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                (click)="savePartnershipBA()">Accept</button>
+                <!-- <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Cancel</button> -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal modal-angular fade" id="consentpopupcompany" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modalsize" role="document" style="overflow-y: scroll;height: 100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100" id="myModalLabel" style="text-align: center">
+                    <span style="color: darkslateblue;text-transform: uppercase;">
+                        Consent Form
+                    </span>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <app-consent></app-consent>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btnprop waves-light" data-dismiss="modal" mdbWavesEffect
+                (click)="saveCompanyBA()" >Accept</button>
+                <!-- <button type="button" class="btn btn-warning waves-light" data-dismiss="modal"
+                    mdbWavesEffect>Cancel</button> -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<button style="display:none;" id="openpopup"  data-toggle="modal" data-target="#ImageCropPopUp" ></button>
+
+
+  <div class="modal fade" id="ImageCropPopUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Crop Pancard</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <image-cropper
+            [imageChangedEvent]="imageChangedEvent"
+            [maintainAspectRatio]="false"
+            [aspectRatio]="4 / 4"
+            format="png"
+            (imageCropped)="imageCropped($event)"
+            (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()"
+            (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+    <img [src]="croppedImage" height="200">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btnprop waves-light next" data-dismiss="modal" mdbWavesEffectstyle="background: blue;" >Done</button> 
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ 

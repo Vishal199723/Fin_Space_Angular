@@ -1,0 +1,1160 @@
+<app-header></app-header>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row" style="background-color: #c2b6b6;
+background-image: linear-gradient(315deg, #c2b6b6 0%, #576574 74%);">
+    <div class="col-md-1"></div>
+    <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10">
+
+        <div class="homecard" id="signin" align="center" style=" margin-left: 0px;margin-right: 0px;margin-top: 1%">
+            <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Mutual Fund</h2>
+            <br>
+            <form id="msform" [formGroup]="MutualfundForm">
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-4">&nbsp;</div>
+                    <div class="col-md-4">
+                        <div class="form-card">
+                            <div class="container fileUploadWrapper">
+                                <div class="col-md-12">
+                                    <img src="{{userImage}}" class="img-circle" style="height: 150px;width: 150px;border: solid 2px;
+                                    border-radius: 7px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-4 row">
+                        <label id="emaillabel">Customer Id</label>
+                        <input (change)="getCustomerImage(customerid)" formControlName="customerid" class="form-control"
+                            type="text" id="inputbutton"  [(ngModel)]="customerid">
+                    </div>
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-4 row ">
+                        <label id="emaillabel ">INVESTMENT TYPE</label>
+                        <select class="form-control" (change)="onSelectinvestment($event.target.value)" >
+                            <option value="">Select Type</option>
+                            <option value="1">Lump Sum</option>
+                            <option value="2">Lump sum with SIP</option>
+                            <option value="3">Single Cheque Multiple Schemes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">APPLICANT INFO</h4>
+                <div class="col-md-12">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">First
+                    Applicant:</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-2 row">&nbsp;</div>
+                    <div class="col-md-3 row">
+                        <label id="emaillabel"> Name</label>
+                        <input matInput formControlName="firstname" class="form-control" type="text" id="inputbutton"
+                             [(ngModel)]="firstname"
+                            [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
+                        <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.firstname.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.pannumber.errors }" formControlName="pannumber"
+                            class="form-control " type="text " id="inputbutton "  [(ngModel)]="pannumber ">
+                        <div *ngIf="submitted && f.pannumber.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.pannumber.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DOB</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.birthdata.errors }" formControlName="birthdata"
+                            class="form-control " type="date" id="inputbutton "  [(ngModel)]="birthdata ">
+                        <div *ngIf="submitted && f.birthdata.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.birthdata.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Address</label>
+                        <textarea [ngClass]="{ 'is-invalid': submitted && f.addr.errors }" formControlName="addr"
+                            class="form-control" type="text" id="inputbutton "
+                            
+                            [(ngModel)]="addr "></textarea>
+                        <div *ngIf="submitted && f.addr.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.addr.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Aadhaar </label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.aadhaar.errors }" formControlName="aadhaar"
+                            class="form-control" type="text" id="inputbutton "
+                             [(ngModel)]="aadhaar ">
+                        <div *ngIf="submitted && f.aadhaar.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.aadhaar.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-12">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left;  margin-left: 13%; ">Second
+                    Applicant:</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-2 row">&nbsp;</div>
+                    <div class="col-md-3 row">
+                        <label id="emaillabel"> Name</label>
+                        <input formControlName="name" class="form-control" type="text" id="inputbutton"  [(ngModel)]="name"
+                            [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.name.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.panno.errors }" formControlName="panno"
+                            class="form-control " type="text " id="inputbutton "  [(ngModel)]="panno ">
+                        <div *ngIf="submitted && f.panno.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.panno.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DOB</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.birth.errors }" formControlName="birth"
+                            class="form-control " type="date" id="inputbutton "  [(ngModel)]="birth ">
+                        <div *ngIf="submitted && f.birth.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.birth.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Address</label>
+                        <textarea [ngClass]="{ 'is-invalid': submitted && f.adddata.errors }" formControlName="adddata"
+                            class="form-control" type="text" id="inputbutton "
+                            
+                            [(ngModel)]="adddata"></textarea>
+                        <div *ngIf="submitted && f.adddata.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.adddata.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Aadhaar </label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Aadhaarsec.errors }"
+                            formControlName="Aadhaarsec" class="form-control" type="text" id="inputbutton "
+                             [(ngModel)]="Aadhaarsec">
+                        <div *ngIf="submitted && f.Aadhaarsec.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Aadhaarsec.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">Third
+                    Applicant:</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-2 row">&nbsp;</div>
+                    <div class="col-md-3 row">
+                        <label id="emaillabel"> Name</label>
+                        <input formControlName="thirdname" class="form-control" type="text" id="inputbutton"  [(ngModel)]="thirdname"
+                            [ngClass]="{ 'is-invalid': submitted && f.thirdname.errors }">
+                        <div *ngIf="submitted && f.thirdname.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.thirdname.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.pannum.errors }" formControlName="pannum"
+                            class="form-control " type="text " id="inputbutton "  [(ngModel)]="pannum ">
+                        <div *ngIf="submitted && f.pannum.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.pannum.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DOB</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.datebirth.errors }" formControlName="datebirth"
+                            class="form-control " type="date" id="inputbutton "  [(ngModel)]="datebirth ">
+                        <div *ngIf="submitted && f.datebirth.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.datebirth.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Address</label>
+                        <textarea [ngClass]="{ 'is-invalid': submitted && f.addthird.errors }"
+                            formControlName="addthird" class="form-control" type="text" id="inputbutton "
+                            
+                            [(ngModel)]="addthird "></textarea>
+                        <div *ngIf="submitted && f.addthird.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.addthird.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Aadhaar </label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Aadhaathird.errors }"
+                            formControlName="Aadhaathird" class="form-control" type="text" id="inputbutton "
+                             [(ngModel)]="Aadhaathird">
+                        <div *ngIf="submitted && f.Aadhaathird.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Aadhaathird.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; "> GUARDIAN INFO</h4>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-2 row">&nbsp;</div>
+                    <div class="col-md-3 row">
+                        <label id="emaillabel"> Name</label>
+                        <input formControlName="guardian" class="form-control" type="text" id="inputbutton"  [(ngModel)]="guardian"
+                            [ngClass]="{ 'is-invalid': submitted && f.guardian.errors }">
+                        <div *ngIf="submitted && f.guardian.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.guardian.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.guardianpan.errors }"
+                            formControlName="guardianpan" class="form-control " type="text " id="inputbutton "  [(ngModel)]="guardianpan">
+                        <div *ngIf="submitted && f.guardianpan.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.guardianpan.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DOB</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.guardianbirth.errors }"
+                            formControlName="guardianbirth" class="form-control " type="date" id="inputbutton "  [(ngModel)]="guardianbirth ">
+                        <div *ngIf="submitted && f.guardianbirth.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.guardianbirth.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Address</label>
+                        <textarea [ngClass]="{ 'is-invalid': submitted && f.addguardian.errors }"
+                            formControlName="addguardian" class="form-control" type="text" id="inputbutton "
+                            
+                            [(ngModel)]="addguardian"></textarea>
+                        <div *ngIf="submitted && f.addguardian.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.addguardian.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Aadhaar </label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.aadharguard.errors }"
+                            formControlName="aadharguard" class="form-control" type="text" id="inputbutton "
+                             [(ngModel)]="aadharguard ">
+                        <div *ngIf="submitted && f.aadharguard.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.aadharguard.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Tel No.</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f. telephone.errors }"
+                            formControlName="telephone" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]=" telephone">
+                        <div *ngIf="submitted && f. telephone.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f. telephone.errors.required ">Place is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Relationship with Applicant</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.relationship.errors }"
+                            formControlName="relationship" class="form-control" type="text" id="inputbutton "
+                             [(ngModel)]="relationship">
+                        <div *ngIf="submitted && f.relationship.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.relationship.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Proof of relationship</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Proof.errors }" formControlName="Proof"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Proof">
+                        <div *ngIf="submitted && f.Proof.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Proof.errors.required ">Field is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">TAX STATUS</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Resident Individual</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.resident.errors }" formControlName="resident"
+                            class="form-control " type="text" id="inputbutton "
+                             [(ngModel)]="resident">
+                        <div *ngIf="submitted && f.resident.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.resident.errors.required "> Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">NRI</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.NRI.errors }" formControlName="NRI"
+                            class="form-control " type="number" id="inputbutton "
+                             [(ngModel)]="NRI">
+                        <div *ngIf="submitted && f.NRI.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.NRI.errors.required ">Field is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">HUF</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.hufdata.errors }" formControlName="hufdata"
+                            class="form-control " type="number" id="inputbutton "
+                             [(ngModel)]="hufdata">
+                        <div *ngIf="submitted && f.hufdata.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.hufdata.errors.required ">Field is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Sole Proprietor</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.proprietor.errors }"
+                            formControlName="proprietor" class="form-control " type="number" id="inputbutton "
+                             [(ngModel)]="proprietor">
+                        <div *ngIf="submitted && f.proprietor.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.proprietor.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Provident Fund</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Fund.errors }" formControlName="Fund"
+                            class="form-control " type="number" id="inputbutton "
+                             [(ngModel)]="Fund">
+                        <div *ngIf="submitted && f.Fund.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Fund.errors.required "> Field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Others</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Others.errors }" formControlName="Others"
+                            class="form-control " type="number" id="inputbutton "
+                             [(ngModel)]="Others">
+                        <div *ngIf="submitted && f.Others.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Others.errors.required "> Field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">FIIs</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.FIIsdata.errors }" formControlName="FIIsdata"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="FIIsdata">
+                        <div *ngIf="submitted && f.FIIsdata.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.FIIsdata.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Club/society</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.society.errors }" formControlName="society"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="society">
+                        <div *ngIf="submitted && f.society.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.society.errors.required "> Field is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PIO</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.piodata.errors }" formControlName="piodata"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="piodata ">
+                        <div *ngIf="submitted && f.piodata.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.piodata.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Partnership</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Partnership.errors }"
+                            formControlName="Partnership" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Partnership">
+                        <div *ngIf="submitted && f.Partnership.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Partnership.errors.required ">Field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">QFI</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.qfidata.errors }" formControlName="qfidata"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="qfidata">
+                        <div *ngIf="submitted && f.qfidata.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.qfidata.errors.required "> Field is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">GROSS ANNUAL INCOME</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">First applicant</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.firstapplicate.errors }"
+                            formControlName="firstapplicate" class="form-control " type="text " id="inputbutton "
+                            
+                            [(ngModel)]="firstapplicate">
+                        <div *ngIf="submitted && f.firstapplicate.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.firstapplicate.errors.required "> Field is required
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Second applicant</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.secapplicate.errors }"
+                            formControlName="secapplicate" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="secapplicate">
+                        <div *ngIf="submitted && f.secapplicate.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.secapplicate.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Third applicant</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.thrdapplicate.errors }"
+                            formControlName="thrdapplicate" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="thrdapplicate">
+                        <div *ngIf="submitted && f.thrdapplicate.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.thrdapplicate.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">DETAILS FOR INDIVIDUAL</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">First
+                    Applicant</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Place of birth</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.placeofbirth.errors }"
+                            formControlName="placeofbirth" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="placeofbirth">
+                        <div *ngIf="submitted && f.placeofbirth.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.placeofbirth.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Country of birth</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.country.errors }" formControlName="country"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="country">
+                        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.country.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Citizenship/Nationality</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }"
+                            formControlName="nationality" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="nationality">
+                        <div *ngIf="submitted && f.nationality.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.nationality.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">second
+                    Applicant</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Place of birth</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.secondplace.errors }"
+                            formControlName="secondplace" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="secondplace">
+                        <div *ngIf="submitted && f.secondplace.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.secondplace.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Country of birth</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.secondcountry.errors }"
+                            formControlName="secondcountry" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="secondcountry">
+                        <div *ngIf="submitted && f.secondcountry.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.secondcountry.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Citizenship/Nationality</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Citizenship.errors }"
+                            formControlName="Citizenship" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Citizenship">
+                        <div *ngIf="submitted && f.Citizenship.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Citizenship.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h5 style="font-family: DINNextRoundedLTPro;color: #2b156f;float:left; margin-left: 13%; ">Third
+                    Applicant</h5>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Place of birth</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.thirdplace.errors }"
+                            formControlName="thirdplace" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="thirdplace">
+                        <div *ngIf="submitted && f.thirdplace.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.thirdplace.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Country of birth</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.thirdcountry.errors }"
+                            formControlName="thirdcountry" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="thirdcountry">
+                        <div *ngIf="submitted && f.thirdcountry.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.thirdcountry.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Citizenship/Nationality</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.thirdnationlity.errors }"
+                            formControlName="thirdnationlity" class="form-control " type="text " id="inputbutton "
+                            
+                            [(ngModel)]="thirdnationlity">
+                        <div *ngIf="submitted && f.thirdnationlity.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.thirdnationlity.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">NOMINATION DETAIL</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Nominee name/s</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Nominee.errors }" formControlName="Nominee"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Nominee">
+                        <div *ngIf="submitted && f.Nominee.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Nominee.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">PAN</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Nomineepan.errors }"
+                            formControlName="Nomineepan" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Nomineepan">
+                        <div *ngIf="submitted && f.Nomineepan.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Nomineepan.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Relationship with investor</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.investor.errors }" formControlName="investor"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="investor">
+                        <div *ngIf="submitted && f.investor.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.investor.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Allocation</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Allocation.errors }"
+                            formControlName="Allocation" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Allocation">
+                        <div *ngIf="submitted && f.Allocation.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Allocation.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">INVESTMENT & PAYMENT</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Multiple Investment</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Investment.errors }"
+                            formControlName="Investment" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Investment">
+                        <div *ngIf="submitted && f.Investment.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Investment.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Lump sum</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.lumpsum.errors }" formControlName="lumpsum"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="lumpsum">
+                        <div *ngIf="submitted && f.lumpsum.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.lumpsum.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">SIP</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.sipdata.errors }" formControlName="sipdata"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="sipdata">
+                        <div *ngIf="submitted && f.sipdata.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.sipdata.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Dividend Payout Mode</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Payout.errors }" formControlName="Payout"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Payout">
+                        <div *ngIf="submitted && f.Payout.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Payout.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">DEMAT ACCOUNT</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">DP ID</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.dpid.errors }" formControlName="dpid"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="dpid">
+                        <div *ngIf="submitted && f.dpid.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.dpid.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Beneficiary acc/client ID</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.Beneficiary.errors }"
+                            formControlName="Beneficiary" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="Beneficiary">
+                        <div *ngIf="submitted && f.Beneficiary.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.Beneficiary.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">DP Name</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.dpname.errors }" formControlName="dpname"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="dpname">
+                        <div *ngIf="submitted && f.dpname.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.dpname.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">BANK ACCOUNT DETAILS FOR PAYOUT</h4>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Name of the Bank</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.bankname.errors }" formControlName="bankname"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="bankname">
+                        <div *ngIf="submitted && f.bankname.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.bankname.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Account no.</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.accountnum.errors }"
+                            formControlName="accountnum" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="accountnum">
+                        <div *ngIf="submitted && f.accountnum.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.accountnum.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">IFSC Code</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.ifcscode.errors }" formControlName="ifcscode"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="ifcscode">
+                        <div *ngIf="submitted && f.ifcscode.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.ifcscode.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+                <div class="col-md-12 row ">
+                    <div class="col-md-2 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label id="emaillabel ">Branch Address</label>
+                        <textarea [ngClass]="{ 'is-invalid': submitted && f.branchaddress.errors }"
+                            formControlName="branchaddress" class="form-control " type="text " id="inputbutton "
+                            
+                            [(ngModel)]="branchaddress"></textarea>
+                        <div *ngIf="submitted && f.branchaddress.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.branchaddress.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">Account Type</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.accountype.errors }"
+                            formControlName="accountype" class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="accountype">
+                        <div *ngIf="submitted && f.accountype.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.accountype.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-3 row ">
+                        <label for="Email " id="emaillabel ">MICR Code</label>
+                        <input [ngClass]="{ 'is-invalid': submitted && f.micrcode.errors }" formControlName="micrcode"
+                            class="form-control " type="text " id="inputbutton "
+                             [(ngModel)]="micrcode">
+                        <div *ngIf="submitted && f.micrcode.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.micrcode.errors.required "> field is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ">&nbsp;</div>
+            </form>
+            <div class="col-md-12 row">
+                <div class="col-md-3 row">&nbsp;</div>
+                <div class="col-md-4 row">
+                    <button (click)="draftmutualFund()" id="signinbutton">Draft</button>
+                </div>
+                <br />
+                <br />
+                <br />
+                <div class="col-md-1 row">
+                </div>
+                <div class="col-md-4 row">
+                    <button id="signinbutton" (click)="mutualFunIn()">SAVE</button>
+                </div>
+            </div>
+            <BR />
+            <div class="col-md-12 row ">&nbsp;</div>
+            <div class="col-md-12 row ">&nbsp;</div>
+
+        </div>
+
+
+        <div  class="col-md-12 row " class="homecard" align="center" style=" margin-left: 0px;margin-right: 0px;margin-top: 1%">
+            <div class="col-md-1 "></div>
+            <div >
+                <div class="homecard " id="signin " align="center "
+                    style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                    <div *ngIf="certificatesexist">
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Uploaded Documents</h4>
+
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <div class="col-md-12 row">
+                            <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                            <div class="col-md-4 row" *ngFor="let item of CertificateDisplay">
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'image/jpeg' ||
+                             item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                    <img [src]="item.certificate" height="100" width="100" />
+                                    <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/pdf' ||
+                             item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/pdficon.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                             item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/xls.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                             item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/docx.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div *ngIf="documentArray.length!=0">
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Other Uploaded Documents</h4>
+
+                            <div class="col-md-12 row">
+                                <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                                <div class="col-md-4 row" *ngFor="let item of certificates">
+                                    <div *ngIf="item.actualCertificateName!=null  && (item.documentType == 'image/jpeg' ||
+                             item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                        <img [src]="item.certificate" height="100" width="100" />
+                                        <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/pdf' ||
+                             item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/pdficon.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                            <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                             item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/xls.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                            <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                             item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/docx.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                            <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Upload Certificates</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-4">&nbsp;</div>
+                        <div class="col-md-8">
+                            <div class="table-responsive" style="overflow-x: visible">
+
+                                <table class="table table-striped table-responsive table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No</th>
+                                            <th>Certificate Name</th>
+                                            <th>Upload Here</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let field of CertificateList; let i = index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{field.certificateName}}</td>
+                                            <td>
+                                                <input type="file" name="avatars" #fileField
+                                                    (change)="onChangeCertificates($event,field)">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br />
+                                <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Other Documents</h2>
+                                <table class="table table-striped table-responsive table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Document Name</th>
+                                            <th>Document</th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let field of documentArray; let i = index">
+
+                                            <td>
+                                                <input [(ngModel)]="field.otherdocumentname" class="form-control"
+                                                    type="text" name="{{field.otherdocumentname}}" />
+                                            </td>
+                                            <td>
+                                                <input [(ngModel)]="field.otherdocactualname" class="form-control"
+                                                    type="text" name="{{field.otherdocactualname}}" />
+                                            </td>
+
+                                            <td>
+                                                <button class="btn btn-default" type="button"
+                                                    (click)="deleteFieldValueDocument(i)">Delete</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>
+                                                <input class="form-control" type="text" id="otherdocumentname"
+                                                    [(ngModel)]="newDocAttribute.otherdocumentname"
+                                                    name="otherdocumentname" />
+
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="file" id="otherdocument"
+                                                    (change)="OnChangeOtherDocs($event)" name="otherdocument" />
+                                            </td>
+
+
+                                            <td>
+                                                <button class="btn btn-default" type="button"
+                                                    (click)="addDocFieldValue()">Add</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    
+               
+               
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row" *ngIf="role!='1008' && ticketid!=null">
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-1 row ">
+
+                        <input  class="form-control" type="checkbox" [checked]="SendCopytoSP"
+                            [(ngModel)]="SendCopytoSP" style="font-size: 7px;">
+                    </div>
+                    <div class="col-md-5 row ">
+                        <p style="font-size: 20px;color:darkblue">Send one copy to {{serviceprovidername}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-3 row">&nbsp;</div>
+                    <div class="col-md-4 row">
+                        <button (click)="uploadCertificatesDraft()" id="signinbutton">Draft</button> &nbsp; &nbsp; &nbsp;
+
+                    </div>
+                    <br />
+                    <div class="col-md-1 row">
+                    </div>
+                    <div class="col-md-4 row">
+                        <button (click)="uploadCertificates()" id="signinbutton">Upload</button>
+                    </div>
+                    <div class="col-md-1 row">
+                    </div>                
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-4 row">&nbsp;</div>
+                    <div class="col-md-4 row">
+                        <button (click)="SubmitForm()" id="signinbutton">Submit</button> &nbsp; &nbsp; &nbsp;
+
+                    </div>
+                
+                    <div class="col-md-4 row">
+                    </div>                
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>

@@ -1,0 +1,1807 @@
+<app-header></app-header>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<mat-horizontal-stepper #stepper>
+    <!-- <mat-step>
+        <div>
+            <button mat-button matStepperPrevious></button>
+            <button mat-button (click)="stepper.reset()"></button>
+        </div>
+    </mat-step> -->
+</mat-horizontal-stepper>
+
+<!-- #docregion states -->
+<mat-horizontal-stepper style="background-color: #c2b6b6;
+background-image: linear-gradient(315deg, #c2b6b6 0%, #576574 74%);" #stepper1>
+
+
+    <mat-step label="Step 1" state="details" style="text-align: center;    height: 96%;width: 136%;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row">
+            <div class="col-md-1"></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10">
+
+                <div class="homecard" id="signin" align="center" style=" margin-left: 0px;margin-right: 0px;margin-top: 1%">
+                    <h1 style="font-family: DINNextRoundedLTPro;color: #2b156f;font-size: 34px;">Health Insurance Form</h1>
+
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Personal Details</h2>
+
+                    <div class="col-md-12">&nbsp;</div>
+                    <div class="col-md-12">&nbsp;</div>
+                    <form id="msform" [formGroup]="RegistrationForm">
+                        <div class="col-md-12 row">
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">
+                                <div class="form-card">
+                                    <div class="container fileUploadWrapper">
+                                        <div class="col-md-12">
+                                            <img src="{{userImage}}" class="img-circle" style="height: 150px;width: 150px;border: solid 2px;
+                                border-radius: 7px;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">&nbsp;</div>
+                        <div class="col-md-12">&nbsp;</div>
+
+                        <div class="col-md-12">&nbsp;</div>
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-3 row">
+                                <label id="emaillabel">Customer Id</label>
+                                <input (keyup.enter)="signIn(stepper1)" (change)="getCustomerImage(customerid)" formControlName="customerid" class="form-control" type="text" id="inputbutton" [(ngModel)]="customerid">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12 row">
+                            <div class="col-md-2 row">&nbsp;</div>
+                            <div class="col-md-3 row">
+
+                                <label id="emaillabel">First Name</label>
+
+                                <input (keyup.enter)="signIn(stepper1)" formControlName="firstname" class="form-control" type="text" id="inputbutton" [(ngModel)]="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
+                                <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.firstname.errors.required ">First Name is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Middle Name</label>
+                                <input (keyup.enter)="signIn(stepper1) " formControlName="middlename" class="form-control " type="text " id="inputbutton " [(ngModel)]="middlename ">
+                                <!-- <div *ngIf="submitted && f.middlename.errors" class="invalid-feedback">
+                            <div style="color: red; " *ngIf="f.middlename.errors.required ">Middle Name is required
+                            </div>
+                        </div> -->
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Last Name</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" (keyup.enter)="signIn(stepper1) " formControlName="lastname" class="form-control " type="text " id="inputbutton " [(ngModel)]="lastname ">
+                                <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.lastname.errors.required ">Last Name is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Place of Birth</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.placeofbirth.errors }" (keyup.enter)="signIn(stepper1) " formControlName="placeofbirth" class="form-control " type="text " id="inputbutton " [(ngModel)]="placeofbirth ">
+                                <div *ngIf="submitted && f.placeofbirth.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.placeofbirth.errors.required ">Place is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Gender</label>
+                                <select (change)="onSelectgender($event.target.value)" class="form-control">
+                        <option value="">Select Gender</option>
+                        <option *ngFor="let do of genders" value={{do.genderId}}
+                            [selected]="do.genderId==genderid">
+                            {{do.genderName}}
+                        </option>
+                    </select>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Caste</label>
+                                <select (change)="onSelectCaste($event.target.value)" class="form-control">
+                        <option value="">Select Caste</option>
+                        <option *ngFor="let do of castes" value={{do.raceId}}
+                            [selected]="do.raceId==casteid">
+                            {{do.raceName}}
+                        </option>
+                    </select>
+                            </div>
+                            <div class="col-md-2 row " *ngIf="othercastedetails">&nbsp;</div>
+
+                            <div class="col-md-3 row " *ngIf="othercastedetails">
+                                <label for="Email " id="emaillabel ">Caste</label>
+                                <input formControlName="castedetail" class="form-control " type="text " id="inputbutton " [(ngModel)]="castedetail">
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel "> Mobile Number</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.Number.errors }" (keyup.enter)="signIn(stepper1) " formControlName="Number" class="form-control" type="text" id="inputbutton " [(ngModel)]="Number ">
+                                <div *ngIf="submitted && f.Number.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.Number.errors.required ">Mobile Number is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Date of Birth</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.dateofbirth.errors }" (keyup.enter)="signIn(stepper1) " formControlName="dateofbirth" class="form-control" type="date" id="inputbutton " [(ngModel)]="dateofbirth ">
+                                <div *ngIf="submitted && f.dateofbirth.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.dateofbirth.errors.required ">Date of Birth is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Religion</label>
+                                <select (change)="onSelectrelogion($event.target.value)" class="form-control">
+                        <option value="">Select Religion</option>
+                        <option *ngFor="let do of religions" value={{do.religionId}}
+                            [selected]="do.religionId==rid">
+                            {{do.religionName}}
+                        </option>
+                    </select> </div>
+                            <div class="col-md-2 row " *ngIf="othereligiondetails">&nbsp;</div>
+                            <div class="col-md-3 row " *ngIf="othereligiondetails">
+                                <label for="Email " id="emaillabel ">Religion</label>
+                                <input formControlName="religiondetail" class="form-control " type="text " id="inputbutton " [(ngModel)]="religiondetail">
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Marital Status</label>
+                                <select (change)="onSelectmarital($event.target.value)" class="form-control">
+                        <option value="">Select Marital Status</option>
+                        <option *ngFor="let do of status" value={{do.maritalStatusId}}
+                            [selected]="do.maritalStatusId==martid">
+                            {{do.maritalStatus}}
+                        </option>
+                    </select> </div>
+
+
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> Qualification</label>
+                                <select (change)="onSelectqualification($event.target.value)" class="form-control">
+                        <option value="">Select Qualification</option>
+                        <option *ngFor="let do of qualifications" value={{do.qualificationId}}
+                            [selected]="do.qualificationId==quaid">
+                            {{do.qualificationName}}
+                        </option>
+                    </select>
+
+                            </div>
+                            <div class="col-md-1 row " *ngIf="otherequalification ">&nbsp;</div>
+                            <!-- <div class="col-md-1 row " *ngIf="otherequalification">&nbsp;</div> -->
+
+                            <div class="col-md-3 row " *ngIf="otherequalification">
+                                <label for="Email " id="emaillabel ">Qualification</label>
+                                <input formControlName="qualificationdetail" class="form-control " type="text " id="inputbutton " [(ngModel)]="qualificationdetail">
+                            </div>
+                            <div class="col-md-1 row " *ngIf="otherequalification" style="  margin-left: 1%;">&nbsp;</div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Occupation</label>
+                                <select (change)="onSelectoccupation($event.target.value)" class="form-control">
+                        <option value="">Select Occupation</option>
+                        <option *ngFor="let do of occupations" value={{do.occupationId}}
+                            [selected]="do.occupationId==occuid">
+                            {{do.occupationName}}
+                        </option>
+                    </select>
+
+                            </div>
+
+                            <div class="col-md-2 row " *ngIf="othersoccupation">&nbsp;</div>
+
+                            <div class="col-md-3 row " *ngIf="othersoccupation">
+                                <label for="Email " id="emaillabel ">Occupation</label>
+                                <input formControlName="occupatoiondetail" class="form-control " type="text " id="inputbutton " [(ngModel)]="occupatoiondetail">
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel "> Email</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.email.errors }" (keyup.enter)="signIn(stepper1) " formControlName="email" class="form-control " type="text " id="inputbutton " [(ngModel)]="email ">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.email.errors.required ">Email is required</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Designation</label>
+                                <select (change)="onSelectdesignation($event.target.value)" class="form-control">
+                        <option value="">Select Designations</option>
+                        <option *ngFor="let do of designations" value={{do.id}} [selected]="do.id==desid">
+                            {{do.designationName}}
+                        </option>
+                    </select>
+                            </div>
+                            <div class="col-md-3 row " *ngIf="otherdesignation" style="margin-left: 5%;">
+
+                                <label for="Email " id="emaillabel ">Designation</label>
+                                <input formControlName="designationd" class="form-control " type="text " id="inputbutton " [(ngModel)]="designationd">
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; "> Residential Address</h4>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Postal Code</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }" (keyup.enter)="signIn(stepper1) " formControlName="pincode" class="form-control " type="number " id="inputbutton " [(ngModel)]="pincode" (change)="getalldata()">
+                                <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.pincode.errors.required ">Postal is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Country</label>
+                                <input (keyup.enter)="signIn(stepper1) " formControlName="country" class="form-control " type="text " id="inputbutton " [(ngModel)]="country" readonly>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel "> State</label>
+                                <input (keyup.enter)="signIn(stepper1) " formControlName="state" class="form-control " type="text " id="inputbutton " [(ngModel)]="state" readonly>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">District</label>
+                                <input (keyup.enter)="signIn(stepper1) " formControlName="district" class="form-control " type="text " id="inputbutton " [(ngModel)]="district" readonly>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Address one</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.city.errors }" (keyup.enter)="signIn(stepper1) " formControlName="city" class="form-control " type="text " id="inputbutton " [(ngModel)]="city">
+                                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.city.errors.required ">City Name is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Address two</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && f.street.errors }" (keyup.enter)="signIn(stepper1) " formControlName="street" class="form-control " type="text " id="inputbutton " [(ngModel)]="street">
+                                <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="f.street.errors.required ">Street Name is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-7 row ">
+                                <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Permanent Address is Same as Residential Address</h4>
+                            </div>
+                            <div class="col-md-1 row ">
+                                <input class="form-control" formControlName="PermanentSameasResidential" [checked]="PermanentSameasResidential" [(ngModel)]="PermanentSameasResidential" (change)="onSelectaddress($event)" type="checkbox" id="inputbutton ">
+                            </div>
+                            <div class="col-md-2 row ">&nbsp;</div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Postal Code</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.postalcode.errors }" (keyup.enter)="signIn(stepper1) " formControlName="postalcode" class="form-control " type="number " id="inputbutton " (change)="getpincoddata()" [(ngModel)]="postalcode">
+                                    <div *ngIf="submitted && f.postalcode.errors" class="invalid-feedback">
+                                        <div style="color: red; " *ngIf="f.postalcode.errors.required ">Postal is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel ">Country</label>
+                                    <input (keyup.enter)="signIn(stepper1) " formControlName="countryone" class="form-control " type="text " id="inputbutton " [(ngModel)]="countryone" readonly>
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label for="Email " id="emaillabel "> State</label>
+                                    <input (keyup.enter)="signIn(stepper1) " formControlName="stateone" class="form-control " type="text " id="inputbutton " [(ngModel)]="stateone" readonly>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 row ">&nbsp;</div>
+
+                            <div class="col-md-12 row ">
+                                <div class="col-md-2 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">District</label>
+                                    <input (keyup.enter)="signIn(stepper1) " formControlName="districtone" class="form-control " type="text " id="inputbutton " [(ngModel)]="districtone" readonly>
+                                </div>
+
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">Address one</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.adressone.errors }" (keyup.enter)="signIn(stepper1) " formControlName="adressone" class="form-control " type="text " id="inputbutton " [(ngModel)]="adressone">
+                                    <div *ngIf="submitted && f.adressone.errors" class="invalid-feedback">
+                                        <div style="color: red; " *ngIf="f.adressone.errors.required ">Address one is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 row ">&nbsp;</div>
+                                <div class="col-md-3 row ">
+                                    <label id="emaillabel ">Address two</label>
+                                    <input [ngClass]="{ 'is-invalid': submitted && f.adresstwo.errors }" (keyup.enter)="signIn(stepper1) " formControlName="adresstwo" class="form-control " type="text " id="inputbutton " [(ngModel)]="adresstwo">
+                                    <div *ngIf="submitted && f.adresstwo.errors" class="invalid-feedback">
+                                        <div style="color: red; " *ngIf="f.adresstwo.errors.required ">Address two is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <BR /> &nbsp;
+                    <div class="col-md-12 row">
+                        <div class="col-md-4 row">&nbsp;</div>
+                        <div class="col-md-3 row">
+                            <button (click)="SaveBasicDraft(stepper1)"  id="signinbutton">Draft</button>
+
+                        </div>
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-3 row">
+                            <button (click)="signIn(stepper1)" id="signinbutton">Next</button>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+
+    <mat-step label="Step 2" state="account" style="text-align: center; height: 96%; width: 136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center "
+                    style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Bank Details</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+                    <div class="container" style="margin-top: 5%">
+
+                        <table class="table table-striped table-responsive table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Bank Account Type</th>
+                                    <th>Bank Name</th>
+                                    <th>Branch</th>
+                                    <th>IFSC Code</th>
+                                    <th>Cheque Facility</th>
+                                    <!-- <th>Loan Facility</th> -->
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let field of fieldArray; let i = index">
+                                    <td>
+                                        <select (change)="onSelectbank($event.target.value)" class="form-control">
+                                            <option value="">Select Bank Account Type</option>
+                                            <option *ngFor="let do of banks" value={{do.bankAccTypeId}}
+                                                [selected]="do.bankAccTypeId == field.banktypeid">
+                                                {{do.accountType}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input [(ngModel)]="field.bankname" class="form-control" type="text"
+                                            name="{{field.bankname}}" />
+                                    </td>
+                                    <td>
+                                        <input [(ngModel)]="field.branch" class="form-control" type="text"
+                                            name="{{field.branch}}" />
+                                    </td>
+                                    <td>
+                                        <input [(ngModel)]="field.ifscecode" class="form-control" type="text"
+                                            name="{{field.ifscecode}}" />
+                                    </td>
+                                    <td>
+                                        <input [(ngModel)]="field.selectedchequetypeid" class="form-control" />
+                                    </td>
+                                    <!-- <td>
+                                    <input [(ngModel)]="field.loanfacility" class="form-control" type="checkbox"
+                                        name="{{field.loanfacility}}" />
+                                </td> -->
+                                    <td>
+                                        <button class="btn btn-default" type="button"
+                                            (click)="deleteFieldValue(i)">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select (change)="onSelectbank($event.target.value)" class="form-control">
+                                            <option value="">Select Bank Account Type</option>
+                                            <option *ngFor="let do of banks" value={{do.bankAccTypeId}}>
+                                                {{do.accountType}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input class="form-control" type="text" id="bankname"
+                                            [(ngModel)]="newAttribute.bankname" name="bankname" />
+
+                                    </td>
+                                    <td>
+                                        <input class="form-control" type="text" id="branch"
+                                            [(ngModel)]="newAttribute.branch" name="branch" />
+                                    </td>
+                                    <td>
+                                        <input class="form-control" type="text" id="ifscecode"
+                                            [(ngModel)]="newAttribute.ifscecode" name="ifscecode" />
+                                    </td>
+                                    <td>
+                                        <select (change)="onSelectChequeType($event.target.value)" class="form-control">
+                                            <option value="">Select Cheque Facility Type</option>
+                                            <option value="1">Yes</option>
+                                            <option value="2">No</option>
+                                        </select>
+                                        <!-- <input class="form-control" type="checkbox" id="chequefacility"
+                                        [(ngModel)]="newAttribute.chequefacility" name="chequefacility" /> -->
+                                    </td>
+                                    <!-- <td>
+                                    <input class="form-control" type="checkbox" id="loanfacility"
+                                        [(ngModel)]="newAttribute.loanfacility" name="loanfacility" />
+                                </td> -->
+                                    <td>
+                                        <button class="btn btn-default" type="button"
+                                            (click)="addFieldValue()">Add</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+
+                    <form class="register-form " [formGroup]="BankDetailsForm">
+                        <div class="col-md-12 ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Identity Details</h4>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Ration Card Number</label>
+                                <input formControlName="rationcardnum" class="form-control " type="text "
+                                    id="inputbutton " [(ngModel)]="rationcardnum">
+                                <!-- <div *ngIf="submitted && k.rationcardnum.errors" class="invalid-feedback">
+                                <div style="color: red; " *ngIf="k.rationcardnum.errors.required "> Ration Card
+                                    Number is required</div>
+                                <div style="color: red; " *ngIf="k.rationcardnum.errors.pattern ">enter valid Ration
+                                    Card Number</div>
+                            </div> -->
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Aadhar Number</label>
+                                <input formControlName="aadharnum" class="form-control " type="text " id="inputbutton "
+                                    [(ngModel)]="aadharnum">
+                                <!-- <div *ngIf="submitted && k.aadharnum.errors" class="invalid-feedback">
+                                <div style="color: red; " *ngIf="k.aadharnum.errors.required ">Aadhar Number is required
+                                </div>
+                                <div style="color: red; " *ngIf="k.aadharnum.errors.pattern ">enter valid Aadhar Number
+                                </div>
+
+                            </div> -->
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Voter ID Number</label>
+                                <input formControlName="voternum" class="form-control " type="text " id="inputbutton "
+                                    [(ngModel)]="voternum">
+                                <!-- <div *ngIf="submitted && k.voternum.errors" class="invalid-feedback">
+                                <div style="color: red; " *ngIf="k.voternum.errors.required "> Voter ID Number is required
+                                </div>
+                                <div style="color: red; " *ngIf="k.voternum.errors.pattern ">enter valid Voter ID
+                                </div>
+
+                            </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">PAN Number</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && k.pannumber.errors }"
+                                    formControlName="pannumber" class="form-control " type="Date " id="inputbutton "
+                                    [(ngModel)]="pannumber">
+                                <div *ngIf="submitted && k.pannumber.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="k.pannumber.errors.required "> PAN Number is
+                                        required
+                                    </div>
+                                    <div style="color: red; " *ngIf="k.pannumber.errors.pattern ">enter valid PAN Number
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">GST No</label>
+                                <input formControlName="servicetax" class="form-control " type="text " id="inputbutton "
+                                    [(ngModel)]="servicetax">
+                                <!-- <div *ngIf="submitted && k.servicetax.errors" class="invalid-feedback">
+                                <div style="color: red; " *ngIf="k.servicetax.errors.required ">Service Tax Number
+                                    is required</div>
+                                <div style="color: red; " *ngIf="k.servicetax.errors.pattern ">enter valid GST No
+                                </div>
+
+                            </div> -->
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Passport Number</label>
+                                <input formControlName="passportnum" class="form-control " type="text "
+                                    id="inputbutton " [(ngModel)]="passportnum">
+                                <!-- <div *ngIf="submitted && k.passportnum.errors" class="invalid-feedback">
+                                <div style="color: red; " *ngIf="k.passportnum.errors.required "> Passport Number is
+                                    required</div>
+                                <div style="color: red; " *ngIf="k.passportnum.errors.pattern ">enter valid Passport
+                                    Number </div>
+
+                            </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Life Insurance Value</label>
+                                <input formControlName="lifeinsurance" class="form-control " type="input "
+                                    id="inputbutton " [(ngModel)]="lifeinsurance">
+                                <!-- <div *ngIf="submitted && k.lifeinsurance.errors" class="invalid-feedback">
+                                <div style="color: red; " *ngIf="k.lifeinsurance.errors.required ">Life Insurance
+                                    Value is required</div>
+                            </div> -->
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Is Confirm</label>
+                                <input class="form-control" formControlName="IsConfirm" [(ngModel)]="IsConfirm"
+                                    (change)="onSelectIsConfirm($event)" type="checkbox" id="inputbutton ">
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <BR />
+
+                        <BR />
+                        <div *ngIf="bankdocsexist">
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Uploaded Documents</h4>
+
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <div class="col-md-12 row" style="margin-left: auto;">
+                                <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                                <div class="col-md-4 row" *ngFor="let item of bankdocs">
+                                    <div *ngIf="item.documentType == 'image/jpeg' ||
+                                    item.documentType == 'image/png'" (click)="ViewBankFamDoc(item)">
+                                        <img [src]="item.file" height="100" width="100" />
+                                        <p style="text-align: center;"><br/>{{item.documentName}}</p>    
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.documentName}}</p>            
+                                            </div>                                
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf=" (item.documentType == 'application/pdf' ||
+                                    item.documentType == 'pdf')" (click)="ViewBankFamDoc(item)">
+                                        <img src="assets/img/pdficon.png" style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.documentName}}</p>    
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.documentName}}</p>            
+                                            </div>            
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf=" (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                                    item.documentType == 'xlsx')" (click)="ViewBankFamDoc(item)">
+                                        <img src="assets/img/xls.png" style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.documentName}}</p>    
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.documentName}}</p>            
+                                            </div>            
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf=" (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                                    item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewBankFamDoc(item)">
+                                        <img src="assets/img/docx.png" style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.documentName}}</p>    
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.documentName}}</p>            
+                                            </div>            
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Upload Documents</h4>
+
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <div class="container" style="margin-top: 5%">
+                            <div class="col-md-12 row">
+                                <div class="col-md-3">&nbsp;</div>
+                                <div class="col-md-9">
+                                    <div class="table-responsive" style="overflow-x: visible">
+                                        <table class="table table-striped table-responsive table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sl No</th>
+                                                    <th>Certificate Name</th>
+                                                    <th>Upload Here</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Aadhar Card</td>
+                                                    <td>
+                                                        <input type="file" name="avatars" #fileField
+                                                            (change)="onChangeAadhar($event)">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Voter ID</td>
+                                                    <td>
+                                                        <input type="file" name="avatars" #fileField
+                                                            (change)="onChangeVoterId($event)">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Passport</td>
+                                                    <td>
+                                                        <input type="file" name="avatars" #fileField
+                                                            (change)="onChangePassport($event)">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>GST Certificate</td>
+                                                    <td>
+                                                        <input type="file" name="avatars" #fileField
+                                                            (change)="onChangeGSTCert($event)">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>IT Returns</td>
+                                                    <td>
+                                                        <input type="file" name="avatars" #fileField
+                                                            (change)="onChangeITReturns($event)">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>Bank Statements</td>
+                                                    <td>
+                                                        <input type="file" name="avatars" #fileField
+                                                            (change)="onChangeBankStatements($event)">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12 row">&nbsp;</div>
+                    </form>
+                    <BR />
+                    <div class="col-md-12 row">
+                        <div class="col-md-4 row">&nbsp;</div>
+                        <div class="col-md-3 row">
+                            <button (click)="SaveBankDraft(stepper1)" id="signinbutton">Draft</button> &nbsp; &nbsp;
+                            &nbsp;
+
+                        </div>
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-3 row">
+                            <button (click)="bankIn(stepper1)" id="signinbutton">Next</button>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 row">&nbsp;</div>
+                    <div class="col-md-12 row">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+    <mat-step label="setep 3" state="insurance" style="text-align: center; height: 96%; width: 136%; ">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="eignin " align="center " style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Health Insurance</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+
+
+                    <form class="register-form " [formGroup]="healthinsuranceform">
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Details of person(s) proposed to be insured</h4>
+                        <div class="col-md-12 ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Sources of funds</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && e.sourcefund.errors }" formControlName="sourcefund" class="form-control " type="text " id="inputbutton " [(ngModel)]="sourcefund">
+                                <div *ngIf="submitted && e.sourcefund.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="e.sourcefund.errors.required "> field is required</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Monthly Income</label>
+                                <span style="display: flex;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input [ngClass]="{ 'is-invalid': submitted && e. Monthincome.errors }" formControlName="Monthincome" class="form-control " type="text " id="inputbutton "  [(ngModel)]="Monthincome" style=" margin-top: -2%;"></span>
+                                <div *ngIf="submitted && e. Monthincome.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="e. Monthincome.errors.required "> field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 ">&nbsp;</div>
+
+
+                        <table class="table table-responsive table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style=" width: 22%;">Details</th>
+                                    <th>Member 1</th>
+                                    <th>Member 2</th>
+                                    <th>Member 3</th>
+                                    <th>Member 4</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>
+                                        <input formControlName="detailsfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="detailsfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="detailsthrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="detailsthrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="detailsthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="detailsthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="detailsfour" class="form-control " type="text " id="inputbutton " [(ngModel)]="detailsfour">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>DOB</td>
+                                    <td>
+                                        <input formControlName="dateofbirthFirst" class="form-control " type="date" id="inputbutton " [(ngModel)]="dateofbirthFirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="dateofbirthsec" class="form-control " type="date" id="inputbutton " [(ngModel)]="dateofbirthsec">
+                                    </td>
+                                    <td>
+                                        <input formControlName="dateofbirthtrd" class="form-control " type="date" id="inputbutton " [(ngModel)]="dateofbirthtrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="dateofbirthfourth" class="form-control " type="date" id="inputbutton " [(ngModel)]="dateofbirthfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td>
+                                        <input formControlName="genderfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="genderfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="gendersec" class="form-control " type="text " id="inputbutton " [(ngModel)]="gendersec">
+                                    </td>
+                                    <td>
+                                        <input formControlName="genderthrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="genderthrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="genderfour" class="form-control " type="text " id="inputbutton " [(ngModel)]="genderfour">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Nationality</td>
+                                    <td>
+                                        <input formControlName="nationalityfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="nationalityfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="nationalitysec" class="form-control " type="text " id="inputbutton " [(ngModel)]="nationalitysec">
+                                    </td>
+                                    <td>
+                                        <input formControlName="nationalitytrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="nationalitytrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="nationality" class="form-control " type="text " id="inputbutton " [(ngModel)]="nationality">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Relationship with proposer</td>
+                                    <td>
+                                        <input formControlName="proposertfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="proposertfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="proposersec" class="form-control " type="text " id="inputbutton " [(ngModel)]="proposersec">
+                                    </td>
+                                    <td>
+                                        <input formControlName="proposerthrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="proposerthrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="proposertforth" class="form-control " type="text " id="inputbutton " [(ngModel)]="proposertforth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Marital Status</td>
+                                    <td>
+                                        <input formControlName="Statusfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Statusfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Statussecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Statussecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Statusthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Statusthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Statusfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Statusfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Occupation</td>
+                                    <td>
+                                        <input formControlName="Insuranceone" class="form-control " type="text " id="inputbutton " [(ngModel)]="Insuranceone">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Insurancetwo" class="form-control " type="text " id="inputbutton " [(ngModel)]="Insurancetwo">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Insurancethrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="Insurancethrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Insurancefour" class="form-control " type="text " id="inputbutton " [(ngModel)]="Insurancefour">
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>Height(in cm)</td>
+                                    <td>
+                                        <input formControlName="Othersfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Othersfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Otherstwo" class="form-control " type="text " id="inputbutton " [(ngModel)]="Otherstwo">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Othersthree" class="form-control " type="text " id="inputbutton " [(ngModel)]="Othersthree">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Othersfour" class="form-control " type="text " id="inputbutton " [(ngModel)]="Othersfour">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Weight (in kg)</td>
+                                    <td>
+                                        <input formControlName="Insuredone" class="form-control " type="text " id="inputbutton " [(ngModel)]="Insuredone">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Insuredsec" class="form-control " type="text " id="inputbutton " [(ngModel)]="Insuredsec">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Insuredthrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="Insuredthrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Insuredfour" class="form-control " type="text " id="inputbutton " [(ngModel)]="Insuredfour">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Diabetes</td>
+                                    <td>
+                                        <input formControlName="Diabetesfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Diabetesfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Diabetessecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Diabetessecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Diabetesthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Diabetesthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Diabetesfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Diabetesfourth">
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>Hypertension</td>
+                                    <td>
+                                        <input formControlName="Nomineefirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Nomineefirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Nomineesecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Nomineesecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Nomineethird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Nomineethird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Nomineefourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Nomineefourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Respiratory disorder</td>
+                                    <td>
+                                        <input formControlName="Relationfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Relationfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Relationsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Relationsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Relationthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Relationthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Relationfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Relationfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>HIV/AIDS/STD</td>
+                                    <td>
+                                        <input formControlName="medicalfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="medicalfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="medicalsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="medicalsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="medicalthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="medicalthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="medicalfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="medicalfourth">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Liver disease </td>
+                                    <td>
+                                        <input formControlName="Liverfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Liverfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Liversecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Liversecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Liverthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Liverthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Liverfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Liverfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Cancer/Tumor</td>
+                                    <td>
+                                        <input formControlName="Cancerfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Cancerfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Cancersecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Cancersecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Cancerthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Cancerthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Cancerfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Cancerfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Heart disease</td>
+                                    <td>
+                                        <input formControlName="Heartfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Heartfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Heartsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Heartsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Heartthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Heartthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Heartfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Heartfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Arthritis/Joint pain</td>
+                                    <td>
+                                        <input formControlName="Arthritisfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Arthritisfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Arthritissecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Arthritissecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Arthritisthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Arthritisthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Arthritisfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Arthritisfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Kidney Disease</td>
+                                    <td>
+                                        <input formControlName="Kidneyfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Kidneyfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Kidneysecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Kidneysecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Kidneythird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Kidneythird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Kidneyfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Kidneyfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Paralysis/Stroke</td>
+                                    <td>
+                                        <input formControlName="Paralysisfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Paralysisfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Paralysissecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Paralysissecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Paralysisthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Paralysisthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Paralysisfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Paralysisfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Congenital Disease</td>
+                                    <td>
+                                        <input formControlName="Congenitalfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Congenitalfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Congenitalsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Congenitalsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Congenitalthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Congenitalthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Congenitalfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Congenitalfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Injurt</td>
+                                    <td>
+                                        <input formControlName="Injurtfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Injurtfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Injurtsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Injurtsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Injurtthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Injurtthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Injurtfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Injurtfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Other(Specify)</td>
+                                    <td>
+                                        <input formControlName="Specifyfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Specifyfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Specifysecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Specifysecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Specifythird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Specifythird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Specifyfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Specifyfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Details of Drugs/Medicine prescribed</td>
+                                    <td>
+                                        <input formControlName="Drugsfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Drugsfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Drugssecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Drugssecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Drugsthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Drugsthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Drugsfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Drugsfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Consume tobacco or alchohol?</td>
+                                    <td>
+                                        <input formControlName="tobaccofirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="tobaccofirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="tobaccosecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="tobaccosecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="tobaccothird" class="form-control " type="text " id="inputbutton " [(ngModel)]="tobaccothird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="tobaccofourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="tobaccofourth">
+                                    </td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Previous/Current health Insurance Details</h4>
+                        <div class="col-md-12 ">&nbsp;</div>
+
+                        <table class="table table-striped table-bordered table-responsive">
+                            <thead>
+                                <tr>
+                                    <th style=" width: 22%;">Details</th>
+                                    <th>Member 1</th>
+                                    <th>Member 2</th>
+                                    <th>Member 3</th>
+                                    <th>Member 4</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Name of insurer</td>
+                                    <td>
+                                        <input formControlName="Personone" class="form-control " type="text " id="inputbutton " [(ngModel)]="Personone">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Personsec" class="form-control " type="text " id="inputbutton " [(ngModel)]="Personsec">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Personsthrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="Personsthrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Personsfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Personsfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Policy no.</td>
+                                    <td>
+                                        <input formControlName="Policyfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Policyfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Policysec" class="form-control " type="text " id="inputbutton " [(ngModel)]="Policysec">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Policythrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="Policythrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Policyfour" class="form-control " type="text " id="inputbutton " [(ngModel)]="Policyfour">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Policy period(from&to)</td>
+                                    <td>
+                                        <input formControlName="Periodone" class="form-control " type="text " id="inputbutton " [(ngModel)]="Periodone">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Periodsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Periodsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Periodthrd" class="form-control " type="text " id="inputbutton " [(ngModel)]="Periodthrd">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Periodfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Periodfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Sum Insured</td>
+                                    <td>
+                                        <input formControlName="Sumfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Sumfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Sumsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Sumsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Sumthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Sumthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Sumfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Sumfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Previous Claim?</td>
+                                    <td>
+                                        <input formControlName="Filedfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Filedfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Filedsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Filedsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Filedthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Filedthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Filedfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Filedfourth">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Has any proposal of life, criticalillness or health insurance beendeclined, cancelled or charged ahigher premium?</td>
+                                    <td>
+                                        <input formControlName="healthfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="healthfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="healthsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="healthsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="healththird" class="form-control " type="text " id="inputbutton " [(ngModel)]="healththird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="healthfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="healthfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Are any of the persons proposed for insurance covered under any other health insurance policy with the Company? (Including Critical Illness</td>
+                                    <td>
+                                        <input formControlName="Coveredfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Coveredfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Coveredsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Coveredsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Coveredthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Coveredthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Coveredfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Coveredfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Applying for portability</td>
+                                    <td>
+                                        <input formControlName="Companyfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Companyfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Companysecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Companysecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Companythird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Companythird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Companyfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Companyfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Name of the family Physician</td>
+                                    <td>
+                                        <input formControlName="infirmityfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="infirmityfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="infirmitysecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="infirmitysecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="infirmitythird" class="form-control " type="text " id="inputbutton " [(ngModel)]="infirmitythird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="infirmityfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="infirmityfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Contact</td>
+                                    <td>
+                                        <input formControlName="Contactfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Contactfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Contactsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Contactsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Contactthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Contactthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Contactfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Contactfourth">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>
+                                        <input formControlName="Emailfirst" class="form-control " type="text " id="inputbutton " [(ngModel)]="Emailfirst">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Emailsecond" class="form-control " type="text " id="inputbutton " [(ngModel)]="Emailsecond">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Emailthird" class="form-control " type="text " id="inputbutton " [(ngModel)]="Emailthird">
+                                    </td>
+                                    <td>
+                                        <input formControlName="Emailfourth" class="form-control " type="text " id="inputbutton " [(ngModel)]="Emailfourth">
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f;">Premium Payment Details</h4>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Cheque/DD/Credit Card/Debit Card</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && e.debitcard.errors }" formControlName="debitcard" class="form-control " type="text " id="inputbutton " [(ngModel)]="debitcard">
+                                <div *ngIf="submitted && e.debitcard.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="e.debitcard.errors.required "> field is required</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Cheque/DD no./Amount</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && e.chequeamt.errors }" formControlName="chequeamt" class="form-control " type="text " id="inputbutton " [(ngModel)]="chequeamt">
+                                <div *ngIf="submitted && e.chequeamt.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="e.chequeamt.errors.required "> field is required</div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label for="Email " id="emaillabel ">Bank Name</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && e.bnkname.errors }" formControlName="bnkname" class="form-control " type="text " id="inputbutton " [(ngModel)]="bnkname">
+                                <div *ngIf="submitted && e.bnkname.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="e.bnkname.errors.required "> field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                        <div class="col-md-12 row ">
+                            <div class="col-md-2 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Cheque date</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && e.chequedate.errors }" formControlName="chequedate" class="form-control " type="text " id="inputbutton " [(ngModel)]="chequedate">
+                                <div *ngIf="submitted && e.chequedate.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="e.chequedate.errors.required "> field is required</div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 row ">&nbsp;</div>
+                            <div class="col-md-3 row ">
+                                <label id="emaillabel ">Name of the payer</label>
+                                <input [ngClass]="{ 'is-invalid': submitted && e.nmpayer.errors }" formControlName="nmpayer" class="form-control " type="text " id="inputbutton " [(ngModel)]="nmpayer">
+                                <div *ngIf="submitted && e.nmpayer.errors" class="invalid-feedback">
+                                    <div style="color: red; " *ngIf="e.nmpayer.errors.required "> field is required</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 row ">&nbsp;</div>
+
+                       
+                        <div class="col-md-12">&nbsp;</div>
+                    </form>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <BR/> 
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-4 row">&nbsp;</div>
+                        <div class="col-md-3 row">
+                            <button (click)="SaveHealthDraft(stepper1)" id="signinbutton">Draft</button> &nbsp; &nbsp; &nbsp;
+
+                        </div>
+                        <br />
+                        <div class="col-md-1 row">
+                        </div>
+                        <div class="col-md-3 row">
+                            <button (click)="healthIn(stepper1)" id="signinbutton">Next</button>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+
+    <mat-step label="Step 4" state="upload" style="text-align: center; height: 96%; width: 136%; ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row ">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-10 col-sm-9 col-md-10 col-lg-10 col-xl-10 ">
+                <div class="homecard " id="signin " align="center "
+                    style=" margin-left: 0px;margin-right: 0px;margin-top: 1% ">
+                    <div *ngIf="certificatesexist">
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Uploaded Documents</h4>
+
+                        <div class="col-md-12 row">&nbsp;</div>
+                        <div class="col-md-12 row">
+                            <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                            <div class="col-md-4 row" *ngFor="let item of CertificateDisplay">
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'image/jpeg' ||
+                             item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                    <img [src]="item.certificate" height="100" width="100" />
+                                    <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/pdf' ||
+                             item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/pdficon.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                             item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/xls.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div *ngIf="(item.actualCertificateName==null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                             item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                    <img src="assets/img/docx.png"
+                                        style="width: 100px; height: 100px; cursor: pointer;" />
+                                        <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                    <!-- <div class="col-md-12 row">
+                                        <div class="col-md-2 row">&nbsp;</div>
+                                        <div class="col-md-10 row">
+                                            <p style="text-align: center;">{{item.fileName}}</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div *ngIf="documentArray.length!=0">
+                            <div class="col-md-12 row">&nbsp;</div>
+                            <h4 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Other Uploaded Documents</h4>
+
+                            <div class="col-md-12 row">
+                                <!-- <div class="col-md-1 row">&nbsp;</div> -->
+
+                                <div class="col-md-4 row" *ngFor="let item of certificates">
+                                    <div *ngIf="item.actualCertificateName!=null  && (item.documentType == 'image/jpeg' ||
+                             item.documentType == 'image/png')" (click)="ViewDoc(item)">
+                                        <img [src]="item.certificate" height="100" width="100" />
+                                        <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/pdf' ||
+                             item.documentType == 'pdf')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/pdficon.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                            <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+                             item.documentType == 'xlsx')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/xls.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                            <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div *ngIf="(item.actualCertificateName!=null) && (item.documentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+                             item.documentType == 'doc' || item.documentType == 'docx')" (click)="ViewDoc(item)">
+                                        <img src="assets/img/docx.png"
+                                            style="width: 100px; height: 100px; cursor: pointer;" />
+                                            <p style="text-align: center;"><br/>{{item.fileName}}</p>
+                                        <!-- <div class="col-md-12 row">
+                                            <div class="col-md-2 row">&nbsp;</div>
+                                            <div class="col-md-10 row">
+                                                <p style="text-align: center;">{{item.fileName}}</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Upload Certificates</h2>
+
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 ">&nbsp;</div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-3">&nbsp;</div>
+                        <div class="col-md-9">
+                            <div class="table-responsive" style="overflow-x: visible">
+
+                                <table class="table table-striped table-responsive table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No</th>
+                                            <th>Certificate Name</th>
+                                            <th>Upload Here</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let field of CertificateList; let i = index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{field.certificateName}}</td>
+                                            <td>
+                                                <input type="file" name="avatars" #fileField
+                                                    (change)="onChangeCertificates($event,field)">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br />
+                                <h2 style="font-family: DINNextRoundedLTPro;color: #2b156f; ">Other Documents</h2>
+                                <table class="table table-striped table-responsive table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Document Name</th>
+                                            <th>Document</th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let field of documentArray; let i = index">
+
+                                            <td>
+                                                <input [(ngModel)]="field.otherdocumentname" class="form-control"
+                                                    type="text" name="{{field.otherdocumentname}}" />
+                                            </td>
+                                            <td>
+                                                <input [(ngModel)]="field.otherdocactualname" class="form-control"
+                                                    type="text" name="{{field.otherdocactualname}}" />
+                                            </td>
+
+                                            <td>
+                                                <button class="btn btn-default" type="button"
+                                                    (click)="deleteFieldValueDocument(i)">Delete</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>
+                                                <input class="form-control" type="text" id="otherdocumentname"
+                                                    [(ngModel)]="newDocAttribute.otherdocumentname"
+                                                    name="otherdocumentname" />
+
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="file" id="otherdocument"
+                                                    (change)="OnChangeOtherDocs($event)" name="otherdocument" />
+                                            </td>
+
+
+                                            <td>
+                                                <button class="btn btn-default" type="button"
+                                                    (click)="addDocFieldValue()">Add</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    <div class="col-md-12 row ">&nbsp;</div>
+                    
+               
+               
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row" *ngIf="role!='1008' && ticketid!=null">
+                    <div class="col-md-1 row ">&nbsp;</div>
+                    <div class="col-md-1 row ">
+
+                        <input  class="form-control" type="checkbox" [checked]="SendCopytoSP"
+                            [(ngModel)]="SendCopytoSP" style="font-size: 7px;">
+                    </div>
+                    <div class="col-md-5 row ">
+                        <p style="font-size: 20px;color:darkblue">Send one copy to {{serviceprovidername}}</p>
+
+                    </div>
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row">
+                    <div class="col-md-3 row">&nbsp;</div>
+                    <div class="col-md-4 row">
+                        <button (click)="uploadCertificatesDraft(stepper1)" id="signinbutton">Draft</button> &nbsp; &nbsp; &nbsp;
+
+                    </div>
+                    <br />
+                    <div class="col-md-1 row">
+                    </div>
+                    <div class="col-md-4 row">
+                        <button (click)="uploadCertificates(stepper1)" id="signinbutton">Upload</button>
+                    </div>
+                    <div class="col-md-1 row">
+                    </div>
+                 
+                </div>
+             
+                <div class="col-md-12 row" *ngIf="ProspectIdtoDisplydata==null">
+                    <div class="col-md-3 row">&nbsp;</div>
+                    <div class="col-md-4 row">
+                        <button (click)="previewinsurancedetails()"  id="signinbutton">Preview</button>
+
+                    </div>
+                    <br />
+                    <div class="col-md-1 row">
+                    </div>
+                    <div class="col-md-4 row">
+                        <button  (click)="submitInsuranceform()" id="signinbutton">Submit</button>
+                    </div>
+                    <div class="col-md-1 row">
+                    </div>
+                    
+                </div>
+                <div class="col-md-12 row ">&nbsp;</div>
+                <div class="col-md-12 row ">&nbsp;</div>
+
+                </div>
+            </div>
+        </div>
+    </mat-step>
+
+
+    <!-- Icon overrides. -->
+    <!-- #docregion override-icons -->
+    <ng-template matStepperIcon="details">
+        <mat-icon>account_circle</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="family">
+        <mat-icon>family_restroom</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="account">
+        <mat-icon>account_balance</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="insurance">
+        <mat-icon>local_hospital</mat-icon>
+      </ng-template>
+    <ng-template matStepperIcon="business">
+        <mat-icon>business</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="upload">
+        <mat-icon>cloud_upload</mat-icon>
+    </ng-template>
+
+</mat-horizontal-stepper>
+<br /><br />
+<!-- notification alert -->
+<div class="col-md-12 row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-4" *ngIf="dismissalert">
+        <div class="alert alert-info" style="background-color: #545353;box-shadow: none;left: 245px; position: fixed;top: 500px;width: 350px;">
+            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="material-icons" style="color: white">close</i>
+            </button>
+            <span style="color: white;margin-top: 6px;">
+                <b style="text-transform: capitalize;font-size: 14px;"> {{notify}}</b></span>
+        </div>
+    </div>
+</div>
